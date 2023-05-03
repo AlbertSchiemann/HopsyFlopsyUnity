@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
             if (transform.position == pointA.position)
             {
                 movingToA = false;
+                transform.rotation = Quaternion.identity; // Reset the enemy rotation to face the original direction
             }
         }
         else
@@ -33,6 +34,7 @@ public class EnemyController : MonoBehaviour
             if (transform.position == pointB.position)
             {
                 movingToA = true;
+                transform.rotation = Quaternion.Euler(0, 180, 0); // Rotate the enemy 180 degrees to face the opposite direction
             }
         }
     }
