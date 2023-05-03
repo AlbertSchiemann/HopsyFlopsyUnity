@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5756679227708634127}
   - component: {fileID: 4692158715023772499}
   - component: {fileID: 8009168255268264191}
+  - component: {fileID: 5359231297352392687}
+  - component: {fileID: 392718399713002783}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -97,6 +99,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.026076356, y: 0.006453594, z: 0.004656341}
   m_Center: {x: 0.0018651807, y: -0.00025086224, z: 0.0020147653}
+--- !u!136 &5359231297352392687
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831979091869929650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.012716435
+  m_Height: 0.0055419644
+  m_Direction: 1
+  m_Center: {x: 0.24, y: 0, z: 0.0018583654}
+--- !u!54 &392718399713002783
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831979091869929650}
+  serializedVersion: 2
+  m_Mass: 200
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4984238158877522434
 GameObject:
   m_ObjectHideFlags: 0
