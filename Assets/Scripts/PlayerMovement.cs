@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 1f;        // speed of player movement
-    public float gridSize = 1f;         // size of the grid
+    public float moveSpeed = 15f;        // speed of player movement
+    public float gridSize = 5f;         // size of the grid
     public Vector3 direction;          // current movement direction
 
     public float hydrationMax = 100f;
-    public float hydrationDecayRate = 10000f;
+    public float hydrationDecayRate = 10f;
     public float hydrationRestoreAmount = 50f;
 
     private float hydration;
@@ -39,11 +39,15 @@ public class PlayerMovement : MonoBehaviour
 
         CheckHydrationDeathCondition();
 
+
     }
 
     public void RunDebug()
     {
-        Debug.Log(hydration);
+        if (hydration >= 1)
+        {
+           // Debug.Log(hydration);
+        }
     }
 
     public void CheckInput()
