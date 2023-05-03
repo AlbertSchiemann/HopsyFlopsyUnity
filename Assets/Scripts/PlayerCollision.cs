@@ -6,6 +6,10 @@ public class PlayerCollision : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Getroffen!");
+        if (other.tag == "Enemy")
+        {
+            Debug.Log("Getroffen!");
+        }
+        
     }
 }
