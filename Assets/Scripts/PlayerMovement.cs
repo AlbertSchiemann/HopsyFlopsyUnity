@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float hydration;
 
+    public int HydrationUpdateTime = 1;
+    float nextTime = 0;
+
     private bool isMoving = false;     // flag to indicate if player is currently moving
     private Vector3 targetPosition;    // target position for the player to move towards
 
@@ -39,17 +42,17 @@ public class PlayerMovement : MonoBehaviour
 
         CheckHydrationDeathCondition();
 
-
+        if (Time.time >= nextTime) 
+        {
+            Debug.Log(hydration);
+            nextTime += HydrationUpdateTime; 
+        }
+        
     }
-
     public void RunDebug()
     {
-        if (hydration >= 1)
-        {
-           // Debug.Log(hydration);
-        }
-    }
 
+    }
     public void CheckInput()
     {
         // check for input events and set the target position

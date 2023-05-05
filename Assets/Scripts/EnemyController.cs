@@ -17,12 +17,13 @@ public class EnemyController : MonoBehaviour
         {
             // move towards point A
             transform.position = Vector3.MoveTowards(transform.position, pointA.position, moveSpeed * Time.deltaTime);
-
+            
             // check if enemy has reached point A
             if (transform.position == pointA.position)
             {
                 movingToA = false;
-                transform.rotation = Quaternion.identity; // Reset the enemy rotation to face the original direction
+                transform.rotation = Quaternion.Euler(0, 90, 0); // Sets Rotation to LVL design needed rotation - still needs improvement
+                
             }
         }
         else
@@ -34,7 +35,7 @@ public class EnemyController : MonoBehaviour
             if (transform.position == pointB.position)
             {
                 movingToA = true;
-                transform.rotation = Quaternion.Euler(0, 180, 0); // Rotate the enemy 180 degrees to face the opposite direction
+                transform.rotation = Quaternion.Euler(0, -90, 0); // Rotate the enemy 180 degrees 
             }
         }
     }
