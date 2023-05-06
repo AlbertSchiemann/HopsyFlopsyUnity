@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 15f;        // speed of player movement
-    public float gridSize = 5f;         // size of the grid
+    public float moveSpeed = 3f;        // speed of player movement
+    public float gridSize = 1f;         // size of the grid
     public Vector3 direction;          // current movement direction
 
     public float hydrationMax = 100f;
@@ -14,8 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float hydration;
 
-    public int HydrationUpdateTime = 1;
-    float nextTime = 0;
+    public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
+    
+    int Hydra; // rnd variable name
+    int nextTime = 0;
 
     private bool isMoving = false;     // flag to indicate if player is currently moving
     private Vector3 targetPosition;    // target position for the player to move towards
@@ -23,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         hydration = hydrationMax;
+        HydrationUpdateTime *=  100;
     }
     void Update()
     {
@@ -42,12 +45,14 @@ public class PlayerMovement : MonoBehaviour
 
         CheckHydrationDeathCondition();
 
-        if (Time.time >= nextTime) 
+        
+        if (nextTime >= Hydra) 
         {
             Debug.Log(hydration);
-            nextTime += HydrationUpdateTime; 
+            
+            Hydra = nextTime + HydrationUpdateTime; 
         }
-        
+        nextTime++;
     }
     public void RunDebug()
     {
@@ -110,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
         // Check if hydration has reached 0
         if (hydration <= 0)
         {
-            Debug.Log("DEAD");
+            Debug.Log("Out of Water - Dead!");
             // Player dies, restart the game here
         }
     }

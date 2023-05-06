@@ -23,7 +23,7 @@ public class BaseCollectibleScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") { Destroy(gameObject); }
-        Debug.Log("test");
+        if (other.gameObject.tag == "Player") { Destroy(this.gameObject); }
+        Debug.Log("Collectible Trigger");
     }
 }

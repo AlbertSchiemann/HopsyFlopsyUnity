@@ -42,10 +42,11 @@ public class EnemyController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.tag == "Player")
         {
             // restart the game if the player collides with the enemy
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Debug.Log("EnemyCollision - Eaten!");
         }
     }
 }
