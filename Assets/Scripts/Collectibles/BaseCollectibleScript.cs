@@ -5,15 +5,11 @@ using UnityEngine;
 public class BaseCollectibleScript : MonoBehaviour
 {
     Vector3 newRotation;
-    
     float rate = 0.05f;
+    int currencyValue = 1;
     void Start()
     {
         InvokeRepeating("SlowUpdate", 0.0f, rate);
-    }
-    void Update()
-    {
-
     }
     void SlowUpdate()
     {
@@ -23,7 +19,11 @@ public class BaseCollectibleScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player") { Destroy(this.gameObject); }
-        Debug.Log("Collectible Trigger");
+        if (other.gameObject.tag == "Player") 
+        {
+            GameObject currencyManager = GameObject.Find("CurrencyDisplay");
+            currencyManager.GetComponent<CurrencyDisplayScript>().AddCurrency(currencyValue);
+            Destroy(this.gameObject); 
+        }
     }
 }
