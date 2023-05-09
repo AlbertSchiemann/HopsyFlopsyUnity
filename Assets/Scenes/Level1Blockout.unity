@@ -827,6 +827,7 @@ GameObject:
   - component: {fileID: 507675674}
   - component: {fileID: 507675673}
   - component: {fileID: 507675672}
+  - component: {fileID: 507675675}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -892,14 +893,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507675671}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.32650557, y: -0.6272114, z: 0.32650557, w: 0.6272114}
   m_LocalPosition: {x: 4.358, y: 0.95, z: 0.671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 55, y: -90, z: 0}
+--- !u!114 &507675675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507675671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b44db24a644e1468cb54d6e9b0c8c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 1860904828}
+  smoothTime: 0.3
+  offset: {x: 1.5, y: 2.5, z: 0}
 --- !u!1 &588497871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,6 +2873,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669856151}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1860904828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1818957037060881383, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1982161065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1886929286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,6 +2987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: moveSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3987775342021730185, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+        type: 3}
+      propertyPath: direction.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -3987775342021730185, guid: 9a76205c51fbedc45b1b29cc920e33b5,
         type: 3}
