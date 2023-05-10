@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/UI/UI testing.unity
     guid: a271f9c66b2adee42afdc3b32257147d
+  - enabled: 1
+    path: Assets/Scenes/Level1Blockout.unity
+    guid: 98ae48c5241a2eb43b2518484237b7c8
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: d8c77abfa15e62c4091d19bddf8608e9, type: 2}

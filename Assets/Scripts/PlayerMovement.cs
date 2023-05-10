@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float gridSize = 1f;         // size of the grid
     public Vector3 direction;          // current movement direction
 
-    private bool isMoving = false;     // flag to indicate if player is currently moving
+    internal bool isMoving = false;     // flag to indicate if player is currently moving
     private Vector3 targetPosition;    // target position for the player to move towards
 
     void Start()
@@ -78,5 +78,10 @@ public class PlayerMovement : MonoBehaviour
             // stop moving once the target position is reached
             isMoving = false;
         }
+    }
+
+    public void StopPlayer()
+    {
+        isMoving = false;
     }
 }

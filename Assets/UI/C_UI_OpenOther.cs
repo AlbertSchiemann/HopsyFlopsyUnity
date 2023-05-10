@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class C_UI_OpenOther : MonoBehaviour
 {
     public void ToLevel1() {        
-        SceneManager.LoadScene("UI testing 1");
+        SceneManager.LoadScene("Level1Blockout");
         SaveLastLevel();
     }
     public void ToLevel2()
