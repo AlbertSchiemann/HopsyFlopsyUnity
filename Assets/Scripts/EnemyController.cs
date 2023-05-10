@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
             if (transform.position == pointA.position)
             {
                 movingToA = false;
-                transform.rotation = Quaternion.Euler(0, 90, 0); // Sets Rotation to LVL design needed rotation - still needs improvement
+                transform.rotation = Quaternion.Euler(0, 180, 0); // Sets Rotation to LVL design needed rotation - still needs improvement
                 
             }
         }
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
             if (transform.position == pointB.position)
             {
                 movingToA = true;
-                transform.rotation = Quaternion.Euler(0, -90, 0); // Rotate the enemy 180 degrees 
+                transform.rotation = Quaternion.Euler(0, 0, 0); // Rotate the enemy 180 degrees 
             }
         }
     }
