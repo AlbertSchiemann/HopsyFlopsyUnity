@@ -8,24 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float gridSize = 1f;         // size of the grid
     public Vector3 direction;          // current movement direction
 
-    public float hydrationMax = 100f;
-    public float hydrationDecayRate = 10f;
-    public float hydrationRestoreAmount = 50f;
-
-    private float hydration;
-
-    public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
-    
-    int Hydra; // rnd variable name
-    int nextTime = 0;
-
     private bool isMoving = false;     // flag to indicate if player is currently moving
     private Vector3 targetPosition;    // target position for the player to move towards
 
     void Start()
     {
-        hydration = hydrationMax;
-        HydrationUpdateTime *=  100;
+       
     }
     void Update()
     {
@@ -41,18 +29,6 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer();
         }
 
-        LowerHydration();
-
-        CheckHydrationDeathCondition();
-
-        
-        if (nextTime >= Hydra) 
-        {
-            Debug.Log(hydration);
-            
-            Hydra = nextTime + HydrationUpdateTime; 
-        }
-        nextTime++;
     }
     public void RunDebug()
     {
@@ -103,36 +79,4 @@ public class PlayerMovement : MonoBehaviour
             isMoving = false;
         }
     }
-
-    public void LowerHydration()
-    {
-        // Decrease hydration over time
-        hydration -= hydrationDecayRate * Time.deltaTime;
-    }
-
-    public void CheckHydrationDeathCondition()
-    {
-        // Check if hydration has reached 0
-        if (hydration <= 0)
-        {
-            Debug.Log("Out of Water - Dead!");
-            // Player dies, restart the game here
-        }
-    }
-
-    // checking water collision, does not work yet, useful after player collision is added
-    /*
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            hydration += hydrationRestoreAmount;
-            if (hydration > hydrationMax)
-            {
-                hydration = hydrationMax;
-            }
-            Destroy(other.gameObject);
-        }
-    }
-    */
 }
