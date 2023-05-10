@@ -30,6 +30,12 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
+  scale:
+    overrideState: 0
+    value: 1
+  depthThreshold:
+    overrideState: 0
+    value: 0.2
 --- !u!114 &114690758142213254
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -46,3 +52,9 @@ MonoBehaviour:
   enabled:
     overrideState: 1
     value: 1
+  scale:
+    overrideState: 0
+    value: 1
+  depthThreshold:
+    overrideState: 0
+    value: 1.5
