@@ -13,14 +13,23 @@ public class UI_LevelScrpit : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject looseMenu;
+
+    [SerializeField] GameObject darkerBackground;
     // Start is called before the first frame update
     void Start()
     {
+
         ActiveMenu = beforeMenu;
+        ActiveMenu.SetActive(true);
+        playingMenu.SetActive(false);
+        pauseMenu.SetActive(false);
+        looseMenu.SetActive(false);
+        winMenu.SetActive(false);
     }
 
  public void OpenBefore()
     {
+        darkerBackground.SetActive(true);
         beforeMenu.SetActive(true);
         ActiveMenu.SetActive(false);
         ActiveMenu = beforeMenu;
@@ -29,30 +38,33 @@ public class UI_LevelScrpit : MonoBehaviour
     }
  public void OpenPlaying()
     {
-
+        darkerBackground.SetActive(false);
         playingMenu.SetActive(true);
         ActiveMenu.SetActive(false);
         ActiveMenu = playingMenu;
+        Time.timeScale = 1f;
     }
 
     public void OpenPause()
     {
+        darkerBackground.SetActive(true);
         pauseMenu.SetActive(true);
         ActiveMenu.SetActive(false);
         ActiveMenu = pauseMenu;
-
+        Time.timeScale = 0f;
 
     }
-    public void OpeWin()
+    public void OpenWin()
     {
-
+        darkerBackground.SetActive(true);
         winMenu.SetActive(true);
         ActiveMenu.SetActive(false);
         ActiveMenu = winMenu;
+        
     }
     public void OpenLoose()
     {
-
+        darkerBackground.SetActive(true);
         looseMenu.SetActive(true);
         ActiveMenu.SetActive(false);
         ActiveMenu = looseMenu;
