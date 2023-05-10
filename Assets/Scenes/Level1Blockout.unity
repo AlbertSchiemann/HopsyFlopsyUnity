@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 118577438}
   m_Layer: 6
   m_Name: Bankding (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,6 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 185507097}
+  - component: {fileID: 185507098}
   m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
@@ -323,6 +324,19 @@ Transform:
   m_Father: {fileID: 327681545}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &185507098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185507096}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.2, z: 0.4}
+  m_Center: {x: 0.3, y: 0.5, z: 0}
 --- !u!1 &288771684
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +351,7 @@ GameObject:
   - component: {fileID: 288771686}
   m_Layer: 6
   m_Name: borders
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,7 +553,7 @@ GameObject:
   - component: {fileID: 360276815}
   m_Layer: 6
   m_Name: Bankding
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -636,7 +650,7 @@ GameObject:
   - component: {fileID: 405357923}
   m_Layer: 6
   m_Name: borders
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,7 +747,7 @@ GameObject:
   - component: {fileID: 487457941}
   m_Layer: 6
   m_Name: Fahrstuhl
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,7 +945,7 @@ GameObject:
   - component: {fileID: 588497873}
   m_Layer: 6
   m_Name: Bankding (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1103,7 +1117,7 @@ GameObject:
   - component: {fileID: 662322701}
   m_Layer: 6
   m_Name: borders (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1200,7 +1214,7 @@ GameObject:
   - component: {fileID: 695534953}
   m_Layer: 6
   m_Name: borders (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1297,7 +1311,7 @@ GameObject:
   - component: {fileID: 706397043}
   m_Layer: 6
   m_Name: Bankding (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1491,7 +1505,7 @@ GameObject:
   - component: {fileID: 824007676}
   m_Layer: 6
   m_Name: borders (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1588,7 +1602,7 @@ GameObject:
   - component: {fileID: 839702612}
   m_Layer: 0
   m_Name: "L\xFCftungsschacht (1)"
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1685,7 +1699,7 @@ GameObject:
   - component: {fileID: 915814618}
   m_Layer: 6
   m_Name: borders (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1856,7 +1870,7 @@ GameObject:
   - component: {fileID: 1044851050}
   m_Layer: 6
   m_Name: Bankding
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1987,7 +2001,7 @@ GameObject:
   - component: {fileID: 1084532750}
   m_Layer: 6
   m_Name: Fahrstuhl (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2188,7 +2202,7 @@ GameObject:
   - component: {fileID: 1166966416}
   m_Layer: 6
   m_Name: "L\xFCftungsschacht"
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2405,7 +2419,7 @@ GameObject:
   - component: {fileID: 1306527870}
   m_Layer: 6
   m_Name: borders (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2502,7 +2516,7 @@ GameObject:
   - component: {fileID: 1413929266}
   m_Layer: 0
   m_Name: "L\xFCftungsschacht"
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2600,7 +2614,7 @@ GameObject:
   - component: {fileID: 1430721631}
   m_Layer: 6
   m_Name: borders (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2791,7 +2805,7 @@ GameObject:
   - component: {fileID: 1528079166}
   m_Layer: 6
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2986,7 +3000,7 @@ GameObject:
   - component: {fileID: 1669856153}
   m_Layer: 6
   m_Name: borders (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3089,7 +3103,7 @@ GameObject:
   - component: {fileID: 1886929288}
   m_Layer: 6
   m_Name: Bankding (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3329,7 +3343,7 @@ GameObject:
   - component: {fileID: 2001236938}
   m_Layer: 6
   m_Name: borders (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3426,7 +3440,7 @@ GameObject:
   - component: {fileID: 2025768943}
   m_Layer: 6
   m_Name: "L\xFCftungsschacht (1)"
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
