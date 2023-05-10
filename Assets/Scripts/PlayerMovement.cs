@@ -29,6 +29,18 @@ public class PlayerMovement : MonoBehaviour
             MovePlayer();
         }
 
+        if (!isMoving && Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                targetPosition = transform.position + Vector3.forward * gridSize;
+                direction = Vector3.forward;
+                isMoving = true;
+            }
+        }
+
     }
     public void RunDebug()
     {
