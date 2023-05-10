@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 118577440}
   - component: {fileID: 118577439}
   - component: {fileID: 118577438}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bankding (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 185507097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 288771688}
   - component: {fileID: 288771687}
   - component: {fileID: 288771686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,9 +432,9 @@ GameObject:
   - component: {fileID: 327681544}
   - component: {fileID: 327681543}
   - component: {fileID: 327681542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StartBuilding
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 360276817}
   - component: {fileID: 360276816}
   - component: {fileID: 360276815}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bankding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 405357925}
   - component: {fileID: 405357924}
   - component: {fileID: 405357923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 487457943}
   - component: {fileID: 487457942}
   - component: {fileID: 487457941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fahrstuhl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,12 +895,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507675671}
   m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: 4.358, y: 0.95, z: 0.671}
+  m_LocalPosition: {x: 0.525, y: 1.61, z: -3.327}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 55, y: 0, z: 0}
 --- !u!114 &507675675
 MonoBehaviour:
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 588497875}
   - component: {fileID: 588497874}
   - component: {fileID: 588497873}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bankding (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,7 +1024,7 @@ PrefabInstance:
     - target: {fileID: 6381324270841304099, guid: d11d43e0f564e7c4ca49785695cbf576,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6381324270841304099, guid: d11d43e0f564e7c4ca49785695cbf576,
         type: 3}
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 662322703}
   - component: {fileID: 662322702}
   - component: {fileID: 662322701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1198,7 +1198,7 @@ GameObject:
   - component: {fileID: 695534955}
   - component: {fileID: 695534954}
   - component: {fileID: 695534953}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1295,7 +1295,7 @@ GameObject:
   - component: {fileID: 706397045}
   - component: {fileID: 706397044}
   - component: {fileID: 706397043}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bankding (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1489,7 +1489,7 @@ GameObject:
   - component: {fileID: 824007678}
   - component: {fileID: 824007677}
   - component: {fileID: 824007676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1683,7 +1683,7 @@ GameObject:
   - component: {fileID: 915814620}
   - component: {fileID: 915814619}
   - component: {fileID: 915814618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1783,12 +1783,12 @@ PrefabInstance:
     - target: {fileID: 7419807367963986258, guid: 2c91179b43c7a06439db53abaf2e96fd,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8469273252229057819, guid: 2c91179b43c7a06439db53abaf2e96fd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8469273252229057819, guid: 2c91179b43c7a06439db53abaf2e96fd,
         type: 3}
@@ -1854,7 +1854,7 @@ GameObject:
   - component: {fileID: 1044851052}
   - component: {fileID: 1044851051}
   - component: {fileID: 1044851050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bankding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1948,7 +1948,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077178592}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1985,7 +1985,7 @@ GameObject:
   - component: {fileID: 1084532752}
   - component: {fileID: 1084532751}
   - component: {fileID: 1084532750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fahrstuhl (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2082,9 +2082,9 @@ GameObject:
   - component: {fileID: 1123731071}
   - component: {fileID: 1123731070}
   - component: {fileID: 1123731069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Building (2)
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2186,7 +2186,7 @@ GameObject:
   - component: {fileID: 1166966418}
   - component: {fileID: 1166966417}
   - component: {fileID: 1166966416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "L\xFCftungsschacht"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2403,7 +2403,7 @@ GameObject:
   - component: {fileID: 1306527872}
   - component: {fileID: 1306527871}
   - component: {fileID: 1306527870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2598,7 +2598,7 @@ GameObject:
   - component: {fileID: 1430721633}
   - component: {fileID: 1430721632}
   - component: {fileID: 1430721631}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2789,7 +2789,7 @@ GameObject:
   - component: {fileID: 1528079168}
   - component: {fileID: 1528079167}
   - component: {fileID: 1528079166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2887,9 +2887,9 @@ GameObject:
   - component: {fileID: 1662756621}
   - component: {fileID: 1662756620}
   - component: {fileID: 1662756619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "Br\xFCcke"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2902,7 +2902,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662756618}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2965,7 +2965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662756618}
   m_LocalRotation: {x: 0.00000022348225, y: 0.7071068, z: 0.7071068, w: -0.0000002533197}
-  m_LocalPosition: {x: 1.98, y: 0.09, z: 5.14}
+  m_LocalPosition: {x: 1.98, y: -0.0266, z: 5.14}
   m_LocalScale: {x: 0.67589796, y: 4.3639226, z: 0.053445004}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2984,7 +2984,7 @@ GameObject:
   - component: {fileID: 1669856155}
   - component: {fileID: 1669856154}
   - component: {fileID: 1669856153}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3087,7 +3087,7 @@ GameObject:
   - component: {fileID: 1886929290}
   - component: {fileID: 1886929289}
   - component: {fileID: 1886929288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bankding (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3248,40 +3248,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3987775342021730185, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
-      propertyPath: gridSize
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 660855620082228426, guid: 9a76205c51fbedc45b1b29cc920e33b5,
         type: 3}
-      propertyPath: m_Height
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 660855620082228426, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 660855620082228426, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 660855620082228426, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 660855620082228426, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
-      propertyPath: m_Center.z
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1818957037060881383, guid: 9a76205c51fbedc45b1b29cc920e33b5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1818957037060881383, guid: 9a76205c51fbedc45b1b29cc920e33b5,
         type: 3}
@@ -3338,11 +3313,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player3D
       objectReference: {fileID: 0}
-    - target: {fileID: 7830886847906416693, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a76205c51fbedc45b1b29cc920e33b5, type: 3}
 --- !u!1 &2001236936
@@ -3357,7 +3327,7 @@ GameObject:
   - component: {fileID: 2001236940}
   - component: {fileID: 2001236939}
   - component: {fileID: 2001236938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: borders (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3454,7 +3424,7 @@ GameObject:
   - component: {fileID: 2025768945}
   - component: {fileID: 2025768944}
   - component: {fileID: 2025768943}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "L\xFCftungsschacht (1)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3554,7 +3524,7 @@ PrefabInstance:
     - target: {fileID: 9185036693921592610, guid: 37d6735c2107b0b489cc64ad66457b57,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9185036693921592610, guid: 37d6735c2107b0b489cc64ad66457b57,
         type: 3}
@@ -3624,7 +3594,7 @@ PrefabInstance:
     - target: {fileID: 67189180325150743, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 67189180325150743, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}

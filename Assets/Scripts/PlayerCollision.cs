@@ -5,23 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public Rigidbody rigidbody;
-
-    private void Start()
-    {
-        rigidbody = GetComponent<Rigidbody>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("PlayerCollision Getroffen!");
-        }
-        
-        if(other.gameObject.tag == "Ground")
-        {
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
         }
 
         if(other.gameObject.tag == "DeathZoneFreeFall")
@@ -32,30 +20,4 @@ public class PlayerCollision : MonoBehaviour
             
         } 
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.tag == "Untagged")
-        {
-            rigidbody.constraints = RigidbodyConstraints.None;
-            Debug.Log("Exit");
-        } 
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-
-        if (other.gameObject.tag == "Enemy")
-        {
-            Debug.Log("PlayerCollision Getroffen!");
-        }
-        
-        if(other.gameObject.tag == "Ground")
-        {
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
-        }
-
-    }
-
-
 }
