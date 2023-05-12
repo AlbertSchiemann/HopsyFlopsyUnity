@@ -951,7 +951,7 @@ MonoBehaviour:
   filterMode: 0
   renderTextureDepth: 24
   cameraClearFlags: 2
-  background: {r: 1, g: 1, b: 1, a: 1}
+  background: {r: 0, g: 0, b: 0, a: 1}
   targetTexture: _RenderTexture
 --- !u!114 &507675677
 MonoBehaviour:
