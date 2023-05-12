@@ -75,7 +75,7 @@ Shader "Hidden/Roystan/Outline Post Process"
 
 			float4 Frag(Varyings i) : SV_Target
 			{
-				return float4(i.viewSpaceDir, 1);
+				//return float4(i.viewSpaceDir, 1);
 				float halfScaleFloor = floor(_Scale * 0.5);
 				float halfScaleCeil = ceil(_Scale * 0.5);
 
@@ -83,6 +83,11 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float2 topRightUV = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
 				float2 bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
 				float2 topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
+
+				float3 normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
+				float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
+				float3 normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
+				float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
 
 				float depth0 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomLeftUV).r;
 				float depth1 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topRightUV).r;
@@ -96,11 +101,13 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float depthThreshold = _DepthThreshold * depth0;
 				edgeDepth = edgeDepth > depthThreshold ? 1 : 0;
 
+				float3 viewNormal = normal0 * 2 - 1;
+				float NdotV = 1 - dot(viewNormal, -i.viewSpaceDir);
 
-				float3 normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
-				float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
-				float3 normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
-				float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
+				//return NdotV;
+
+
+				
 
 				float3 normalFiniteDifference0 = normal1 - normal0;
 				float3 normalFiniteDifference1 = normal3 - normal2;
