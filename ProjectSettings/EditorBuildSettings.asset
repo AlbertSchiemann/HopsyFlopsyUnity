@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/UI/UI testing 1.unity
-    guid: af283813f3bd71649b5e126781404f27
-  - enabled: 0
-    path: Assets/UI/UI testing.unity
-    guid: a271f9c66b2adee42afdc3b32257147d
-  - enabled: 1
     path: Assets/Scenes/Level1Blockout.unity
     guid: 98ae48c5241a2eb43b2518484237b7c8
+  - enabled: 1
+    path: Assets/Scenes/OutlineShaderTest.unity
+    guid: 8f2c12b6682fa7149a6bfd2b5ee82e67
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: d8c77abfa15e62c4091d19bddf8608e9, type: 2}
