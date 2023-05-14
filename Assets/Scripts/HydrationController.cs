@@ -6,9 +6,10 @@ public class HydrationController : MonoBehaviour
 {
     public float hydrationMax = 100f;
     public float hydrationDecayRate = 10f;
-    public float hydrationRestoreAmount = 50f;
+    public float hydrationRestoreAmount = 100f;
 
     private float hydration;
+    public bool isCollidingWithWater;
 
     public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
 
@@ -25,33 +26,60 @@ public class HydrationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
+        RestoreHydration();
 
+        LowerHydration();
 
-/*
-    LowerHydration();
+        CheckHydrationDeathCondition();
 
-    CheckHydrationDeathCondition();
-
-        
-        if (nextTime >= Hydra) 
+        if (nextTime >= Hydra)
         {
             Debug.Log(hydration);
-            
-            Hydra = nextTime + HydrationUpdateTime; 
+
+            Hydra = nextTime + HydrationUpdateTime;
         }
-nextTime++;
+        nextTime++;
 
+    }
 
-public void LowerHydration()
-{
-    // Decrease hydration over time
-    hydration -= hydrationDecayRate * Time.deltaTime;
-}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            isCollidingWithWater = true;
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            isCollidingWithWater = false;
+        }
+    }
 
-public void CheckHydrationDeathCondition()
+    public void LowerHydration()
+    {
+        if (!isCollidingWithWater)
+        {
+            // Decrease hydration over time
+            hydration -= hydrationDecayRate * Time.deltaTime;
+        }
+    }
+
+    public void RestoreHydration()
+    {
+        if (isCollidingWithWater)
+        {
+            //Restore Hydration if in water
+            if (hydration < hydrationMax)
+            {
+                hydration = hydrationMax;
+            }
+        }
+    }
+
+    public void CheckHydrationDeathCondition()
     {
         // Check if hydration has reached 0
         if (hydration <= 0)
@@ -59,21 +87,5 @@ public void CheckHydrationDeathCondition()
             Debug.Log("Out of Water - Dead!");
             // Player dies, restart the game here
         }
-    }
-
-    // checking water collision, does not work yet, useful after player collision is added
-    /*
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            hydration += hydrationRestoreAmount;
-            if (hydration > hydrationMax)
-            {
-                hydration = hydrationMax;
-            }
-            Destroy(other.gameObject);
-        }
-    }
-    */
+    }     
 }

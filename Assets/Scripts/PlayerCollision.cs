@@ -25,11 +25,6 @@ public class PlayerCollision : MonoBehaviour
             Debug.Log("Free Fall Death");
             Invoke("Sceneload", Delay);
         }
-
-        if (other.gameObject.tag == "Water")
-        {
-            Debug.Log("Water von Player getroffen!");
-        }
     }
 
     void Sceneload()
