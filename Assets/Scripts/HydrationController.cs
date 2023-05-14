@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hydration : MonoBehaviour
+public class HydrationController : MonoBehaviour
 {
     public float hydrationMax = 100f;
     public float hydrationDecayRate = 10f;
