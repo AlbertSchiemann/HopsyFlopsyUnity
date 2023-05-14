@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_LevelScrpit : MonoBehaviour
+public class UI_LevelScript : MonoBehaviour
 
 
 {
@@ -26,12 +26,20 @@ public class UI_LevelScrpit : MonoBehaviour
         looseMenu.SetActive(false);
         winMenu.SetActive(false);
     }
-void Update(){
-if (AlwaysThere.LevelLoose==1) {OpenLoose();
-    AlwaysThere.LevelLoose=0;}
+void Update()
+    {
+         if (AlwaysThere.OpenLevelLoose==true) 
+        {
+            OpenLoose();
+            AlwaysThere.OpenLevelLoose = false;
+        }
 
-
-}
+        if (AlwaysThere.OpenLevelWin == true)
+        {
+            OpenWin();
+            AlwaysThere.OpenLevelWin = false;
+        }
+    }
  public void OpenBefore()
     {
         darkerBackground.SetActive(true);

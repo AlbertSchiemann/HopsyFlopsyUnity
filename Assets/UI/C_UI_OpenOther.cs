@@ -56,6 +56,8 @@ public class C_UI_OpenOther : MonoBehaviour
 
    
     public void SaveLastLevel()  {
-        AlwaysThere.LastLevel = SceneManager.GetActiveScene().buildIndex;
+        AlwaysThere.LastLevel = AlwaysThere.CurrentLevel;
+        AlwaysThere.CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+
     }
 }

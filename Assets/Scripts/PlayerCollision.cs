@@ -30,6 +30,7 @@ public class PlayerCollision : MonoBehaviour
     void Sceneload()
     {
         // restart the game if the player collides with the enemy
-        AlwaysThere.LevelLoose=1;
+        //UI_LevelScrpit.OpenLoose();  //not working, dont know why, thats why the following line exists as a work around
+        AlwaysThere.OpenLevelLoose=true;
           }
 }
