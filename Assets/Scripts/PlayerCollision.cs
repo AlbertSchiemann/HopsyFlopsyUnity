@@ -31,7 +31,7 @@ public class PlayerCollision : MonoBehaviour
     void Sceneload()
     {
         // restart the game if the player collides with the enemy
-        levelScript.OpenLoose();  //not working, dont know why, thats why the following line exists as a work around
+        levelScript.OpenLoose();  
         //AlwaysThere.OpenLevelLoose=true;
           }
 }

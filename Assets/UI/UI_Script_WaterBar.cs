@@ -19,6 +19,8 @@ public class UI_Script_WaterBar : MonoBehaviour
     {
 
         waterSlider.value = health;
+        Debug.Log("slider: " +waterSlider.value);
+        Debug.Log("health: "+health);
     }
 
     
