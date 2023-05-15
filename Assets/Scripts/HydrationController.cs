@@ -16,19 +16,25 @@ public class HydrationController : MonoBehaviour
     int Hydra; // rnd variable name
     int nextTime = 0;
 
+    public UI_Script_WaterBar waterBar;
+
     // Start is called before the first frame update
     void Start()
     {
         hydration = hydrationMax;
         HydrationUpdateTime *= 100;
+
+        waterBar.SetMaxHealth(hydrationMax);
     }
 
     // Update is called once per frame
     void Update()
     {
         RestoreHydration();
+       
 
         LowerHydration();
+
 
         CheckHydrationDeathCondition();
 
@@ -64,6 +70,7 @@ public class HydrationController : MonoBehaviour
         {
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
+            waterBar.SetHealth(hydration);
         }
     }
 
@@ -75,6 +82,7 @@ public class HydrationController : MonoBehaviour
             if (hydration < hydrationMax)
             {
                 hydration = hydrationMax;
+                waterBar.SetHealth(hydration);
             }
         }
     }

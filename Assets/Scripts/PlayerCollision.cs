@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour
 {
     public float Delay = 1.0f;
+    public UI_LevelScript levelScript;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
@@ -30,7 +31,7 @@ public class PlayerCollision : MonoBehaviour
     void Sceneload()
     {
         // restart the game if the player collides with the enemy
-        //UI_LevelScrpit.OpenLoose();  //not working, dont know why, thats why the following line exists as a work around
-        AlwaysThere.OpenLevelLoose=true;
+        levelScript.OpenLoose();  //not working, dont know why, thats why the following line exists as a work around
+        //AlwaysThere.OpenLevelLoose=true;
           }
 }
