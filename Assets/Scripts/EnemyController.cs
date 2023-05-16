@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
 
     private bool movingToA = false;     // flag to indicate if enemy is moving towards point A or B
 
+    [SerializeField] private AudioClip[] _failClip;
+
     void Update()
     {
         if (movingToA)
@@ -44,6 +46,7 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            SoundManager.Instance.PlaySound(_failClip);
             // restart the game if the player collides with the enemy
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Debug.Log("EnemyCollision - Eaten!");

@@ -18,6 +18,8 @@ public class HydrationController : MonoBehaviour
 
     public UI_Script_WaterBar waterBar;
 
+    [SerializeField] private AudioClip[] _hydrateClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +54,7 @@ public class HydrationController : MonoBehaviour
     {
         if (other.CompareTag("Water"))
         {
+            SoundManager.Instance.PlaySound(_hydrateClip);
             isCollidingWithWater = true;
         }
     }

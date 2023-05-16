@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     internal bool isMoving = false;     // flag to indicate if player is currently moving
     private Vector3 targetPosition;    // target position for the player to move towards
 
+    [SerializeField] private AudioClip[] _moveClip;
+
     void Start()
     {
        
@@ -54,24 +56,28 @@ public class PlayerMovement : MonoBehaviour
             targetPosition = transform.position + Vector3.forward * gridSize;
             direction = Vector3.forward;
             isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             targetPosition = transform.position + Vector3.back * gridSize;
             direction = Vector3.back;
             isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             targetPosition = transform.position + Vector3.left * gridSize;
             direction = Vector3.left;
             isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             targetPosition = transform.position + Vector3.right * gridSize;
             direction = Vector3.right;
             isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
         }
     }
 

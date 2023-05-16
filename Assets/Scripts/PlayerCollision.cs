@@ -7,6 +7,9 @@ public class PlayerCollision : MonoBehaviour
 {
     public float Delay = 1.0f;
     public UI_LevelScript levelScript;
+
+    [SerializeField] private AudioClip[] _failClip;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
@@ -25,6 +28,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("Free Fall Death");
             Invoke("Sceneload", Delay);
+            SoundManager.Instance.PlaySound(_failClip);
         }
     }
 

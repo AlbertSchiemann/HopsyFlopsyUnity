@@ -7,6 +7,9 @@ public class BaseCollectibleScript : MonoBehaviour
     Vector3 newRotation;
     float rate = 0.05f;
     int currencyValue = 1;
+
+    [SerializeField] private AudioClip[] _eatClip;
+
     void Start()
     {
         InvokeRepeating("SlowUpdate", 0.0f, rate);
@@ -21,6 +24,7 @@ public class BaseCollectibleScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") 
         {
+            SoundManager.Instance.PlaySound(_eatClip);
             GameObject currencyManager = GameObject.Find("CurrencyDisplay");
             currencyManager.GetComponent<CurrencyDisplayScript>().AddCurrency(currencyValue);
             Destroy(this.gameObject); 
