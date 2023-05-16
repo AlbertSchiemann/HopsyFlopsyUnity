@@ -43,6 +43,35 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if (SwipeManager.swipeRight)
+        {
+            targetPosition = transform.position + Vector3.right * gridSize;
+            direction = Vector3.right;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
+        }
+        if (SwipeManager.swipeLeft)
+        {
+            targetPosition = transform.position + Vector3.left * gridSize;
+            direction = Vector3.left;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
+        }
+        if (SwipeManager.swipeUp)
+        {
+            targetPosition = transform.position + Vector3.forward * gridSize;
+            direction = Vector3.forward;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
+        }
+        if (SwipeManager.swipeDown)
+        {
+            targetPosition = transform.position + Vector3.back * gridSize;
+            direction = Vector3.back;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
+        }
+
     }
     public void RunDebug()
     {

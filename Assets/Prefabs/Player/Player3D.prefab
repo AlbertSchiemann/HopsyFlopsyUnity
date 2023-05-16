@@ -53,6 +53,7 @@ MonoBehaviour:
   moveSpeed: 3
   gridSize: 0.5
   direction: {x: 0, y: 0, z: 0}
+  _moveClip: []
 --- !u!114 &1457584486048905242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Delay: 1
   levelScript: {fileID: 0}
+  _failClip: []
 --- !u!114 &1769269964939444847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +87,7 @@ MonoBehaviour:
   isCollidingWithWater: 0
   HydrationUpdateTime: 2
   waterBar: {fileID: 0}
+  _hydrateClip: []
 --- !u!54 &7830886847906416693
 Rigidbody:
   m_ObjectHideFlags: 0
