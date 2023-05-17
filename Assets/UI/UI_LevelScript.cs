@@ -26,20 +26,20 @@ public class UI_LevelScript : MonoBehaviour
         looseMenu.SetActive(false);
         winMenu.SetActive(false);
     }
-void Update()
-    {
-         if (AlwaysThere.OpenLevelLoose==true) 
-        {
-            OpenLoose();
-            AlwaysThere.OpenLevelLoose = false;
-        }
+//void Update()
+//    {
+//         if (AlwaysThere.OpenLevelLoose==true) 
+//        {
+//            OpenLoose();
+//            AlwaysThere.OpenLevelLoose = false;
+//        }
 
-        if (AlwaysThere.OpenLevelWin == true)
-        {
-            OpenWin();
-            AlwaysThere.OpenLevelWin = false;
-        }
-    }
+//        if (AlwaysThere.OpenLevelWin == true)
+//        {
+//            OpenWin();
+//            AlwaysThere.OpenLevelWin = false;
+//        }
+//    }
  public void OpenBefore()
     {
         darkerBackground.SetActive(true);

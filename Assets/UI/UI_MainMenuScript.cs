@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class UI_MainMenuScript : MonoBehaviour
 
@@ -16,10 +19,10 @@ public class UI_MainMenuScript : MonoBehaviour
     [SerializeField] GameObject storeMenu;
     [SerializeField] GameObject w1Menu;
 
-    [SerializeField] GameObject settingsMain;
     [SerializeField] GameObject settingsCredits;
     [SerializeField] GameObject settingsSound;
     [SerializeField] GameObject settingsContact;
+    [SerializeField] GameObject settingsLanguage;
 
     public static GameObject MainMenu;
     public static GameObject HelpMenu;
@@ -28,14 +31,14 @@ public class UI_MainMenuScript : MonoBehaviour
     public static GameObject W1Menu;
 
     public static GameObject SettingsSound;
-    public static GameObject SettingsMain;
     public static GameObject SettingsCredits;
     public static GameObject StoreContact;
+    public static GameObject StoreLanguage;
     // Start is called before the first frame update
     void Start()
     {
         ActiveMenu = mainMenu;
-        ActiveSettings = settingsMenu;
+        ActiveSettings = settingsSound;
         
         if (AlwaysThere.MainMenu_Index == 1) OpenHelp();
         else if (AlwaysThere.MainMenu_Index == 2) OpenSettings();
@@ -43,7 +46,8 @@ public class UI_MainMenuScript : MonoBehaviour
         else if(AlwaysThere.MainMenu_Index == 4) OpenW1();
   
         AlwaysThere.MainMenu_Index = 0;
-}
+
+    }
 
  public void OpenMain()
     {
@@ -64,28 +68,62 @@ public class UI_MainMenuScript : MonoBehaviour
     public void OpenSettings()
     {
         settingsMenu.SetActive(true);
+        //helpMenu.SetActive(false);
+        //mainMenu.SetActive(false);
+        //storeMenu.SetActive(false);
+        //w1Menu.SetActive(false);
         ActiveMenu.SetActive(false);
         ActiveMenu = settingsMenu;
-        settingsSound.SetActive(false);
+
+        settingsContact.SetActive(false);
+        settingsCredits.SetActive(false);
+        settingsLanguage.SetActive(false);
+        settingsSound.SetActive(true);
 
 
     }       
     
-                public void OpenSound()
+                public void OpenSettingsSound()
                 {
-
-                    settingsSound.SetActive(true);
-                   // ActiveMenu.SetActive(false);
+                settingsSound.SetActive(true);
+                if (ActiveSettings != settingsSound)
+                {
+                    ActiveSettings.SetActive(false);
                     ActiveSettings = settingsSound;
                 }
+                }
 
-                public void OpenSettingsMain()
+                 public void OpenSettingsLanguage()
                 {
 
-                    settingsMain.SetActive(true);
-                    ActiveMenu.SetActive(false);
-                    ActiveMenu = settingsMain;
+                    settingsLanguage.SetActive(true);
+                    if (ActiveSettings != settingsLanguage)
+                    {
+                        ActiveSettings.SetActive(false);
+                        ActiveSettings = settingsLanguage;
+                    }
                 }
+                public void OpenSettingsCredits()
+                {
+
+                    settingsCredits.SetActive(true);
+                    if (ActiveSettings != settingsCredits)
+                    {
+                        ActiveSettings.SetActive(false);
+                        ActiveSettings = settingsCredits;
+                    }
+                }
+                public void OpenSettingsContact()
+                {
+
+                    settingsContact.SetActive(true);
+                    if (ActiveSettings != settingsContact)
+                    {
+                        ActiveSettings.SetActive(false);
+                        ActiveSettings = settingsContact;
+                    }
+                }
+               
     public void OpenStore()
     {
 
