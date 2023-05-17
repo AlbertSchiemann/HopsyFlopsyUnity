@@ -11,6 +11,9 @@ public class HydrationController : MonoBehaviour
     private float hydration;
     public bool isCollidingWithWater;
 
+    public float Delay = 1.0f;
+    public UI_LevelScript levelScript;
+
     public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
 
     int Hydra; // rnd variable name
@@ -19,6 +22,7 @@ public class HydrationController : MonoBehaviour
     public UI_Script_WaterBar waterBar;
 
     [SerializeField] private AudioClip[] _hydrateClip;
+    [SerializeField] private AudioClip[] _failClip;
 
     // Start is called before the first frame update
     void Start()
@@ -97,6 +101,8 @@ public class HydrationController : MonoBehaviour
         {
             Debug.Log("Out of Water - Dead!");
             // Player dies, restart the game here
+            Invoke("Sceneload", Delay);
+            SoundManager.Instance.PlaySound(_failClip);
         }
     }     
 }
