@@ -42,7 +42,7 @@ public class HydrationController : MonoBehaviour
 
         if (nextTime >= Hydra)
         {
-            Debug.Log(hydration);
+            //Debug.Log(hydration);
 
             Hydra = nextTime + HydrationUpdateTime;
         }

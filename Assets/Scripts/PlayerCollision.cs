@@ -9,20 +9,35 @@ public class PlayerCollision : MonoBehaviour
     public UI_LevelScript levelScript;
 
     [SerializeField] private AudioClip[] _failClip;
+    [SerializeField] private BoxCollider LeftBoxCollider;
+    [SerializeField] private BoxCollider RigthBoxCollider;
+    [SerializeField] private BoxCollider FrontBoxCollider;
+    [SerializeField] private BoxCollider BackBoxCollider;
+    [SerializeField] private BoxCollider FishCollider;
+    void Update()
+    {
+       
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("Enemy von Player getroffen!");
         }
-
+        /*
         if (other.gameObject.tag == "Obstacle")
         {
-            gameObject.GetComponent<PlayerMovement>().StopPlayer();
+
+            PlayerMovement pm = GetComponent<PlayerMovement>();
+            pm.AllowedToMoveLeft = false;
+
+            Debug.Log("Links-Stop!");
 
             Debug.Log("Obstacle von Player Getroffen!");
         }
+        */
 
         if(other.gameObject.tag == "DeathZoneFreeFall")
         {
@@ -31,6 +46,16 @@ public class PlayerCollision : MonoBehaviour
             SoundManager.Instance.PlaySound(_failClip);
         }
     }
+
+    /*
+    private void OnTriggerExit(Collider other2)
+    {
+        PlayerMovement pm = GetComponent<PlayerMovement>();
+            pm.AllowedToMoveLeft = true;
+
+            Debug.Log("Links-Weiter!");
+    }
+    */
 
     void Sceneload()
     {
