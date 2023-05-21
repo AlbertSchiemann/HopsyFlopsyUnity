@@ -51,6 +51,9 @@ public class UI_LevelScript : MonoBehaviour
     }
  public void OpenPlaying()
     {
+        GameObject gameStateManager = GameObject.Find("GameStateManager");   //This searches and finds the GameStateManager Object
+        gameStateManager.GetComponent<GameStateManagerScript>().StartGame(); //This executes a function in the script component of the found Object
+
         darkerBackground.SetActive(false);
         playingMenu.SetActive(true);
         ActiveMenu.SetActive(false);
@@ -60,6 +63,9 @@ public class UI_LevelScript : MonoBehaviour
 
     public void OpenPause()
     {
+        GameObject gameStateManager = GameObject.Find("GameStateManager"); 
+        gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+
         darkerBackground.SetActive(true);
         pauseMenu.SetActive(true);
         ActiveMenu.SetActive(false);
@@ -69,6 +75,9 @@ public class UI_LevelScript : MonoBehaviour
     }
     public void OpenWin()
     {
+        GameObject gameStateManager = GameObject.Find("GameStateManager");
+        gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+
         darkerBackground.SetActive(true);
         winMenu.SetActive(true);
         ActiveMenu.SetActive(false);
@@ -77,6 +86,9 @@ public class UI_LevelScript : MonoBehaviour
     }
     public void OpenLoose()
     {
+        GameObject gameStateManager = GameObject.Find("GameStateManager");
+        gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+
         darkerBackground.SetActive(true);
         looseMenu.SetActive(true);
         ActiveMenu.SetActive(false);
