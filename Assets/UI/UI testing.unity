@@ -421,6 +421,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 862955570053366199, guid: 45fba5f98a8700e469ac26136fb1e826,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 2259449168419183017, guid: 45fba5f98a8700e469ac26136fb1e826,
         type: 3}
       propertyPath: m_RootOrder
@@ -482,6 +487,11 @@ PrefabInstance:
       value: 'The Town
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563721348729692469, guid: 45fba5f98a8700e469ac26136fb1e826,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: 8391376483684748360, guid: 45fba5f98a8700e469ac26136fb1e826,
         type: 3}
