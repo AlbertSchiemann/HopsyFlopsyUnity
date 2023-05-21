@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class HydrationController : MonoBehaviour
 {
+    bool isHydrationActivated;
+
     public float hydrationMax = 100f;
     public float hydrationDecayRate = 10f;
     public float hydrationRestoreAmount = 100f;
 
     private float hydration;
-    public bool isCollidingWithWater;
+    private bool isCollidingWithWater;
 
     public float Delay = 1.0f;
     public UI_LevelScript levelScript;
@@ -31,11 +33,15 @@ public class HydrationController : MonoBehaviour
         HydrationUpdateTime *= 100;
 
         waterBar.SetMaxHealth(hydrationMax);
+        isHydrationActivated = false;
+        GameStateManagerScript.onGameStart += ActivateHydration;
+        GameStateManagerScript.onGamePaused += DeactivateHydration;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isHydrationActivated) { return; };
         RestoreHydration();
        
 
@@ -104,5 +110,14 @@ public class HydrationController : MonoBehaviour
             Invoke("Sceneload", Delay);
             SoundManager.Instance.PlaySound(_failClip);
         }
-    }     
+    }
+
+    private void ActivateHydration()
+    {
+        isHydrationActivated = true;
+    }
+    private void DeactivateHydration()
+    {
+        isHydrationActivated= false;
+    }
 }

@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class BaseCollectibleScript : MonoBehaviour
 {
-    Vector3 newRotation;
-    float rate = 0.05f;
+    Vector3 objectRotation;
+    float newUpdateRate = 0.05f;
     int currencyValue = 1;
 
     [SerializeField] private AudioClip[] _eatClip;
 
     void Start()
     {
-        InvokeRepeating("SlowUpdate", 0.0f, rate);
+        InvokeRepeating("SlowUpdate", 0.0f, newUpdateRate);
     }
     void SlowUpdate()
     {
-        newRotation = new Vector3(0, 5, 0) + transform.eulerAngles;
-        transform.eulerAngles = newRotation;
+        objectRotation = new Vector3(0, 5, 0) + transform.eulerAngles;
+        transform.eulerAngles = objectRotation;
     }
 
     private void OnTriggerEnter(Collider other)

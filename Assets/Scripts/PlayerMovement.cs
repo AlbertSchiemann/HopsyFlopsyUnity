@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 3f;        // speed of player movement
     public float gridSize = 1f;         // size of the grid
     public Vector3 direction;          // current movement direction
-    public bool isAllowedToMove = false;
+    private bool isAllowedToMove;
     internal bool isMoving = false;     // flag to indicate if player is currently moving
     private Vector3 targetPosition;    // target position for the player to move towards
 
@@ -15,11 +15,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-       
+        isAllowedToMove = false;
+        GameStateManagerScript.onGameStart += AllowMovement;
+        GameStateManagerScript.onGamePaused += PreventMovement;
     }
     void Update()
     {
         RunDebug();
+        if (!isAllowedToMove) { return; }
 
         if (!isMoving)
         {
@@ -46,47 +49,34 @@ public class PlayerMovement : MonoBehaviour
 
         if (SwipeManager.swipeRight)
         {
-            if(isAllowedToMove == true)
-            {
-                targetPosition = transform.position + Vector3.right * gridSize;
-                direction = Vector3.right;
-                isMoving = true;
-                SoundManager.Instance.PlaySound(_moveClip);
-            }
+            targetPosition = transform.position + Vector3.right * gridSize;
+            direction = Vector3.right;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
             
         }
         if (SwipeManager.swipeLeft)
         {
-            if (isAllowedToMove == true)
-            {
-                targetPosition = transform.position + Vector3.left * gridSize;
-                direction = Vector3.left;
-                isMoving = true;
-                SoundManager.Instance.PlaySound(_moveClip);
-            }
+            targetPosition = transform.position + Vector3.left * gridSize;
+            direction = Vector3.left;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
              
         }
         if (SwipeManager.swipeUp)
         {
-            if (isAllowedToMove == true)
-            {
-                targetPosition = transform.position + Vector3.forward * gridSize;
-                direction = Vector3.forward;
-                isMoving = true;
-                SoundManager.Instance.PlaySound(_moveClip);
-            }
+            targetPosition = transform.position + Vector3.forward * gridSize;
+            direction = Vector3.forward;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
             
         }
         if (SwipeManager.swipeDown)
         {
-            if (isAllowedToMove == true)
-            {
-                targetPosition = transform.position + Vector3.back * gridSize;
-                direction = Vector3.back;
-                isMoving = true;
-                SoundManager.Instance.PlaySound(_moveClip);
-            }
-           
+            targetPosition = transform.position + Vector3.back * gridSize;
+            direction = Vector3.back;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
         }
 
     }
@@ -147,5 +137,13 @@ public class PlayerMovement : MonoBehaviour
     public void StopPlayer()
     {
         isMoving = false;
+    }
+    private void AllowMovement()
+    {
+        isAllowedToMove = true;
+    }
+    private void PreventMovement()
+    {
+        isAllowedToMove = false;
     }
 }
