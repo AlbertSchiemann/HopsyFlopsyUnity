@@ -57,6 +57,10 @@ MonoBehaviour:
   moveSpeed: 3
   gridSize: 0.5
   direction: {x: 0, y: 0, z: 0}
+  AllowedToMoveFront: 1
+  AllowedToMoveBack: 1
+  AllowedToMoveLeft: 1
+  AllowedToMoveRigth: 1
   _moveClip:
   - {fileID: 8300000, guid: 4688f198190eeed4286239e50258e6d1, type: 3}
 --- !u!114 &1457584486048905242
@@ -188,7 +192,7 @@ BoxCollider:
   m_GameObject: {fileID: 2260953583789165416}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.024416048, y: 0.02598149, z: 0.013352465}
   m_Center: {x: 0, y: 0.02, z: 0.007}
@@ -201,7 +205,7 @@ BoxCollider:
   m_GameObject: {fileID: 2260953583789165416}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.024416048, y: 0.02598149, z: 0.013352465}
   m_Center: {x: 0.025, y: -0.007, z: 0.007}
@@ -214,7 +218,7 @@ BoxCollider:
   m_GameObject: {fileID: 2260953583789165416}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.024416048, y: 0.02598149, z: 0.013352465}
   m_Center: {x: -0.025, y: -0.007, z: 0.007}
@@ -227,7 +231,7 @@ BoxCollider:
   m_GameObject: {fileID: 2260953583789165416}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.024416048, y: 0.02598149, z: 0.013352465}
   m_Center: {x: 0, y: -0.0334, z: 0.007}

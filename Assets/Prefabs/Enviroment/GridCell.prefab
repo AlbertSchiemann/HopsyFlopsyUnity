@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2804250785267958211}
   - component: {fileID: 2804250785267958210}
+  - component: {fileID: 4125667213394498624}
   m_Layer: 0
   m_Name: Tile_Sprite_Alex
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2804250785267958208}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.5, y: 0, z: -0.5}
-  m_LocalScale: {x: 0.133, y: 0.133, z: 0.133}
+  m_LocalScale: {x: 0.133, y: 0.133, z: 0.1690297}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2804250785887476593}
@@ -84,6 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &4125667213394498624
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804250785267958208}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.507812, y: 7.5078135, z: 0.20000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2804250785887476558
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +109,7 @@ GameObject:
   - component: {fileID: 2804250785887476593}
   m_Layer: 0
   m_Name: GridCell
-  m_TagString: Untagged
+  m_TagString: GridCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,8 +123,8 @@ Transform:
   m_GameObject: {fileID: 2804250785887476558}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: 0.001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2804250785267958211}
   m_Father: {fileID: 0}
