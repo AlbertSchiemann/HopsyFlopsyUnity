@@ -207,6 +207,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &174667457 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5009851437422418459, guid: d98b5ae00f003b947afd9e817470a86a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1632374962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &271700553
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +287,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1229405781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7920545495773919897, guid: d98b5ae00f003b947afd9e817470a86a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1632374962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1498477595
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +393,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1537398595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1957001959592023855, guid: d98b5ae00f003b947afd9e817470a86a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1632374962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1537398597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537398595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43294447f6e5e44e9bf0cbb51eaa821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 908c7b4e6d1928840b89ad8c5ceee639, type: 2}
+  bgSlider: {fileID: 174667457}
+  sfxSlider: {fileID: 1229405781}
 --- !u!1001 &1632374962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,6 +421,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 18177688931134146, guid: d98b5ae00f003b947afd9e817470a86a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.11499
+      objectReference: {fileID: 0}
     - target: {fileID: 2259449168419183017, guid: d98b5ae00f003b947afd9e817470a86a,
         type: 3}
       propertyPath: m_RootOrder
@@ -430,6 +480,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058228446971622228, guid: d98b5ae00f003b947afd9e817470a86a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.11499
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629144628852580541, guid: d98b5ae00f003b947afd9e817470a86a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 47.11499
       objectReference: {fileID: 0}
     - target: {fileID: 8391376483684748360, guid: d98b5ae00f003b947afd9e817470a86a,
         type: 3}
