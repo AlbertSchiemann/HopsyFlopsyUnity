@@ -5,7 +5,6 @@ using UnityEngine;
 public class GridCell : MonoBehaviour
 {
     private int posX;
-
     private int posY;
     private int posZ;
 
@@ -13,9 +12,9 @@ public class GridCell : MonoBehaviour
 
     public bool isOccupied = false;
 
-    public void SetPosition(int x, int y, int z)
+    public void SetPosition(int y, int z)
     {
-        posX = x;
+        
         posY = y;
         posZ = z;
     }

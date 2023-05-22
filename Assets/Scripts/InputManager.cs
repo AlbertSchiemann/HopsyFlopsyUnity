@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/* 
+
 public class InputManager : MonoBehaviour
 {
     GameGrid gameGrid;
@@ -27,7 +27,7 @@ public class InputManager : MonoBehaviour
             }
         }
     }
-    //Returns Grid cell if mouse is over grid cell orelse returns null
+    //Returns Grid cell if mouse is over grid cell or else returns null
     private GridCell IsMouseOverAGridSpace()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -42,4 +42,3 @@ public class InputManager : MonoBehaviour
     }
     
 }
-*/

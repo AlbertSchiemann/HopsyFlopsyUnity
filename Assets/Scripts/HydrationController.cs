@@ -54,7 +54,7 @@ public class HydrationController : MonoBehaviour
     {
         if (other.CompareTag("Water"))
         {
-            SoundManager.Instance.PlaySound(_hydrateClip);
+            // SoundManager.Instance.PlaySound(_hydrateClip);
             isCollidingWithWater = true;
         }
     }
