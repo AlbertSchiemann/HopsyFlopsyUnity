@@ -14,13 +14,14 @@ public class HydrationController : MonoBehaviour
     private bool isCollidingWithWater;
 
     public float Delay = 1.0f;
-    public UI_LevelScript levelScript;
+
 
     public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
 
     int Hydra; // rnd variable name
     int nextTime = 0;
 
+    public UI_LevelScript levelScript;
     public UI_Script_WaterBar waterBar;
 
     [SerializeField] private AudioClip[] _hydrateClip;
@@ -105,10 +106,9 @@ public class HydrationController : MonoBehaviour
         // Check if hydration has reached 0
         if (hydration <= 0)
         {
-            Debug.Log("Out of Water - Dead!");
-            // Player dies, restart the game here
-            Invoke("Sceneload", Delay);
-            SoundManager.Instance.PlaySound(_failClip);
+           levelScript.OpenLoose();
+           // Invoke("Sceneload", Delay);
+           // SoundManager.Instance.PlaySound(_failClip);
         }
     }
 

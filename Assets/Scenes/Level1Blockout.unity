@@ -6193,6 +6193,16 @@ PrefabInstance:
       objectReference: {fileID: 1458877731}
     - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
         type: 3}
+      propertyPath: levelScript
+      value: 
+      objectReference: {fileID: 638259175}
+    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+        type: 3}
+      propertyPath: hydrationMax
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+        type: 3}
       propertyPath: _hydrateClip.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -6909,6 +6919,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5292504264473508167, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: levelScript
+      value: 
+      objectReference: {fileID: 638259175}
     - target: {fileID: 5292504264473508167, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}
       propertyPath: _failClip.Array.size

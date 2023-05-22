@@ -36,6 +36,5 @@ public class PlayerCollision : MonoBehaviour
     {
         // restart the game if the player collides with the enemy
         levelScript.OpenLoose();  
-        //AlwaysThere.OpenLevelLoose=true;
           }
 }

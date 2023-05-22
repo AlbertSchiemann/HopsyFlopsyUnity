@@ -11,35 +11,42 @@ public class EnemyController : MonoBehaviour
 
     private bool movingToA = false;     // flag to indicate if enemy is moving towards point A or B
 
+    public UI_LevelScript levelScript;
+    private bool isCollided = false;
+
     [SerializeField] private AudioClip[] _failClip;
 
     void Update()
     {
-        if (movingToA)
+        if (isCollided == false)  //only capable to mave as long the player didnt collide with the enemy
         {
-            // move towards point A
-            transform.position = Vector3.MoveTowards(transform.position, pointA.position, moveSpeed * Time.deltaTime);
-            
-            // check if enemy has reached point A
-            if (transform.position == pointA.position)
+            if (movingToA)
             {
-                movingToA = false;
-                transform.rotation = Quaternion.Euler(0, 180, 0); // Sets Rotation to LVL design needed rotation - still needs improvement
-                
-            }
-        }
-        else
-        {
-            // move towards point B
-            transform.position = Vector3.MoveTowards(transform.position, pointB.position, moveSpeed * Time.deltaTime);
+                // move towards point A
+                transform.position = Vector3.MoveTowards(transform.position, pointA.position, moveSpeed * Time.deltaTime);
 
-            // check if enemy has reached point B
-            if (transform.position == pointB.position)
+                // check if enemy has reached point A
+                if (transform.position == pointA.position)
+                {
+                    movingToA = false;
+                    transform.rotation = Quaternion.Euler(0, 180, 0); // Sets Rotation to LVL design needed rotation - still needs improvement
+
+                }
+            }
+            else
             {
-                movingToA = true;
-                transform.rotation = Quaternion.Euler(0, 0, 0); // Rotate the enemy 180 degrees 
+                // move towards point B
+                transform.position = Vector3.MoveTowards(transform.position, pointB.position, moveSpeed * Time.deltaTime);
+
+                // check if enemy has reached point B
+                if (transform.position == pointB.position)
+                {
+                    movingToA = true;
+                    transform.rotation = Quaternion.Euler(0, 0, 0); // Rotate the enemy 180 degrees 
+                }
             }
         }
+      //  else return;  // if the player hits the enemy the enemy stops moving 
     }
 
     void OnTriggerEnter(Collider other)
@@ -48,7 +55,9 @@ public class EnemyController : MonoBehaviour
         {
             SoundManager.Instance.PlaySound(_failClip);
             // restart the game if the player collides with the enemy
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            levelScript.OpenLoose();
+            isCollided = true;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Debug.Log("EnemyCollision - Eaten!");
         }
     }
