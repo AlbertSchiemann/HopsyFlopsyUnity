@@ -4,13 +4,46 @@ using UnityEngine;
 
 public class GameGrid : MonoBehaviour
 {
-    private static int heigth = 1; // Höhe y - not changeable
-    public static int width = 10; // Breite des Grid
-    public static int length = 10; // Länge des Grid
-    private static float gridSpacesize = 0.5f; // Abstand zwischen Blöcken
 
+    // How many Block do you want in each axis
+    private static int heigth = 1; // Höhe y - not changeable
+    public  int width = 10; // Breite des Grid
+    public  int length = 10; // Länge des Grid
+    public float gridSpacesize = .5f; 
+    public float delayToSpawn = .01f;
+
+    // Abstand zwischen Blöcken
+
+
+
+    // Animation        - doesnt work
+    // private Animator GridCubeAnimate;
+
+    // [SerializeField] bool AnimationOn = true;
+
+
+    // Positioning, Scale, Rotation
+    private Transform _transform;
+    public Vector3 position;
+    public Vector3 rotation;
+    public Vector3 scale;
+
+    
+    private void Awake()
+    {
+        // Get Transform component attached to GameObject
+        _transform = GetComponent<Transform>();
+        _transform.position = position;
+        _transform.eulerAngles = rotation;
+        _transform.localScale = scale;
+    }
+    
+
+    // Use the assigned Gameobject to copy from
     [SerializeField] private GameObject gridCellPrefab;
     private static GameObject[,] gameGrid;
+
+
 
     //Create the grid at game start
     void Start()
@@ -18,41 +51,58 @@ public class GameGrid : MonoBehaviour
         StartCoroutine (CreateGrid());
     }
 
+
+
+    // Start of Creation of the Grid
     private IEnumerator CreateGrid()
     {
         gameGrid = new GameObject[width, length];
 
-        //check if a gridblock is assigned 
+        //check if a prefab is assigned 
         if (gridCellPrefab == null)
         {
             Debug.LogError("Grid Cell Prefab not assigned");
             yield return null;
         }
 
+
         //Making of Grid
-        for (int new_y = 0; new_y < width; new_y++) //Breite
-        {
-            for (int new_z = 0; new_z < length; new_z++) // Länge
+        for (int new_z = 0; new_z < length; new_z++) // Länge
+{
+            for (int new_y = 0; new_y < width; new_y++) //Breite
             {
                 int XCoordinate = new_y + 1; // for giving a correct location-name
                 int ZCoordinate = new_z + 1;
 
+                // Calculate the position using public position values
+                Vector3 cellPosition = new Vector3(position.x + new_y * gridSpacesize + gridSpacesize / 2f, 
+                position.y + 0.5f, position.z + new_z * gridSpacesize + gridSpacesize / 2f);
+
                 //new Gridspace object for each cell
-                gameGrid[new_y, new_z] = Instantiate(gridCellPrefab, 
-                    new Vector3(new_y* gridSpacesize, 0, new_z * gridSpacesize), Quaternion.identity); // 3D Vector, so hight = 0 
-                gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // no idea
-                gameGrid[new_y, new_z].transform.parent = transform;   // no idea
+                gameGrid[new_y, new_z] = Instantiate(gridCellPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
+                gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // save the position in the grid cell script - i guess 
+                gameGrid[new_y, new_z].transform.parent = _transform;   // set scale, rotation, position
                 gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name
-            
-                yield return new WaitForSeconds(.02f); // Delay till next one spawns
-                // Debug.Log("Gridblock created!"); 
-            
+
+
+                /*
+                if (GridCubeAnimate != null && AnimationOn == true)  // Animation for created gridblocks, with the ability to not animate
+                {
+                    Animator animator = gameGrid[new_y, new_z].AddComponent<Animator>();
+                    animator.runtimeAnimatorController = GridCubeAnimate.runtimeAnimatorController; ;
+                }
+                */
+                
+
+                yield return new WaitForSeconds(delayToSpawn); // Delay till next one spawns
             }
         }
 
     }
 
-     public Vector2Int GetGridPosFromWorld(Vector3 worldPosition)
+
+    // Convert of world position to grid coordinates
+    public Vector2Int GetGridPosFromWorld(Vector3 worldPosition)
     {
         int supernew_x = Mathf.FloorToInt(worldPosition.x / gridSpacesize);
         int supernew_y = Mathf.FloorToInt(worldPosition.y / gridSpacesize);
@@ -67,6 +117,8 @@ public class GameGrid : MonoBehaviour
 
 
     }
+
+    // Convert of grid position to world coordinates
     public Vector3 GetWorldPosFromGridPos(Vector3Int gridPos)
     {
         float x = gridPos.x * gridSpacesize;
@@ -75,9 +127,8 @@ public class GameGrid : MonoBehaviour
 
         return new Vector3(x, z, 0); 
     }
-    
 
-
-
-
+    // These functions are useful for converting between grid coordinates and world positions, 
+    // allowing you to work with positions in either coordinate system as needed.
+  
 }
