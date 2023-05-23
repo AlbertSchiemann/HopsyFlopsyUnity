@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             targetPosition = transform.position + Vector3.forward * gridSize;
             direction = Vector3.forward;
             isMoving = true;
-            //SoundManager.Instance.PlaySound(_moveClip);
+            SoundManager.Instance.PlaySound(_moveClip);
             Debug.Log("Forward");
         }
         if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown) && AllowedToMoveBack == true)
@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
             targetPosition = transform.position + Vector3.back * gridSize;
             direction = Vector3.back;
             isMoving = true;
-            //SoundManager.Instance.PlaySound(_moveClip);
+            SoundManager.Instance.PlaySound(_moveClip);
             Debug.Log("Backward");
         }
         if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft) && AllowedToMoveLeft == true)
@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
             targetPosition = transform.position + Vector3.left * gridSize;
             direction = Vector3.left;
             isMoving = true;
-            //SoundManager.Instance.PlaySound(_moveClip);
+            SoundManager.Instance.PlaySound(_moveClip);
             Debug.Log("Left");
         }
         if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight) && AllowedToMoveRigth == true)
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             targetPosition = transform.position + Vector3.right * gridSize;
             direction = Vector3.right;
             isMoving = true;
-            //SoundManager.Instance.PlaySound(_moveClip);
+            SoundManager.Instance.PlaySound(_moveClip);
             Debug.Log("Rigth");
         }
     }
@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // move towards the target position
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-            
+
         }
         else
         {

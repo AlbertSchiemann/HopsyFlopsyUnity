@@ -44,7 +44,7 @@ public class HydrationController : MonoBehaviour
     {
         if (!isHydrationActivated) { return; };
         RestoreHydration();
-       
+
 
         LowerHydration();
 
@@ -106,9 +106,9 @@ public class HydrationController : MonoBehaviour
         // Check if hydration has reached 0
         if (hydration <= 0)
         {
-           levelScript.OpenLoose();
-           // Invoke("Sceneload", Delay);
-           // SoundManager.Instance.PlaySound(_failClip);
+            levelScript.OpenLoose();
+            Invoke("Sceneload", Delay);
+            SoundManager.Instance.PlaySound(_failClip);
         }
     }
 
@@ -118,6 +118,6 @@ public class HydrationController : MonoBehaviour
     }
     private void DeactivateHydration()
     {
-        isHydrationActivated= false;
+        isHydrationActivated = false;
     }
 }
