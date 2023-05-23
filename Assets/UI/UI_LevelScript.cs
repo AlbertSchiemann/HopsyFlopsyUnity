@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class UI_LevelScript : MonoBehaviour
@@ -31,7 +32,7 @@ public class UI_LevelScript : MonoBehaviour
     {
         darkerBackground.SetActive(true);
         beforeMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (beforeMenu!=ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = beforeMenu;
 
 
@@ -43,7 +44,7 @@ public class UI_LevelScript : MonoBehaviour
 
         darkerBackground.SetActive(false);
         playingMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (playingMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = playingMenu;
         Time.timeScale = 1f;
     }
@@ -55,7 +56,7 @@ public class UI_LevelScript : MonoBehaviour
 
         darkerBackground.SetActive(true);
         pauseMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (pauseMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = pauseMenu;
         Time.timeScale = 0f;
 
@@ -67,7 +68,7 @@ public class UI_LevelScript : MonoBehaviour
 
         darkerBackground.SetActive(true);
         winMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (winMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = winMenu;
         
     }
@@ -78,7 +79,7 @@ public class UI_LevelScript : MonoBehaviour
 
         darkerBackground.SetActive(true);
         looseMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (looseMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = looseMenu;
     }
  

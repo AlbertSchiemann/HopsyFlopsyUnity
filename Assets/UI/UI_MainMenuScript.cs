@@ -52,7 +52,7 @@ public class UI_MainMenuScript : MonoBehaviour
  public void OpenMain()
     {
         mainMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (mainMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = mainMenu;
 
 
@@ -61,7 +61,7 @@ public class UI_MainMenuScript : MonoBehaviour
     {
 
         helpMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (helpMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = helpMenu;
     }
 
@@ -72,7 +72,7 @@ public class UI_MainMenuScript : MonoBehaviour
         //mainMenu.SetActive(false);
         //storeMenu.SetActive(false);
         //w1Menu.SetActive(false);
-        ActiveMenu.SetActive(false);
+        if (settingsMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = settingsMenu;
 
         settingsContact.SetActive(false);
@@ -128,7 +128,7 @@ public class UI_MainMenuScript : MonoBehaviour
     {
 
         storeMenu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (storeMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = storeMenu;
     }
 
@@ -137,7 +137,7 @@ public class UI_MainMenuScript : MonoBehaviour
     {
 
         w1Menu.SetActive(true);
-        ActiveMenu.SetActive(false);
+        if (storeMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = w1Menu;
     }
  
