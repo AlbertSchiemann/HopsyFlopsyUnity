@@ -46,7 +46,14 @@ public class UI_MainMenuScript : MonoBehaviour
     {
         ActiveMenu = mainMenu;
         ActiveSettings = settingsSound;
+       
+        mainMenu.SetActive(true);
+        helpMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        storeMenu.SetActive(false);
+        w1Menu.SetActive(false);
         
+
         if (AlwaysThere.MainMenu_Index == 1) OpenHelp();
         else if (AlwaysThere.MainMenu_Index == 2) OpenSettings();
         else if(AlwaysThere.MainMenu_Index == 3) OpenStore();
