@@ -8,6 +8,7 @@ public class UI_LevelScript : MonoBehaviour
 
 {
     public static GameObject ActiveMenu;
+    public static GameObject ActiveSettings;
 
     [SerializeField] GameObject beforeMenu;
     [SerializeField] GameObject playingMenu;
@@ -100,12 +101,54 @@ public class UI_LevelScript : MonoBehaviour
         settingsMenu.SetActive(true);
         if (settingsMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = settingsMenu;
+        ActiveSettings = settingsSound;
 
         settingsContact.SetActive(false);
         settingsCredits.SetActive(false);
         settingsLanguage.SetActive(false);
         settingsSound.SetActive(true);
     }
+
+                public void OpenSettingsSound()
+                {
+                    settingsSound.SetActive(true);
+                    if (ActiveSettings != settingsSound)
+                    {
+                        ActiveSettings.SetActive(false);
+                        ActiveSettings = settingsSound;
+                    }
+                }
+
+                public void OpenSettingsLanguage()
+                {
+
+                    settingsLanguage.SetActive(true);
+                    if (ActiveSettings != settingsLanguage)
+                    {
+                        ActiveSettings.SetActive(false);
+                        ActiveSettings = settingsLanguage;
+                    }
+                }
+                public void OpenSettingsCredits()
+                {
+
+                    settingsCredits.SetActive(true);
+                    if (ActiveSettings != settingsCredits)
+                    {
+                        ActiveSettings.SetActive(false);
+                        ActiveSettings = settingsCredits;
+                    }
+                }
+                public void OpenSettingsContact()
+                {
+
+                    settingsContact.SetActive(true);
+                    if (ActiveSettings != settingsContact)
+                    {
+                        ActiveSettings.SetActive(false);
+                        ActiveSettings = settingsContact;
+                    }
+                }
 
     public void OpenLevelHelp()
     {
