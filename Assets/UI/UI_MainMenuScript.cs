@@ -122,7 +122,8 @@ public class UI_MainMenuScript : MonoBehaviour
                 }
                 }
 
-                 public void OpenSettingsLanguage()
+
+    public void OpenSettingsLanguage()
                 {
 
                     settingsLanguage.SetActive(true);
