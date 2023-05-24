@@ -359,7 +359,6 @@ GameObject:
   - component: {fileID: 8996796709753467338}
   - component: {fileID: 8997634893383226220}
   - component: {fileID: 3669386750296386616}
-  - component: {fileID: 8746496210762709208}
   m_Layer: 0
   m_Name: But_soundEffects-of
   m_TagString: Untagged
@@ -482,18 +481,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8746496210762709208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2267951414848362673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5caa72e2c9e0ac04f917304501075afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2647780458934093473
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,8 +715,6 @@ GameObject:
   - component: {fileID: 91995072484025984}
   - component: {fileID: 6801385011095237377}
   - component: {fileID: 7576861297944566710}
-  - component: {fileID: 6670827723146273819}
-  - component: {fileID: 342055396759458348}
   m_Layer: 0
   m_Name: But_Music-of
   m_TagString: Untagged
@@ -839,57 +824,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6801385011095237377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8391376483684748360, guid: d98b5ae00f003b947afd9e817470a86a,
-          type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6670827723146273819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4692360920311307156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5caa72e2c9e0ac04f917304501075afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &342055396759458348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4692360920311307156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8441299f925e42946a615de5c67f8be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  helpMenu: {fileID: 0}
-  settingsMenu: {fileID: 0}
-  storeMenu: {fileID: 0}
-  w1Menu: {fileID: 0}
-  settingsCredits: {fileID: 0}
-  settingsSound: {fileID: 0}
-  settingsContact: {fileID: 0}
-  settingsLanguage: {fileID: 0}
-  helpControl: {fileID: 0}
-  helpMain: {fileID: 0}
-  soundOn: {fileID: 0}
-  soundOf: {fileID: 4692360920311307156}
+      m_Calls: []
 --- !u!1 &5186030990282891428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,7 +1452,6 @@ GameObject:
   - component: {fileID: 8682929976300428487}
   - component: {fileID: 7500216872800137656}
   - component: {fileID: 6278680705703228465}
-  - component: {fileID: 8376349401513344078}
   m_Layer: 0
   m_Name: But_soundEffects-on
   m_TagString: Untagged
@@ -1627,32 +1561,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7500216872800137656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8391376483684748360, guid: d98b5ae00f003b947afd9e817470a86a,
-          type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8376349401513344078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9040933106780008495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5caa72e2c9e0ac04f917304501075afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []
 --- !u!1 &9166857111137864496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,7 +1574,6 @@ GameObject:
   - component: {fileID: 7240125537906534277}
   - component: {fileID: 7601256965561492505}
   - component: {fileID: 3745105467298498497}
-  - component: {fileID: 642184580987504518}
   m_Layer: 0
   m_Name: But_Music-on
   m_TagString: Untagged
@@ -1775,29 +1683,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7601256965561492505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8391376483684748360, guid: d98b5ae00f003b947afd9e817470a86a,
-          type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &642184580987504518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9166857111137864496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5caa72e2c9e0ac04f917304501075afe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls: []

@@ -11,7 +11,6 @@ public class UI_MainMenuScript : MonoBehaviour
 {
     public static GameObject ActiveMenu;
     public static GameObject ActiveSettings;
-    //public static GameObject ActiveHelp;
 
 
     [SerializeField] GameObject mainMenu;

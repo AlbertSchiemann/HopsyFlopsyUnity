@@ -27,6 +27,7 @@ public class UI_LevelScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        C_UI_OpenOther.SaveLastLevel();
 
         ActiveMenu = beforeMenu;
         ActiveMenu.SetActive(true);   //this block of code makes it unimportant which inspectors of the whole prefab you have turned on right now
