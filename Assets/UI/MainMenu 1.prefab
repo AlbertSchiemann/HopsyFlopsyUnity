@@ -206,6 +206,11 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2714169608205370921, guid: 08e014febe0939443ae37131c686e66e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8391376483684748360}
     - target: {fileID: 2733850680695952828, guid: 08e014febe0939443ae37131c686e66e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -326,6 +331,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5927572458015891324}
+    - target: {fileID: 4715754391813453273, guid: 08e014febe0939443ae37131c686e66e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8391376483684748360}
     - target: {fileID: 5089603900717729214, guid: 08e014febe0939443ae37131c686e66e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -406,6 +416,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4934185142498336004}
+    - target: {fileID: 9184396826737465950, guid: 08e014febe0939443ae37131c686e66e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8391376483684748360}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e014febe0939443ae37131c686e66e, type: 3}
 --- !u!1 &387529225756770495 stripped
@@ -1569,6 +1584,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5927572458015891324}
+    - target: {fileID: 5720127336372375361, guid: 6406add660932d540b5d06821195eb2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6746837375008587919, guid: 6406add660932d540b5d06821195eb2e,
         type: 3}
       propertyPath: m_Name

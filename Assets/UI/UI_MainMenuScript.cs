@@ -28,33 +28,33 @@ public class UI_MainMenuScript : MonoBehaviour
     [SerializeField] GameObject helpControl;
     [SerializeField] GameObject helpMain;
 
-    public static GameObject MainMenu;
-    public static GameObject HelpMenu;
-    public static GameObject SettingsMenu;
-    public static GameObject StoreMenu;
-    public static GameObject W1Menu;
+    //public static GameObject MainMenu;
+    //public static GameObject HelpMenu;
+    //public static GameObject SettingsMenu;
+    //public static GameObject StoreMenu;
+    //public static GameObject W1Menu;
 
-    public static GameObject SettingsSound;
-    public static GameObject SettingsCredits;
-    public static GameObject StoreContact;
-    public static GameObject StoreLanguage;
+    //public static GameObject SettingsSound;
+    //public static GameObject SettingsCredits;
+    //public static GameObject StoreContact;
+    //public static GameObject StoreLanguage;
 
-    public static GameObject HelpControl;
-    public static GameObject HelpMain;
-    // Start is called before the first frame update
+    //public static GameObject HelpControl;
+    //public static GameObject HelpMain;
+    //// Start is called before the first frame update
     void Start()
     {
         ActiveMenu = mainMenu;
         ActiveSettings = settingsSound;
        
-        mainMenu.SetActive(true);
+        mainMenu.SetActive(true);  //this block of code makes it unimportant which inspectors of the whole prefab you have turned on right now
         helpMenu.SetActive(false);
         settingsMenu.SetActive(false);
         storeMenu.SetActive(false);
         w1Menu.SetActive(false);
         
 
-        if (AlwaysThere.MainMenu_Index == 1) OpenHelp();
+        if (AlwaysThere.MainMenu_Index == 1) OpenHelp();  //with these if (elses) you can directly open other canvasses from other scenes
         else if (AlwaysThere.MainMenu_Index == 2) OpenSettings();
         else if(AlwaysThere.MainMenu_Index == 3) OpenStore();
         else if(AlwaysThere.MainMenu_Index == 4) OpenW1();
@@ -66,7 +66,7 @@ public class UI_MainMenuScript : MonoBehaviour
  public void OpenMain()
     {
         mainMenu.SetActive(true);
-        if (mainMenu != ActiveMenu) ActiveMenu.SetActive(false);
+        if (mainMenu != ActiveMenu) ActiveMenu.SetActive(false); //if the canvas already is open then dont close it
         ActiveMenu = mainMenu;
 
 
@@ -123,7 +123,7 @@ public class UI_MainMenuScript : MonoBehaviour
                 }
 
 
-    public void OpenSettingsLanguage()
+                 public void OpenSettingsLanguage()
                 {
 
                     settingsLanguage.SetActive(true);

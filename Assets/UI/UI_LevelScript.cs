@@ -29,7 +29,7 @@ public class UI_LevelScript : MonoBehaviour
     {
 
         ActiveMenu = beforeMenu;
-        ActiveMenu.SetActive(true);
+        ActiveMenu.SetActive(true);   //this block of code makes it unimportant which inspectors of the whole prefab you have turned on right now
         playingMenu.SetActive(false);
         pauseMenu.SetActive(false);
         looseMenu.SetActive(false);
@@ -61,8 +61,8 @@ public class UI_LevelScript : MonoBehaviour
 
     public void OpenPause()
     {
-        GameObject gameStateManager = GameObject.Find("GameStateManager"); 
-        gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+        // GameObject gameStateManager = GameObject.Find("GameStateManager"); 
+        // gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
 
         darkerBackground.SetActive(true);
         pauseMenu.SetActive(true);
