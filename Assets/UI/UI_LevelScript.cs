@@ -14,6 +14,13 @@ public class UI_LevelScript : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject looseMenu;
+    [SerializeField] GameObject settingsMenu;
+    [SerializeField] GameObject helpMenu;
+
+    [SerializeField] GameObject settingsCredits;
+    [SerializeField] GameObject settingsSound;
+    [SerializeField] GameObject settingsContact;
+    [SerializeField] GameObject settingsLanguage;
 
     [SerializeField] GameObject darkerBackground;
     // Start is called before the first frame update
@@ -26,6 +33,8 @@ public class UI_LevelScript : MonoBehaviour
         pauseMenu.SetActive(false);
         looseMenu.SetActive(false);
         winMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+        helpMenu.SetActive(false);
     }
 
  public void OpenBefore()
@@ -82,5 +91,30 @@ public class UI_LevelScript : MonoBehaviour
         if (looseMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = looseMenu;
     }
- 
+    public void OpenLevelSettings()
+    {
+        GameObject gameStateManager = GameObject.Find("GameStateManager");
+        gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+
+        darkerBackground.SetActive(true);
+        settingsMenu.SetActive(true);
+        if (settingsMenu != ActiveMenu) ActiveMenu.SetActive(false);
+        ActiveMenu = settingsMenu;
+
+        settingsContact.SetActive(false);
+        settingsCredits.SetActive(false);
+        settingsLanguage.SetActive(false);
+        settingsSound.SetActive(true);
+    }
+
+    public void OpenLevelHelp()
+    {
+        GameObject gameStateManager = GameObject.Find("GameStateManager");
+        gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+
+        darkerBackground.SetActive(true);
+        helpMenu.SetActive(true);
+        if (helpMenu != ActiveMenu) ActiveMenu.SetActive(false);
+        ActiveMenu = helpMenu;
+    }
 }

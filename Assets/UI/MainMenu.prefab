@@ -172,6 +172,8 @@ MonoBehaviour:
   settingsSound: {fileID: 9023543791124786177}
   settingsContact: {fileID: 2749627587475164432}
   settingsLanguage: {fileID: 5669629958650847148}
+  helpControl: {fileID: 0}
+  helpMain: {fileID: 0}
 --- !u!1001 &4079058254016074380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -677,6 +679,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6626336924343790547}
     m_Modifications:
+    - target: {fileID: 370719870550720654, guid: 6406add660932d540b5d06821195eb2e,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2870124150267751508, guid: 6406add660932d540b5d06821195eb2e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -796,6 +803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746837375008587919, guid: 6406add660932d540b5d06821195eb2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7790982603861451355, guid: 6406add660932d540b5d06821195eb2e,
         type: 3}
