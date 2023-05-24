@@ -10,6 +10,8 @@ public class VolumeSettings : MonoBehaviour
 
     [SerializeField] Slider bgSlider;
     [SerializeField] Slider sfxSlider;
+    [SerializeField] Button bgButton;
+    [SerializeField] Button sfxButton;
 
     public const string Mixer_Bg = "Background";
     public const string Mixer_Sfx = "Effects";
