@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level1Blockout.unity
+    path: Assets/Scenes/Julius-Level1Blockout.unity
     guid: 98ae48c5241a2eb43b2518484237b7c8
   - enabled: 1
     path: Assets/UI/UI testing 1.unity
