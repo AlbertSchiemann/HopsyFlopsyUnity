@@ -10,8 +10,11 @@ public class VolumeSettings : MonoBehaviour
 
     [SerializeField] Slider bgSlider;
     [SerializeField] Slider sfxSlider;
-    [SerializeField] Button bgButton;
-    [SerializeField] Button sfxButton;
+    
+    [SerializeField] GameObject bgButtonOn;
+    [SerializeField] GameObject sfxButtonOn;
+    [SerializeField] GameObject bgButtonOff;
+    [SerializeField] GameObject sfxButtonOff;
 
     public const string Mixer_Bg = "Background";
     public const string Mixer_Sfx = "Effects";
@@ -41,5 +44,30 @@ public class VolumeSettings : MonoBehaviour
     private void SetSfxVolume(float value)
     {
         mixer.SetFloat(Mixer_Sfx, Mathf.Log10(value) * 20);
+    }
+
+//Volume Button Icon Change, weird way to do things but idc
+    public void BgSound_On()
+    {
+        bgButtonOn.SetActive(true);
+        bgButtonOff.SetActive(false);
+    }
+
+    public void BgSound_Off()
+    {
+        bgButtonOn.SetActive(false);
+        bgButtonOff.SetActive(true);
+    }
+
+    public void SfxSound_On()
+    {
+        sfxButtonOn.SetActive(true);
+        sfxButtonOff.SetActive(false);
+    }
+
+    public void SfxSound_Off()
+    {
+        sfxButtonOn.SetActive(false);
+        sfxButtonOff.SetActive(true);
     }
 }
