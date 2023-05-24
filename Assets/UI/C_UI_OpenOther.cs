@@ -82,10 +82,10 @@ public class C_UI_OpenOther : MonoBehaviour
 
    
     public static void SaveLastLevel()  {
-        AlwaysThere.LastLevel = AlwaysThere.CurrentLevel;
-        //Debug.Log(AlwaysThere.LastLevel);
-        AlwaysThere.CurrentLevel = SceneManager.GetActiveScene().buildIndex;
-        //Debug.Log(AlwaysThere.CurrentLevel);
+       // AlwaysThere.LastLevel = AlwaysThere.CurrentLevel;
+        Debug.Log(AlwaysThere.LastLevel);
+        AlwaysThere.LastLevel = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(AlwaysThere.CurrentLevel);
 
     }
 }
