@@ -2247,7 +2247,7 @@ PrefabInstance:
     - target: {fileID: 6124087452022348988, guid: b12797f922915e649b45f987bd5eb7e5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenPlaying
+      value: OpenPause
       objectReference: {fileID: 0}
     - target: {fileID: 6124087452022348988, guid: b12797f922915e649b45f987bd5eb7e5,
         type: 3}
