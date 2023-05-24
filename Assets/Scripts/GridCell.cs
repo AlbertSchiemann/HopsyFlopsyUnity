@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// completely used to store information of the gridcell in each gameobject itself
-
 public class GridCell : MonoBehaviour
 {
     private int posX;
@@ -19,5 +17,18 @@ public class GridCell : MonoBehaviour
         
         posY = y;
         posZ = z;
+    }
+    
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
