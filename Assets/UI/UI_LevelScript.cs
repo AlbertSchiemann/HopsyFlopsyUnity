@@ -14,13 +14,6 @@ public class UI_LevelScript : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject looseMenu;
-    [SerializeField] GameObject settingsMenu;
-    [SerializeField] GameObject helpMenu;
-
-    [SerializeField] GameObject settingsCredits;
-    [SerializeField] GameObject settingsSound;
-    [SerializeField] GameObject settingsContact;
-    [SerializeField] GameObject settingsLanguage;
 
     [SerializeField] GameObject darkerBackground;
     // Start is called before the first frame update
@@ -33,8 +26,6 @@ public class UI_LevelScript : MonoBehaviour
         pauseMenu.SetActive(false);
         looseMenu.SetActive(false);
         winMenu.SetActive(false);
-        settingsMenu.SetActive(false);
-        helpMenu.SetActive(false);
     }
 
  public void OpenBefore()
@@ -91,6 +82,7 @@ public class UI_LevelScript : MonoBehaviour
         if (looseMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = looseMenu;
     }
+<<<<<<< HEAD
     public void OpenLevelSettings()
     {
         GameObject gameStateManager = GameObject.Find("GameStateManager");
@@ -117,4 +109,7 @@ public class UI_LevelScript : MonoBehaviour
         if (helpMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = helpMenu;
     }
+=======
+ 
+>>>>>>> parent of 737b4a8... reset2
 }
