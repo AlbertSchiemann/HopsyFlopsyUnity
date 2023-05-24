@@ -11,6 +11,7 @@ public class UI_MainMenuScript : MonoBehaviour
 {
     public static GameObject ActiveMenu;
     public static GameObject ActiveSettings;
+    //public static GameObject ActiveHelp;
 
 
     [SerializeField] GameObject mainMenu;
@@ -24,6 +25,9 @@ public class UI_MainMenuScript : MonoBehaviour
     [SerializeField] GameObject settingsContact;
     [SerializeField] GameObject settingsLanguage;
 
+    [SerializeField] GameObject helpControl;
+    [SerializeField] GameObject helpMain;
+
     public static GameObject MainMenu;
     public static GameObject HelpMenu;
     public static GameObject SettingsMenu;
@@ -34,6 +38,9 @@ public class UI_MainMenuScript : MonoBehaviour
     public static GameObject SettingsCredits;
     public static GameObject StoreContact;
     public static GameObject StoreLanguage;
+
+    public static GameObject HelpControl;
+    public static GameObject HelpMain;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +70,22 @@ public class UI_MainMenuScript : MonoBehaviour
         helpMenu.SetActive(true);
         if (helpMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = helpMenu;
+
+        helpControl.SetActive(false);
+        helpMain.SetActive(true);
+
     }
+                public void OpenHelpControll()
+                {
+                     helpMain.SetActive(false);
+                     helpControl.SetActive(true);                 
+                }
+                public void OpenHelpMain()
+                {
+                    helpMain.SetActive(true);
+                    helpControl.SetActive(false);
+                }
+
 
     public void OpenSettings()
     {
