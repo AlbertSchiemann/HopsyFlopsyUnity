@@ -6,20 +6,17 @@ public class HydrationController : MonoBehaviour
 {
     bool isHydrationActivated;
 
-    public float hydrationMax = 100f;
-    public float hydrationDecayRate = 10f;
-    public float hydrationRestoreAmount = 100f;
+    public float hydrationMax = 100f; // Maximum amount of Hydration
+    public float hydrationDecayRate = 10f; // Rate in which the Hydration goes down 
+    public float hydrationRestoreAmount = 100f; // Rate in which Hydration gets restored in Water Tiles
 
-    private float hydration;
-    private bool isCollidingWithWater;
-
-    public float Delay = 1.0f;
-
-
+    private float hydration; // Value of the Hydration
+    private bool isCollidingWithWater; // Check if waterTile is colliding
+    public float Delay = 1.0f; // Delay till Scene gets reloaded
     public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
 
-    int Hydra; // rnd variable name
-    int nextTime = 0;
+    
+
 
     public UI_LevelScript levelScript;
     public UI_Script_WaterBar waterBar;
@@ -44,21 +41,8 @@ public class HydrationController : MonoBehaviour
     {
         if (!isHydrationActivated) { return; };
         RestoreHydration();
-
-
         LowerHydration();
-
-
         CheckHydrationDeathCondition();
-
-        if (nextTime >= Hydra)
-        {
-            //Debug.Log(hydration);
-
-            Hydra = nextTime + HydrationUpdateTime;
-        }
-        nextTime++;
-
     }
 
     private void OnTriggerEnter(Collider other)
