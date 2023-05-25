@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class WaterGridBlock : MonoBehaviour
 {
-    public bool isCollidingWithWater; // Declare the variable here
-
-    public HydrationController hydrationController;
+    
+    [SerializeField] private AudioClip[] _hydrateClip;
+    public HydrationController hydrationController; // Reference to HydrationController script
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (hydrationController != null && !isCollidingWithWater) // Use the local variable
-            {
-                hydrationController.RestoreHydration();
-            }
+            hydrationController.isCollidingWithWater = true;
+            //SoundManager.Instance.PlaySound(_hydrateClip);
+
         }
     }
 
@@ -23,7 +22,7 @@ public class WaterGridBlock : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isCollidingWithWater = true; // Update the local variable
+            hydrationController.isCollidingWithWater = true; // Update the local variable
         }
     }
 
@@ -31,7 +30,7 @@ public class WaterGridBlock : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isCollidingWithWater = false; // Update the local variable
+            hydrationController.isCollidingWithWater = false; // Update the local variable
         }
     }
 }

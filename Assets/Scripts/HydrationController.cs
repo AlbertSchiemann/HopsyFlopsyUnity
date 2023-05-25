@@ -11,9 +11,8 @@ public class HydrationController : MonoBehaviour
     public float hydrationRestoreAmount = 100f; // Rate in which Hydration gets restored in Water Tiles
 
     private float hydration; // Value of the Hydration
-    // private bool isCollidingWithWater; // Check if waterTile is colliding
+    public bool isCollidingWithWater = false; // Check if waterTile is colliding
     public float Delay = 1.0f; // Delay till Scene gets reloaded
-    public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
 
     [SerializeField] private WaterGridBlock waterGridBlock; // Reference to WaterGridBlock script
 
@@ -27,54 +26,42 @@ public class HydrationController : MonoBehaviour
     void Start()
     {
         hydration = hydrationMax;
-        HydrationUpdateTime *= 100;
 
         waterBar.SetMaxHealth(hydrationMax);
-        isHydrationActivated = false;
+        
         GameStateManagerScript.onGameStart += ActivateHydration;
         GameStateManagerScript.onGamePaused += DeactivateHydration;
 
         // Get reference to WaterGridBlock script
-        waterGridBlock = FindObjectOfType<WaterGridBlock>();
+        // waterGridBlock = FindObjectOfType<WaterGridBlock>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isHydrationActivated) { return; };
-        RestoreHydration();
-        LowerHydration();
-        CheckHydrationDeathCondition();
-    }
+        
+        if (isHydrationActivated == false) 
+        { 
+            return; 
+        }
 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Water"))
+        else
         {
-            // SoundManager.Instance.PlaySound(_hydrateClip);
-            isCollidingWithWater = true;
+            RestoreHydration();
+            LowerHydration();
+            CheckHydrationDeathCondition();   
         }
     }
-
     
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Water"))
-        {
-            isCollidingWithWater = false;
-        }
-    }
-    */
 
     public bool IsCollidingWithWater()
     {
-        return waterGridBlock.isCollidingWithWater;
+        return isCollidingWithWater = true;
     }
 
     public void LowerHydration()
     {
-   //     if (!IsCollidingWithWater())
+        if (isCollidingWithWater == false)
         {
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
@@ -85,11 +72,16 @@ public class HydrationController : MonoBehaviour
     public void RestoreHydration()
     {
         // Restore Hydration if needed
-        if (hydration < hydrationMax)
+        if (isCollidingWithWater == true)
         {
-            hydration += hydrationRestoreAmount * Time.deltaTime;
-            hydration = Mathf.Clamp(hydration, 0f, hydrationMax);
-            waterBar.SetHealth(hydration);
+           
+            if (hydration < hydrationMax)
+            {
+                //hydration = hydrationMax;
+                hydration += hydrationRestoreAmount * Time.deltaTime;
+                hydration = Mathf.Clamp(hydration, 0f, hydrationMax);
+                waterBar.SetHealth(hydration);
+            }
         }
     }
 
@@ -99,8 +91,9 @@ public class HydrationController : MonoBehaviour
         if (hydration <= 0)
         {
             levelScript.OpenLoose();
-            Invoke("Sceneload", Delay);
             SoundManager.Instance.PlaySound(_failClip);
+            Invoke("Sceneload", Delay);
+            
         }
     }
 
@@ -113,3 +106,5 @@ public class HydrationController : MonoBehaviour
         isHydrationActivated = false;
     }
 }
+
+// Blubbel
