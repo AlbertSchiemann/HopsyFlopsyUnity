@@ -74,7 +74,7 @@ public class HydrationController : MonoBehaviour
 
     public void LowerHydration()
     {
-        if (!IsCollidingWithWater())
+   //     if (!IsCollidingWithWater())
         {
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
