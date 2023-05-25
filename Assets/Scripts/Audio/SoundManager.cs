@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource _musicSource, _effectSource, _atmoSource;
     [SerializeField] private float minPitch = .50f, maxPitch = 1.50f;
 
+
+
     public const string Bg_key = "Background";
     public const string Sfx_key = "Effects";
 

@@ -19,6 +19,7 @@ public class VolumeSettings : MonoBehaviour
     public const string Mixer_Bg = "Background";
     public const string Mixer_Sfx = "Effects";
 
+
     private void Start()
     {
         bgSlider.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
@@ -27,6 +28,13 @@ public class VolumeSettings : MonoBehaviour
 
         bgSlider.onValueChanged.AddListener(SetBgVolume);
         sfxSlider.onValueChanged.AddListener(SetSfxVolume);
+
+        bgButtonOff.SetActive(true);
+        bgButtonOff.SetActive(false);
+        sfxButtonOff.SetActive(true);
+        bgButtonOff.SetActive(false);
+        Debug.Log("sound on of");
+
     }
 
     private void OnDisable()
@@ -51,23 +59,27 @@ public class VolumeSettings : MonoBehaviour
     {
         bgButtonOn.SetActive(true);
         bgButtonOff.SetActive(false);
+        Debug.Log("sound on");
     }
 
     public void BgSound_Off()
     {
         bgButtonOn.SetActive(false);
         bgButtonOff.SetActive(true);
+        Debug.Log("sound off");
     }
 
     public void SfxSound_On()
     {
         sfxButtonOn.SetActive(true);
         sfxButtonOff.SetActive(false);
+        Debug.Log("sound on");
     }
 
     public void SfxSound_Off()
     {
         sfxButtonOn.SetActive(false);
         sfxButtonOff.SetActive(true);
+        Debug.Log("sound off");
     }
 }

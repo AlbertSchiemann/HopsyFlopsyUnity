@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -24,6 +25,12 @@ public class UI_LevelScript : MonoBehaviour
     [SerializeField] GameObject settingsLanguage;
 
     [SerializeField] GameObject darkerBackground;
+
+    [SerializeField] GameObject winCurrencyText;
+
+    public static bool WinCurrencyText = false;
+
+    private bool WON = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -81,17 +88,25 @@ public class UI_LevelScript : MonoBehaviour
         winMenu.SetActive(true);
         if (winMenu != ActiveMenu) ActiveMenu.SetActive(false);
         ActiveMenu = winMenu;
-        
+
+        if (WinCurrencyText==true) winCurrencyText.SetActive(true);
+        else winCurrencyText.SetActive(false);
+
+        WON = true;
+
     }
     public void OpenLoose()
     {
-        GameObject gameStateManager = GameObject.Find("GameStateManager");
-        gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+        if (!WON)
+        {
+            GameObject gameStateManager = GameObject.Find("GameStateManager");
+            gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
 
-        darkerBackground.SetActive(true);
-        looseMenu.SetActive(true);
-        if (looseMenu != ActiveMenu) ActiveMenu.SetActive(false);
-        ActiveMenu = looseMenu;
+            darkerBackground.SetActive(true);
+            looseMenu.SetActive(true);
+            if (looseMenu != ActiveMenu) ActiveMenu.SetActive(false);
+            ActiveMenu = looseMenu;
+        }
     }
     public void OpenLevelSettings()
     {
