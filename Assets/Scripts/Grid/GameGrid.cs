@@ -7,8 +7,8 @@ public class GameGrid : MonoBehaviour
 
     // How many Block do you want in each axis
     private static int heigth = 1; // Höhe y - not changeable
-    public  int width = 10; // Breite des Grid
-    public  int length = 10; // Länge des Grid
+    public int width = 10; // Breite des Grid
+    public int length = 10; // Länge des Grid
     public float gridSpacesize = .5f; 
     public float delayToSpawn = .01f;
 
@@ -27,6 +27,14 @@ public class GameGrid : MonoBehaviour
     public Vector3 position;
     public Vector3 rotation;
     public Vector3 scale;
+
+
+
+    // Different GridBlocks
+
+    [SerializeField] private GameObject waterBlockPrefab;
+    private bool[,] hasWaterBlock;
+
 
     
     private void Awake()
@@ -68,7 +76,7 @@ public class GameGrid : MonoBehaviour
 
         //Making of Grid
         for (int new_z = 0; new_z < length; new_z++) // Länge
-{
+        {
             for (int new_y = 0; new_y < width; new_y++) //Breite
             {
                 int XCoordinate = new_y + 1; // for giving a correct location-name
@@ -92,11 +100,22 @@ public class GameGrid : MonoBehaviour
                     animator.runtimeAnimatorController = GridCubeAnimate.runtimeAnimatorController; ;
                 }
                 */
+                /*
+                if (hasWaterBlock[new_y, new_z])
+                {
+                    // Instantiate the water block prefab
+                    GameObject waterBlock = Instantiate(waterBlockPrefab, cellPosition, transform.parent.rotation);
+                    gameGrid[new_y, new_z].GetComponent<GridCell>().waterBlockObject = waterBlock;
+                }
+                */
                 
 
                 yield return new WaitForSeconds(delayToSpawn); // Delay till next one spawns
             }
         }
+
+        hasWaterBlock = new bool[width, length];
+        
 
     }
 
@@ -130,5 +149,17 @@ public class GameGrid : MonoBehaviour
 
     // These functions are useful for converting between grid coordinates and world positions, 
     // allowing you to work with positions in either coordinate system as needed.
+
+    public GameObject GetGridCell(int x, int z)
+    {
+        if (gameGrid != null && x >= 0 && x < width && z >= 0 && z < length)
+        {
+            return gameGrid[x, z];
+        }
+        else
+        {
+            return null;
+        }
+    }
   
 }

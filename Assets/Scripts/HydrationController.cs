@@ -11,12 +11,11 @@ public class HydrationController : MonoBehaviour
     public float hydrationRestoreAmount = 100f; // Rate in which Hydration gets restored in Water Tiles
 
     private float hydration; // Value of the Hydration
-    private bool isCollidingWithWater; // Check if waterTile is colliding
+    // private bool isCollidingWithWater; // Check if waterTile is colliding
     public float Delay = 1.0f; // Delay till Scene gets reloaded
     public int HydrationUpdateTime = 2; // How often the Hydration should be written in the Console
 
-    
-
+    [SerializeField] private WaterGridBlock waterGridBlock; // Reference to WaterGridBlock script
 
     public UI_LevelScript levelScript;
     public UI_Script_WaterBar waterBar;
@@ -34,6 +33,9 @@ public class HydrationController : MonoBehaviour
         isHydrationActivated = false;
         GameStateManagerScript.onGameStart += ActivateHydration;
         GameStateManagerScript.onGamePaused += DeactivateHydration;
+
+        // Get reference to WaterGridBlock script
+        waterGridBlock = FindObjectOfType<WaterGridBlock>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class HydrationController : MonoBehaviour
         CheckHydrationDeathCondition();
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Water"))
@@ -54,6 +57,7 @@ public class HydrationController : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Water"))
@@ -61,10 +65,16 @@ public class HydrationController : MonoBehaviour
             isCollidingWithWater = false;
         }
     }
+    */
+
+    public bool IsCollidingWithWater()
+    {
+        return waterGridBlock.isCollidingWithWater;
+    }
 
     public void LowerHydration()
     {
-        if (!isCollidingWithWater)
+        if (!IsCollidingWithWater())
         {
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
@@ -74,14 +84,12 @@ public class HydrationController : MonoBehaviour
 
     public void RestoreHydration()
     {
-        if (isCollidingWithWater)
+        // Restore Hydration if needed
+        if (hydration < hydrationMax)
         {
-            //Restore Hydration if in water
-            if (hydration < hydrationMax)
-            {
-                hydration = hydrationMax;
-                waterBar.SetHealth(hydration);
-            }
+            hydration += hydrationRestoreAmount * Time.deltaTime;
+            hydration = Mathf.Clamp(hydration, 0f, hydrationMax);
+            waterBar.SetHealth(hydration);
         }
     }
 
