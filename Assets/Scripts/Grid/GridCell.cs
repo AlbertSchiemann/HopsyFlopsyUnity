@@ -12,6 +12,11 @@ public class GridCell : MonoBehaviour
 
     public GameObject waterBlockObject = null;
 
+    public HydrationController hydrationController;
+    public WaterGridBlock waterGridBlock;
+    public GridCell gridCell;
+    public GameGrid gameGrid;
+
     public GameObject objectInThisGridSpace = null; // variable can be used to reference any object that occupies the grid cell. It can be set to null if the cell is empty
 
     public bool isOccupied = false; // variable indicates whether the grid cell is currently occupied by an object

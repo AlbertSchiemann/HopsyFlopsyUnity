@@ -4,9 +4,9 @@ using UnityEngine;
 
 
 //[System.Serializable]
-public class GameGrid : MonoBehaviour
+public class GameGrid2 : MonoBehaviour
 {
-    // How many Blocks do you want in each axis
+    // How many Block do you want in each axis
     public int heigth; // Höhe y - not changeable
     public int width; // Breite des Grid
     public int length; // Länge des Grid
@@ -14,7 +14,7 @@ public class GameGrid : MonoBehaviour
     public float delayToSpawn;
 
     // Positioning, Scale, Rotation
-    public Transform _transform;
+    [HideInInspector] public Transform _transform;
     public Vector3 position;
     public Vector3 rotation;
     public Vector3 scale;

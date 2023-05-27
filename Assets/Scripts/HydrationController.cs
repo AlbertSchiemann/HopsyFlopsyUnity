@@ -16,6 +16,9 @@ public class HydrationController : MonoBehaviour
 
     [SerializeField] private WaterGridBlock waterGridBlock; // Reference to WaterGridBlock script
 
+    public HydrationController hydrationController;
+    public GridCell gridCell;
+    public GameGrid gameGrid;
     public UI_LevelScript levelScript;
     public UI_Script_WaterBar waterBar;
 

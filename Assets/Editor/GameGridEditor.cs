@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-
+/*
 [CustomEditor(typeof(GameGrid))]
 public class GameGridEditor : Editor
 {
@@ -25,3 +25,4 @@ public class GameGridEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+*/

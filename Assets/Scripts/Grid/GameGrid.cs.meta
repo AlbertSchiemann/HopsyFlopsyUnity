@@ -3,8 +3,15 @@ guid: 1a900ae53bd55b245912655d760eb621
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
+  defaultReferences:
+  - waterBlockPrefab: {fileID: 1395000862042864183, guid: 8f228a39c9b64324dbe187e7c234e95b,
+      type: 3}
+  - hydrationController: {instanceID: 0}
+  - waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
+  - gridCell: {instanceID: 0}
+  - gridCellPrefab: {fileID: 1395000862042864183, guid: 2583300634df4874083f8838d4a31e78,
+      type: 3}
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

@@ -6,7 +6,12 @@ public class WaterGridBlock : MonoBehaviour
 {
     
     [SerializeField] private AudioClip[] _hydrateClip;
-    public HydrationController hydrationController; // Reference to HydrationController script
+    public HydrationController hydrationController;
+    public WaterGridBlock waterGridBlock;
+    public GridCell gridCell;
+    public GameGrid gameGrid;
+    
+     // Reference to HydrationController script
 
     private void OnTriggerEnter(Collider other)
     {
