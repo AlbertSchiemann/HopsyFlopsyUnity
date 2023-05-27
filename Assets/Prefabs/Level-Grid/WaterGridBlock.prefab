@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8862890272243420881}
+  - component: {fileID: -1591564321555928955}
   - component: {fileID: 12618231}
   - component: {fileID: 2579265927866136485}
   m_Layer: 0
@@ -131,6 +132,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1591564321555928955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395000862042864183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e78f11571eb88b43b508aa96e49abaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hydrationController: {fileID: 0}
+  waterGridBlock: {fileID: 12618231}
+  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
+  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
+    type: 3}
+  objectInThisGridSpace: {fileID: 0}
+  isOccupied: 0
 --- !u!114 &12618231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3bf979a63b7864eba03167dea22e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isCollidingWithWater: 0
+  _hydrateClip: []
   hydrationController: {fileID: 0}
+  waterGridBlock: {fileID: 12618231}
+  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
+  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
+    type: 3}
 --- !u!65 &2579265927866136485
 BoxCollider:
   m_ObjectHideFlags: 0

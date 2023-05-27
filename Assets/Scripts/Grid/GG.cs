@@ -25,7 +25,7 @@ public class GG : MonoBehaviour
     public WaterGridBlock waterGridBlock;
     public GridCell gridCell;
 
-    [HideInInspector] public bool isWaterGridBlock = false; // see if the Gridblock is also a WaterGridBlock
+    public bool isWaterGridBlock = false; // see if the Gridblock is also a WaterGridBlock
 
     [SerializeField] public GameObject waterBlockPrefab;
     

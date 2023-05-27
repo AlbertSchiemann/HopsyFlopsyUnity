@@ -164,5 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e78f11571eb88b43b508aa96e49abaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hydrationController: {fileID: 0}
+  waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
+  gridCell: {fileID: 397895690}
+  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
+    type: 3}
   objectInThisGridSpace: {fileID: 0}
   isOccupied: 0

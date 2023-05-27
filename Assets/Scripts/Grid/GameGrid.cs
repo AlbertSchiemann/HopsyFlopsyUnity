@@ -30,7 +30,7 @@ public class GameGrid : MonoBehaviour
     GameObject gridCellPrefab;
 
     // see which kind of gridblock we have
-    public bool isWaterGridBlock; 
+    private bool isWaterGridBlock; 
 
 
     private static GameObject[,] gameGrid;
@@ -41,7 +41,6 @@ public class GameGrid : MonoBehaviour
         _transform.position = position;
         _transform.eulerAngles = rotation;
         _transform.localScale = scale;
-        Debug.Log("Game Grid is awake.");
 
         // Implement the values of the public variables of GG
         if (ggScript != null)
@@ -69,7 +68,6 @@ public class GameGrid : MonoBehaviour
     {
         StartCoroutine (CreateGrid());
         //CreateGrid();
-        Debug.Log("Game Grid starts.");
     }
 
 
@@ -77,7 +75,6 @@ public class GameGrid : MonoBehaviour
     private IEnumerator CreateGrid()
     {
         gameGrid = new GameObject[width, length];
-        Debug.Log("Create Grid starts.");
 
         //check if a prefab is assigned 
         if (gridCellPrefab == null)
@@ -85,40 +82,44 @@ public class GameGrid : MonoBehaviour
             Debug.LogError("Grid Cell Prefab not assigned");
             yield return null;
         }
+        if (waterGridBlockPrefab == null)
+        {
+            Debug.LogError("WaterGridBlock Prefab not assigned");
+            yield return null;
+        }
 
         //Making of Grid
         for (int new_z = 0; new_z < length; new_z++) // Länge / Length
         {
             for (int new_y = 0; new_y < width; new_y++) //Breite / Width
-            {
-                Debug.Log("Making of Grid starts.");
-                
+            {           
                 int XCoordinate = new_y + 1; // for giving a correct location-name
                 int ZCoordinate = new_z + 1;
 
                 // Calculate the position using public position values
                 Vector3 cellPosition = new Vector3(position.x + new_y * gridSpacesize + gridSpacesize / 2f, 
-                position.y + 0.5f, position.z + new_z * gridSpacesize + gridSpacesize / 2f);
+                position.y + 0.5f, position.z + new_z * gridSpacesize + gridSpacesize / 2f);          
 
                 //new Gridspace object for each cell
                 if (!isWaterGridBlock)
-                    {
-                        gameGrid[new_y, new_z] = Instantiate(gridCellPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
-                        gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // save the position in the grid cell script - i guess 
-                        gameGrid[new_y, new_z].transform.parent = _transform;   // set scale, rotation, position
-                        gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name  
-                    }
+                {
+                    
+                    gameGrid[new_y, new_z] = Instantiate(gridCellPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
+                    gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // save the position in the grid cell script - i guess 
+                    gameGrid[new_y, new_z].transform.parent = _transform;   // set scale, rotation, position
+                    gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name  
+                    
+                }
                 
-
                 if (isWaterGridBlock)
-                    {
-                        gameGrid[new_y, new_z] = Instantiate(waterGridBlockPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
-                        gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // save the position in the grid cell script - i guess 
-                        gameGrid[new_y, new_z].transform.parent = _transform;   // set scale, rotation, position
-                        gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name 
-                    }
-                              
-
+                {
+                    gameGrid[new_y, new_z] = Instantiate(waterGridBlockPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
+                    gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // save the position in the grid cell script - i guess 
+                    gameGrid[new_y, new_z].transform.parent = _transform;   // set scale, rotation, position
+                    gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name 
+                    
+                }
+                 
                 yield return new WaitForSeconds(delayToSpawn); // Delay till next one spawns
             }
         }  

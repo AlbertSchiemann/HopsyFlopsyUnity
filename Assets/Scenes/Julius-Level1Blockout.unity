@@ -199,6 +199,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
+      propertyPath: gameGrid
+      value: 
+      objectReference: {fileID: 1727594197}
+    - target: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
+      propertyPath: gridCell
+      value: 
+      objectReference: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78,
+        type: 3}
+    - target: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
+      propertyPath: waterGridBlock
+      value: 
+      objectReference: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b,
+        type: 3}
+    - target: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
       propertyPath: hydrationController
       value: 
       objectReference: {fileID: 238744451}
@@ -282,11 +296,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e78f11571eb88b43b508aa96e49abaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterBlockObject: {fileID: 0}
-  hydrationController: {fileID: 0}
-  waterGridBlock: {fileID: 0}
-  gridCell: {fileID: 0}
-  gameGrid: {fileID: 0}
+  hydrationController: {fileID: 238744451}
+  waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
+  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
+  gameGrid: {fileID: 1727594197}
   objectInThisGridSpace: {fileID: 0}
   isOccupied: 0
 --- !u!4 &39741508 stripped
@@ -398,6 +411,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
+      propertyPath: gameGrid
+      value: 
+      objectReference: {fileID: 1727594197}
+    - target: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
+      propertyPath: gridCell
+      value: 
+      objectReference: {fileID: 850525223}
+    - target: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
+      propertyPath: waterGridBlock
+      value: 
+      objectReference: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b,
+        type: 3}
+    - target: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
+      propertyPath: hydrationController
+      value: 
+      objectReference: {fileID: 238744451}
     - target: {fileID: 1395000862042864183, guid: 2583300634df4874083f8838d4a31e78,
         type: 3}
       propertyPath: m_Name
@@ -3156,7 +3186,7 @@ MonoBehaviour:
   hydrationController: {fileID: 238744451}
   waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
   gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  isWaterGridBlock: 0
+  isWaterGridBlock: 1
   waterBlockPrefab: {fileID: 1395000862042864183, guid: 8f228a39c9b64324dbe187e7c234e95b,
     type: 3}
   gridCellPrefab: {fileID: 1395000862042864183, guid: 2583300634df4874083f8838d4a31e78,
@@ -4215,6 +4245,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842613511}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &850525223 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78,
+    type: 3}
+  m_PrefabInstance: {fileID: 65850388}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e78f11571eb88b43b508aa96e49abaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &882749771
 GameObject:
   m_ObjectHideFlags: 0
@@ -7433,6 +7475,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b,
         type: 3}
+    - target: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
+        type: 3}
+      propertyPath: isWaterGridBlock
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
         type: 3}
       propertyPath: hydrationController
