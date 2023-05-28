@@ -3186,7 +3186,7 @@ MonoBehaviour:
   hydrationController: {fileID: 238744451}
   waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
   gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  isWaterGridBlock: 1
+  isWaterGridBlock: 0
   waterBlockPrefab: {fileID: 1395000862042864183, guid: 8f228a39c9b64324dbe187e7c234e95b,
     type: 3}
   gridCellPrefab: {fileID: 1395000862042864183, guid: 2583300634df4874083f8838d4a31e78,
@@ -8143,43 +8143,35 @@ PrefabInstance:
       propertyPath: levelScript
       value: 
       objectReference: {fileID: 638259175}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: waterBar
       value: 
       objectReference: {fileID: 1458877731}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: levelScript
       value: 
       objectReference: {fileID: 638259175}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: hydrationMax
       value: 120
       objectReference: {fileID: 0}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: hydrationDecayRate
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: _failClip.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: _failClip.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: _hydrateClip.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1769269964939444847, guid: 9a76205c51fbedc45b1b29cc920e33b5,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: _hydrateClip.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}

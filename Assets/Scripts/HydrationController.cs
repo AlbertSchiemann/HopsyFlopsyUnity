@@ -64,10 +64,17 @@ public class HydrationController : MonoBehaviour
 
     public void LowerHydration()
     {
-        if (isCollidingWithWater == false)
+        if (!isCollidingWithWater)
         {
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
+            waterBar.SetHealth(hydration);
+        }
+        else
+        {
+            // Reset hydration to maximum if colliding with water
+            hydration += hydrationRestoreAmount * Time.deltaTime;
+            hydration = Mathf.Clamp(hydration, 0f, hydrationMax);
             waterBar.SetHealth(hydration);
         }
     }

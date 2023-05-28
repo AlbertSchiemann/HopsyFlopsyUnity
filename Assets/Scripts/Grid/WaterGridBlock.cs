@@ -36,6 +36,7 @@ public class WaterGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hydrationController.isCollidingWithWater = false; // Update the local variable
+            Debug.Log("Player left the water block.");
         }
     }
 }

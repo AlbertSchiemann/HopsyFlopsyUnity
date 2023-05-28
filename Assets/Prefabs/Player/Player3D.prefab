@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1818957037060881383}
   - component: {fileID: -3987775342021730185}
   - component: {fileID: 1457584486048905242}
-  - component: {fileID: 1769269964939444847}
   - component: {fileID: 7830886847906416693}
   - component: {fileID: 1860904833}
   - component: {fileID: 1860904834}
@@ -71,29 +70,6 @@ MonoBehaviour:
   levelScript: {fileID: 0}
   _failClip:
   - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
---- !u!114 &1769269964939444847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2260953583789165416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bf1af99caa7c7c418b1b34b22ddd5bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hydrationMax: 10
-  hydrationDecayRate: 10
-  hydrationRestoreAmount: 50
-  isCollidingWithWater: 0
-  Delay: 1
-  waterGridBlock: {fileID: 0}
-  levelScript: {fileID: 0}
-  waterBar: {fileID: 0}
-  _hydrateClip:
-  - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
-  _failClip: []
 --- !u!54 &7830886847906416693
 Rigidbody:
   m_ObjectHideFlags: 0
