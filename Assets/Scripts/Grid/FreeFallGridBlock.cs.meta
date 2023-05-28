@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e78f11571eb88b43b508aa96e49abaa
+guid: a303346e9254f874e96c6f1f013e5441
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -10,11 +10,10 @@ MonoImporter:
   - gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
   - gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
       type: 3}
-  - fireGridBlock: {fileID: 5522171207073094269, guid: dec4cb6caf12d034a8980de336fbec51,
-      type: 3}
   - freeFallGridBlock: {fileID: 6565122129936999412, guid: 80bbfc45ae3a73c4f8669f84932097a0,
       type: 3}
-  - objectInThisGridSpace: {instanceID: 0}
+  - fireGridBlock: {fileID: 5522171207073094269, guid: dec4cb6caf12d034a8980de336fbec51,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

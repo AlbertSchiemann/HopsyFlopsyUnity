@@ -10,6 +10,8 @@ public class WaterGridBlock : MonoBehaviour
     public WaterGridBlock waterGridBlock;
     public GridCell gridCell;
     public GameGrid gameGrid;
+    public FireGridBlock fireGridBlock;
+    public FreeFallGridBlock freeFallGridBlock;
     
      // Reference to HydrationController script
 
@@ -36,7 +38,7 @@ public class WaterGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hydrationController.isCollidingWithWater = false; // Update the local variable
-            Debug.Log("Player left the water block.");
+            //Debug.Log("Player left the water block.");
         }
     }
 }

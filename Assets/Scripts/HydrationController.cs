@@ -8,10 +8,13 @@ public class HydrationController : MonoBehaviour
 
     public float hydrationMax = 100f; // Maximum amount of Hydration
     public float hydrationDecayRate = 10f; // Rate in which the Hydration goes down 
+    public float hydrationDecayFire = 2f;
     public float hydrationRestoreAmount = 100f; // Rate in which Hydration gets restored in Water Tiles
 
     private float hydration; // Value of the Hydration
     public bool isCollidingWithWater = false; // Check if waterTile is colliding
+    public bool isCollidingWithFire = false; // Check if firetile is colliding
+
     public float Delay = 1.0f; // Delay till Scene gets reloaded
 
     [SerializeField] private WaterGridBlock waterGridBlock; // Reference to WaterGridBlock script
@@ -21,6 +24,8 @@ public class HydrationController : MonoBehaviour
     public GameGrid gameGrid;
     public UI_LevelScript levelScript;
     public UI_Script_WaterBar waterBar;
+    public FireGridBlock fireGridBlock;
+    public FreeFallGridBlock freeFallGridBlock;
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
@@ -40,7 +45,7 @@ public class HydrationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate ()
     {
         
         if (isHydrationActivated == false) 
@@ -52,15 +57,14 @@ public class HydrationController : MonoBehaviour
         {
             RestoreHydration();
             LowerHydration();
-            CheckHydrationDeathCondition();   
+            LowerHydrationOnFire(); 
+            CheckHydrationDeathCondition(); 
+             
         }
     }
     
 
-    public bool IsCollidingWithWater()
-    {
-        return isCollidingWithWater = true;
-    }
+   
 
     public void LowerHydration()
     {
@@ -69,20 +73,38 @@ public class HydrationController : MonoBehaviour
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
             waterBar.SetHealth(hydration);
+            //Debug.Log("no water, normal dehydration");
         }
         else
         {
+            //Debug.Log("colliding with water");
             // Reset hydration to maximum if colliding with water
             hydration += hydrationRestoreAmount * Time.deltaTime;
             hydration = Mathf.Clamp(hydration, 0f, hydrationMax);
-            waterBar.SetHealth(hydration);
+            waterBar.SetHealth(hydration);           
         }
     }
+
+    public void LowerHydrationOnFire()
+    {
+        if (isCollidingWithFire)
+        {
+            Debug.Log("colliding with fire");
+            hydration -= hydrationDecayRate * hydrationDecayFire * Time.deltaTime ;
+            waterBar.SetHealth(hydration);
+        }
+        else
+        {
+            //Debug.Log("no fire, normal dehydration");
+            return;
+        }
+    }
+    
 
     public void RestoreHydration()
     {
         // Restore Hydration if needed
-        if (isCollidingWithWater == true)
+        if (isCollidingWithWater)
         {
            
             if (hydration < hydrationMax)
@@ -101,7 +123,7 @@ public class HydrationController : MonoBehaviour
         if (hydration <= 0)
         {
             levelScript.OpenLoose();
-            SoundManager.Instance.PlaySound(_failClip);
+            //SoundManager.Instance.PlaySound(_failClip);
             Invoke("Sceneload", Delay);
             
         }

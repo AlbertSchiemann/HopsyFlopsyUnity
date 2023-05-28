@@ -14,6 +14,8 @@ public class GridCell : MonoBehaviour
     public WaterGridBlock waterGridBlock;
     public GridCell gridCell;
     public GameGrid gameGrid;
+    public FireGridBlock fireGridBlock;
+    public FreeFallGridBlock freeFallGridBlock;
 
     public GameObject objectInThisGridSpace; // variable can be used to reference any object that occupies the grid cell. It can be set to null if the cell is empty
 

@@ -24,6 +24,8 @@ public class GG : MonoBehaviour
     public HydrationController hydrationController;
     public WaterGridBlock waterGridBlock;
     public GridCell gridCell;
+    public FireGridBlock fireGridBlock;
+    public FreeFallGridBlock freeFallGridBlock;
 
     public bool isWaterGridBlock = false; // see if the Gridblock is also a WaterGridBlock
 

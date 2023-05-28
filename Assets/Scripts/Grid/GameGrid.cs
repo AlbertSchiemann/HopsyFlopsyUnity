@@ -24,6 +24,8 @@ public class GameGrid : MonoBehaviour
     public WaterGridBlock waterGridBlock;
     public GridCell gridCell;
     public GG ggScript;
+    public FireGridBlock fireGridBlock;
+    public FreeFallGridBlock freeFallGridBlock;
     
     // Different GridBlocks
     GameObject waterGridBlockPrefab;
