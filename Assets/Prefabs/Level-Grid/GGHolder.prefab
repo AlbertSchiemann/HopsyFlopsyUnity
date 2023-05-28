@@ -63,10 +63,17 @@ MonoBehaviour:
     type: 3}
   freeFallGridBlock: {fileID: 6565122129936999412, guid: 80bbfc45ae3a73c4f8669f84932097a0,
     type: 3}
+  isNormalGridBlock: 1
   isWaterGridBlock: 0
+  isFireGridBlock: 0
+  isFreeFallGridBlock: 0
   waterBlockPrefab: {fileID: 1395000862042864183, guid: 8f228a39c9b64324dbe187e7c234e95b,
     type: 3}
   gridCellPrefab: {fileID: 1395000862042864183, guid: 2583300634df4874083f8838d4a31e78,
+    type: 3}
+  fireGridBlockPrefab: {fileID: 6998130575842937162, guid: dec4cb6caf12d034a8980de336fbec51,
+    type: 3}
+  freeFallGridBlockPrefab: {fileID: 6603254241396769788, guid: 80bbfc45ae3a73c4f8669f84932097a0,
     type: 3}
 --- !u!1001 &7227940848088438609
 PrefabInstance:

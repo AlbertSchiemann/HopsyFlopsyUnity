@@ -175,6 +175,11 @@ MonoBehaviour:
     type: 3}
   fireGridBlock: {fileID: 5522171207073094269, guid: dec4cb6caf12d034a8980de336fbec51,
     type: 3}
+  levelScript: {fileID: 0}
+  _failClip: []
+  fallingAnimator: {fileID: -3905575413645458369, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+    type: 3}
+  Delay: 1
 --- !u!65 &607152469454086146
 BoxCollider:
   m_ObjectHideFlags: 0

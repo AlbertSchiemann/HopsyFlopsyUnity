@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 46317586619548279}
   - component: {fileID: 5756679227708634127}
   - component: {fileID: 4692158715023772499}
-  - component: {fileID: 8009168255268264191}
   - component: {fileID: 392718399713002783}
   m_Layer: 0
   m_Name: Cube
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8009168255268264191
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2831979091869929650}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.026076356, y: 0.006453594, z: 0.004656341}
-  m_Center: {x: 0.0018651807, y: -0.00025086224, z: 0.0020147653}
 --- !u!54 &392718399713002783
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,6 +150,8 @@ MonoBehaviour:
   pointA: {fileID: 0}
   pointB: {fileID: 0}
   moveSpeed: 1
+  levelScript: {fileID: 0}
+  _failClip: []
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,8 +163,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.030189408, y: 0.005928039, z: 0.0053263204}
-  m_Center: {x: 0.0039217058, y: 0.0010742884, z: -0.00007472113}
+  m_Size: {x: 0.020325065, y: 0.005928039, z: 0.003825403}
+  m_Center: {x: -0.00083199743, y: 0.0010742884, z: -0.000096094984}
 --- !u!54 &8108586346942303896
 Rigidbody:
   m_ObjectHideFlags: 0

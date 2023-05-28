@@ -26,11 +26,18 @@ public class GG : MonoBehaviour
     public GridCell gridCell;
     public FireGridBlock fireGridBlock;
     public FreeFallGridBlock freeFallGridBlock;
+    
 
+    public bool isNormalGridBlock = false; // see if the Gridblock is also a WaterGridBlock
     public bool isWaterGridBlock = false; // see if the Gridblock is also a WaterGridBlock
+    public bool isFireGridBlock = false; // see if the Gridblock is also a WaterGridBlock
+    public bool isFreeFallGridBlock = false; // see if the Gridblock is also a WaterGridBlock
 
     [SerializeField] public GameObject waterBlockPrefab;
     
     // Use the assigned Gameobject to copy from
     [SerializeField] public GameObject gridCellPrefab;
+
+    [SerializeField] public GameObject fireGridBlockPrefab;
+    [SerializeField] public GameObject freeFallGridBlockPrefab;
 }

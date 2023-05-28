@@ -30,9 +30,15 @@ public class GameGrid : MonoBehaviour
     // Different GridBlocks
     GameObject waterGridBlockPrefab;
     GameObject gridCellPrefab;
+    GameObject fireGridBlockPrefab;
+    GameObject freeFallGridBlockPrefab;
 
     // see which kind of gridblock we have
-    private bool isWaterGridBlock; 
+    
+    public bool isNormalGridBlock; 
+    public bool isWaterGridBlock;
+    public bool isFireGridBlock; 
+    public bool isFreeFallGridBlock;
 
 
     private static GameObject[,] gameGrid;
@@ -47,17 +53,27 @@ public class GameGrid : MonoBehaviour
         // Implement the values of the public variables of GG
         if (ggScript != null)
         {
-            waterGridBlockPrefab = ggScript.waterBlockPrefab;
-            gridCellPrefab = ggScript.gridCellPrefab;
             heigth = ggScript.heigth;
             width = ggScript.width;
             length = ggScript.length;
+
             gridSpacesize = ggScript.gridSpacesize;
             delayToSpawn = ggScript.delayToSpawn;
+
             position = ggScript.position;
             rotation = ggScript.rotation;
             scale = ggScript.scale;
+
             isWaterGridBlock = ggScript.isWaterGridBlock;
+            isFireGridBlock = ggScript.isFireGridBlock;
+            isNormalGridBlock = ggScript.isNormalGridBlock;
+            isFreeFallGridBlock = ggScript.isFreeFallGridBlock;
+
+            waterGridBlockPrefab = ggScript.waterBlockPrefab;
+            gridCellPrefab = ggScript.gridCellPrefab;
+            fireGridBlockPrefab = ggScript.fireGridBlockPrefab;
+            freeFallGridBlockPrefab = ggScript.freeFallGridBlockPrefab;
+
         }
         else
         {
@@ -89,6 +105,16 @@ public class GameGrid : MonoBehaviour
             Debug.LogError("WaterGridBlock Prefab not assigned");
             yield return null;
         }
+        if (freeFallGridBlockPrefab == null)
+        {
+            Debug.LogError("WaterGridBlock Prefab not assigned");
+            yield return null;
+        }
+        if (fireGridBlockPrefab == null)
+        {
+            Debug.LogError("WaterGridBlock Prefab not assigned");
+            yield return null;
+        }
 
         //Making of Grid
         for (int new_z = 0; new_z < length; new_z++) // Länge / Length
@@ -103,7 +129,7 @@ public class GameGrid : MonoBehaviour
                 position.y + 0.5f, position.z + new_z * gridSpacesize + gridSpacesize / 2f);          
 
                 //new Gridspace object for each cell
-                if (!isWaterGridBlock)
+                if (isNormalGridBlock)
                 {
                     
                     gameGrid[new_y, new_z] = Instantiate(gridCellPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
@@ -121,7 +147,27 @@ public class GameGrid : MonoBehaviour
                     gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name 
                     
                 }
-                 
+                if (isFireGridBlock)
+                {
+                    gameGrid[new_y, new_z] = Instantiate(fireGridBlockPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
+                    gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // save the position in the grid cell script - i guess 
+                    gameGrid[new_y, new_z].transform.parent = _transform;   // set scale, rotation, position
+                    gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name 
+                    
+                }
+                if (isFreeFallGridBlock)
+                {
+                    gameGrid[new_y, new_z] = Instantiate(freeFallGridBlockPrefab, cellPosition, transform.parent.rotation); // 3D Vector, so height = 0 
+                    gameGrid[new_y, new_z].GetComponent<GridCell>().SetPosition(new_y,new_z); // save the position in the grid cell script - i guess 
+                    gameGrid[new_y, new_z].transform.parent = _transform;   // set scale, rotation, position
+                    gameGrid[new_y, new_z].gameObject.name = "GridSpace (Y: " + XCoordinate.ToString() + ",Z: " + ZCoordinate.ToString() + ")"; // giving them a Location-name 
+                    
+                }
+                if (!isNormalGridBlock && !isWaterGridBlock && !isFireGridBlock && !isFreeFallGridBlock)
+                {
+                    Debug.LogError("Choose a Type of GridBlock for Creation!");
+                }
+                                 
                 yield return new WaitForSeconds(delayToSpawn); // Delay till next one spawns
             }
         }  
