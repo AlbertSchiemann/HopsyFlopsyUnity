@@ -8,6 +8,6 @@ public class UI_WinTrigger_Script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        levelScript.OpenWin();
+        levelScript.OpenLoose();
     }
 }
