@@ -1307,9 +1307,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5927572458015891324, guid: 4720595ce045d844eb3ea45e11378919,
+          type: 3}
         m_TargetAssemblyTypeName: C_UI_OpenOther, Assembly-CSharp
-        m_MethodName: ToLevel2
+        m_MethodName: ToNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
