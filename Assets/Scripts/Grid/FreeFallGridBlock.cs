@@ -14,6 +14,7 @@ public class FreeFallGridBlock : MonoBehaviour
 
     [SerializeField] private AudioClip[] _failClip;
     [SerializeField] private Animator fallingAnimator;
+    [SerializeField] public GameObject player;
 
     public float Delay = 1.0f; // Delay till Scene gets reloaded
 
@@ -23,6 +24,8 @@ public class FreeFallGridBlock : MonoBehaviour
         {
         
             Debug.Log("Player entered the wind block.");
+
+            player.GetComponent<Animator>().enabled = true;
             
             fallingAnimator.SetBool("FreeFallBool", true);
             
