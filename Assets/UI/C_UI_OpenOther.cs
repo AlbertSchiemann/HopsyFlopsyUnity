@@ -7,45 +7,44 @@ using UnityEngine.SceneManagement;
 
 public class C_UI_OpenOther : MonoBehaviour
 {
+    public void ToMain_Level()
+    {
+        SceneManager.LoadScene("Main_level");
+    }
     public void ToJulius()
     {
         SceneManager.LoadScene("Julius-Level1Blockout");
-        //SaveLastLevel();
     }
     public void ToDenis()
     {
         SceneManager.LoadScene("Denis-Level1Blockout");
-        //SaveLastLevel();
     }
     public void ToPatty()
     {
         SceneManager.LoadScene("Nyra-Level1Blockout");
-        //SaveLastLevel();
     }
     public void ToAlbert()
     {
         SceneManager.LoadScene("Albert-Level1Blockout");
-       // SaveLastLevel();
     }
     public void ToCarl()
     {
         SceneManager.LoadScene("Carl-Level1Blockout");
-        //SaveLastLevel();
     }
-
+    public void ToArtists()
+    {
+        SceneManager.LoadScene("Artist_Level");
+    }
     public void ToLevel1() {        
-        //SceneManager.LoadScene("Level1Blockout");
-       // SaveLastLevel();
+        SceneManager.LoadScene("Main_Level");
     }
     public void ToLevel2()
     {
         // SceneManager.LoadScene("UI testing");
-        //SaveLastLevel();
     }
     public void ToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-       // SaveLastLevel();
     }
 
     public void ToLastLevel() {
@@ -81,11 +80,8 @@ public class C_UI_OpenOther : MonoBehaviour
                 }
 
    
-    public static void SaveLastLevel()  {
-       // AlwaysThere.LastLevel = AlwaysThere.CurrentLevel;
-        Debug.Log(AlwaysThere.LastLevel);
+    public static void SaveLastLevel()  
+    {
         AlwaysThere.LastLevel = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(AlwaysThere.CurrentLevel);
-
     }
 }

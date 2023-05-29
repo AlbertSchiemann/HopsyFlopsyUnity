@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/UI/UI testing.unity
     guid: a271f9c66b2adee42afdc3b32257147d
   - enabled: 1
+    path: Assets/Scenes/Main_Level.unity
+    guid: 843fd389070fb704abc90490b9ea4283
+  - enabled: 1
     path: Assets/Scenes/Denis-Level1Blockout.unity
     guid: fe01559c1ec5a4a4c9dec7cffc3944c8
   - enabled: 1
@@ -26,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Julius-Level1Blockout.unity
     guid: 98ae48c5241a2eb43b2518484237b7c8
+  - enabled: 1
+    path: Assets/Scenes/Artist_Level.unity
+    guid: eefaf2e5d95b8c34782b0cf2e61339b3
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c0bf89014b740924992cc4fb6fba90fb,
       type: 2}
