@@ -26,9 +26,9 @@ public class FreeFallGridBlock : MonoBehaviour
             Debug.Log("Player entered the wind block.");
 
             player.GetComponent<Animator>().enabled = true;
-            
-            fallingAnimator.SetBool("FreeFallBool", true);
-            
+
+            player.GetComponent<Animator>().SetBool("fallingBool", true);
+
             Debug.Log("Player entered the wind block2.");
             
         }
