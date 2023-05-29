@@ -8,6 +8,8 @@ public class UI_WinTrigger_Script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        levelScript.OpenLoose();
+        Debug.Log("trigger scrpit 1st");
+        levelScript.OpenWin();
+        Debug.Log("trigger scrpit last");
     }
 }

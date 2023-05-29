@@ -81,8 +81,12 @@ public class UI_LevelScript : MonoBehaviour
     }
     public void OpenWin()
     {
+        Debug.Log("1st win");
+
         GameObject gameStateManager = GameObject.Find("GameStateManager");
         gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+
+        Debug.Log("LALALALA");
 
         darkerBackground.SetActive(true);
         winMenu.SetActive(true);
@@ -92,7 +96,7 @@ public class UI_LevelScript : MonoBehaviour
         if (WinCurrencyText==true) winCurrencyText.SetActive(true);
         else winCurrencyText.SetActive(false);
 
-        WON = true;
+       // WON = true;
 
     }
     public void OpenLoose()
