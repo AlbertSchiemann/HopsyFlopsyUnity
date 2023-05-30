@@ -14,9 +14,16 @@ public class FreeFallGridBlock : MonoBehaviour
 
     [SerializeField] private AudioClip[] _failClip;
     [SerializeField] private Animator fallingAnimator;
-    [SerializeField] public GameObject player;
+    
 
     public float Delay = 1.0f; // Delay till Scene gets reloaded
+
+    private PlayerInstantiate playerInstantiate;
+
+    private void Start()
+    {
+        playerInstantiate = PlayerInstantiate.Instance;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,9 +32,9 @@ public class FreeFallGridBlock : MonoBehaviour
         
             Debug.Log("Player entered the wind block.");
 
-            player.GetComponent<Animator>().enabled = true;
+            playerInstantiate.GetComponent<Animator>().enabled = true;
 
-            player.GetComponent<Animator>().SetBool("fallingBool", true);
+            playerInstantiate.GetComponent<Animator>().SetBool("fallingBool", true);
 
             Debug.Log("Player entered the wind block2.");
             

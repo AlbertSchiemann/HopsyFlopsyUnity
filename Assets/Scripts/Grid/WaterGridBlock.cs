@@ -15,6 +15,15 @@ public class WaterGridBlock : MonoBehaviour
     
      // Reference to HydrationController script
 
+    private PlayerInstantiate playerInstantiate;
+
+
+    private void Start()
+    {
+        hydrationController = HydrationController.Instance;
+        playerInstantiate = PlayerInstantiate.Instance;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

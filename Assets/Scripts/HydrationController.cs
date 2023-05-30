@@ -30,9 +30,30 @@ public class HydrationController : MonoBehaviour
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
 
+    private PlayerInstantiate playerInstantiate;
+
+
+
+    public static HydrationController Instance { get; private set; }  // Instantiatie the Hydration Controller to assign it automatically
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // Ensure only one instance of the HydrationController exists
+            return;
+        }
+
+        Instance = this;
+    }
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        playerInstantiate = PlayerInstantiate.Instance;
+        
         hydration = hydrationMax;
 
         waterBar.SetMaxHealth(hydrationMax);

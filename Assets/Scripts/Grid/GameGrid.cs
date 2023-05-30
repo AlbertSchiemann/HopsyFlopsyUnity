@@ -33,6 +33,8 @@ public class GameGrid : MonoBehaviour
     GameObject fireGridBlockPrefab;
     GameObject freeFallGridBlockPrefab;
 
+    private PlayerInstantiate playerInstantiate;
+
     // see which kind of gridblock we have
     
     public bool isNormalGridBlock; 
@@ -86,6 +88,7 @@ public class GameGrid : MonoBehaviour
     {
         StartCoroutine (CreateGrid());
         //CreateGrid();
+        playerInstantiate = PlayerInstantiate.Instance;
     }
 
 
