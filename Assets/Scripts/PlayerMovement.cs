@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             SoundManager.Instance.PlaySound(_moveClip);
             Debug.Log("Right");
         }
-
+        /*
         if (!isMoving && Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log("Right");
                 }
             }
-        }
+        }*/
     }
 
     public void MovePlayer()
