@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             direction = Vector3.left;
             isMoving = true;
             SoundManager.Instance.PlaySound(_moveClip);
-            gridPostionX++;
+            gridPostionX--;
             Debug.Log("Left");
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
             direction = Vector3.right;
             isMoving = true;
             SoundManager.Instance.PlaySound(_moveClip);
-            gridPostionX--;
+            gridPostionX++;
             Debug.Log("Right");
         }
     }
