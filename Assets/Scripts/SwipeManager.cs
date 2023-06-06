@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SwipeManager : MonoBehaviour
 {
-    public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown; // Check for touch-input
+    public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown, shortTap; // Check for touch-input
     private bool isDraging = false; // check for mouse-input
     private Vector2 startTouch, swipeDelta;
+    private float tapTimeThreshold = 0.2f;
+    private float tapTime;
 
     private void Update()
     {
-        tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
+        tap = swipeDown = swipeUp = swipeLeft = swipeRight = shortTap = false;
         
         // Desktop Input
         if (Input.GetMouseButtonDown(0))
@@ -18,10 +20,14 @@ public class SwipeManager : MonoBehaviour
             tap = true;
             isDraging = true;
             startTouch = Input.mousePosition;
+            tapTime = Time.time;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             isDraging = false;
+            float timeDelta = Time.time - tapTime;
+            if (timeDelta <= tapTimeThreshold && !swipeLeft && !swipeRight && !swipeUp && !swipeDown)
+                shortTap = true;
             Reset();
         }
         
@@ -34,10 +40,14 @@ public class SwipeManager : MonoBehaviour
                 tap = true;
                 isDraging = true;
                 startTouch = Input.touches[0].position;
+                tapTime = Time.time;
             }
             else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
             {
                 isDraging = false;
+                float timeDelta = Time.time - tapTime;
+                if (timeDelta <= tapTimeThreshold && !swipeLeft && !swipeRight && !swipeUp && !swipeDown)
+                    shortTap = true;
                 Reset();
             }
         }
@@ -80,7 +90,6 @@ public class SwipeManager : MonoBehaviour
         }
 
     }
-
     private void Reset()
     {
         startTouch = swipeDelta = Vector2.zero;

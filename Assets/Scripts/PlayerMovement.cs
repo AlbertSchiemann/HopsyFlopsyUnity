@@ -47,6 +47,17 @@ public class PlayerMovement : MonoBehaviour
     public void CheckInput()
     {
         // check for input events and set the target position
+
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
+        {
+            targetPosition = transform.position + Vector3.forward * gridSize;
+            direction = Vector3.forward;
+            isMoving = true;
+            SoundManager.Instance.PlaySound(_moveClip);
+            gridPostionZ++;
+            Debug.Log("TapForward");
+        }
+
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
         {
             targetPosition = transform.position + Vector3.forward * gridSize;
