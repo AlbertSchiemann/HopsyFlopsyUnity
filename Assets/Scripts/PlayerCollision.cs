@@ -10,10 +10,10 @@ public class PlayerCollision : MonoBehaviour
 
     public float RayRange = 1;
 
-    public Vector3 forwardRay = new Vector3(0, 1, 0);
-    public Vector3 backwardRay = new Vector3(0, -1, 0);
-    public Vector3 rightRay = new Vector3(-1, 0, 0);
-    public Vector3 leftRay = new Vector3(1, 0, 0);
+    [HideInInspector] public Vector3 forwardRay = new Vector3(0, 1, 0);
+    [HideInInspector] public Vector3 backwardRay = new Vector3(0, -1, 0);
+    [HideInInspector] public Vector3 rightRay = new Vector3(-1, 0, 0);
+    [HideInInspector] public Vector3 leftRay = new Vector3(1, 0, 0);
 
     public Ray rayCastForw;
     public Ray rayCastBackw;

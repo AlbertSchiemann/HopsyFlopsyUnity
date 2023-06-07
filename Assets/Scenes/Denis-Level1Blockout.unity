@@ -955,6 +955,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11651762, y: 0.19999996, z: 0.42782587}
   m_Center: {x: 0.28632218, y: 0.5, z: 0.0024347901}
+--- !u!1 &193945128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2260953583789165416, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1982161065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &209908544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8087,7 +8093,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1982161065}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 193945128}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4017583854de8774ab6f4f196f502b98, type: 3}
@@ -8266,6 +8272,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3987775342021730185, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+        type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 193945128}
+    - target: {fileID: -3987775342021730185, guid: 9a76205c51fbedc45b1b29cc920e33b5,
+        type: 3}
+      propertyPath: playerRotate
+      value: 
+      objectReference: {fileID: 1860904828}
     - target: {fileID: -3987775342021730185, guid: 9a76205c51fbedc45b1b29cc920e33b5,
         type: 3}
       propertyPath: collisionChecker
