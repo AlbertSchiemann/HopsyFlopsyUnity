@@ -17,9 +17,25 @@ public enum GridBlockTypeToChoose {
 }
     
 public class Grid : MonoBehaviour{
-    public static void Start() {
-        Grid2DCreated sg = new Grid2DCreated();
-        
+
+    [SerializeField] public GameObject NormalBlockPrefab;
+    [SerializeField] public GameObject NormalBlockBlockedPrefab;
+    [SerializeField] public GameObject BridgePrefab;
+    [SerializeField] public GameObject BridgeBlockedPrefab;
+    [SerializeField] public GameObject WaterPrefab;
+    [SerializeField] public GameObject WaterBlockedPrefab;
+    [SerializeField] public GameObject FirePrefab;
+    [SerializeField] public GameObject FireBlockedPrefab;
+    [SerializeField] public GameObject FreeFallPrefab;
+    [SerializeField] public GameObject GoalPrefab;
+    [SerializeField] public GameObject RespawnPrefab;
+
+    //public int Length;
+    //public int Width;
+
+    public void Start() {
+        Grid2DCreated sg = ScriptableObject.CreateInstance<Grid2DCreated>();
+        sg.Initialize(this);
         PlayerFish playerFish = new PlayerFish(1, 1, sg);
         
         
@@ -50,12 +66,13 @@ public class Grid : MonoBehaviour{
     
 }
 
-public class Grid2DCreated {   
+public class Grid2DCreated : ScriptableObject  {   
 
-    int[,] blocks;
-    
-    public Grid2DCreated() {
-        this.blocks = new int[,] {
+    int[,] blocks;      // Int Array for the Grid
+    GameObject[] prefabs;   // Array for the Prefabs
+
+    public void Initialize(Grid grid) {
+        blocks = new int[,] {
                 // y (up) ->
             //{5, 5, 5, 5}, // x (right)
             //{5, 1, 2, 5}, // |
@@ -64,23 +81,39 @@ public class Grid2DCreated {
             //{5, 5, 5, 5}
 
             {1,  1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1},      // ---------------------------------  // surrounded by walls
-            {1, 10, 0, 7, 8, 8, 8, 1,  5, 5, 0, 7, 1},      // | R   FB  A  A  A  |  W  W   FB |  // 2 ways
+            {1, 10, 0, 7, 8, 8, 8, 1,  5, 5, 0, 7, 1},      // | R   FB  A  A  A  -  W  W   FB |  // 2 ways
             {1,  4, 0, 6, 2, 2, 2, 4, 10, 4, 0, 6, 1},      // | W    F  B  B  B  W  R  W    F |  // R-Respawn, -normal, F-Fire, FB-Blocking Fire, A-Air  
             {1,  0, 0, 0, 2, 3, 2, 5,  4, 5, 1, 0, 1},      // |         B BB  B WB  W WB -    |  // B-Bridge,BB-Blocked Bridge, W-Water, WB-Blocking Water
             {1,  0, 1, 1, 8, 8, 8, 8,  1, 1, 0, 6, 1},      // |   -  -  A  A  A  A  -  -    F |  // G-Goal
             {1,  0, 4, 4, 0, 6, 6, 6,  6, 0, 0, 6, 1},      // |   W  W     F  F  F  F       F |
-            {1,  4, 4, 5, 6, 6, 7, 7,  1, 4, 0, 9, 1},      // | W W WB  F  F FB FB  |  W    G |
+            {1,  4, 4, 5, 6, 6, 7, 7,  1, 4, 0, 9, 1},      // | W W WB  F  F FB FB  -  W    G |
             {1,  1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1}       // ---------------------------------
         };
         
-        writeBlocks(blocks);
+        prefabs = new GameObject[] {
+            grid.NormalBlockPrefab,          // 0
+            grid.NormalBlockBlockedPrefab,   // 1
+            grid.BridgePrefab,               // 2
+            grid.BridgeBlockedPrefab,        // 3
+            grid.WaterPrefab,                // 4
+            grid.WaterBlockedPrefab,         // 5
+            grid.FirePrefab,                 // 6
+            grid.FireBlockedPrefab,          // 7
+            grid.FreeFallPrefab,             // 8
+            grid.GoalPrefab,                  // 9
+            grid.RespawnPrefab               // 10
+        };
+
+        //WriteBlocks();
     }
+
+    
     
     public GridBlockTypeToChoose getBlockAt(int x, int y) {
         return (GridBlockTypeToChoose) blocks[x,y];
     }
     
-    static void writeBlocks(int[,] blocks) {
+    /*static void writeBlocks(int[,] blocks) {
         for (int row = 0; row < blocks.GetLength(0); row++) {
             for (int col = 0 ; col < blocks.GetLength(1); col++) {
                 Debug.Log((GridBlockTypeToChoose) blocks[row, col] + " ");
@@ -88,23 +121,41 @@ public class Grid2DCreated {
             Debug.Log("1");
         }
         Debug.Log("2");
+    } */
+    void WriteBlocks() {
+        //Length = blocks.GetLength(0);
+        //Width = blocks.GetLength(1);
+        int numRows = blocks.GetLength(0);
+        int numCols = blocks.GetLength(1);
+
+        for (int row = 0; row < numRows; row++) {
+            for (int col = 0; col < numCols; col++) {
+                int blockValue = blocks[row, col];
+                GridBlockTypeToChoose blockType = (GridBlockTypeToChoose)blockValue;
+                GameObject prefab = prefabs[blockValue];
+
+                // Instantiate the prefab at the corresponding position
+                Vector3 position = new Vector3(col, 0, row); // Assuming 2D grid with Y=0
+                Instantiate(prefab, position, Quaternion.identity);
+            }
+        }
     }
 }
 
-class PlayerFish {
+class PlayerFish {              // when Player gets called, he gets a starting-position and the grid reference
     int posX; 
     int posY;
     Grid2DCreated grid;
     
-    public PlayerFish(int x, int y, Grid2DCreated grid) {
-        this.posX = x;
+    public PlayerFish(int x, int y, Grid2DCreated grid) {  // Constructor: Player gets the Position of the Block he is on
+        this.posX = x;  
         this.posY = y;
         this.grid = grid;
         
-        blockBelow();
+        checkBlockBelow();   // Console Output for the current Block
     }
     
-    public void move(int x, int y) {
+    public void Move(int x, int y) {
         int nuPosX = this.posX + x;
         int nuPosY = this.posY + y;
         Debug.Log($"Checking Block at: { nuPosX } , { nuPosY }");
@@ -115,50 +166,50 @@ class PlayerFish {
             this.posX = nuPosX;
             this.posY = nuPosY;
             Debug.Log("It feels pretty normal here!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
             Debug.Log("There is a blocking Object here!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.Bridge){
             this.posX = nuPosX;
             this.posY = nuPosY;
             Debug.Log("Its getting shaky - Bridgeblock!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.BridgeBlocked){
             Debug.Log("There is a blocking Object on the Bridge!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.Water){
             this.posX = nuPosX;
             this.posY = nuPosY;
             Debug.Log("Its getting nice and wet in here - Waterblock!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.WaterBlocked){
             Debug.Log("There is a blocking Object in the Water!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.Fire){
             this.posX = nuPosX;
             this.posY = nuPosY;
             Debug.Log("Its getting hot in here - Fireblock!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.FireBlocked){
             Debug.Log("There is a blocking Object in the Fire!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.FreeFall) {
             Debug.Log("I should fall down rigth now!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else if (block == GridBlockTypeToChoose.Goal) {
             this.posX = nuPosX;
             this.posY = nuPosY;
-            blockBelow();
+            checkBlockBelow();
             Debug.Log("YOU WIN! - Goalblock!");
             return;
         } else if (block == GridBlockTypeToChoose.Respawn){
@@ -166,37 +217,36 @@ class PlayerFish {
             this.posY = nuPosY;
             Debug.Log("I could respawn here!");
             Debug.Log("Its also wet in here!");
-            blockBelow();
+            checkBlockBelow();
             return;
         } else {
             Debug.LogError("Not a gridBlock!");
         }
-        
     }
     public void moveLeft () {
         int x = -1;
         int y = 0;
-        move(x, y);
+        Move(x, y);
 
     }
     public void moveRight () {
         int x = 1;
         int y = 0;
-        move(x, y);
+        Move(x, y);
     }
     public void moveUp () {
         int x = 0;
         int y = 1;
-        move(x, y);
+        Move(x, y);
     }
     public void moveDown () {
         int x = 0;
         int y = -1;
-        move(x, y);
+        Move(x, y);
     }
 
 
-    void blockBelow() {
+    void checkBlockBelow() {
         Debug.Log($"Position: { this.posX } , { this.posY }");
         Debug.Log($"Im on a: { grid.getBlockAt(this.posX, this.posY) } block!");
     }
