@@ -62,6 +62,41 @@ public class Grid : MonoBehaviour{
         playerFish.moveRight();
         playerFish.moveRight();
         playerFish.moveUp();    //Goal
+
+        if (NormalBlockPrefab == null){
+            Debug.LogError("No NormalBlockPrefab assigned!");
+        }
+        if (NormalBlockBlockedPrefab == null) {
+            Debug.LogError("No NormalBlockBlockedPrefab assigned!");
+        }
+        if (BridgePrefab == null) {
+            Debug.LogError("No BridgePrefab assigned!");
+        }
+        if (BridgeBlockedPrefab == null) {
+            Debug.LogError("No BridgeBlockedPrefab assigned!");
+        }
+        if (WaterPrefab == null) {
+            Debug.LogError("No WaterPrefab assigned!");
+        }
+        if (WaterBlockedPrefab == null) {
+            Debug.LogError("No WaterBlockedPrefab assigned!");
+        }
+        if (FirePrefab == null) {
+            Debug.LogError("No FirePrefab assigned!");
+        }
+        if (FireBlockedPrefab == null) {
+            Debug.LogError("No FireBlockedPrefab assigned!");
+        }
+        if (FreeFallPrefab == null) {
+            Debug.LogError("No FreeFallPrefab assigned!");
+        }
+        if (GoalPrefab == null) {
+            Debug.LogError("No GoalPrefab assigned!");
+        }
+        if (RespawnPrefab == null) {
+            Debug.LogError("No RespawnPrefab assigned!");
+        }
+
     }
     
 }
@@ -91,20 +126,20 @@ public class Grid2DCreated : ScriptableObject  {
         };
         
         prefabs = new GameObject[] {
-            grid.NormalBlockPrefab,          // 0
-            grid.NormalBlockBlockedPrefab,   // 1
-            grid.BridgePrefab,               // 2
-            grid.BridgeBlockedPrefab,        // 3
-            grid.WaterPrefab,                // 4
-            grid.WaterBlockedPrefab,         // 5
-            grid.FirePrefab,                 // 6
-            grid.FireBlockedPrefab,          // 7
-            grid.FreeFallPrefab,             // 8
-            grid.GoalPrefab,                  // 9
+            grid.NormalBlockPrefab,          //  0
+            grid.NormalBlockBlockedPrefab,   //  1
+            grid.BridgePrefab,               //  2
+            grid.BridgeBlockedPrefab,        //  3
+            grid.WaterPrefab,                //  4
+            grid.WaterBlockedPrefab,         //  5
+            grid.FirePrefab,                 //  6
+            grid.FireBlockedPrefab,          //  7
+            grid.FreeFallPrefab,             //  8
+            grid.GoalPrefab,                 //  9
             grid.RespawnPrefab               // 10
         };
 
-        //WriteBlocks();
+        WriteBlocks();
     }
 
     
@@ -122,21 +157,25 @@ public class Grid2DCreated : ScriptableObject  {
         }
         Debug.Log("2");
     } */
-    void WriteBlocks() {
+    void WriteBlocks() 
+    {
         //Length = blocks.GetLength(0);
         //Width = blocks.GetLength(1);
         int numRows = blocks.GetLength(0);
         int numCols = blocks.GetLength(1);
+        float blockSize = .5f;
 
-        for (int row = 0; row < numRows; row++) {
-            for (int col = 0; col < numCols; col++) {
-                int blockValue = blocks[row, col];
-                GridBlockTypeToChoose blockType = (GridBlockTypeToChoose)blockValue;
-                GameObject prefab = prefabs[blockValue];
+        for (int row = 0; row < numRows; row++) 
+        {
+            for (int col = 0; col < numCols; col++) 
+            {
+                int blockValue = blocks[row, col];                                                   // asking for the size of each direction
+                GridBlockTypeToChoose blockType = (GridBlockTypeToChoose)blockValue;                 // asking for the type of the block
+                GameObject prefab = prefabs[blockValue];                                             // asking for the prefab in the spot
 
                 // Instantiate the prefab at the corresponding position
-                Vector3 position = new Vector3(col, 0, row); // Assuming 2D grid with Y=0
-                Instantiate(prefab, position, Quaternion.identity);
+                Vector3 position = new Vector3(col * blockSize, 0 ,(numRows - 1 - row) * blockSize); // managing the blocksize of .5 and the grid beeing bottom up
+                Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
             }
         }
     }
