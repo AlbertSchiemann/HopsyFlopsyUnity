@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/UI/Tutorials/5minToolkit_Tut.unity
     guid: 78a204bd37bdfa141b129f35848049fa
   - enabled: 1
-    path: Assets/UI/Tutorials/CocoToolkit_Tut.unity
+    path: Assets/UI/Tutorials/Toolkit_Coco/CocoToolkit_Tut.unity
     guid: 75272d94b5563464ba1f7f4c3e0028e0
   - enabled: 1
     path: Assets/UI/Tutorials/PageUI_Tut.unity
