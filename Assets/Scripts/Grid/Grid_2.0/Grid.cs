@@ -30,38 +30,11 @@ public class Grid : MonoBehaviour{
     [SerializeField] public GameObject GoalPrefab;
     [SerializeField] public GameObject RespawnPrefab;
 
-    //public int Length;
-    //public int Width;
 
     public void Start() {
+        
         Grid2DCreated sg = ScriptableObject.CreateInstance<Grid2DCreated>();
-        sg.Initialize(this);
-        PlayerFish playerFish = new PlayerFish(1, 1, sg);
-        
-        
-        playerFish.moveUp();
-        playerFish.moveRight();
-        playerFish.moveDown();
-        playerFish.moveLeft();
-
-        playerFish.moveUp(); 
-        playerFish.moveRight();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveUp();
-        playerFish.moveRight();
-        playerFish.moveRight();
-        playerFish.moveRight();
-        playerFish.moveDown();
-        playerFish.moveRight();
-        playerFish.moveRight();
-        playerFish.moveUp();    //Goal
+        sg.Initialize(this, FindObjectOfType<GridPlayerMovement>()); // Pass the GridPlayerMovement instance
 
         if (NormalBlockPrefab == null){
             Debug.LogError("No NormalBlockPrefab assigned!");
@@ -96,24 +69,20 @@ public class Grid : MonoBehaviour{
         if (RespawnPrefab == null) {
             Debug.LogError("No RespawnPrefab assigned!");
         }
-
     }
-    
 }
 
 public class Grid2DCreated : ScriptableObject  {   
 
-    int[,] blocks;      // Int Array for the Grid
+    public int [,] blocks;      // Int Array for the Grid
     GameObject[] prefabs;   // Array for the Prefabs
 
-    public void Initialize(Grid grid) {
+    public void Initialize(Grid grid, GridPlayerMovement playerMovement) {
         blocks = new int[,] {
                 // y (up) ->
-            //{5, 5, 5, 5}, // x (right)
-            //{5, 1, 2, 5}, // |
-            //{5, 2, 2, 5}, // V
-            //{5, 3, 0, 6},
-            //{5, 5, 5, 5}
+                                // x (right)
+                                // |
+                                // V
 
             {1,  1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1},      // ---------------------------------  // surrounded by walls
             {1, 10, 0, 7, 8, 8, 8, 1,  5, 5, 0, 7, 1},      // | R   FB  A  A  A  -  W  W   FB |  // 2 ways
@@ -140,23 +109,15 @@ public class Grid2DCreated : ScriptableObject  {
         };
 
         WriteBlocks();
+
+        //playerMovement.CheckBlockBelow();
     }
 
-    
-    
     public GridBlockTypeToChoose getBlockAt(int x, int y) {
-        return (GridBlockTypeToChoose) blocks[x,y];
+        //return (GridBlockTypeToChoose) blocks[x,y];
+        return (GridBlockTypeToChoose)blocks[y, x];
     }
     
-    /*static void writeBlocks(int[,] blocks) {
-        for (int row = 0; row < blocks.GetLength(0); row++) {
-            for (int col = 0 ; col < blocks.GetLength(1); col++) {
-                Debug.Log((GridBlockTypeToChoose) blocks[row, col] + " ");
-            }
-            Debug.Log("1");
-        }
-        Debug.Log("2");
-    } */
     void WriteBlocks() 
     {
         //Length = blocks.GetLength(0);
@@ -178,115 +139,5 @@ public class Grid2DCreated : ScriptableObject  {
                 Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
             }
         }
-    }
-}
-
-class PlayerFish {              // when Player gets called, he gets a starting-position and the grid reference
-    int posX; 
-    int posY;
-    Grid2DCreated grid;
-    
-    public PlayerFish(int x, int y, Grid2DCreated grid) {  // Constructor: Player gets the Position of the Block he is on
-        this.posX = x;  
-        this.posY = y;
-        this.grid = grid;
-        
-        checkBlockBelow();   // Console Output for the current Block
-    }
-    
-    public void Move(int x, int y) {
-        int nuPosX = this.posX + x;
-        int nuPosY = this.posY + y;
-        Debug.Log($"Checking Block at: { nuPosX } , { nuPosY }");
-        GridBlockTypeToChoose block = this.grid.getBlockAt(nuPosX, nuPosY);
-
-        
-        if (block == GridBlockTypeToChoose.NormalBlock){
-            this.posX = nuPosX;
-            this.posY = nuPosY;
-            Debug.Log("It feels pretty normal here!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
-            Debug.Log("There is a blocking Object here!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.Bridge){
-            this.posX = nuPosX;
-            this.posY = nuPosY;
-            Debug.Log("Its getting shaky - Bridgeblock!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.BridgeBlocked){
-            Debug.Log("There is a blocking Object on the Bridge!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.Water){
-            this.posX = nuPosX;
-            this.posY = nuPosY;
-            Debug.Log("Its getting nice and wet in here - Waterblock!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.WaterBlocked){
-            Debug.Log("There is a blocking Object in the Water!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.Fire){
-            this.posX = nuPosX;
-            this.posY = nuPosY;
-            Debug.Log("Its getting hot in here - Fireblock!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.FireBlocked){
-            Debug.Log("There is a blocking Object in the Fire!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.FreeFall) {
-            Debug.Log("I should fall down rigth now!");
-            checkBlockBelow();
-            return;
-        } else if (block == GridBlockTypeToChoose.Goal) {
-            this.posX = nuPosX;
-            this.posY = nuPosY;
-            checkBlockBelow();
-            Debug.Log("YOU WIN! - Goalblock!");
-            return;
-        } else if (block == GridBlockTypeToChoose.Respawn){
-            this.posX = nuPosX;
-            this.posY = nuPosY;
-            Debug.Log("I could respawn here!");
-            Debug.Log("Its also wet in here!");
-            checkBlockBelow();
-            return;
-        } else {
-            Debug.LogError("Not a gridBlock!");
-        }
-    }
-    public void moveLeft () {
-        int x = -1;
-        int y = 0;
-        Move(x, y);
-
-    }
-    public void moveRight () {
-        int x = 1;
-        int y = 0;
-        Move(x, y);
-    }
-    public void moveUp () {
-        int x = 0;
-        int y = 1;
-        Move(x, y);
-    }
-    public void moveDown () {
-        int x = 0;
-        int y = -1;
-        Move(x, y);
-    }
-
-
-    void checkBlockBelow() {
-        Debug.Log($"Position: { this.posX } , { this.posY }");
-        Debug.Log($"Im on a: { grid.getBlockAt(this.posX, this.posY) } block!");
     }
 }
