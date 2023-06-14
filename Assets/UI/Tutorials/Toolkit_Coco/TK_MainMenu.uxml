@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Tutorials/but.uss?fileID=7433441132597879392&amp;guid=1bb9b4910f2a07d46914c0db5fff1a29&amp;type=3#but" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(0, 142, 124); align-items: center; justify-content: center;">
+        <ui:VisualElement style="height: 512px; width: 397px; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; background-color: rgb(255, 255, 255); justify-content: center; align-items: center;">
+            <ui:Label text="Main Menu" display-tooltip-when-elided="true" style="font-size: 25px; -unity-font-style: bold; -unity-text-align: upper-center; position: absolute; top: 20px;" />
+            <ui:Button text="Play Last" display-tooltip-when-elided="true" name="play_but" class="buttonStyleMain but" />
+            <ui:Button text="Show Message" display-tooltip-when-elided="true" name="message_but" class="but" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="message_text" style="display: none; position: absolute; bottom: 40px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
