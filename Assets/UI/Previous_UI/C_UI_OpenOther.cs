@@ -9,7 +9,7 @@ public class C_UI_OpenOther : MonoBehaviour
 {
     public void ToMain_Level()
     {
-        SceneManager.LoadScene("Main_level");
+        SceneManager.LoadScene("Main_Level");
     }
     public void ToJulius()
     {
