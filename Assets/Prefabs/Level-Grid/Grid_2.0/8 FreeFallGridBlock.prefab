@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6145548669919516476}
   - component: {fileID: 4693358583193490704}
   - component: {fileID: 6565122129936999412}
+  - component: {fileID: 8978592160648575819}
   m_Layer: 0
   m_Name: 8 FreeFallGridBlock
   m_TagString: GridCell
@@ -179,3 +180,16 @@ MonoBehaviour:
   fallingAnimator: {fileID: -3905575413645458369, guid: 9a76205c51fbedc45b1b29cc920e33b5,
     type: 3}
   Delay: 1
+--- !u!114 &8978592160648575819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603254241396769788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72174d4515baf06439474b4930d5180f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBlocking: 0

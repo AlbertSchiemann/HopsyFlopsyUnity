@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8862890272243420881}
   - component: {fileID: 397895690}
+  - component: {fileID: 2666400269751423871}
   m_Layer: 0
   m_Name: 3 BridgeBlockBlocked
   m_TagString: GridCell
@@ -154,3 +155,16 @@ MonoBehaviour:
     type: 3}
   objectInThisGridSpace: {fileID: 0}
   isOccupied: 0
+--- !u!114 &2666400269751423871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395000862042864183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c82118f83a243409d55b135d19c413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBlocking: 1

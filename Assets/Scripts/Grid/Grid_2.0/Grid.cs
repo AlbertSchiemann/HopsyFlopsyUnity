@@ -15,6 +15,22 @@ public enum GridBlockTypeToChoose {
     Goal,               //9
     Respawn             //10
 }
+
+public enum BlockingGridBlockTypes {
+    NormalBlockBlocked, //1
+    BridgeBlocked,      //3
+    WaterBlocked,       //5
+    FireBlocked        //7
+}
+public enum NotBlockingGridBlockTypes {
+    NormalBlock,        //0
+    Bridge,             //2
+    Water,              //4
+    Fire,               //6
+    FreeFall,           //8
+    Goal,               //9
+    Respawn             //10
+}
     
 public class Grid : MonoBehaviour{
 

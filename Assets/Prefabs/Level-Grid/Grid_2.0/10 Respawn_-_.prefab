@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8862890272243420881}
   - component: {fileID: 397895690}
+  - component: {fileID: 5695051695681414357}
   m_Layer: 0
   m_Name: 10 Respawn_-_
   m_TagString: GridCell
@@ -154,3 +155,16 @@ MonoBehaviour:
     type: 3}
   objectInThisGridSpace: {fileID: 0}
   isOccupied: 0
+--- !u!114 &5695051695681414357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395000862042864183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72174d4515baf06439474b4930d5180f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBlocking: 0

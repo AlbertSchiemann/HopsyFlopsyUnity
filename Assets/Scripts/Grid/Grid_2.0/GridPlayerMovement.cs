@@ -13,19 +13,10 @@ public class GridPlayerMovement : MonoBehaviour
     void Start()
     {
         grid2dCreated = grid.getGridCreated();
-        //grid = FindObjectOfType<Grid2DCreated>(); // Find the existing Grid2DCreated instance
-        //grid = ScriptableObject.CreateInstance<Grid2DCreated>();
-        //grid.Initialize(this); // Pass the current instance of GridPlayerMovement to the Initialize method
         
         print(grid2dCreated);
         
         InstantiatePlayer();
-
-        //playerPosition = new PlayerPosition(1, 1, grid, playerPrefab); // Instantiate PlayerPosition and pass the playerPrefab
-
-        // Set the initial position of the GameObject
-        //transform.position = new Vector3(playerPosition.posX, 0, playerPosition.posY);
-    
     }
 
     void FixedUpdate()
@@ -45,7 +36,7 @@ public class GridPlayerMovement : MonoBehaviour
     {
         playerPosition = new PlayerPosition(1, 1, grid2dCreated, playerPrefab);
     }
-
+        
     private void UpdateGameObjectPosition()
     {
         transform.position = new Vector3(playerPosition.posX, 1, playerPosition.posY);
@@ -72,14 +63,7 @@ public class GridPlayerMovement : MonoBehaviour
             CheckBlockBelow();
         }
         
-       /* private void InstantiatePlayer()
-        {
-            if (player == null)
-            {
-                player = Instantiate(playerPrefab, new Vector3(posX, 0, posY), Quaternion.identity);
-            }
-        }
-        */
+       
         
         public void CheckInput()
         {
@@ -117,75 +101,25 @@ public class GridPlayerMovement : MonoBehaviour
                 Debug.Log("Right");
             }
         }
-        
-        /*
-        void Start() {
 
-            PlayerPosition player = new PlayerPosition(0, 0, sg);
-            PlayerPosition playerFish = new PlayerPosition(1, 1, sg);
-            
-            
-            playerFish.moveUp();
-            playerFish.moveRight();
-            playerFish.moveDown();
-            playerFish.moveLeft();
-
-            playerFish.moveUp(); 
-            playerFish.moveRight();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveUp();
-            playerFish.moveRight();
-            playerFish.moveRight();
-            playerFish.moveRight();
-            playerFish.moveDown();
-            playerFish.moveRight();
-            playerFish.moveRight();
-            playerFish.moveUp();    //Goal
-        }
-        */
-        public void moveLeft () {
-            int x = -1;
-            int y = 0;
-            Move(x, y);
-
-        }
-        public void moveRight () {
-            int x = 1;
-            int y = 0;
-            Move(x, y);
-        }
-        public void moveForward () {
-            int x = 0;
-            int y = 1;
-            Move(x, y);
-        }
-        public void moveBackward () {
-            int x = 0;
-            int y = -1;
-            Move(x, y);
-        }
+        public void moveLeft () {int x = -1; int y = 0; Move(x, y);}
+        public void moveRight () {int x = 1; int y = 0; Move(x, y);}
+        public void moveForward () {int x = 0; int y = 1; Move(x, y);}
+        public void moveBackward () {int x = 0; int y = -1; Move(x, y);}
         public void Move(int x, int y) 
         {
-
             int newPosX = posX + x;
             int newPosY = posY + y;
+
+            posX = newPosX;
+            posY = newPosY;
 
             if (IsValidMove(newPosX, newPosY).Equals(true))
             {
                 Debug.Log($"Trying to Move to block at: {newPosX}, {newPosY}");
-                posX = newPosX;
-                posY = newPosY;
                 
-                // Update the position of the player GameObject
-                player.transform.position = new Vector3(posX, 0, posY);
-
+                
+                playerPrefab.transform.position = new Vector3(posX, 0, posY); // Update the position of the player GameObject
 
                 if (!isBlockChecked) // Only trigger the function if not already checked
                 {
@@ -195,80 +129,56 @@ public class GridPlayerMovement : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Invalid move to block at: {newPosX}, {newPosY}");
+                Debug.Log($"Invalid move: block at: {newPosX}, {newPosY}");
+                isBlockChecked = false;
                 return;
             }
         
-            Debug.Log($"Checking Block at: { newPosX } , { newPosY }");
             GridBlockTypeToChoose block = this.grid.getBlockAt(newPosX, newPosY);
-        
             
             if (block == GridBlockTypeToChoose.NormalBlock){
-                this.posX = newPosX;
-                this.posY = newPosY;
                 Debug.Log("It feels pretty normal here!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
                 Debug.Log("There is a blocking Object here!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Bridge){
-                this.posX = newPosX;
-                this.posY = newPosY;
                 Debug.Log("Its getting shaky - Bridgeblock!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.BridgeBlocked){
                 Debug.Log("There is a blocking Object on the Bridge!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Water){
-                this.posX = newPosX;
-                this.posY = newPosY;
                 Debug.Log("Its getting nice and wet in here - Waterblock!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.WaterBlocked){
                 Debug.Log("There is a blocking Object in the Water!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Fire){
-                this.posX = newPosX;
-                this.posY = newPosY;
                 Debug.Log("Its getting hot in here - Fireblock!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.FireBlocked){
                 Debug.Log("There is a blocking Object in the Fire!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.FreeFall) {
                 Debug.Log("I should fall down rigth now!");
-                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Goal) {
-                this.posX = newPosX;
-                this.posY = newPosY;
-                CheckBlockBelow();
                 Debug.Log("YOU WIN! - Goalblock!");
                 return;
             } else if (block == GridBlockTypeToChoose.Respawn){
-                this.posX = newPosX;
-                this.posY = newPosY;
                 Debug.Log("I could respawn here!");
                 Debug.Log("Its also wet in here!");
-                CheckBlockBelow();
                 return;
             } else {
                 Debug.LogError("Not a gridBlock!");
             }
+            isBlockChecked = false;
         }
-
 
         private void CheckBlockBelow() {
             Debug.Log($"Position: {this.posX}, {this.posY}");
-            Debug.Log($"Im on a: { grid.getBlockAt(this.posX, this.posY)} block!");
+            Debug.Log($"This is a: { grid.getBlockAt(this.posX, this.posY)}!");
         }
     
         public bool IsValidMove(int x, int y)
@@ -276,46 +186,40 @@ public class GridPlayerMovement : MonoBehaviour
             int numRows = grid.blocks.GetLength(0);
             int numCols = grid.blocks.GetLength(1);
 
-            int newPosX = posX + x;
-            int newPosY = posY + y;
-
-            if (newPosX >= 0 && newPosX < numCols && newPosY >= 0 && newPosY < numRows)
+            if (posX >= 0 && posX < numCols && posY >= 0 && posY < numRows)
             {
-                GridBlockTypeToChoose blockToCheck = grid.getBlockAt(newPosX, newPosY);
-                /*
-                if (blockToCheck.BlockingGridBlock != null)
+                GridBlockTypeToChoose blockToCheck = grid.getBlockAt(posX, posY);
+                
+                if (    blockToCheck == GridBlockTypeToChoose.NormalBlockBlocked 
+                     || blockToCheck == GridBlockTypeToChoose.BridgeBlocked 
+                     || blockToCheck == GridBlockTypeToChoose.WaterBlocked 
+                     || blockToCheck == GridBlockTypeToChoose.FireBlocked)
                 {
-                    return !blockToCheck.BlockingGridBlock.isBlocking;
+                    return false;
                 }
-                else if (blockToCheck.NotBlockingGridBlock != null)
+                else if (    
+                        blockToCheck == GridBlockTypeToChoose.NormalBlock 
+                     || blockToCheck == GridBlockTypeToChoose.Bridge 
+                     || blockToCheck == GridBlockTypeToChoose.Water 
+                     || blockToCheck == GridBlockTypeToChoose.Fire
+                     || blockToCheck == GridBlockTypeToChoose.FreeFall 
+                     || blockToCheck == GridBlockTypeToChoose.Respawn
+                     || blockToCheck == GridBlockTypeToChoose.Goal)
                 {
-                    return blockToCheck.NotBlockingGridBlock.isBlocking;
+                    return true;
                 }
                 else
                 {
-                    Debug.LogError("No Blockscript attached! - couldn't read if blocking or not!");
+                    Debug.LogError("Block is not valid for a ValidMove Check Up!");
                     return false;
-                }
-                */
+                }   
             }
 
             return false;
         }
-        
-        
-        private GameObject GetBlockAtPosition(int x, int y)
-        {
-            GameObject blockObject = null;
-
-            int numRows = grid.blocks.GetLength(0);
-            int numCols = grid.blocks.GetLength(1);
-
-            return blockObject;
-        }
-        
-
-
     }
 }
     
-//todo: Player gets spawned a million times 
+//TODO: Why does the Player not always move when the key is pressed?
+//      Why isnt the Log-output correct regarding the Block below?
+//      Why does the Player move more than 1 Field sometimes?  
