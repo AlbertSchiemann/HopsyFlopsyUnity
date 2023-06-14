@@ -11,6 +11,7 @@ public class FreeFallGridBlock : MonoBehaviour
     public GameGrid gameGrid;
     public FireGridBlock fireGridBlock;
     public UI_LevelScript levelScript;
+    
 
     [SerializeField] private AudioClip[] _failClip;
     [SerializeField] private Animator fallingAnimator;

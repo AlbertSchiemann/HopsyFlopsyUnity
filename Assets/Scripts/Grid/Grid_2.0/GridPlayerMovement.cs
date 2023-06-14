@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridPlayerMovement : MonoBehaviour
 {
-    private Grid2DCreated grid;
+    [SerializeField] private Grid2DCreated grid;
     private PlayerPosition playerPosition; // Updated variable name
     [SerializeField] private GameObject playerPrefab; // Updated variable name
     
@@ -59,18 +59,24 @@ public class GridPlayerMovement : MonoBehaviour
         private bool isBlockChecked = false; // Flag to track if block below has been checked
         
         public PlayerPosition(int x, int y, Grid2DCreated grid, GameObject playerPrefab) {  // Constructor: Player gets the Position of the Block he is on
-            this.posX = x;  
+            this.posX = x;
             this.posY = y;
             this.grid = grid;
+            this.playerPrefab = playerPrefab;
             this.isBlockChecked = false;
-            
-            CheckBlockBelow();   // Console Output for the current Block
+
+            //InstantiatePlayer();
+            CheckBlockBelow();
         }
         
-        private void InstantiatePlayer()
+       /* private void InstantiatePlayer()
         {
-            player = Instantiate(playerPrefab, new Vector3(posX, 0, posY), Quaternion.identity);
+            if (player == null)
+            {
+                player = Instantiate(playerPrefab, new Vector3(posX, 0, posY), Quaternion.identity);
+            }
         }
+        */
         
         public void CheckInput()
         {
@@ -86,25 +92,25 @@ public class GridPlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
             {
                 moveForward();
-                posY++;
+                //posY++;
                 Debug.Log("Forward");
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
             {
                 moveBackward();
-                posY++;
+                //posY++;
                 Debug.Log("Backward");
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
             {
                 moveLeft();
-                posY++;
+                //posY++;
                 Debug.Log("Left");
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
             {
                 moveRight();
-                posY++;
+                //posY++;
                 Debug.Log("Right");
             }
         }
@@ -168,75 +174,75 @@ public class GridPlayerMovement : MonoBehaviour
             {
                 Debug.Log($"Invalid move to block at: {newPosX}, {newPosY}");
             }
-        }
         
-        /*
-            Debug.Log($"Checking Block at: { nuPosX } , { nuPosY }");
-            GridBlockTypeToChoose block = this.grid.getBlockAt(nuPosX, nuPosY);
+        
+
+        
+            Debug.Log($"Checking Block at: { newPosX } , { newPosY }");
+            GridBlockTypeToChoose block = this.grid.getBlockAt(newPosX, newPosY);
 
             
             if (block == GridBlockTypeToChoose.NormalBlock){
-                this.posX = nuPosX;
-                this.posY = nuPosY;
+                this.posX = newPosX;
+                this.posY = newPosY;
                 Debug.Log("It feels pretty normal here!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
                 Debug.Log("There is a blocking Object here!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Bridge){
-                this.posX = nuPosX;
-                this.posY = nuPosY;
+                this.posX = newPosX;
+                this.posY = newPosY;
                 Debug.Log("Its getting shaky - Bridgeblock!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.BridgeBlocked){
                 Debug.Log("There is a blocking Object on the Bridge!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Water){
-                this.posX = nuPosX;
-                this.posY = nuPosY;
+                this.posX = newPosX;
+                this.posY = newPosY;
                 Debug.Log("Its getting nice and wet in here - Waterblock!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.WaterBlocked){
                 Debug.Log("There is a blocking Object in the Water!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Fire){
-                this.posX = nuPosX;
-                this.posY = nuPosY;
+                this.posX = newPosX;
+                this.posY = newPosY;
                 Debug.Log("Its getting hot in here - Fireblock!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.FireBlocked){
                 Debug.Log("There is a blocking Object in the Fire!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.FreeFall) {
                 Debug.Log("I should fall down rigth now!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else if (block == GridBlockTypeToChoose.Goal) {
-                this.posX = nuPosX;
-                this.posY = nuPosY;
-                checkBlockBelow();
+                this.posX = newPosX;
+                this.posY = newPosY;
+                CheckBlockBelow();
                 Debug.Log("YOU WIN! - Goalblock!");
                 return;
             } else if (block == GridBlockTypeToChoose.Respawn){
-                this.posX = nuPosX;
-                this.posY = nuPosY;
+                this.posX = newPosX;
+                this.posY = newPosY;
                 Debug.Log("I could respawn here!");
                 Debug.Log("Its also wet in here!");
-                checkBlockBelow();
+                CheckBlockBelow();
                 return;
             } else {
                 Debug.LogError("Not a gridBlock!");
             }
         }
-        */
 
         public void moveLeft () {
             int x = -1;
@@ -266,21 +272,52 @@ public class GridPlayerMovement : MonoBehaviour
             Debug.Log($"Im on a: { grid.getBlockAt(this.posX, this.posY)} block!");
         }
     
-        private bool IsValidMove(int x, int y)
+        public bool IsValidMove(int x, int y)
         {
             int numRows = grid.blocks.GetLength(0);
             int numCols = grid.blocks.GetLength(1);
 
             if (x >= 0 && x < numCols && y >= 0 && y < numRows)
             {
-                GridBlockTypeToChoose blockType = grid.getBlockAt(x, y);
-                return blockType != GridBlockTypeToChoose.NormalBlockBlocked &&
-                    blockType != GridBlockTypeToChoose.BridgeBlocked;
+                GameObject blockObject = GetBlockAtPosition(x, y);
+
+                if (blockObject != null)
+                {
+                    NotBlockingGridBlock notBlockingBlock = blockObject.GetComponent<NotBlockingGridBlock>();
+                    BlockingGridBlock blockingBlock = blockObject.GetComponent<BlockingGridBlock>();
+
+                    if (notBlockingBlock != null)
+                    {
+                        return !notBlockingBlock.isBlocking;
+                    }
+                    else if (blockingBlock != null)
+                    {
+                        return blockingBlock.isBlocking;
+                    }
+                    else
+                    {
+                        // If the block does not have either NotBlockingGridBlock or BlockingGridBlock,
+                        // assume it is a valid move (not blocking).
+                        return true;
+                    }
+                }
             }
 
             return false;
-
         }
+        
+        private GameObject GetBlockAtPosition(int x, int y)
+        {
+            GameObject blockObject = null;
+
+            int numRows = grid.blocks.GetLength(0);
+            int numCols = grid.blocks.GetLength(1);
+
+            return blockObject;
+        }
+        
+
+
     }
 }
     
