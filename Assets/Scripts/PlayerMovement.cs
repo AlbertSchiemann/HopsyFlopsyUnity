@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 3f;        // speed of player movement
     public float gridSize = 1f;         // size of the grid
+    public Vector3 direction;           // current movement direction
     
     private bool isAllowedToMove;       // enables player movement
     internal bool isMoving = false;     // flag to indicate if player is currently moving
@@ -16,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public int gridPostionX = 0;
     public int gridPostionY = 0;
     public int gridPostionZ = 0;
+
+    [SerializeField] private PlayerCollision collisionChecker;
 
     [SerializeField] private AudioClip[] _moveClip;
 
@@ -45,48 +48,72 @@ public class PlayerMovement : MonoBehaviour
 
     public void CheckInput()
     {
+        //Create Rays On the Input check only
+        collisionChecker.rayCastForw = new Ray(transform.position, transform.TransformDirection(collisionChecker.forwardRay * collisionChecker.RayRange));
+        collisionChecker.rayCastBackw = new Ray(transform.position, transform.TransformDirection(collisionChecker.backwardRay * collisionChecker.RayRange));
+        collisionChecker.rayCastLeft = new Ray(transform.position, transform.TransformDirection(collisionChecker.leftRay * collisionChecker.RayRange));
+        collisionChecker.rayCastRight = new Ray(transform.position, transform.TransformDirection(collisionChecker.rightRay * collisionChecker.RayRange));
+        
         // check for input events and set the target position
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
+        if(!collisionChecker.noMoveForward)
         {
-            targetPosition = transform.position + Vector3.forward * gridSize;
-            isMoving = true;
-            SoundManager.Instance.PlaySound(_moveClip);
-            gridPostionZ++;
-            Debug.Log("TapForward");
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
+            {
+                targetPosition = transform.position + Vector3.forward * gridSize;
+                direction = Vector3.forward;
+                isMoving = true;
+                SoundManager.Instance.PlaySound(_moveClip);
+                gridPostionZ++;
+                Debug.Log("TapForward");
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
+        if(!collisionChecker.noMoveForward)
         {
-            targetPosition = transform.position + Vector3.forward * gridSize;
-            isMoving = true;
-            SoundManager.Instance.PlaySound(_moveClip);
-            gridPostionZ++;
-            Debug.Log("Forward");
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
+            {
+                targetPosition = transform.position + Vector3.forward * gridSize;
+                direction = Vector3.forward;
+                isMoving = true;
+                SoundManager.Instance.PlaySound(_moveClip);
+                gridPostionZ++;
+                Debug.Log("Forward");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
+        if(!collisionChecker.noMoveBackward)
         {
-            targetPosition = transform.position + Vector3.back * gridSize;
-            isMoving = true;
-            SoundManager.Instance.PlaySound(_moveClip);
-            gridPostionZ--;
-            Debug.Log("Backward");
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
+            {
+                targetPosition = transform.position + Vector3.back * gridSize;
+                direction = Vector3.back;
+                isMoving = true;
+                SoundManager.Instance.PlaySound(_moveClip);
+                gridPostionZ--;
+                Debug.Log("Backward");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
+        if(!collisionChecker.noMoveLeft)
         {
-            targetPosition = transform.position + Vector3.left * gridSize;
-            isMoving = true;
-            SoundManager.Instance.PlaySound(_moveClip);
-            gridPostionX--;
-            Debug.Log("Left");
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
+            {
+                targetPosition = transform.position + Vector3.left * gridSize;
+                direction = Vector3.left;
+                isMoving = true;
+                SoundManager.Instance.PlaySound(_moveClip);
+                gridPostionX--;
+                Debug.Log("Left");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
+        if(!collisionChecker.noMoveRight)
         {
-            targetPosition = transform.position + Vector3.right * gridSize;
-            isMoving = true;
-            SoundManager.Instance.PlaySound(_moveClip);
-            gridPostionX++;
-            Debug.Log("Right");
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
+            {
+                targetPosition = transform.position + Vector3.right * gridSize;
+                direction = Vector3.right;
+                isMoving = true;
+                SoundManager.Instance.PlaySound(_moveClip);
+                gridPostionX++;
+                Debug.Log("Right");
+            }
         }
     }
 
@@ -126,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log ("Grid Coordinates - " + gridPostionX + "," + gridPostionY + "," + gridPostionZ);
     }
 
+    
     public void MovePlayerOnGrid()
     {
         targetPositionOnGrid = new Vector3(gridPostionX*gridSize, gridPostionY * gridSize, gridPostionZ*gridSize);
@@ -144,4 +172,5 @@ public class PlayerMovement : MonoBehaviour
             isMoving = false;
         }
     }
+    
 }
