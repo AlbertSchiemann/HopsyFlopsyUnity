@@ -88,7 +88,7 @@ public class GridPlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
             {
                 moveForward();
-                posY++;
+                //posY++;
                 Debug.Log("TapForward");
             }
 
@@ -150,16 +150,36 @@ public class GridPlayerMovement : MonoBehaviour
             playerFish.moveUp();    //Goal
         }
         */
-        
+        public void moveLeft () {
+            int x = -1;
+            int y = 0;
+            Move(x, y);
+
+        }
+        public void moveRight () {
+            int x = 1;
+            int y = 0;
+            Move(x, y);
+        }
+        public void moveForward () {
+            int x = 0;
+            int y = 1;
+            Move(x, y);
+        }
+        public void moveBackward () {
+            int x = 0;
+            int y = -1;
+            Move(x, y);
+        }
         public void Move(int x, int y) 
         {
 
             int newPosX = posX + x;
             int newPosY = posY + y;
 
-            if (IsValidMove(newPosX, newPosY))
+            if (IsValidMove(newPosX, newPosY).Equals(true))
             {
-                Debug.Log($"Moving to block at: {newPosX}, {newPosY}");
+                Debug.Log($"Trying to Move to block at: {newPosX}, {newPosY}");
                 posX = newPosX;
                 posY = newPosY;
                 
@@ -176,14 +196,12 @@ public class GridPlayerMovement : MonoBehaviour
             else
             {
                 Debug.Log($"Invalid move to block at: {newPosX}, {newPosY}");
+                return;
             }
-        
-        
-
         
             Debug.Log($"Checking Block at: { newPosX } , { newPosY }");
             GridBlockTypeToChoose block = this.grid.getBlockAt(newPosX, newPosY);
-
+        
             
             if (block == GridBlockTypeToChoose.NormalBlock){
                 this.posX = newPosX;
@@ -247,28 +265,6 @@ public class GridPlayerMovement : MonoBehaviour
             }
         }
 
-        public void moveLeft () {
-            int x = -1;
-            int y = 0;
-            Move(x, y);
-
-        }
-        public void moveRight () {
-            int x = 1;
-            int y = 0;
-            Move(x, y);
-        }
-        public void moveForward () {
-            int x = 0;
-            int y = 1;
-            Move(x, y);
-        }
-        public void moveBackward () {
-            int x = 0;
-            int y = -1;
-            Move(x, y);
-        }
-
 
         private void CheckBlockBelow() {
             Debug.Log($"Position: {this.posX}, {this.posY}");
@@ -280,34 +276,32 @@ public class GridPlayerMovement : MonoBehaviour
             int numRows = grid.blocks.GetLength(0);
             int numCols = grid.blocks.GetLength(1);
 
-            if (x >= 0 && x < numCols && y >= 0 && y < numRows)
+            int newPosX = posX + x;
+            int newPosY = posY + y;
+
+            if (newPosX >= 0 && newPosX < numCols && newPosY >= 0 && newPosY < numRows)
             {
-                GameObject blockObject = GetBlockAtPosition(x, y);
-
-                if (blockObject != null)
+                GridBlockTypeToChoose blockToCheck = grid.getBlockAt(newPosX, newPosY);
+                /*
+                if (blockToCheck.BlockingGridBlock != null)
                 {
-                    NotBlockingGridBlock notBlockingBlock = blockObject.GetComponent<NotBlockingGridBlock>();
-                    BlockingGridBlock blockingBlock = blockObject.GetComponent<BlockingGridBlock>();
-
-                    if (notBlockingBlock != null)
-                    {
-                        return !notBlockingBlock.isBlocking;
-                    }
-                    else if (blockingBlock != null)
-                    {
-                        return blockingBlock.isBlocking;
-                    }
-                    else
-                    {
-                        // If the block does not have either NotBlockingGridBlock or BlockingGridBlock,
-                        // assume it is a valid move (not blocking).
-                        return true;
-                    }
+                    return !blockToCheck.BlockingGridBlock.isBlocking;
                 }
+                else if (blockToCheck.NotBlockingGridBlock != null)
+                {
+                    return blockToCheck.NotBlockingGridBlock.isBlocking;
+                }
+                else
+                {
+                    Debug.LogError("No Blockscript attached! - couldn't read if blocking or not!");
+                    return false;
+                }
+                */
             }
 
             return false;
         }
+        
         
         private GameObject GetBlockAtPosition(int x, int y)
         {

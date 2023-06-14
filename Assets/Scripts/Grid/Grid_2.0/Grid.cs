@@ -130,7 +130,7 @@ public class Grid2DCreated : ScriptableObject  {
         //Width = blocks.GetLength(1);
         int numRows = blocks.GetLength(0);
         int numCols = blocks.GetLength(1);
-        float blockSize = .5f;
+        int blockSize = 1;
 
         for (int row = 0; row < numRows; row++) 
         {
