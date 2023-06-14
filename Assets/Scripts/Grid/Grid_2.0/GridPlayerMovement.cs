@@ -5,57 +5,110 @@ using UnityEngine;
 public class GridPlayerMovement : MonoBehaviour
 {
     private Grid2DCreated grid;
-    private PlayerPosition player;
+    private PlayerPosition playerPosition; // Updated variable name
+    [SerializeField] private GameObject playerPrefab; // Updated variable name
+    
 
     void Start()
     {
         grid = FindObjectOfType<Grid2DCreated>(); // Find the existing Grid2DCreated instance
         //grid = ScriptableObject.CreateInstance<Grid2DCreated>();
         //grid.Initialize(this); // Pass the current instance of GridPlayerMovement to the Initialize method
+        
+        
+        InstantiatePlayer();
 
+        //playerPosition = new PlayerPosition(1, 1, grid, playerPrefab); // Instantiate PlayerPosition and pass the playerPrefab
 
-        player = new PlayerPosition(1, 1, grid);
+        // Set the initial position of the GameObject
+        //transform.position = new Vector3(playerPosition.posX, 0, playerPosition.posY);
+    
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (playerPosition != null)
         {
-            player.Move(0, 1);
+            playerPosition.CheckInput();
+            UpdateGameObjectPosition();
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        else
         {
-            player.Move(0, -1);
+            Debug.LogError("PlayerPosition is null!");
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        {
-            player.Move(-1, 0);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-        {
-            player.Move(1, 0);
-        }
+    }
 
-        UpdateGameObjectPosition();
+    private void InstantiatePlayer()
+    {
+        playerPosition = new PlayerPosition(1, 1, grid, playerPrefab);
     }
 
     private void UpdateGameObjectPosition()
     {
-        transform.position = new Vector3(player.posX, 0, player.posY);
+        transform.position = new Vector3(playerPosition.posX, 0, playerPosition.posY);
     }
 
+
+    
     public class PlayerPosition {              // when Player gets called, he gets a starting-position and the grid reference
         public int posX; 
         public int posY;
-        Grid2DCreated grid;
+        private Grid2DCreated grid;
+        private GameObject playerPrefab; // Reference to the player GameObject
+        private GameObject player; // Reference to the player GameObject
+        private bool isBlockChecked = false; // Flag to track if block below has been checked
         
-        public PlayerPosition(int x, int y, Grid2DCreated grid) {  // Constructor: Player gets the Position of the Block he is on
+        public PlayerPosition(int x, int y, Grid2DCreated grid, GameObject playerPrefab) {  // Constructor: Player gets the Position of the Block he is on
             this.posX = x;  
             this.posY = y;
             this.grid = grid;
+            this.isBlockChecked = false;
             
             CheckBlockBelow();   // Console Output for the current Block
         }
+        
+        private void InstantiatePlayer()
+        {
+            player = Instantiate(playerPrefab, new Vector3(posX, 0, posY), Quaternion.identity);
+        }
+        
+        public void CheckInput()
+        {
+            // check for input events and set the target position
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
+            {
+                moveForward();
+                posY++;
+                Debug.Log("TapForward");
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
+            {
+                moveForward();
+                posY++;
+                Debug.Log("Forward");
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
+            {
+                moveBackward();
+                posY++;
+                Debug.Log("Backward");
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
+            {
+                moveLeft();
+                posY++;
+                Debug.Log("Left");
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
+            {
+                moveRight();
+                posY++;
+                Debug.Log("Right");
+            }
+        }
+        
         /*
         void Start() {
 
@@ -100,7 +153,16 @@ public class GridPlayerMovement : MonoBehaviour
                 Debug.Log($"Moving to block at: {newPosX}, {newPosY}");
                 posX = newPosX;
                 posY = newPosY;
-                CheckBlockBelow();
+                
+                // Update the position of the player GameObject
+                player.transform.position = new Vector3(posX, 0, posY);
+
+
+                if (!isBlockChecked) // Only trigger the function if not already checked
+                {
+                    CheckBlockBelow();
+                    isBlockChecked = true;
+                }
             }
             else
             {
@@ -187,12 +249,12 @@ public class GridPlayerMovement : MonoBehaviour
             int y = 0;
             Move(x, y);
         }
-        public void moveUp () {
+        public void moveForward () {
             int x = 0;
             int y = 1;
             Move(x, y);
         }
-        public void moveDown () {
+        public void moveBackward () {
             int x = 0;
             int y = -1;
             Move(x, y);
@@ -222,4 +284,4 @@ public class GridPlayerMovement : MonoBehaviour
     }
 }
     
-//todo: gameobject reference to the "player"- in script is not  working
+//todo: Player gets spawned a million times 
