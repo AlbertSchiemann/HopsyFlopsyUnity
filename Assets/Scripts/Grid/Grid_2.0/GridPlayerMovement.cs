@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class GridPlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Grid2DCreated grid;
+    private Grid2DCreated grid2dCreated;
+    [SerializeField] private Grid grid;
     private PlayerPosition playerPosition; // Updated variable name
     [SerializeField] private GameObject playerPrefab; // Updated variable name
     
 
     void Start()
     {
-        grid = FindObjectOfType<Grid2DCreated>(); // Find the existing Grid2DCreated instance
+        grid2dCreated = grid.getGridCreated();
+        //grid = FindObjectOfType<Grid2DCreated>(); // Find the existing Grid2DCreated instance
         //grid = ScriptableObject.CreateInstance<Grid2DCreated>();
         //grid.Initialize(this); // Pass the current instance of GridPlayerMovement to the Initialize method
         
+        print(grid2dCreated);
         
         InstantiatePlayer();
 
@@ -40,12 +43,12 @@ public class GridPlayerMovement : MonoBehaviour
 
     private void InstantiatePlayer()
     {
-        playerPosition = new PlayerPosition(1, 1, grid, playerPrefab);
+        playerPosition = new PlayerPosition(1, 1, grid2dCreated, playerPrefab);
     }
 
     private void UpdateGameObjectPosition()
     {
-        transform.position = new Vector3(playerPosition.posX, 0, playerPosition.posY);
+        transform.position = new Vector3(playerPosition.posX, 1, playerPosition.posY);
     }
 
 

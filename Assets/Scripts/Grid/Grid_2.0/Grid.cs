@@ -30,10 +30,12 @@ public class Grid : MonoBehaviour{
     [SerializeField] public GameObject GoalPrefab;
     [SerializeField] public GameObject RespawnPrefab;
 
+    private Grid2DCreated sg;
 
-    public void Start() {
+
+    public void Awake() {
         
-        Grid2DCreated sg = ScriptableObject.CreateInstance<Grid2DCreated>();
+        sg = ScriptableObject.CreateInstance<Grid2DCreated>();
         sg.Initialize(this, FindObjectOfType<GridPlayerMovement>()); // Pass the GridPlayerMovement instance
 
         if (NormalBlockPrefab == null){
@@ -69,6 +71,10 @@ public class Grid : MonoBehaviour{
         if (RespawnPrefab == null) {
             Debug.LogError("No RespawnPrefab assigned!");
         }
+    }
+
+    public Grid2DCreated getGridCreated(){
+        return sg;
     }
 }
 
