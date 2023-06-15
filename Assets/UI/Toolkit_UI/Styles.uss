@@ -22,6 +22,10 @@
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-top: 9px;
+    margin-bottom: 9px;
 }
 
 .VisualEle_3inCorner {
@@ -29,7 +33,7 @@
     width: 25%;
     position: absolute;
     bottom: 3%;
-    right: 1.5%;
+    right: 2%;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -96,4 +100,28 @@
     margin-bottom: 7px;
     width: 90%;
     font-size: 381%;
+}
+
+.but_help_nav {
+    font-size: 34%;
+    margin-left: 26px;
+    margin-right: 26px;
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+
+.Button_2inCorner {
+    font-size: 28px;
+    width: 30%;
+    height: 90%;
+    -unity-font-style: bold;
+    background-image: url('project://database/Assets/UI/Previous_UI/Pictures/einkaufwagen.jpeg?fileID=2800000&guid=ea18fb52835791046a8e0f166110581a&type=3#einkaufwagen');
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 9;
+    -unity-slice-bottom: 1;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
