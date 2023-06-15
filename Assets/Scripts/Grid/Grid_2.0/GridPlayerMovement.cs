@@ -19,7 +19,7 @@ public class GridPlayerMovement : MonoBehaviour
         InstantiatePlayer();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (playerPosition != null)
         {
@@ -57,10 +57,13 @@ public class GridPlayerMovement : MonoBehaviour
             this.posY = y;
             this.grid = grid;
             this.playerPrefab = playerPrefab;
-            this.isBlockChecked = false;
-
-            //InstantiatePlayer();
-            CheckBlockBelow();
+            
+            
+            if(isBlockChecked == false){
+                CheckBlockBelow();
+                isBlockChecked = true;
+            }
+            
         }
         
        
@@ -68,44 +71,37 @@ public class GridPlayerMovement : MonoBehaviour
         public void CheckInput()
         {
             // check for input events and set the target position
-
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
+            if (SwipeManager.shortTap)
             {
                 moveForward();
-                //posY++;
                 Debug.Log("TapForward");
             }
-
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
             {
                 moveForward();
-                //posY++;
                 Debug.Log("Forward");
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
             {
                 moveBackward();
-                //posY++;
                 Debug.Log("Backward");
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
             {
                 moveLeft();
-                //posY++;
                 Debug.Log("Left");
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
             {
                 moveRight();
-                //posY++;
                 Debug.Log("Right");
             }
         }
 
-        public void moveLeft () {int x = -1; int y = 0; Move(x, y);}
-        public void moveRight () {int x = 1; int y = 0; Move(x, y);}
-        public void moveForward () {int x = 0; int y = 1; Move(x, y);}
-        public void moveBackward () {int x = 0; int y = -1; Move(x, y);}
+        public void moveLeft () {Move(-1, 0);}
+        public void moveRight () {Move(1, 0);}
+        public void moveForward () {Move(0, 1);}
+        public void moveBackward () {Move(0, -1);}
         public void Move(int x, int y) 
         {
             int newPosX = posX + x;
@@ -113,7 +109,8 @@ public class GridPlayerMovement : MonoBehaviour
 
             posX = newPosX;
             posY = newPosY;
-
+            isBlockChecked = false;
+            
             if (IsValidMove(newPosX, newPosY).Equals(true))
             {
                 Debug.Log($"Trying to Move to block at: {newPosX}, {newPosY}");
@@ -121,11 +118,7 @@ public class GridPlayerMovement : MonoBehaviour
                 
                 playerPrefab.transform.position = new Vector3(posX, 0, posY); // Update the position of the player GameObject
 
-                if (!isBlockChecked) // Only trigger the function if not already checked
-                {
-                    CheckBlockBelow();
-                    isBlockChecked = true;
-                }
+            
             }
             else
             {
@@ -133,7 +126,7 @@ public class GridPlayerMovement : MonoBehaviour
                 isBlockChecked = false;
                 return;
             }
-        
+            
             GridBlockTypeToChoose block = this.grid.getBlockAt(newPosX, newPosY);
             
             if (block == GridBlockTypeToChoose.NormalBlock){
@@ -174,6 +167,7 @@ public class GridPlayerMovement : MonoBehaviour
                 Debug.LogError("Not a gridBlock!");
             }
             isBlockChecked = false;
+            
         }
 
         private void CheckBlockBelow() {
@@ -220,6 +214,6 @@ public class GridPlayerMovement : MonoBehaviour
     }
 }
     
-//TODO: Why does the Player not always move when the key is pressed?
-//      Why isnt the Log-output correct regarding the Block below?
-//      Why does the Player move more than 1 Field sometimes?  
+//TODO: Why does the Player not always move when the key is pressed? Fixedupdate -> Update
+//      Why isnt the Log-output correct regarding the Block below?  grid and the grid in it are different in its direction - playermovement also needs to be mirrored
+//      Why does the Player move more than 1 Field sometimes?  Tap has also a w in it , so 2x forward
