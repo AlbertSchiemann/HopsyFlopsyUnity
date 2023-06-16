@@ -9,27 +9,49 @@ public class GridPlayerMovement : MonoBehaviour
     private PlayerPosition playerPosition; // Updated variable name
     [SerializeField] private GameObject playerPrefab; // Updated variable name
     
+    public float DelayInBetweenMoves = .2f;
+    private bool isAllowedToMove;       // enables player movement
 
     void Start()
     {
         grid2dCreated = grid.getGridCreated();
-        
         print(grid2dCreated);
-        
         InstantiatePlayer();
+        isAllowedToMove = true;
+        GameStateManagerScript.onGameStart += AllowMovement;
+        GameStateManagerScript.onGamePaused += PreventMovement;
     }
 
+    private void AllowMovement()
+    { isAllowedToMove = true;  }
+    private IEnumerable DelayedAllowMovement(float delay)
+    {
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        yield return new WaitForSeconds(delay);
+        AllowMovement();
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
+    private void PreventMovement()
+    { isAllowedToMove = false; }
     void Update()
     {
         if (playerPosition != null)
         {
-            playerPosition.CheckInput();
-            UpdateGameObjectPosition();
+            
+            if (isAllowedToMove == true)
+            {
+                playerPosition.CheckInput();
+                PreventMovement();
+                UpdateGameObjectPosition();
+                //Debug.Log("Before Delayed movement" + Time.time);
+                //DelayedAllowMovement(DelayInBetweenMoves);
+                AllowMovement();
+                
+            }
+            else  { return; }
         }
-        else
-        {
-            Debug.LogError("PlayerPosition is null!");
-        }
+        else { Debug.LogError("PlayerPosition is null!"); }
+        return;
     }
 
     private void InstantiatePlayer()
@@ -60,18 +82,15 @@ public class GridPlayerMovement : MonoBehaviour
             
             
             if(isBlockChecked == false){
-                CheckBlockBelow();
+                LogOutputTargetedBlock();
                 isBlockChecked = true;
             }
-            
         }
-        
-       
         
         public void CheckInput()
         {
             // check for input events and set the target position
-            if (SwipeManager.shortTap)
+            if (SwipeManager.shortTap || Input.GetKeyDown(KeyCode.Mouse0) )
             {
                 moveForward();
                 Debug.Log("TapForward");
@@ -110,67 +129,53 @@ public class GridPlayerMovement : MonoBehaviour
             posX = newPosX;
             posY = newPosY;
             isBlockChecked = false;
-            
+
+            Debug.Log($"Trying to Move to block at: {newPosX}, {newPosY}");
+            GridBlockTypeToChoose block = this.grid.getBlockAt(newPosX, newPosY);
+            Debug.Log($"The Block I am aiming for is a:");
+
+            if (block == GridBlockTypeToChoose.NormalBlock){Debug.Log("Normalblock!");} 
+            else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
+                        Debug.Log("Blocking Normalblock!");} 
+            else if (block == GridBlockTypeToChoose.Bridge){
+                        Debug.Log("Brideblock!");} 
+            else if (block == GridBlockTypeToChoose.BridgeBlocked){
+                        Debug.Log("Blocking Bridge!");} 
+            else if (block == GridBlockTypeToChoose.Water){
+                        Debug.Log("Waterblock!");} 
+            else if (block == GridBlockTypeToChoose.WaterBlocked){
+                        Debug.Log("Blocking Waterblock!");} 
+            else if (block == GridBlockTypeToChoose.Fire){
+                        Debug.Log("Fireblock!");} 
+            else if (block == GridBlockTypeToChoose.FireBlocked){
+                        Debug.Log("Blocking Fireblock!");} 
+            else if (block == GridBlockTypeToChoose.FreeFall) {
+                        Debug.Log("FreefallBlock!");} 
+            else if (block == GridBlockTypeToChoose.Goal) {
+                        Debug.Log("Goalblock!");} 
+            else if (block == GridBlockTypeToChoose.Respawn){
+                        Debug.Log("Respawnblock!");} 
+            else {      Debug.LogError("Not a gridBlock!");}
+
             if (IsValidMove(newPosX, newPosY).Equals(true))
             {
-                Debug.Log($"Trying to Move to block at: {newPosX}, {newPosY}");
-                
-                
                 playerPrefab.transform.position = new Vector3(posX, 0, posY); // Update the position of the player GameObject
-
-            
+                Debug.Log($"I was able to move on the block at: {newPosX}, {newPosY}");
+            }
+            else if (IsValidMove(newPosX, newPosY).Equals(false))
+            {
+                Debug.Log($"Invalid move! Blocker at: {newPosX}, {newPosY}");
             }
             else
             {
-                Debug.Log($"Invalid move: block at: {newPosX}, {newPosY}");
-                isBlockChecked = false;
-                return;
-            }
-            
-            GridBlockTypeToChoose block = this.grid.getBlockAt(newPosX, newPosY);
-            
-            if (block == GridBlockTypeToChoose.NormalBlock){
-                Debug.Log("It feels pretty normal here!");
-                return;
-            } else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
-                Debug.Log("There is a blocking Object here!");
-                return;
-            } else if (block == GridBlockTypeToChoose.Bridge){
-                Debug.Log("Its getting shaky - Bridgeblock!");
-                return;
-            } else if (block == GridBlockTypeToChoose.BridgeBlocked){
-                Debug.Log("There is a blocking Object on the Bridge!");
-                return;
-            } else if (block == GridBlockTypeToChoose.Water){
-                Debug.Log("Its getting nice and wet in here - Waterblock!");
-                return;
-            } else if (block == GridBlockTypeToChoose.WaterBlocked){
-                Debug.Log("There is a blocking Object in the Water!");
-                return;
-            } else if (block == GridBlockTypeToChoose.Fire){
-                Debug.Log("Its getting hot in here - Fireblock!");
-                return;
-            } else if (block == GridBlockTypeToChoose.FireBlocked){
-                Debug.Log("There is a blocking Object in the Fire!");
-                return;
-            } else if (block == GridBlockTypeToChoose.FreeFall) {
-                Debug.Log("I should fall down rigth now!");
-                return;
-            } else if (block == GridBlockTypeToChoose.Goal) {
-                Debug.Log("YOU WIN! - Goalblock!");
-                return;
-            } else if (block == GridBlockTypeToChoose.Respawn){
-                Debug.Log("I could respawn here!");
-                Debug.Log("Its also wet in here!");
-                return;
-            } else {
-                Debug.LogError("Not a gridBlock!");
+                Debug.LogError("ValidMove function errored - neither true or false!");
             }
             isBlockChecked = false;
             
+            
         }
 
-        private void CheckBlockBelow() {
+        private void LogOutputTargetedBlock() {
             Debug.Log($"Position: {this.posX}, {this.posY}");
             Debug.Log($"This is a: { grid.getBlockAt(this.posX, this.posY)}!");
         }
@@ -214,6 +219,6 @@ public class GridPlayerMovement : MonoBehaviour
     }
 }
     
-//TODO: Why does the Player not always move when the key is pressed? Fixedupdate -> Update
+//TODO: 
 //      Why isnt the Log-output correct regarding the Block below?  grid and the grid in it are different in its direction - playermovement also needs to be mirrored
-//      Why does the Player move more than 1 Field sometimes?  Tap has also a w in it , so 2x forward
+//      Delay doesnt work
