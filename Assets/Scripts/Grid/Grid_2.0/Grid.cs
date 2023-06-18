@@ -96,15 +96,11 @@ public class Grid : MonoBehaviour{
 
 public class Grid2DCreated : ScriptableObject  {   
 
-    public int [,] blocks;      // Int Array for the Grid
+    public int [,] blocks;  // Int Array for the Grid
     GameObject[] prefabs;   // Array for the Prefabs
 
     public void Initialize(Grid grid, GridPlayerMovement playerMovement) {
         blocks = new int[,] {
-                // y (up) ->
-                                // x (right)
-                                // |
-                                // V
 
             {1,  1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1},      // ---------------------------------  // surrounded by walls
             {1, 10, 0, 7, 8, 8, 8, 1,  5, 5, 0, 7, 1},      // | R   FB  A  A  A  -  W  W   FB |  // 2 ways
@@ -115,7 +111,21 @@ public class Grid2DCreated : ScriptableObject  {
             {1,  4, 4, 5, 6, 6, 7, 7,  1, 4, 0, 9, 1},      // | W W WB  F  F FB FB  -  W    G |
             {1,  1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1}       // ---------------------------------
         };
+
+        int numRows = blocks.GetLength(0);
+        int numCols = blocks.GetLength(1);
         
+        // Mirror the grid horizontally and vertically to fit the writing of the gridmap above
+        for (int row = 0; row < numRows / 2; row++)
+        {
+            for (int col = 0; col < numCols / 2; col++)
+            {
+                int temp = blocks[row, col];
+                blocks[row, col] = blocks[numRows - 1 - row, col];
+                blocks[numRows - 1 - row, col] = temp;
+            }
+        }
+
         prefabs = new GameObject[] {
             grid.NormalBlockPrefab,          //  0
             grid.NormalBlockBlockedPrefab,   //  1
@@ -157,7 +167,7 @@ public class Grid2DCreated : ScriptableObject  {
                 GameObject prefab = prefabs[blockValue];                                             // asking for the prefab in the spot
 
                 // Instantiate the prefab at the corresponding position
-                Vector3 position = new Vector3(col * blockSize, 0 ,(numRows - 1 - row) * blockSize); // managing the blocksize of .5 and the grid beeing bottom up
+                Vector3 position = new Vector3(col * blockSize, 0, row * blockSize);
                 Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
             }
         }
