@@ -118,7 +118,7 @@ public class Grid2DCreated : ScriptableObject  {
         // Mirror the grid horizontally and vertically to fit the writing of the gridmap above
         for (int row = 0; row < numRows / 2; row++)
         {
-            for (int col = 0; col < numCols / 2; col++)
+            for (int col = 0; col < numCols ; col++)
             {
                 int temp = blocks[row, col];
                 blocks[row, col] = blocks[numRows - 1 - row, col];

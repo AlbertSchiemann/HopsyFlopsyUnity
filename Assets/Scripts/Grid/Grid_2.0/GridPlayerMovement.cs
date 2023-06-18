@@ -10,7 +10,8 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private GameObject playerPrefab; // Updated variable name
     
     public float DelayInBetweenMoves = .2f;
-    private bool isAllowedToMove = true;       // enables player movement
+    private bool isAllowedToMove = true;       // enables player movement in general
+   
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class GridPlayerMovement : MonoBehaviour
         print(grid2dCreated);
         InstantiatePlayer();
         isAllowedToMove = true;
+        playerPosition.IsValidMove(1, 6); // Enter the Starting Gridposition of the Player
         //GameStateManagerScript.onGameStart += AllowMovement;
         //GameStateManagerScript.onGamePaused += PreventMovement;
     }
@@ -38,21 +40,15 @@ public class GridPlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (playerPosition != null)
+        if (playerPosition != null && isAllowedToMove == true)
         {
-            
-            if (isAllowedToMove == true)
-            {
-                playerPosition.CheckInput();
-                PreventMovement();
-                UpdateGameObjectPosition();
-                //Debug.Log("Before Delayed movement" + Time.time);
-                //DelayedAllowMovement(DelayInBetweenMoves);
-                //Debug.Log("After Delayed movement" + Time.time);
-                AllowMovement();
-                
-            }
-            else  { return; }
+            playerPosition.CheckInput();
+            PreventMovement();
+            UpdateGameObjectPosition();
+            //Debug.Log("Before Delayed movement" + Time.time);
+            //DelayedAllowMovement(DelayInBetweenMoves);
+            //Debug.Log("After Delayed movement" + Time.time);
+            AllowMovement();
         }
         else { Debug.LogError("PlayerPosition is null!"); }
         return;
@@ -79,6 +75,11 @@ public class GridPlayerMovement : MonoBehaviour
         private GameObject playerPrefab; // Reference to the player GameObject
         private GameObject player; // Reference to the player GameObject
         private bool isBlockChecked = false; // Flag to track if block below has been checked
+        private bool isAllowedToMoveLeft = true; 
+        private bool isAllowedToMoveRight = true;
+        private bool isAllowedToMoveBack = true;
+        private bool isAllowedToMoveForward = true;
+        private bool isAllowedToMoveForwardTap = true; 
         public string direction = string.Empty;
         public PlayerPosition(int x, int y, Grid2DCreated grid, GameObject playerPrefab) {  // Constructor: Player gets the Position of the Block he is on
             this.posX = x;
@@ -95,35 +96,39 @@ public class GridPlayerMovement : MonoBehaviour
         
         public void CheckInput()
         {
-            
             // check for input events and set the target position
-            if (SwipeManager.shortTap || Input.GetKeyDown(KeyCode.Mouse0) )
+            if (SwipeManager.shortTap || Input.GetKeyDown(KeyCode.Mouse0))
             {
-                moveForwardTap();
+                if (isAllowedToMoveForwardTap == true)  { moveForwardTap(); }
+                else                                    { Debug.Log("Not allowed to Tap Forward."); }
             }
             if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
             {
-                moveForward();
+                if (isAllowedToMoveForward == true)     { moveForward(); }
+                else                                    { Debug.Log("Not allowed to Move Forward."); }
             }
             if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
             {
-                moveBackward();
+                if (isAllowedToMoveBack == true)        { moveBackward(); }
+                else                                    { Debug.Log("Not allowed to Move Back."); }
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
             {
-                moveLeft();
+                if (isAllowedToMoveLeft == true)        { moveLeft(); }
+                else                                    { Debug.Log("Not allowed to Move Left."); }
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
             {
-                moveRight();
+                if (isAllowedToMoveRight == true)       { moveRight(); }
+                else                                    { Debug.Log("Not allowed to Move Right."); }
             }
         }
 
-        public void moveLeft () {Move(-1, 0); direction = "Left";}
-        public void moveRight () {Move(1, 0); direction = "Right";}
-        public void moveForward () {Move(0, 1); direction = "TapForward";}
-        public void moveForwardTap () {Move(0, 1); direction = "Forward";}
-        public void moveBackward () {Move(0, -1); direction = "Backward";}
+        public void moveLeft ()         {Move(-1, 0); direction =   "Left";}
+        public void moveRight ()        {Move(1, 0); direction =    "Right";}
+        public void moveForward ()      {Move(0, 1); direction =    "TapForward";}
+        public void moveForwardTap ()   {Move(0, 1); direction =    "Forward";}
+        public void moveBackward ()     {Move(0, -1); direction =   "Backward";}
         public void Move(int x, int y) 
         {
             int newPosX = posX + x;
@@ -161,23 +166,12 @@ public class GridPlayerMovement : MonoBehaviour
             else {      Debug.LogError("Not a gridBlock!");}
 
             Debug.Log($"Trying to Move {direction} onto the block at: {newPosX}, {newPosY}. It is a: {blocktype}");
+            playerPrefab.transform.position = new Vector3(posX, 0, posY);
+            Debug.Log($"I was able to move on the block at: {newPosX}, {newPosY}");
 
-            if (IsValidMove(newPosX, newPosY).Equals(true))
-            {
-                playerPrefab.transform.position = new Vector3(posX, 0, posY); // Update the position of the player GameObject
-                Debug.Log($"I was able to move on the block at: {newPosX}, {newPosY}");
-            }
-            else if (IsValidMove(newPosX, newPosY).Equals(false))
-            {
-                Debug.Log($"Invalid move! Blocker at: {newPosX}, {newPosY}");
-            }
-            else
-            {
-                Debug.LogError("ValidMove function errored - neither true or false!");
-            }
+            IsValidMove(newPosX, newPosY);
             isBlockChecked = false;
-            
-            
+              
         }
 
         private void LogOutputTargetedBlock() {
@@ -185,42 +179,60 @@ public class GridPlayerMovement : MonoBehaviour
             Debug.Log($"This is a: { grid.getBlockAt(this.posX, this.posY)}!");
         }
     
-        public bool IsValidMove(int x, int y)
+        public void IsValidMove(int x, int y)
         {
             int numRows = grid.blocks.GetLength(0);
             int numCols = grid.blocks.GetLength(1);
 
-            if (posX >= 0 && posX < numCols && posY >= 0 && posY < numRows)
+            if (x >= 0 && x < numCols && y >= 0 && y < numRows)
             {
-                GridBlockTypeToChoose blockToCheck = grid.getBlockAt(posX, posY);
                 
-                if (    blockToCheck == GridBlockTypeToChoose.NormalBlockBlocked 
-                     || blockToCheck == GridBlockTypeToChoose.BridgeBlocked 
-                     || blockToCheck == GridBlockTypeToChoose.WaterBlocked 
-                     || blockToCheck == GridBlockTypeToChoose.FireBlocked)
+                // Check all four directions around the player
+                isAllowedToMoveLeft = IsValidBlock(x - 1, y);
+                isAllowedToMoveRight = IsValidBlock(x + 1, y);
+                isAllowedToMoveForward = IsValidBlock(x, y + 1);
+                isAllowedToMoveBack = IsValidBlock(x, y - 1);
+                isAllowedToMoveForwardTap = isAllowedToMoveForward;
+                
+            }
+            else
+            {
+                Debug.LogError("IsValidMove function errored!");
+                return;
+            }
+        }
+
+        private bool IsValidBlock(int x, int y)
+        {
+            int numRows = grid.blocks.GetLength(0);
+            int numCols = grid.blocks.GetLength(1);
+
+            if (x >= 0 && x < numCols && y >= 0 && y < numRows)
+            {
+                GridBlockTypeToChoose blockToCheck = grid.getBlockAt(x, y);
+
+                if (    blockToCheck == GridBlockTypeToChoose.NormalBlockBlocked ||
+                        blockToCheck == GridBlockTypeToChoose.BridgeBlocked ||
+                        blockToCheck == GridBlockTypeToChoose.WaterBlocked ||
+                        blockToCheck == GridBlockTypeToChoose.FireBlocked)
                 {
                     return false;
-                }
-                else if (    
-                        blockToCheck == GridBlockTypeToChoose.NormalBlock 
-                     || blockToCheck == GridBlockTypeToChoose.Bridge 
-                     || blockToCheck == GridBlockTypeToChoose.Water 
-                     || blockToCheck == GridBlockTypeToChoose.Fire
-                     || blockToCheck == GridBlockTypeToChoose.FreeFall 
-                     || blockToCheck == GridBlockTypeToChoose.Respawn
-                     || blockToCheck == GridBlockTypeToChoose.Goal)
-                {
-                    return true;
                 }
                 else
                 {
-                    Debug.LogError("Block is not valid for a ValidMove Check Up!");
-                    return false;
-                }   
+                    return true;
+                }
+                
+            }
+            else
+            {
+                Debug.LogError("IsValidBlock function errored!");
+                return false;
             }
 
-            return false;
+            
         }
+
     }
 }
     
