@@ -763,6 +763,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 755cbe607411d324fa4db49c8ffece9c, type: 3}
+--- !u!1001 &1314171721
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.8660383
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.2233243
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 12.366034
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576875, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732025794787576876, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: waterBar
+      value: 
+      objectReference: {fileID: 7438377088578784347, guid: bd12ece60fe81ac47a5f8d79cc444ec1,
+        type: 3}
+    - target: {fileID: 1732025794787576877, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+        type: 3}
+      propertyPath: m_Name
+      value: HydrationController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5b55c43e038a07e44b9e9bde0351aad4, type: 3}
 --- !u!4 &1383716544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1818957037060881383, guid: c7a57c5d248456f44a7efe574c58cf19,

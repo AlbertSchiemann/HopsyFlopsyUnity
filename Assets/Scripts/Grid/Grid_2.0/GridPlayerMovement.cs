@@ -56,7 +56,7 @@ public class GridPlayerMovement : MonoBehaviour
 
     private void InstantiatePlayer()
     {
-        playerPosition = new PlayerPosition(1, 6, grid2dCreated, playerPrefab);
+        playerPosition = new PlayerPosition(23, 3, grid2dCreated, playerPrefab);
     }
         
     private void UpdateGameObjectPosition()

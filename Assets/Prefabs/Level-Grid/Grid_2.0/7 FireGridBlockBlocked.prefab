@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2289588561581400342}
-  - component: {fileID: 390805451716918036}
-  - component: {fileID: 5522171207073094269}
   - component: {fileID: -8052899654849385995}
   m_Layer: 0
   m_Name: 7 FireGridBlockBlocked
@@ -35,49 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &390805451716918036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6998130575842937162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e78f11571eb88b43b508aa96e49abaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hydrationController: {fileID: 1732025794787576876, guid: 5b55c43e038a07e44b9e9bde0351aad4,
-    type: 3}
-  waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
-  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
-    type: 3}
-  fireGridBlock: {fileID: 5522171207073094269}
-  freeFallGridBlock: {fileID: 6565122129936999412, guid: 80bbfc45ae3a73c4f8669f84932097a0,
-    type: 3}
-  objectInThisGridSpace: {fileID: 0}
-  isOccupied: 0
---- !u!114 &5522171207073094269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6998130575842937162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68a800800f9e1b2409eb5b8f9b998c4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hydrationController: {fileID: 1732025794787576876, guid: 5b55c43e038a07e44b9e9bde0351aad4,
-    type: 3}
-  waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
-  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
-    type: 3}
-  freeFallGridBlock: {fileID: 6565122129936999412, guid: 80bbfc45ae3a73c4f8669f84932097a0,
-    type: 3}
 --- !u!114 &-8052899654849385995
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856313386083898424}
   - component: {fileID: -9066234111635868946}
+  - component: {fileID: -6559703943968886837}
   m_Layer: 0
   m_Name: 9 Goal
   m_TagString: Untagged
@@ -157,3 +158,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBlocking: 0
+--- !u!114 &-6559703943968886837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158997071291295766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f476b627a054b14386a8304c4a09d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelScript: {fileID: 0}
