@@ -17,15 +17,9 @@ public class HydrationController : MonoBehaviour
 
     public float Delay = 1.0f; // Delay till Scene gets reloaded
 
-    [SerializeField] private WaterGridBlock waterGridBlock; // Reference to WaterGridBlock script
 
-    public HydrationController hydrationController;
-    public GridCell gridCell;
-    public GameGrid gameGrid;
     public UI_LevelScript levelScript;
     public UI_Script_WaterBar waterBar;
-    public FireGridBlock fireGridBlock;
-    public FreeFallGridBlock freeFallGridBlock;
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
@@ -94,7 +88,7 @@ public class HydrationController : MonoBehaviour
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
             waterBar.SetHealth(hydration);
-            //Debug.Log("no water, normal dehydration");
+            Debug.Log("no water, normal dehydration");
         }
         else
         {

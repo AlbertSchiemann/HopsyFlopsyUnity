@@ -10,6 +10,7 @@ public class UI_LevelScript : MonoBehaviour
 {
     public static GameObject ActiveMenu;
     public static GameObject ActiveSettings;
+    [SerializeField] UI_Script_WaterBar waterBar;
 
     [SerializeField] GameObject beforeMenu;
     [SerializeField] GameObject playingMenu;

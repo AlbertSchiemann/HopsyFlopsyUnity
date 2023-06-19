@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1654770041657864479}
   - component: {fileID: 4636279051083772747}
-  - component: {fileID: 7438377088578784347}
   m_Layer: 5
   m_Name: WaterBar
   m_TagString: Untagged
@@ -92,19 +91,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7438377088578784347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4737148645980884649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd7398057df1054b9d6da32ec700485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterSlider: {fileID: 4636279051083772747}
 --- !u!1 &5602007498335708995
 GameObject:
   m_ObjectHideFlags: 0
