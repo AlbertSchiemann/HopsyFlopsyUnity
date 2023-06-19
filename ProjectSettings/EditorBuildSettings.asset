@@ -12,19 +12,19 @@ EditorBuildSettings:
     path: Assets/UI/Previous_UI/UI testing.unity
     guid: a271f9c66b2adee42afdc3b32257147d
   - enabled: 1
-    path: Assets/Scenes/Main_Level.unity
+    path: Assets/Scenes/Old Scenes/Main_Level.unity
     guid: 843fd389070fb704abc90490b9ea4283
   - enabled: 1
-    path: Assets/Scenes/Denis-Level1Blockout.unity
+    path: Assets/Scenes/Old Scenes/Denis-Level1Blockout.unity
     guid: fe01559c1ec5a4a4c9dec7cffc3944c8
   - enabled: 1
-    path: Assets/Scenes/Carl-Level1Blockout.unity
+    path: Assets/Scenes/Old Scenes/Carl-Level1Blockout.unity
     guid: a903b9a994a9e944c892fea01485e75d
   - enabled: 1
-    path: Assets/Scenes/Albert-Level1Blockout.unity
+    path: Assets/Scenes/Old Scenes/Albert-Level1Blockout.unity
     guid: ba703590f52f1ba4e87129411664c151
   - enabled: 1
-    path: Assets/Scenes/Nyra-Level1Blockout.unity
+    path: Assets/Scenes/Old Scenes/Nyra-Level1Blockout.unity
     guid: 9f9e02b07f15ad54692f198c9bb39ea0
   - enabled: 0
     path: 

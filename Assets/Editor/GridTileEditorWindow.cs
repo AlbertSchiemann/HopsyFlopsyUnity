@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-
+/*
 public class GridTileEditorWindow : EditorWindow
 {
     private GameGrid gameGrid;
@@ -79,3 +79,4 @@ public class GridTileEditorWindow : EditorWindow
         AssetDatabase.SaveAssets();
     }
 }
+*/

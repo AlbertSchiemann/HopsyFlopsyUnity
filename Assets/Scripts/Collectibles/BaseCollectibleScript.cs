@@ -24,10 +24,11 @@ public class BaseCollectibleScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") 
         {
-            SoundManager.Instance.PlaySound(_eatClip);
+            //SoundManager.Instance.PlaySound(_eatClip);
             GameObject currencyManager = GameObject.Find("CurrencyDisplay");
             currencyManager.GetComponent<CurrencyDisplayScript>().AddCurrency(currencyValue);
             Destroy(this.gameObject); 
         }
     }
 }
+
