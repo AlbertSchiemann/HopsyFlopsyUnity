@@ -26,7 +26,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("Free Fall Death");
             Invoke("Sceneload", Delay);
-            SoundManager.Instance.PlaySound(_failClip);
+            // SoundManager.Instance.PlaySound(_failClip);
         }
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2289588561581400342}
   - component: {fileID: 5522171207073094269}
   - component: {fileID: 7227956326491288228}
+  - component: {fileID: 5902958069559235603}
   m_Layer: 0
   m_Name: 6 FireGridBlock
   m_TagString: GridCell
@@ -67,6 +68,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBlocking: 0
+--- !u!65 &5902958069559235603
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998130575842937162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.3603071, z: 1}
+  m_Center: {x: 0, y: 0.18015368, z: 0}
 --- !u!1 &9221473500605734785
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +92,6 @@ GameObject:
   - component: {fileID: 3698238311921173060}
   - component: {fileID: 4146603075016611169}
   - component: {fileID: 5466986639746598719}
-  - component: {fileID: 2132046172457260470}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -151,16 +164,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2132046172457260470
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9221473500605734785}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

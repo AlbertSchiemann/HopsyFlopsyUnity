@@ -5,11 +5,7 @@ using UnityEngine.Events;
 
 public class FreeFallGridBlock : MonoBehaviour
 {
-    public HydrationController hydrationController;
-    public WaterGridBlock waterGridBlock;
-    public GridCell gridCell;
-    public GameGrid gameGrid;
-    public FireGridBlock fireGridBlock;
+ 
     public UI_LevelScript levelScript;
     
 

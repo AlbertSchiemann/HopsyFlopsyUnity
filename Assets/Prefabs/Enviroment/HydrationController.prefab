@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1732025794787576877
+--- !u!1 &488882986320239349
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1732025794787576875}
-  - component: {fileID: 1732025794787576876}
+  - component: {fileID: 488882986320239352}
+  - component: {fileID: 488882986320239351}
+  - component: {fileID: 488882986320239350}
   m_Layer: 0
   m_Name: HydrationController
   m_TagString: Untagged
@@ -17,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1732025794787576875
+--- !u!4 &488882986320239352
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732025794787576877}
+  m_GameObject: {fileID: 488882986320239349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8660383, y: -5.2233243, z: 12.366034}
+  m_LocalPosition: {x: 1.3689916, y: -5.280192, z: 12.334261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1732025794787576876
+--- !u!114 &488882986320239351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732025794787576877}
+  m_GameObject: {fileID: 488882986320239349}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bf1af99caa7c7c418b1b34b22ddd5bc, type: 3}
@@ -53,6 +54,20 @@ MonoBehaviour:
   Delay: 1
   levelScript: {fileID: 4118953451913472026, guid: 4720595ce045d844eb3ea45e11378919,
     type: 3}
-  waterBar: {fileID: 0}
+  waterBar: {fileID: 488882986320239350}
   _hydrateClip: []
   _failClip: []
+--- !u!114 &488882986320239350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488882986320239349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd7398057df1054b9d6da32ec700485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterSlider: {fileID: 4636279051083772747, guid: bd12ece60fe81ac47a5f8d79cc444ec1,
+    type: 3}

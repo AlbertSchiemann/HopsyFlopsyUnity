@@ -8,8 +8,10 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private Grid grid;
     private PlayerPosition playerPosition; // Updated variable name
     [SerializeField] private GameObject playerPrefab; // Updated variable name
+
+    public float PlayerHeigth = .5f;  // Position in Y Axis of the Prefab
     
-    public float DelayInBetweenMoves = .2f;
+    public float DelayInBetweenMoves = .2f;  // not working // Delay until a new movement gets recognized
     private bool isAllowedToMove = true;       // enables player movement in general
    
 
@@ -61,7 +63,7 @@ public class GridPlayerMovement : MonoBehaviour
         
     private void UpdateGameObjectPosition()
     {
-        transform.position = new Vector3(playerPosition.posX, 1, playerPosition.posY);
+        transform.position = new Vector3(playerPosition.posX, PlayerHeigth, playerPosition.posY);
         //player.transform.position = new Vector3(playerPosition.posX, 1, playerPosition.posY);
 
     }

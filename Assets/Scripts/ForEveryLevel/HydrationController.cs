@@ -88,7 +88,7 @@ public class HydrationController : MonoBehaviour
             // Decrease hydration over time
             hydration -= hydrationDecayRate * Time.deltaTime;
             waterBar.SetHealth(hydration);
-            Debug.Log("no water, normal dehydration");
+            //Debug.Log("no water, normal dehydration");
         }
         else
         {

@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f89d67a3dcd74244b8e8517dd9f9458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterBar: {fileID: 0}
   beforeMenu: {fileID: 2131079892587649475}
   playingMenu: {fileID: 562299588637567028}
   pauseMenu: {fileID: 4242181234792491044}
@@ -905,7 +906,7 @@ PrefabInstance:
     - target: {fileID: 1840547885935325568, guid: 823fd28c628348a47a4b1a49cebfc469,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2834108385572541227, guid: 823fd28c628348a47a4b1a49cebfc469,
         type: 3}
