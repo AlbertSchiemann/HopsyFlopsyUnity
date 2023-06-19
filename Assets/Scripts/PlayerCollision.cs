@@ -61,6 +61,10 @@ public class PlayerCollision : MonoBehaviour
             {
                 noMoveForward = true;
             }
+            else 
+            {
+                noMoveForward = false;
+            }
             Debug.DrawRay(transform.position, transform.TransformDirection(forwardRay * RayRange));
         }
         else
@@ -73,6 +77,10 @@ public class PlayerCollision : MonoBehaviour
             if (hitB.collider.tag == "Obstacle")
             {
                 noMoveBackward = true;
+            }
+            else
+            {
+                noMoveBackward = false;
             }
             Debug.DrawRay(transform.position, transform.TransformDirection(backwardRay * RayRange));
         }
@@ -87,6 +95,10 @@ public class PlayerCollision : MonoBehaviour
             {
                 noMoveRight = true;
             }
+            else
+            {
+                noMoveRight = false;
+            }
             Debug.DrawRay(transform.position, transform.TransformDirection(rightRay * RayRange));
         }
         else
@@ -99,6 +111,10 @@ public class PlayerCollision : MonoBehaviour
             if (hitL.collider.tag == "Obstacle")
             {
                 noMoveLeft = true;
+            }
+            else
+            {
+                noMoveLeft = false;
             }
             Debug.DrawRay(transform.position, transform.TransformDirection(leftRay * RayRange));
         } 
