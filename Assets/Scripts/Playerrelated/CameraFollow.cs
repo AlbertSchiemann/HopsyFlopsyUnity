@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform playerTransform;    // reference to the player's transform
     public float smoothTime = 0.3f;      // time taken for camera to smoothly follow player
-    public Vector3 offset;               // initial offset between camera and player
+    public Vector3 offset = new(0, 3, -2);               // initial offset between camera and player
 
     private Vector3 velocity = Vector3.zero;
 

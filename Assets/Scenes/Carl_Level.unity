@@ -6710,6 +6710,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Delay: 1
   levelScript: {fileID: 1566205329}
+  RayRange: 1
+  forwardRay: {x: 0, y: 1, z: 0}
+  backwardRay: {x: 0, y: -1, z: 0}
+  rightRay: {x: -1, y: 0, z: 0}
+  leftRay: {x: 1, y: 0, z: 0}
+  noMoveForward: 0
+  noMoveBackward: 0
+  noMoveRight: 0
+  noMoveLeft: 0
   _failClip: []
 --- !u!1001 &1410656355
 PrefabInstance:
@@ -10773,6 +10782,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4145950133543350858, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
+      propertyPath: offset.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145950133543350858, guid: cf2278bc32b8a8549828ad7d02b3f61c,
+        type: 3}
+      propertyPath: offset.z
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145950133543350858, guid: cf2278bc32b8a8549828ad7d02b3f61c,
+        type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1383716544}
@@ -10799,27 +10818,27 @@ PrefabInstance:
     - target: {fileID: 4145950133543350861, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9944335
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 4145950133543350861, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10536635
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 4145950133543350861, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4145950133543350861, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4145950133543350861, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 12.097
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4145950133543350861, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
