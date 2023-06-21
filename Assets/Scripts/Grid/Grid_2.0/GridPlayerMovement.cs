@@ -6,8 +6,8 @@ public class GridPlayerMovement : MonoBehaviour
 {
     private Grid2DCreated grid2dCreated;
     [SerializeField] private Grid grid;
-    private PlayerPosition playerPosition; // Updated variable name
-    [SerializeField] private GameObject playerPrefab; // Updated variable name
+    private PlayerPosition playerPosition; 
+    [SerializeField] private GameObject playerPrefab; 
 
     public float PlayerHeigth = .5f;  // Position in Y Axis of the Prefab
     

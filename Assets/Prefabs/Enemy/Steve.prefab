@@ -147,11 +147,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146906ff1d874c346a4595e4b595601b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
-  moveSpeed: 1
-  levelScript: {fileID: 0}
-  _failClip: []
+  moveSpeed: 10
+  grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
+  enemyPrefab: {fileID: 4984238158877522434}
+  pointA: {x: 0, y: 0, z: 0}
+  pointB: {x: 0, y: 0, z: 0}
+  pointC: {x: 0, y: 0, z: 0}
+  pointD: {x: 0, y: 0, z: 0}
+  pointE: {x: 0, y: 0, z: 0}
+  generalHeight: 0.5
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0
