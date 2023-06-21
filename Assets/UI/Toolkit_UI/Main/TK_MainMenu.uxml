@@ -1,8 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/Toolkit_UI/Styles.uss?fileID=7433441132597879392&amp;guid=bfc4c920412d1b445b43fbbbc2292653&amp;type=3#Styles" />
-    <Style src="project://database/Assets/UI/Toolkit_UI/styles_mainMenu.uss?fileID=7433441132597879392&amp;guid=ac6433c2aeedf494ba696c83fac2bf0e&amp;type=3#styles_mainMenu" />
+    <Style src="project://database/Assets/UI/Toolkit_UI/Main/Styles.uss?fileID=7433441132597879392&amp;guid=bfc4c920412d1b445b43fbbbc2292653&amp;type=3#Styles" />
     <ui:VisualElement style="width: 100%; height: 100%;">
-        <ui:VisualElement name="Main" style="width: 100%; height: 100%; position: absolute; align-items: center; justify-content: center; display: none;">
+        <ui:VisualElement name="Main" style="width: 100%; height: 100%; position: absolute; align-items: center; justify-content: center; display: flex;">
             <ui:Label text="Main" display-tooltip-when-elided="true" class="MenuName" />
             <ui:Button text="Play Last" display-tooltip-when-elided="true" name="but_PlayLast" style="height: 20%; width: 25%; left: auto; -unity-font-style: bold; font-size: 56%; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px;" />
             <ui:VisualElement name="Corner3" class="VisualEle_3inCorner">
@@ -39,18 +38,18 @@
             </ui:VisualElement>
             <ui:Button text="Back" display-tooltip-when-elided="true" name="but_back" class="general_but" style="font-size: 33px; -unity-font-style: bold; width: 15%; height: 12%; position: absolute; bottom: 8%;" />
         </ui:VisualElement>
-        <ui:VisualElement name="Settings" style="width: 100%; height: 100%; position: absolute; align-items: center; justify-content: center; display: flex;">
+        <ui:VisualElement name="Settings" style="width: 100%; height: 100%; position: absolute; align-items: center; justify-content: center; display: none;">
             <ui:Label text="Settings" display-tooltip-when-elided="true" class="MenuName" style="top: 28px; left: 587px;" />
             <ui:VisualElement name="Corner3" class="VisualEle_3inCorner" style="width: 20%; right: 1.5%; bottom: 3%;">
-                <ui:Button display-tooltip-when-elided="true" name="but_Help" class="Button_3inCorner but_help" style="background-image: url(&apos;project://database/Assets/UI/Previous_UI/Pictures/helpIcon.png?fileID=2800000&amp;guid=5c01d9ecaca8e524694dfbc6c45db828&amp;type=3#helpIcon&apos;); width: 40%; margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 16px; -unity-background-scale-mode: scale-to-fit;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_Help" class="Button_3inCorner but_help" style="background-image: url(&apos;project://database/Assets/UI/Previous_UI/Pictures/helpIcon.png?fileID=2800000&amp;guid=5c01d9ecaca8e524694dfbc6c45db828&amp;type=3#helpIcon&apos;); width: 40%; margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 16px; -unity-background-scale-mode: scale-to-fit; background-color: rgba(95, 95, 95, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_Store" class="Button_3inCorner but_store" style="width: 40%; -unity-background-scale-mode: scale-to-fit;" />
             </ui:VisualElement>
             <ui:Button text="Back" display-tooltip-when-elided="true" name="but_settings_back" class="general_but" style="font-size: 33px; -unity-font-style: bold; width: 15%; height: 12%; position: absolute; bottom: 46px; left: 51%;" />
             <ui:VisualElement name="vis_settings_nav" style="width: 23%; height: 65%; position: absolute; left: 4%; justify-content: center; align-items: center; top: auto;">
-                <ui:Button text="Sound" display-tooltip-when-elided="true" name="but_sound" class="general_but but_settings_nav" />
-                <ui:Button text="Credits" display-tooltip-when-elided="true" name="but_credits" class="general_but but_settings_nav" />
-                <ui:Button text="Language" display-tooltip-when-elided="true" name="but_language" class="general_but but_settings_nav" />
-                <ui:Button text="Contact" display-tooltip-when-elided="true" name="but_contact" class="general_but but_settings_nav" />
+                <ui:Button text="Sound" display-tooltip-when-elided="true" name="but_sound" class="general_but but_settings_nav" style="font-size: 53.34%;" />
+                <ui:Button text="Credits" display-tooltip-when-elided="true" name="but_credits" class="general_but but_settings_nav" style="font-size: 53.34%;" />
+                <ui:Button text="Language" display-tooltip-when-elided="true" name="but_language" class="general_but but_settings_nav" style="font-size: 53.34%;" />
+                <ui:Button text="Contact" display-tooltip-when-elided="true" name="but_contact" class="general_but but_settings_nav" style="font-size: 53.34%; width: 90%;" />
             </ui:VisualElement>
             <ui:VisualElement name="sound" class="vis_settings_nav" style="height: 60%; width: 854px; justify-content: center; align-items: center; position: absolute; left: auto; top: 110px; right: 144px; display: flex;">
                 <ui:Label text="sound" display-tooltip-when-elided="true" style="height: 32px; width: 113px; font-size: 27px; -unity-text-align: middle-center; position: absolute; top: 1%;" />
