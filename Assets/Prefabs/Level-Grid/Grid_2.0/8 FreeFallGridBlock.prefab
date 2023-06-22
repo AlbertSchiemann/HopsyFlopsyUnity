@@ -60,8 +60,7 @@ MeshRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 8c7ba99c140f67a44911f630d803a7ea, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,14 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a303346e9254f874e96c6f1f013e5441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hydrationController: {fileID: 1732025794787576876, guid: 5b55c43e038a07e44b9e9bde0351aad4,
-    type: 3}
-  waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
-  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
-    type: 3}
-  fireGridBlock: {fileID: 5522171207073094269, guid: dec4cb6caf12d034a8980de336fbec51,
-    type: 3}
   levelScript: {fileID: 0}
   _failClip: []
   fallingAnimator: {fileID: -3905575413645458369, guid: c7a57c5d248456f44a7efe574c58cf19,
