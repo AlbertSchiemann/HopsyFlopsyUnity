@@ -40,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
     {
         grid2dCreated = grid.getGridCreated();
         print(grid2dCreated);
-        InstantiatePlayer();
+        InitiateEnemy();
         //movingTowardsPointB = true;
         isProcessingMovement = false;
         movementsMAX = pointsMoveRight + pointsMoveLeft + pointsMoveForward + pointsMoveBackward;
@@ -53,7 +53,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void MovementDelay()
     {
-        Invoke(nameof(PreventMovement), .9f);
+        Invoke(nameof(PreventMovement), .1f);
     }
 
     void Update()
@@ -63,54 +63,61 @@ public class EnemyMovement : MonoBehaviour
             //transform.LookAt();
             if(!onTheWayBack && !isProcessingMovement)
             {
-                Debug.Log("Going There");
-                for (int i = 0; i < pointsMoveRight; i++)    {
+
+                for (int i = 1; i < pointsMoveRight; i++)    {
                     
                     if (!isProcessingMovement) 
                     { 
                         MovingRight   (1);
-                        Debug.Log("+1 Step");
+                        UpdateGameObjectPosition();
+                        Debug.Log("+1 Step R");
                         movementsCounter++;
                         MovementDelay(); 
                         isProcessingMovement = true; 
-                        UpdateGameObjectPosition();
+                        
                     }
                     
                     
                 }
-                for (int i = 0; i < pointsMoveLeft; i++)     {
+                for (int i = 1; i < pointsMoveLeft; i++)     {
                     
                     if (!isProcessingMovement) 
                     { 
                         MovingLeft    (1);
+                        UpdateGameObjectPosition();
+                        Debug.Log("+1 Step L");
                         movementsCounter++;
                         MovementDelay(); 
                         isProcessingMovement = true; 
-                        UpdateGameObjectPosition();
+                        
                     }
                     
                 }
-                for (int i = 0; i < pointsMoveForward; i++)  {
+                for (int i = 1; i < pointsMoveForward; i++)  {
                     
                     if (!isProcessingMovement) 
                     { 
                         MovingForward (1);
+                        UpdateGameObjectPosition(); 
+                        Debug.Log("+1 Step F");
                         movementsCounter++;
                         MovementDelay(); 
                         isProcessingMovement = true;
-                        UpdateGameObjectPosition(); 
+                        
                     }
                     
                 }
-                for (int i = 0; i < pointsMoveBackward; i++) {
+                for (int i = 1; i < pointsMoveBackward; i++) {
                     
                     if (!isProcessingMovement) 
                     { 
                         MovingBackward(1);
+                        UpdateGameObjectPosition();
+                        Debug.Log("+1 Step B");
                         movementsCounter++;
                         MovementDelay(); 
                         isProcessingMovement = true;
-                        UpdateGameObjectPosition(); 
+                         
                     }
                     
                 }
@@ -120,65 +127,72 @@ public class EnemyMovement : MonoBehaviour
                 }
                 
                 
-                Debug.Log("+1 Processing");
             }
             else if(onTheWayBack == true && !isProcessingMovement)
             {
-                Debug.Log("Coming Back");
-                for (int i = 0; i < pointsMoveForward; i++) {
+
+                for (int i = 1; i < pointsMoveForward; i++) {
                     
                     if (!isProcessingMovement) 
                     { 
                         MovingBackward(1);
+                        UpdateGameObjectPosition();
+                        Debug.Log("-1 Step B");
                         movementsCounter--;
                         MovementDelay(); 
                         isProcessingMovement = true;
-                        UpdateGameObjectPosition(); 
+                         
                     }
                     
                 }
-                for (int i = 0; i < pointsMoveBackward; i++)  {
+                for (int i = 1; i < pointsMoveBackward; i++)  {
                     
                     if (!isProcessingMovement) 
                     { 
                         MovingForward (1);
+                        UpdateGameObjectPosition();
+                        Debug.Log("-1 Step F");
                         movementsCounter--;
                         MovementDelay(); 
                         isProcessingMovement = true; 
-                        UpdateGameObjectPosition();
+                        
                     }
                     
                 }
-                for (int i = 0; i < pointsMoveRight; i++)     {
+                for (int i = 1; i < pointsMoveRight; i++)     {
                     
                     if (!isProcessingMovement) 
                     { 
-                        Debug.Log("-1 Step");
+                        
                         MovingLeft   (1);
+                        UpdateGameObjectPosition();
+                        Debug.Log("-1 Step L");
                         movementsCounter--;
                         MovementDelay(); 
                         isProcessingMovement = true; 
-                        UpdateGameObjectPosition();
+                        
                     }
                     
                 }
-                for (int i = 0; i < pointsMoveLeft; i++)    {
+                for (int i = 1; i < pointsMoveLeft; i++)    {
                     
                     if (!isProcessingMovement) 
                     { 
-                        Debug.Log("-1 Step");
+                        
                         MovingRight   (1);
+                        UpdateGameObjectPosition();
+                        Debug.Log("-1 Step R");
                         movementsCounter--;
                         MovementDelay(); 
                         isProcessingMovement = true; 
-                        UpdateGameObjectPosition();
+                        
                     }
                     
                 }
                 if (movementsCounter == 0) {
                     onTheWayBack = false;
                 }
-                Debug.Log("-1 Processing");
+
             }
             else return;
 
@@ -187,7 +201,7 @@ public class EnemyMovement : MonoBehaviour
         else { Debug.LogError("PlayerPosition is null!"); }
     }
 
-    private void InstantiatePlayer()
+    private void InitiateEnemy()
     {
         playerPosition = new PlayerPosition((int)StartingPoint.x, (int)StartingPoint.y, (int)StartingPoint.z, grid2dCreated, playerPrefab);
     }
@@ -204,17 +218,17 @@ public class EnemyMovement : MonoBehaviour
         playerPosition.posX = newX;
         playerPrefab.transform.position = new Vector3(playerPosition.posX, 0, 0);
     }
-    public void MovingForward(int y)
+    public void MovingForward(int z)
     {
-        int newY = playerPosition.posZ + y;
-        playerPosition.posZ = newY;
-        playerPrefab.transform.position = new Vector3(0, playerPosition.posZ, 0);
+        int newZ = playerPosition.posZ + z;
+        playerPosition.posZ = newZ;
+        playerPrefab.transform.position = new Vector3(0, 0,playerPosition.posZ);
     }
-    public void MovingBackward(int y)
+    public void MovingBackward(int z)
     {
-        int newY = playerPosition.posY - y;
-        playerPosition.posY = newY;
-        playerPrefab.transform.position = new Vector3(0, playerPosition.posZ, 0);
+        int newZ = playerPosition.posZ - z;
+        playerPosition.posZ = newZ;
+        playerPrefab.transform.position = new Vector3(0, 0,playerPosition.posZ);
     }
 
     private void UpdateGameObjectPosition()

@@ -32,7 +32,8 @@ public enum NotBlockingGridBlockTypes {
     Goal,               //9
     Respawn             //10
 }
-    
+
+//[ExecuteInEditMode]
 public class Grid : MonoBehaviour{
 
     [SerializeField] public GameObject NormalBlockPrefab;

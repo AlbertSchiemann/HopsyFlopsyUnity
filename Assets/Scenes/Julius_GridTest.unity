@@ -656,12 +656,12 @@ PrefabInstance:
     - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}
       propertyPath: pointsMoveRight
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}
       propertyPath: pointsMoveForward
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4984238158877522434, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}
@@ -3112,6 +3112,11 @@ PrefabInstance:
     - target: {fileID: 3374952418276897862, guid: caa8fba8f7b0a8348bd1606e244089f0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703079123118904979, guid: caa8fba8f7b0a8348bd1606e244089f0,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5042123002805264807, guid: caa8fba8f7b0a8348bd1606e244089f0,
