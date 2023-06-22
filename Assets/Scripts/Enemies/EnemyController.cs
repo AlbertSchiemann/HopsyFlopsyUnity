@@ -15,29 +15,64 @@ public class EnemyController : MonoBehaviour
     public Vector3 pointD;
     public Vector3 pointE;
 
+    private VectorGridTransform realPointA;
+    private VectorGridTransform realPointB;
+    private VectorGridTransform realPointC;
+    private VectorGridTransform realPointD;
+    private VectorGridTransform realPointE;
+
     private bool movingTowardsPointA = false;
     private bool movingTowardsPointB = false;
     private bool movingTowardsPointC = false;
     private bool movingTowardsPointD = false;
     private bool movingTowardsPointE = false;
     
-
-
     public float generalHeight = 0.5f;
 
 
     void Start()
     {
         grid2dCreated = grid.getGridCreated();
+        print(grid2dCreated);
+
         InstantiateEnemy();
+        InstantiateVectors();
         //UpdateGameObjectPosition();
         movingTowardsPointB = true;
     }
-
+/*
     private void Update()
     {
         UpdateGameObjectPosition();
 
+        
+        if(movingTowardsPointB)
+        {
+            MoveToNextPoint(new Vector3(realPointB.posX, realPointB.posY, realPointB.posZ));
+
+            if (enemyPosition.posX == realPointB.posX && enemyPosition.posY == realPointB.posZ)
+            {
+                movingTowardsPointB = false;
+                movingTowardsPointA = true;
+                Debug.Log("Moving to B done");
+            }
+        }
+        if(movingTowardsPointA)
+        {
+            MoveToNextPoint(new Vector3(realPointA.posX, realPointA.posY, realPointA.posZ));
+
+            if (enemyPosition.posX == realPointA.posX && enemyPosition.posY == realPointA.posZ)
+            {
+                movingTowardsPointA = false;
+                movingTowardsPointB = true;
+                Debug.LogError("Moving to A done");
+            }
+        }
+
+
+        Debug.Log("Update done");
+    
+/*
         if (movingTowardsPointB)
         {
             MoveToNextPoint(new Vector3(pointB.x, pointB.y, pointB.z));
@@ -110,20 +145,37 @@ public class EnemyController : MonoBehaviour
                 movingTowardsPointB = true;
             }
         }
-    }
+        */
+    //}
+    private void InstantiateVectors()
+    {
+        realPointA = new VectorGridTransform(pointA.x, pointA.y, pointA.z, grid2dCreated);
+        realPointB = new VectorGridTransform(pointB.x, pointB.y, pointB.z, grid2dCreated);
+        realPointC = new VectorGridTransform(pointC.x, pointC.y, pointC.z, grid2dCreated);
+        realPointD = new VectorGridTransform(pointD.x, pointD.y, pointD.z, grid2dCreated);
+        realPointE = new VectorGridTransform(pointE.x, pointE.y, pointE.z, grid2dCreated);
 
+        Debug.Log("InstantiateVector - done");
+    }
     private void InstantiateEnemy()
     {
-        enemyPosition = new EnemyPosition((int)pointA.x, generalHeight, (int)pointA.z, grid2dCreated, enemyPrefab);
+        //enemyPosition = new EnemyPosition((int)realPointA.posX,(int)realPointA.posZ, grid2dCreated, enemyPrefab);
+        enemyPosition = new EnemyPosition(1,1, grid2dCreated, enemyPrefab);
+        Debug.Log("InstantiateEnemy - done");
     }
     private void UpdateGameObjectPosition()
     {
-        transform.position = new Vector3(enemyPosition.posX, (generalHeight > pointA.y) ? generalHeight : pointA.y, enemyPosition.posY);
+        //transform.position = new Vector3(enemyPosition.posX, (generalHeight > pointA.y) ? generalHeight : pointA.y, enemyPosition.posY);
+        transform.position = new Vector3(enemyPosition.posX, generalHeight, enemyPosition.posY);
+        Debug.Log("Updating Position");
     }
-/*
+
     private void MoveToNextPoint(Vector3 targetPoint)
     {
-        Vector3 targetPosition = new Vector3(targetPoint.x, (generalHeight > targetPoint.y) ? generalHeight : targetPoint.y, targetPoint.z);
+        Debug.Log("Move gets called");
+        //Vector3 targetPosition = new Vector3(targetPoint.x, (generalHeight > targetPoint.y) ? generalHeight : targetPoint.y, targetPoint.z);
+        // set the vector where the enemy goes to
+        Vector3 targetPosition = new Vector3(targetPoint.x, generalHeight, targetPoint.z);
         // set the vector where the enemy goes to
         
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
@@ -137,15 +189,7 @@ public class EnemyController : MonoBehaviour
         Debug.Log(targetPosition);
         // Console Output
     }
-    */
-    private void MoveToNextPoint(Vector3 targetPoint)
-{
-    Vector3 targetPosition = new Vector3(targetPoint.x, (generalHeight > targetPoint.y) ? generalHeight : targetPoint.y, targetPoint.z);
-    float step = moveSpeed * Time.deltaTime;
-    transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-
-    transform.LookAt(targetPosition);
-}
+    
 
 
 
@@ -153,29 +197,47 @@ public class EnemyController : MonoBehaviour
     public class EnemyPosition {              // when Player gets called, he gets a starting-position and the grid reference
         public int posX; 
         public int posY;
-        public float generalHeight = .5f;
         private Grid2DCreated grid;
         private GameObject enemyPrefab; // Reference to the player GameObject
         private GameObject enemy; // Reference to the player GameObject
-        public EnemyPosition(int x, float height,int y, Grid2DCreated grid, GameObject enemyPrefab) {  // Constructor: Player gets the Position of the Block he is on
+        public EnemyPosition(int x,int y, Grid2DCreated grid, GameObject enemyPrefab) {  // Constructor: Player gets the Position of the Block he is on
             this.posX = x;
             this.posY = y;
-            this.generalHeight = height;
             this.grid = grid;
             this.enemyPrefab = enemyPrefab;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Debug.Log("EnemyCollision - Eaten!");
-                // Restart the game if the player collides with the enemy
-                // levelScript.OpenLoose();
-                // PlayerCollision.GetComponent.Sceneload();
-                // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            Debug.Log("EnemyPosition - Constructor done");
         }
     }
+
+    public class VectorGridTransform {
+        public float posX; 
+        public float posY;
+        public float posZ;
+        private Grid2DCreated grid;
+
+        public VectorGridTransform (float x,float height,float y, Grid2DCreated grid) {  // Constructor: Player gets the Position of the Block he is on
+            this.posX = x;
+            this.posY = height;
+            this.posZ = y;
+            this.grid = grid;
+            Debug.Log("VectorGridTransform - Constructor done");
+        }
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("EnemyCollision - Eaten!");
+            // Restart the game if the player collides with the enemy
+            // levelScript.OpenLoose();
+            // PlayerCollision.GetComponent.Sceneload();
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
+
 }
 

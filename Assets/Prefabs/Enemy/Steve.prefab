@@ -110,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 67189180325150743}
   - component: {fileID: 5292504264473508167}
+  - component: {fileID: 2150796092308680710}
   - component: {fileID: 6805308409636450743}
   - component: {fileID: 8108586346942303896}
   m_Layer: 0
@@ -142,7 +143,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4984238158877522434}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 146906ff1d874c346a4595e4b595601b, type: 3}
   m_Name: 
@@ -156,6 +157,22 @@ MonoBehaviour:
   pointD: {x: 0, y: 0, z: 0}
   pointE: {x: 0, y: 0, z: 0}
   generalHeight: 0.5
+--- !u!114 &2150796092308680710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984238158877522434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0284fde22d4c147862fa325ef20af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
+  playerPrefab: {fileID: 4984238158877522434}
+  PlayerHeigth: 0.5
+  DelayInBetweenMoves: 0.2
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0

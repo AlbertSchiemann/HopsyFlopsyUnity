@@ -603,6 +603,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1466845791}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: pointA_X
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: pointA_Z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: pointB_X
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: pointB_Z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 1871102207}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: pointsMoveLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: StartingPoint.x
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: StartingPoint.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: StartingPoint.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: pointsMoveRight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150796092308680710, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: pointsMoveForward
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4984238158877522434, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}
       propertyPath: m_Name
@@ -667,6 +727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: pointE.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5292504264473508167, guid: 0a3013700cc17554bb115ee22810e139,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5292504264473508167, guid: 0a3013700cc17554bb115ee22810e139,
         type: 3}
@@ -2122,6 +2187,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87cdc1868128f534097a9cd45e169f6e, type: 3}
+--- !u!1 &1871102207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4984238158877522434, guid: 0a3013700cc17554bb115ee22810e139,
+    type: 3}
+  m_PrefabInstance: {fileID: 589979565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1894712726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6998130575842937162, guid: 7e405cb79b1a7f64fa8d957db2ee681a,
