@@ -52,6 +52,7 @@ public class GridPlayerMovement : MonoBehaviour
             //Debug.Log("Before Delayed movement" + Time.time);
             //DelayedAllowMovement(DelayInBetweenMoves);
             //Debug.Log("After Delayed movement" + Time.time);
+            playerPosition.Update();
             AllowMovement();
             RotatePlayer();
         }
@@ -89,6 +90,10 @@ public class GridPlayerMovement : MonoBehaviour
         private bool isAllowedToMoveForward = true;
         private bool isAllowedToMoveForwardTap = true; 
         public string direction = string.Empty;
+
+        public float initialMoveTimer = 0.2f;
+        public float moveTimer;
+        public bool isMoving = false;
         public PlayerPosition(int x, int y, Grid2DCreated grid, GameObject playerPrefab) {  // Constructor: Player gets the Position of the Block he is on
             this.posX = x;
             this.posY = y;
@@ -101,35 +106,56 @@ public class GridPlayerMovement : MonoBehaviour
                 isBlockChecked = true;
             }
         }
-        
+
+        public void Update()
+        {
+            if (isMoving)
+            {
+                moveTimer -= Time.deltaTime;
+                if (moveTimer <= 0)
+                {
+                    isMoving = false;
+                }
+            }
+        }
+
+
         public void CheckInput()
         {
-            // check for input events and set the target position
-            if (SwipeManager.shortTap || Input.GetKeyDown(KeyCode.Mouse0))
+            if (!isMoving)
             {
-                if (isAllowedToMoveForwardTap == true)  { moveForwardTap(); playerPrefab.transform.rotation = Quaternion.Euler(-90,180,rotationForward);}
-                else                                    { Debug.Log("Not allowed to Tap Forward."); }
+                // your existing code here
+                // check for input events and set the target position
+                /*
+                if (SwipeManager.shortTap || Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    if (isAllowedToMoveForwardTap == true) { moveForwardTap(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); }
+                    else { Debug.Log("Not allowed to Tap Forward."); }
+                }
+                */
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
+                {
+                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); }
+                    else { Debug.Log("Not allowed to Move Forward."); }
+                }
+                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
+                {
+                    if (isAllowedToMoveBack == true) { moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); }
+                    else { Debug.Log("Not allowed to Move Back."); }
+                }
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
+                {
+                    if (isAllowedToMoveLeft == true) { moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); }
+                    else { Debug.Log("Not allowed to Move Left."); }
+                }
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
+                {
+                    if (isAllowedToMoveRight == true) { moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); }
+                    else { Debug.Log("Not allowed to Move Right."); }
+                }
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
-            {
-                if (isAllowedToMoveForward == true)     { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90,180,rotationForward);}
-                else                                    { Debug.Log("Not allowed to Move Forward."); }
-            }
-            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
-            {
-                if (isAllowedToMoveBack == true)        { moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90,180,rotationBackward);}
-                else                                    { Debug.Log("Not allowed to Move Back."); }
-            }
-            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
-            {
-                if (isAllowedToMoveLeft == true)        { moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90,180,rotationLeft);}
-                else                                    { Debug.Log("Not allowed to Move Left."); }
-            }
-            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
-            {
-                if (isAllowedToMoveRight == true)       { moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90,180,rotationRight);}
-                else                                    { Debug.Log("Not allowed to Move Right."); }
-            }
+
+            
         }
 
         public void moveLeft ()         {Move(-1, 0); direction =   "Left";}
@@ -147,7 +173,11 @@ public class GridPlayerMovement : MonoBehaviour
             isBlockChecked = false;
             string blocktype = string.Empty;
 
-            
+            isMoving = true;
+            moveTimer = initialMoveTimer;
+           
+
+
             GridBlockTypeToChoose block = this.grid.getBlockAt(newPosX, newPosY);
 
             if (block == GridBlockTypeToChoose.NormalBlock){blocktype = "Normalblock!";} 
