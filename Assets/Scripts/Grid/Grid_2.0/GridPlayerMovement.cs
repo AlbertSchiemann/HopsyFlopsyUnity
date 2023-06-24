@@ -6,8 +6,8 @@ public class GridPlayerMovement : MonoBehaviour
 {
     private Grid2DCreated grid2dCreated;
     [SerializeField] private Grid grid;
-    private PlayerPosition playerPosition; // Updated variable name
-    [SerializeField] private GameObject playerPrefab; // Updated variable name
+    private PlayerPosition playerPosition; 
+    [SerializeField] private GameObject playerPrefab; 
 
     public float PlayerHeigth = .5f;  // Position in Y Axis of the Prefab
     
@@ -17,11 +17,10 @@ public class GridPlayerMovement : MonoBehaviour
     void Start()
     {
         grid2dCreated = grid.getGridCreated();
-        //grid2dCreated = grid.getGrid();
         print(grid2dCreated);
         InstantiatePlayer();
         isAllowedToMove = true;
-        playerPosition.IsValidMove(1, 6); // Enter the Starting Gridposition of the Player
+        playerPosition.IsValidMove(1, 6); // Enter the Starting Gridposition of the Player so a check of the surrounding blocks gets called and the player cant move through blocked blocks
         //GameStateManagerScript.onGameStart += AllowMovement;
         //GameStateManagerScript.onGamePaused += PreventMovement;
     }
@@ -57,7 +56,6 @@ public class GridPlayerMovement : MonoBehaviour
             RotatePlayer();
         }
         else { Debug.LogError("PlayerPosition is null!"); }
-        return;
     }
 
     private void InstantiatePlayer()
@@ -135,10 +133,10 @@ public class GridPlayerMovement : MonoBehaviour
         }
 
         public void moveLeft ()         {Move(-1, 0); direction =   "Left";}
-        public void moveRight ()        {Move(1, 0); direction =    "Right";}
-        public void moveForward ()      {Move(0, 1); direction =    "TapForward";}
-        public void moveForwardTap ()   {Move(0, 1); direction =    "Forward";}
-        public void moveBackward ()     {Move(0, -1); direction =   "Backward";}
+        public void moveRight ()        {Move( 1, 0); direction =    "Right";}
+        public void moveForward ()      {Move( 0, 1); direction =    "TapForward";}
+        public void moveForwardTap ()   {Move( 0, 1); direction =    "Forward";}
+        public void moveBackward ()     {Move( 0,-1); direction =   "Backward";}
         public void Move(int x, int y) 
         {
             int newPosX = posX + x;

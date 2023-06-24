@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2831979091869929650}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: -0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 67189180325150743}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 90, z: 0}
 --- !u!33 &5756679227708634127
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67189180325150743}
-  - component: {fileID: 5292504264473508167}
+  - component: {fileID: 2150796092308680710}
   - component: {fileID: 6805308409636450743}
   - component: {fileID: 8108586346942303896}
   m_Layer: 0
@@ -127,7 +127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4984238158877522434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.09, y: 0.0523813, z: 18.19}
+  m_LocalPosition: {x: 20, y: 1, z: 7}
   m_LocalScale: {x: 80, y: 80, z: 80}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -135,7 +135,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5292504264473508167
+--- !u!114 &2150796092308680710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,14 +144,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 4984238158877522434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 146906ff1d874c346a4595e4b595601b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f0284fde22d4c147862fa325ef20af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointA: {fileID: 0}
-  pointB: {fileID: 0}
-  moveSpeed: 1
-  levelScript: {fileID: 0}
+  grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
+  playerPrefab: {fileID: 4984238158877522434}
+  levelScript: {fileID: 4118953451913472026, guid: e5f965732da5c8a45891d38ca84755d2,
+    type: 3}
   _failClip: []
+  Delay: 1
+  generalHeigth: 0.5
+  StartingPoint: {x: 0, y: 0, z: 0}
+  pointsMoveRight: 0
+  pointsMoveForward: 0
+  pointsMoveLeft: 0
+  pointsMoveBackward: 0
+  isLoopActive: 0
+  moveDelay: 1
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.020325065, y: 0.005928039, z: 0.003825403}
-  m_Center: {x: -0.00083199743, y: 0.0010742884, z: -0.000096094984}
+  m_Size: {x: 0.004737238, y: 0.005928039, z: 0.017568635}
+  m_Center: {x: 0.0001492791, y: 0.0010742884, z: 0.0023202347}
 --- !u!54 &8108586346942303896
 Rigidbody:
   m_ObjectHideFlags: 0
