@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class EnemMov : MonoBehaviour
 {
     public float moveSpeed = 2f;
@@ -83,3 +83,4 @@ public class EnemMov : MonoBehaviour
         ExecuteNextMove();
     }
 }
+*/

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7547510478332832114}
   - component: {fileID: 349047253980221694}
   - component: {fileID: 6219723605729905835}
+  - component: {fileID: 4340852183897272214}
   m_Layer: 0
   m_Name: Cube
   m_TagString: GridCell
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e912df214af8a3043b21c62b0722aad1, type: 2}
+  - {fileID: 2100000, guid: 7267d7b12542fea4e8c7183aa8a8f806, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4340852183897272214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870883472591714951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1395000862042864183
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,11 +106,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8862890272243420881}
-  - component: {fileID: 12618231}
-  - component: {fileID: 5893730008119085185}
-  - component: {fileID: 3922497149566265428}
   m_Layer: 0
-  m_Name: 4 WaterGridBlock
+  m_Name: 3 BridgeBlockBlocked
   m_TagString: GridCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,52 +129,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &12618231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395000862042864183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f3bf979a63b7864eba03167dea22e81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hydrateClip: []
-  hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
-    type: 3}
-  waterGridBlock: {fileID: 12618231}
-  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
-    type: 3}
-  fireGridBlock: {fileID: 5522171207073094269, guid: b8d3f089fc3d9914297608f481fca7a6,
-    type: 3}
-  freeFallGridBlock: {fileID: 6565122129936999412, guid: 21a3aee173008d649b24efb493abac22,
-    type: 3}
---- !u!114 &5893730008119085185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395000862042864183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72174d4515baf06439474b4930d5180f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBlocking: 0
---- !u!65 &3922497149566265428
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1395000862042864183}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.368711, z: 1}
-  m_Center: {x: 0, y: 0.18435575, z: 0}

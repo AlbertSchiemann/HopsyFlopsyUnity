@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2289588561581400342}
   - component: {fileID: 5522171207073094269}
-  - component: {fileID: 7227956326491288228}
   - component: {fileID: 5902958069559235603}
   m_Layer: 0
   m_Name: 6 FireGridBlock
@@ -55,19 +54,6 @@ MonoBehaviour:
     type: 3}
   freeFallGridBlock: {fileID: 6565122129936999412, guid: 80bbfc45ae3a73c4f8669f84932097a0,
     type: 3}
---- !u!114 &7227956326491288228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6998130575842937162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72174d4515baf06439474b4930d5180f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBlocking: 0
 --- !u!65 &5902958069559235603
 BoxCollider:
   m_ObjectHideFlags: 0

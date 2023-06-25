@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class WaterGridBlock : MonoBehaviour
 {
-    
-    [SerializeField] private AudioClip[] _hydrateClip;
-    public HydrationController hydrationController;
-    public WaterGridBlock waterGridBlock;
-    public GridCell gridCell;
-    public GameGrid gameGrid;
-    public FireGridBlock fireGridBlock;
-    public FreeFallGridBlock freeFallGridBlock;
-    
-    
-     // Reference to HydrationController script
+    // script is just working with the HydrationController 
+    // and updates it if the player is colliding with the water block or not
 
-    private PlayerInstantiate playerInstantiate;
+
+    [SerializeField] private AudioClip[] _hydrateClip;
+    public HydrationController hydrationController;         // Reference to the levels HydrationController 
+    private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
 
     private void Start()
@@ -30,8 +24,8 @@ public class WaterGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hydrationController.isCollidingWithWater = true;
-            //SoundManager.Instance.PlaySound(_hydrateClip);
 
+            // SoundManager.Instance.PlaySound(_hydrateClip);
         }
     }
 
@@ -40,6 +34,8 @@ public class WaterGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hydrationController.isCollidingWithWater = true; // Update the local variable
+
+            // Sound missing
         }
     }
 

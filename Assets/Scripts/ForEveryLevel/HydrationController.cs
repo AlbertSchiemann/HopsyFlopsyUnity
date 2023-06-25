@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class HydrationController : MonoBehaviour
 {
+    // This script is responsible for the hydration of the player
+    // The player loses hydration over time
+    // The player loses hydration faster if he is colliding with fire
+    // The player gains hydration if he is colliding with water
+    // If the hydration reaches 0, the player dies
+    
     bool isHydrationActivated;
 
-    public float hydrationMax = 100f; // Maximum amount of Hydration
-    public float hydrationDecayRate = 10f; // Rate in which the Hydration goes down 
+    public float hydrationMax = 100f;                       // Maximum amount of Hydration
+    public float hydrationDecayRate = 10f;                  // Rate in which the Hydration goes down 
     public float hydrationDecayFire = 2f;
-    public float hydrationRestoreAmount = 100f; // Rate in which Hydration gets restored in Water Tiles
+    public float hydrationRestoreAmount = 100f;             // Rate in which Hydration gets restored in Water Tiles
 
-    private float hydration; // Value of the Hydration
-    public bool isCollidingWithWater = false; // Check if waterTile is colliding
-    public bool isCollidingWithFire = false; // Check if firetile is colliding
+    private float hydration;                                // Value of the Hydration
+    public bool isCollidingWithWater = false;               // Check if waterTile is colliding
+    public bool isCollidingWithFire = false;                // Check if firetile is colliding
 
-    public float Delay = 1.0f; // Delay till Scene gets reloaded
+    public float Delay = 1.0f;                              // Delay till Scene gets reloaded
 
 
     public UI_LevelScript levelScript;
@@ -28,22 +34,18 @@ public class HydrationController : MonoBehaviour
 
 
 
-    public static HydrationController Instance { get; private set; }  // Instantiatie the Hydration Controller to assign it automatically
+    public static HydrationController Instance { get; private set; }    // Instantiatie the Hydration Controller to assign it automatically
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // Ensure only one instance of the HydrationController exists
+            Destroy(gameObject);                                        // Ensure only one instance of the HydrationController exists
             return;
         }
-
         Instance = this;
     }
     
-    
-    
-    // Start is called before the first frame update
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
@@ -55,11 +57,8 @@ public class HydrationController : MonoBehaviour
         GameStateManagerScript.onGameStart += ActivateHydration;
         GameStateManagerScript.onGamePaused += DeactivateHydration;
 
-        // Get reference to WaterGridBlock script
-        // waterGridBlock = FindObjectOfType<WaterGridBlock>();
     }
 
-    // Update is called once per frame
     void FixedUpdate ()
     {
         
@@ -73,34 +72,27 @@ public class HydrationController : MonoBehaviour
             RestoreHydration();
             LowerHydration();
             LowerHydrationOnFire(); 
-            CheckHydrationDeathCondition(); 
-             
+            CheckHydrationDeathCondition();   
         }
     }
     
 
-   
-
-    public void LowerHydration()
-    {
+    public void LowerHydration()                                        // Decrease hydration over time
+    {                                                                   // Reset hydration to maximum if colliding with water
         if (!isCollidingWithWater)
-        {
-            // Decrease hydration over time
+        {     
             hydration -= hydrationDecayRate * Time.deltaTime;
             waterBar.SetHealth(hydration);
-            //Debug.Log("no water, normal dehydration");
         }
         else
         {
-            //Debug.Log("colliding with water");
-            // Reset hydration to maximum if colliding with water
             hydration += hydrationRestoreAmount * Time.deltaTime;
             hydration = Mathf.Clamp(hydration, 0f, hydrationMax);
             waterBar.SetHealth(hydration);           
         }
     }
 
-    public void LowerHydrationOnFire()
+    public void LowerHydrationOnFire()                                  // Decrease hydration over time even faster if colliding with fire
     {
         if (isCollidingWithFire)
         {
@@ -110,21 +102,17 @@ public class HydrationController : MonoBehaviour
         }
         else
         {
-            //Debug.Log("no fire, normal dehydration");
             return;
         }
     }
     
 
-    public void RestoreHydration()
+    public void RestoreHydration()                                          // Restore hydration if colliding with water
     {
-        // Restore Hydration if needed
         if (isCollidingWithWater)
-        {
-           
+        {          
             if (hydration < hydrationMax)
             {
-                //hydration = hydrationMax;
                 hydration += hydrationRestoreAmount * Time.deltaTime;
                 hydration = Mathf.Clamp(hydration, 0f, hydrationMax);
                 waterBar.SetHealth(hydration);
@@ -132,15 +120,13 @@ public class HydrationController : MonoBehaviour
         }
     }
 
-    public void CheckHydrationDeathCondition()
+    public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
-        // Check if hydration has reached 0
         if (hydration <= 0)
         {
             levelScript.OpenLoose();
-            //SoundManager.Instance.PlaySound(_failClip);
-            Invoke("Sceneload", Delay);
-            
+            // Sound is missing
+            Invoke("Sceneload", Delay); 
         }
     }
 
@@ -154,4 +140,3 @@ public class HydrationController : MonoBehaviour
     }
 }
 
-// Blubbel

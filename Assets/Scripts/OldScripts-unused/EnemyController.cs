@@ -1,5 +1,5 @@
 using UnityEngine;
-
+/*
 public class EnemyController : MonoBehaviour
 {
     public float moveSpeed = .1f; // speed of enemy movement
@@ -147,6 +147,7 @@ public class EnemyController : MonoBehaviour
         }
         */
     //}
+    /*
     private void InstantiateVectors()
     {
         realPointA = new VectorGridTransform(pointA.x, pointA.y, pointA.z, grid2dCreated);
@@ -241,3 +242,4 @@ public class EnemyController : MonoBehaviour
 
 }
 
+*/

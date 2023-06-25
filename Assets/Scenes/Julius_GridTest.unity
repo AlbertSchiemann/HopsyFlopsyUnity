@@ -3186,6 +3186,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4145950133543350858, guid: cf2278bc32b8a8549828ad7d02b3f61c,
         type: 3}
+      propertyPath: offset.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145950133543350858, guid: cf2278bc32b8a8549828ad7d02b3f61c,
+        type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1383716544}

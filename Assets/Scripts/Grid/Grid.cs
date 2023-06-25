@@ -3,7 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GridBlockTypeToChoose {
+// This script is for creating the Grid and the GridBlocks in the Level
+// It sets new positions on worldcoordinates and saves them in an int array to be accessed more easily
+// It creates the GridBlocks and assigns them to the right position according to the int array
+
+
+
+public enum GridBlockTypeToChoose {                 // Enum for the GridBlockTypes, for simpler access
     NormalBlock,        //0
     NormalBlockBlocked, //1
     Bridge,             //2
@@ -16,22 +22,21 @@ public enum GridBlockTypeToChoose {
     Goal,               //9
     Respawn             //10
 }
+// For your information:
 
-public enum BlockingGridBlockTypes {
-    NormalBlockBlocked, //1
-    BridgeBlocked,      //3
-    WaterBlocked,       //5
-    FireBlocked        //7
-}
-public enum NotBlockingGridBlockTypes {
-    NormalBlock,        //0
-    Bridge,             //2
-    Water,              //4
-    Fire,               //6
-    FreeFall,           //8
-    Goal,               //9
-    Respawn             //10
-}
+//public enum BlockingGridBlockTypes {
+//    NormalBlockBlocked, //1
+//    BridgeBlocked,      //3
+//   WaterBlocked,       //5
+//    FireBlocked        //7 }
+//public enum NotBlockingGridBlockTypes {
+//    NormalBlock,        //0
+//    Bridge,             //2
+//    Water,              //4
+//    Fire,               //6
+//    FreeFall,           //8
+//    Goal,               //9
+//    Respawn             //10}
 
 //[ExecuteInEditMode]
 public class Grid : MonoBehaviour{
@@ -48,17 +53,17 @@ public class Grid : MonoBehaviour{
     [SerializeField] public GameObject GoalPrefab;
     [SerializeField] public GameObject RespawnPrefab;
 
-    private Grid2DCreated sg;
-    [SerializeField] private int levelNumber;
+    private Grid2DCreated referencedGrid;                                           // Reference to the Grid2DCreated ScriptableObject
+    [SerializeField] private int levelNumber;                                       // Level Number to choose the right Grid
 
 
     public void Awake() {
         
-        sg = ScriptableObject.CreateInstance<Grid2DCreated>();
-        sg.selectedLevel = levelNumber;
-        sg.Initialize(this, FindObjectOfType<GridPlayerMovement>()); // Pass the GridPlayerMovement instance
+        referencedGrid = ScriptableObject.CreateInstance<Grid2DCreated>();
+        referencedGrid.selectedLevel = levelNumber;
+        referencedGrid.Initialize(this, FindObjectOfType<GridPlayerMovement>());    // Pass the GridPlayerMovement instance
 
-        if (NormalBlockPrefab == null){
+        if (NormalBlockPrefab == null){                                             // Check if the Prefabs are assigned
             Debug.LogError("No NormalBlockPrefab assigned!");
         }
         if (NormalBlockBlockedPrefab == null) {
@@ -94,15 +99,15 @@ public class Grid : MonoBehaviour{
     }
 
     public Grid2DCreated getGridCreated(){
-        return sg;
+        return referencedGrid;
     }
 }
 
 public class Grid2DCreated : ScriptableObject  {
 
     public int selectedLevel;
-    public int [,] blocks;  // Int Array for the Grid
-    GameObject[] prefabs;   // Array for the Prefabs
+    public int [,] blocks;                                  // Int Array for the Grid
+    GameObject[] prefabs;                                   // Array for the Prefabs
 
 
     
@@ -113,7 +118,7 @@ public class Grid2DCreated : ScriptableObject  {
         {
             case 0:
                 blocks = new int[,] {
-/*
+/*          First Test, for reference only:
             {1,  1, 1, 1, 1, 1, 1, 1,  1, 1, 1, 1, 1},      // ---------------------------------  // surrounded by walls
             {1, 10, 0, 7, 8, 8, 8, 1,  5, 5, 0, 7, 1},      // | R   FB  A  A  A  -  W  W   FB |  // 2 ways
             {1,  4, 0, 6, 2, 2, 2, 4, 10, 4, 0, 6, 1},      // | W    F  B  B  B  W  R  W    F |  // R-Respawn, -normal, F-Fire, FB-Blocking Fire, A-Air  
@@ -396,13 +401,11 @@ public class Grid2DCreated : ScriptableObject  {
                 Console.WriteLine("not implemented");
                 break;
         }
-        
-
+    
         int numRows = blocks.GetLength(0);
         int numCols = blocks.GetLength(1);
-        
-        // Mirror the grid horizontally and vertically to fit the writing of the gridmap above
-        for (int row = 0; row < numRows / 2; row++)
+                                                                        
+        for (int row = 0; row < numRows / 2; row++)                                    // Mirror the grid horizontally and vertically to fit the writing of the gridmap above
         {
             for (int col = 0; col < numCols ; col++)
             {
@@ -425,21 +428,16 @@ public class Grid2DCreated : ScriptableObject  {
             grid.GoalPrefab,                 //  9
             grid.RespawnPrefab               // 10
         };
-
         WriteBlocks();
-
-        //playerMovement.CheckBlockBelow();
     }
 
-    public GridBlockTypeToChoose getBlockAt(int x, int y) {
-        //return (GridBlockTypeToChoose) blocks[x,y];
+    public GridBlockTypeToChoose getBlockAt(int x, int y) 
+    {
         return (GridBlockTypeToChoose)blocks[y, x];
     }
     
     void WriteBlocks() 
     {
-        //Length = blocks.GetLength(0);
-        //Width = blocks.GetLength(1);
         int numRows = blocks.GetLength(0);
         int numCols = blocks.GetLength(1);
         int blockSize = 1;
@@ -451,9 +449,8 @@ public class Grid2DCreated : ScriptableObject  {
                 int blockValue = blocks[row, col];                                                   // asking for the size of each direction
                 GridBlockTypeToChoose blockType = (GridBlockTypeToChoose)blockValue;                 // asking for the type of the block
                 GameObject prefab = prefabs[blockValue];                                             // asking for the prefab in the spot
-
-                // Instantiate the prefab at the corresponding position
-                Vector3 position = new Vector3(col * blockSize, 0, row * blockSize);
+      
+                Vector3 position = new Vector3(col * blockSize, 0, row * blockSize);                 // Instantiate the prefab at the corresponding position
                 Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
             }
         }
