@@ -16,15 +16,14 @@ public class EnemyMovement : MonoBehaviour
     private EnemyPosition enemyPosition; 
     [SerializeField] private GameObject enemyPrefab;    // Insert the Enemy Prefab
     public UI_LevelScript levelScript;                  // Reference to the LevelScript
-    [SerializeField] private AudioClip[] _failClip;     // Death Sound
-    public float Delay = 1.0f;                          // Delay till Scene gets reloaded after death
+
 
     public float generalHeigth = .5f;                   // Position in Y Axis of the Prefab, normally on grid with .5f
                                                         // if the Input of a Y Position is higher than the generalHeigth, the generalHeigth gets updated to the new Y Position
                                                         // therefore the generalHeigth should always set the lowest Point of the Enemy
     
     public Vector3 StartingPoint;                       // Starting Coordinates of the Enemy
-
+    [SerializeField] private float moveDelay = 1f;      // Delay between each step of the Enemy
     [SerializeField] private int pointsMoveRight;       // How many Points the Enemy moves to the right
     [SerializeField] private int pointsMoveForward;
     [SerializeField] private int pointsMoveLeft;
@@ -32,8 +31,9 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private bool isLoopActive;         // Choose if the Enemy should spawn at the Starting Point after he finished his path
                                                         // or if he should run the path back and forth in a loop
-    [SerializeField] private float moveDelay = 1f;      // Delay between each step of the Enemy
-
+    
+    [SerializeField] private AudioClip[] _failClip;     // Death Sound
+    public float DelayTillReload = 1.0f;                          // Delay till Scene gets reloaded after death
     void Start()
     {
         if (StartingPoint.y > generalHeigth)            // take the bigger value for the height and start from there
@@ -244,7 +244,7 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("EnemyCollision - Eaten!");                           // Restart the game if the player collides with the enemy
             levelScript.OpenLoose();
-            Invoke("Sceneload", Delay);
+            Invoke("Sceneload", DelayTillReload);
             // PlayerCollision.GetComponent.Sceneload();
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

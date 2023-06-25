@@ -55,3 +55,6 @@ MonoBehaviour:
   FreeFallPrefab: {fileID: 0}
   GoalPrefab: {fileID: 0}
   RespawnPrefab: {fileID: 0}
+  transparent: {fileID: 2100000, guid: 2f6ac88a85eb1784785a7658c9c73ebc, type: 2}
+  levelNumber: 0
+  GridBlocksVisible: 1

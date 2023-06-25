@@ -148,19 +148,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
-  playerPrefab: {fileID: 4984238158877522434}
+  enemyPrefab: {fileID: 4984238158877522434}
   levelScript: {fileID: 4118953451913472026, guid: e5f965732da5c8a45891d38ca84755d2,
     type: 3}
-  _failClip: []
-  Delay: 1
   generalHeigth: 0.5
   StartingPoint: {x: 0, y: 0, z: 0}
+  moveDelay: 1
   pointsMoveRight: 0
   pointsMoveForward: 0
   pointsMoveLeft: 0
   pointsMoveBackward: 0
   isLoopActive: 0
-  moveDelay: 1
+  _failClip: []
+  DelayTillReload: 1
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0

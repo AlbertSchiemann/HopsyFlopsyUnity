@@ -38,6 +38,9 @@ public enum GridBlockTypeToChoose {                 // Enum for the GridBlockTyp
 //    Goal,               //9
 //    Respawn             //10}
 
+
+
+
 //[ExecuteInEditMode]
 public class Grid : MonoBehaviour{
 
@@ -53,9 +56,15 @@ public class Grid : MonoBehaviour{
     [SerializeField] public GameObject GoalPrefab;
     [SerializeField] public GameObject RespawnPrefab;
 
+    
+
     private Grid2DCreated referencedGrid;                                           // Reference to the Grid2DCreated ScriptableObject
     [SerializeField] private int levelNumber;                                       // Level Number to choose the right Grid
 
+    [SerializeField] public Material transparent;
+    [SerializeField] private bool GridBlocksVisible = true;                         // Bool to show or hide the GridBlocks in the Scene
+    
+                                              
 
     public void Awake() {
         
@@ -96,11 +105,51 @@ public class Grid : MonoBehaviour{
         if (RespawnPrefab == null) {
             Debug.LogError("No RespawnPrefab assigned!");
         }
+        GridVisible(GridBlocksVisible);
     }
-
     public Grid2DCreated getGridCreated(){
         return referencedGrid;
     }
+
+
+    public void GridVisible(bool GridBlocksVisible) {                               // Function to show or hide the GridBlocks in the Scene);
+    if (GridBlocksVisible == false) 
+        {
+            GameObject normalBlockCube = NormalBlockPrefab.transform.Find("Cube").gameObject;
+            normalBlockCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject normalBlockBlockedCube = NormalBlockBlockedPrefab.transform.Find("Cube").gameObject;
+            normalBlockBlockedCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject bridgeCube = BridgePrefab.transform.Find("Cube").gameObject;
+            bridgeCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject bridgeBlockedCube = BridgeBlockedPrefab.transform.Find("Cube").gameObject;
+            bridgeBlockedCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject waterCube = WaterPrefab.transform.Find("Cube").gameObject;
+            waterCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject waterBlockedCube = WaterBlockedPrefab.transform.Find("Cube").gameObject;
+            waterBlockedCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject fireCube = FirePrefab.transform.Find("Cube").gameObject;
+            fireCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject fireBlockedCube = FireBlockedPrefab.transform.Find("Cube").gameObject;
+            fireBlockedCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject freeFallCube = FreeFallPrefab.transform.Find("Cube").gameObject;
+            freeFallCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject goalCube = GoalPrefab.transform.Find("Cube").gameObject;
+            goalCube.GetComponent<Renderer>().material = transparent;
+
+            GameObject respawnCube = RespawnPrefab.transform.Find("Cube").gameObject;
+            respawnCube.GetComponent<Renderer>().material = transparent;
+        }
+    }
+
 }
 
 public class Grid2DCreated : ScriptableObject  {
@@ -108,8 +157,6 @@ public class Grid2DCreated : ScriptableObject  {
     public int selectedLevel;
     public int [,] blocks;                                  // Int Array for the Grid
     GameObject[] prefabs;                                   // Array for the Prefabs
-
-
     
 
     public void Initialize(Grid grid, GridPlayerMovement playerMovement) {
@@ -441,6 +488,7 @@ public class Grid2DCreated : ScriptableObject  {
         int numRows = blocks.GetLength(0);
         int numCols = blocks.GetLength(1);
         int blockSize = 1;
+        
 
         for (int row = 0; row < numRows; row++) 
         {
@@ -452,6 +500,7 @@ public class Grid2DCreated : ScriptableObject  {
       
                 Vector3 position = new Vector3(col * blockSize, 0, row * blockSize);                 // Instantiate the prefab at the corresponding position
                 Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
+                
             }
         }
     }
