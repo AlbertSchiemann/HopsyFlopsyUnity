@@ -105,6 +105,15 @@ public class GridPlayerMovement : MonoBehaviour
         {
             if (!isMoving)
             {
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
+                {
+                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); }
+                    else
+                    {
+                        //Debug.Log("Not allowed to Move Forward.");
+                        // Soundinput missing for Player running into a wall
+                    }
+                }
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
                 {
                     if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); }

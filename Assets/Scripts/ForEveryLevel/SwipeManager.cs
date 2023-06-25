@@ -13,7 +13,44 @@ public class SwipeManager : MonoBehaviour
     private void Update()
     {
         tap = swipeDown = swipeUp = swipeLeft = swipeRight = shortTap = false;
-        
+
+        // Calculate the distance
+        swipeDelta = Vector2.zero;
+        if (isDraging)
+        {
+            if (Input.touches.Length < 0)
+                swipeDelta = Input.touches[0].position - startTouch;
+            else if (Input.GetMouseButton(0))
+                swipeDelta = (Vector2)Input.mousePosition - startTouch;
+        }
+
+        // Check the distance for the swipe
+        if (swipeDelta.magnitude > 100)
+        {
+            // Determine direction
+            float x = swipeDelta.x;
+            float y = swipeDelta.y;
+            if (Mathf.Abs(x) > Mathf.Abs(y))
+            {
+                // Left or Right
+                if (x < 0)
+                    swipeLeft = true;
+                else
+                    swipeRight = true;
+            }
+            else
+            {
+                // Up or Down
+                if (y < 0)
+                    swipeDown = true;
+                else
+                    swipeUp = true;
+            }
+
+            Reset();
+            return; // Exit Update early, we already have a swipe
+        }
+
         // Desktop Input
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,7 +67,6 @@ public class SwipeManager : MonoBehaviour
                 shortTap = true;
             Reset();
         }
-        
 
         // Mobile Input
         if (Input.touches.Length > 0)
@@ -51,44 +87,6 @@ public class SwipeManager : MonoBehaviour
                 Reset();
             }
         }
-       
-
-        //Calculate the distance
-        swipeDelta = Vector2.zero;
-        if (isDraging)
-        {
-            if (Input.touches.Length < 0)
-                swipeDelta = Input.touches[0].position - startTouch;
-            else if (Input.GetMouseButton(0))
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
-        }
-
-        // check the distance for the swipe
-        if (swipeDelta.magnitude > 100)
-        {
-            //Which direction to move
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-            if (Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                //Left or Right
-                if (x < 0)
-                    swipeLeft = true;
-                else
-                    swipeRight = true;
-            }
-            else
-            {
-                //Up or Down
-                if (y < 0)
-                    swipeDown = true;
-                else
-                    swipeUp = true;
-            }
-
-            Reset();
-        }
-
     }
     private void Reset()
     {
