@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f89d67a3dcd74244b8e8517dd9f9458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterBar: {fileID: 0}
   beforeMenu: {fileID: 2131079892587649475}
   playingMenu: {fileID: 562299588637567028}
   pauseMenu: {fileID: 4242181234792491044}

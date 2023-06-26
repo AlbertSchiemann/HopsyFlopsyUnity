@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3922497149566265428}
   m_Layer: 0
   m_Name: 4 WaterGridBlock
-  m_TagString: GridCell
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,14 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hydrateClip: []
   hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
-    type: 3}
-  waterGridBlock: {fileID: 12618231}
-  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
-    type: 3}
-  fireGridBlock: {fileID: 5522171207073094269, guid: b8d3f089fc3d9914297608f481fca7a6,
-    type: 3}
-  freeFallGridBlock: {fileID: 6565122129936999412, guid: 21a3aee173008d649b24efb493abac22,
     type: 3}
 --- !u!65 &3922497149566265428
 BoxCollider:

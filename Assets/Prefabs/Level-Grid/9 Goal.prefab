@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: -2015846721476601789}
   m_Layer: 0
   m_Name: 9 Goal
-  m_TagString: Untagged
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,11 +172,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hydrateClip: []
   hydrationController: {fileID: 0}
-  waterGridBlock: {fileID: -2015846721476601789}
-  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
-    type: 3}
-  fireGridBlock: {fileID: 5522171207073094269, guid: dec4cb6caf12d034a8980de336fbec51,
-    type: 3}
-  freeFallGridBlock: {fileID: 6565122129936999412, guid: 80bbfc45ae3a73c4f8669f84932097a0,
-    type: 3}

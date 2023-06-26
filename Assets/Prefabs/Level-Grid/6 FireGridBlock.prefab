@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5902958069559235603}
   m_Layer: 0
   m_Name: 6 FireGridBlock
-  m_TagString: GridCell
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,12 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hydrationController: {fileID: 1732025794787576876, guid: 5b55c43e038a07e44b9e9bde0351aad4,
-    type: 3}
-  waterGridBlock: {fileID: 12618231, guid: 8f228a39c9b64324dbe187e7c234e95b, type: 3}
-  gridCell: {fileID: 397895690, guid: 2583300634df4874083f8838d4a31e78, type: 3}
-  gameGrid: {fileID: 9047857819397181146, guid: 4a2a4d7d45b8aee4d93174829eba67f1,
-    type: 3}
-  freeFallGridBlock: {fileID: 6565122129936999412, guid: 80bbfc45ae3a73c4f8669f84932097a0,
     type: 3}
 --- !u!65 &5902958069559235603
 BoxCollider:

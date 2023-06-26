@@ -68,7 +68,6 @@ public class GridPlayerMovement : MonoBehaviour
         private float rotationBackward = 180;
         private Grid2DCreated grid;
         private GameObject playerPrefab;                    // Reference to the player GameObject
-        private bool isBlockChecked = false;                // Flag to track if block below has been checked
         private bool isAllowedToMoveLeft = true;            // Bool to track if player is allowed to move into a direction or not
         private bool isAllowedToMoveRight = true;
         private bool isAllowedToMoveBack = true;
@@ -109,7 +108,7 @@ public class GridPlayerMovement : MonoBehaviour
         {
             if (!isMoving)
             {
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.shortTap)
+                if (SwipeManager.shortTap)
                 {
                     if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); }
                     else
@@ -169,7 +168,6 @@ public class GridPlayerMovement : MonoBehaviour
 
             posX = newPosX;
             posY = newPosY;
-            isBlockChecked = false;
             string blocktype = string.Empty;
 
             isMoving = true;
@@ -207,7 +205,7 @@ public class GridPlayerMovement : MonoBehaviour
             // Debug.Log($"I was able to move on the block at: {newPosX}, {newPosY}");  // just Debuglogs for checking if its working properly
 
             IsValidMove(newPosX, newPosY);                                              // Check the surrounding Blocks of the Player after every move to get the bools 
-            isBlockChecked = false;                                                     // for the next movedirections set up
+                                                                                        // for the next movedirections set up
               
         }
         /*

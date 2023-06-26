@@ -82,13 +82,17 @@ public class Grid : MonoBehaviour{
         }
         GridVisible(GridBlocksVisible);
     }
+
+
     public Grid2DCreated getGridCreated(){
         return referencedGrid;
     }
+
+    
     private void DestroyPreviousGridCells()
     {
-        GameObject[] gridCells = GameObject.FindGameObjectsWithTag("GridCellClone");
-        foreach (GameObject gridCell in gridCells)
+        GameObject[] clone = GameObject.FindGameObjectsWithTag("GridCellClone");
+        foreach (GameObject gridCell in clone)
         {
             DestroyImmediate(gridCell);
         }
@@ -98,38 +102,16 @@ public class Grid : MonoBehaviour{
     public void GridVisible(bool GridBlocksVisible) {                               // Function to show or hide the GridBlocks in the Scene);
     if (GridBlocksVisible == false) 
         {
-            GameObject normalBlockCube = NormalBlockPrefab.transform.Find("Cube").gameObject;
-            normalBlockCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject normalBlockBlockedCube = NormalBlockBlockedPrefab.transform.Find("Cube").gameObject;
-            normalBlockBlockedCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject bridgeCube = BridgePrefab.transform.Find("Cube").gameObject;
-            bridgeCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject bridgeBlockedCube = BridgeBlockedPrefab.transform.Find("Cube").gameObject;
-            bridgeBlockedCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject waterCube = WaterPrefab.transform.Find("Cube").gameObject;
-            waterCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject waterBlockedCube = WaterBlockedPrefab.transform.Find("Cube").gameObject;
-            waterBlockedCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject fireCube = FirePrefab.transform.Find("Cube").gameObject;
-            fireCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject fireBlockedCube = FireBlockedPrefab.transform.Find("Cube").gameObject;
-            fireBlockedCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject freeFallCube = FreeFallPrefab.transform.Find("Cube").gameObject;
-            freeFallCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject goalCube = GoalPrefab.transform.Find("Cube").gameObject;
-            goalCube.GetComponent<Renderer>().material = transparent;
-
-            GameObject respawnCube = RespawnPrefab.transform.Find("Cube").gameObject;
-            respawnCube.GetComponent<Renderer>().material = transparent;
+            
+            GameObject[] gridCells = GameObject.FindGameObjectsWithTag("GridCellClone");
+            foreach (GameObject gridCell in gridCells)
+            {
+                GameObject cube = gridCell.transform.Find("Cube").gameObject;
+                cube.GetComponent<MeshRenderer>().material = transparent;
+            }
+            
+            //GameObject normalBlockCube = NormalBlockPrefab.transform.Find("Cube").gameObject;
+            //normalBlockCube.GetComponent<Renderer>().material = transparent;
         }
     }
 
