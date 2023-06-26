@@ -2513,6 +2513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 9 Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 9158997071291295766, guid: 3d900e45bef51ac4983b300eb9b40277,
+        type: 3}
+      propertyPath: m_TagString
+      value: GridCell
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d900e45bef51ac4983b300eb9b40277, type: 3}
 --- !u!4 &2022338816 stripped

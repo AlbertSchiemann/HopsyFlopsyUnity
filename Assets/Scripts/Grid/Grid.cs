@@ -41,7 +41,7 @@ public enum GridBlockTypeToChoose {                 // Enum for the GridBlockTyp
 
 
 
-//[ExecuteInEditMode]
+[ExecuteInEditMode]
 public class Grid : MonoBehaviour{
 
     [SerializeField] public GameObject NormalBlockPrefab;
@@ -66,51 +66,34 @@ public class Grid : MonoBehaviour{
     
                                               
 
-    public void Awake() {
-        
+    public void Awake() 
+    {
+        DestroyPreviousGridCells();
+
         referencedGrid = ScriptableObject.CreateInstance<Grid2DCreated>();
         referencedGrid.selectedLevel = levelNumber;
         referencedGrid.Initialize(this, FindObjectOfType<GridPlayerMovement>());    // Pass the GridPlayerMovement instance
 
-        if (NormalBlockPrefab == null){                                             // Check if the Prefabs are assigned
-            Debug.LogError("No NormalBlockPrefab assigned!");
-        }
-        if (NormalBlockBlockedPrefab == null) {
-            Debug.LogError("No NormalBlockBlockedPrefab assigned!");
-        }
-        if (BridgePrefab == null) {
-            Debug.LogError("No BridgePrefab assigned!");
-        }
-        if (BridgeBlockedPrefab == null) {
-            Debug.LogError("No BridgeBlockedPrefab assigned!");
-        }
-        if (WaterPrefab == null) {
-            Debug.LogError("No WaterPrefab assigned!");
-        }
-        if (WaterBlockedPrefab == null) {
-            Debug.LogError("No WaterBlockedPrefab assigned!");
-        }
-        if (FirePrefab == null) {
-            Debug.LogError("No FirePrefab assigned!");
-        }
-        if (FireBlockedPrefab == null) {
-            Debug.LogError("No FireBlockedPrefab assigned!");
-        }
-        if (FreeFallPrefab == null) {
-            Debug.LogError("No FreeFallPrefab assigned!");
-        }
-        if (GoalPrefab == null) {
-            Debug.LogError("No GoalPrefab assigned!");
-        }
-        if (RespawnPrefab == null) {
-            Debug.LogError("No RespawnPrefab assigned!");
+        if (NormalBlockPrefab == null || NormalBlockBlockedPrefab == null || BridgePrefab == null || BridgeBlockedPrefab == null ||
+            WaterPrefab == null || WaterBlockedPrefab == null || FirePrefab == null || FireBlockedPrefab == null ||
+            FreeFallPrefab == null || GoalPrefab == null || RespawnPrefab == null)
+        {
+            Debug.LogError("One or more prefabs are not assigned!");
         }
         GridVisible(GridBlocksVisible);
     }
     public Grid2DCreated getGridCreated(){
         return referencedGrid;
     }
-
+    private void DestroyPreviousGridCells()
+    {
+        GameObject[] gridCells = GameObject.FindGameObjectsWithTag("GridCellClone");
+        foreach (GameObject gridCell in gridCells)
+        {
+            DestroyImmediate(gridCell);
+        }
+    }
+    
 
     public void GridVisible(bool GridBlocksVisible) {                               // Function to show or hide the GridBlocks in the Scene);
     if (GridBlocksVisible == false) 
@@ -500,7 +483,7 @@ public class Grid2DCreated : ScriptableObject  {
       
                 Vector3 position = new Vector3(col * blockSize, 0, row * blockSize);                 // Instantiate the prefab at the corresponding position
                 Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
-                
+                prefab.tag = "GridCellClone";
             }
         }
     }
