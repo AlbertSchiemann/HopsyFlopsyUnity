@@ -9,6 +9,7 @@ TagManager:
   - DeathZoneFreeFall
   - Water
   - GridCell
+  - GridCellClone
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,10 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private Grid grid;
     private PlayerPosition playerPosition;                  // get the player-coordinates and transform them into grid coordinates
     [SerializeField] private GameObject playerPrefab; 
+  
+    [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
+    [SerializeField] private int StartY =  3;                          
+       
 
     public float PlayerHeigth = .5f;                        // Position in Y Axis of the Prefab
     private bool isAllowedToMove = true;                    // enables player movement in general
@@ -47,7 +51,7 @@ public class GridPlayerMovement : MonoBehaviour
 
     private void InstantiatePlayer()                        // Instantiate the Player at the starting position
     {
-        playerPosition = new PlayerPosition(23, 3, grid2dCreated, playerPrefab);
+        playerPosition = new PlayerPosition(StartX, StartY, grid2dCreated, playerPrefab);
     }
         
     private void UpdateGameObjectPosition()                 // Update the Position of the Player on the Grid by transforming his position

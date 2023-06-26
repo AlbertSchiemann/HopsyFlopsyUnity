@@ -484,6 +484,7 @@ public class Grid2DCreated : ScriptableObject  {
                 Vector3 position = new Vector3(col * blockSize, 0, row * blockSize);                 // Instantiate the prefab at the corresponding position
                 Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
                 prefab.tag = "GridCellClone";
+                prefab.name = "GridSpace (X: " + (col+1).ToString() + ",Z: " + row.ToString() + ")"; // giving them a Location-name  
             }
         }
     }
