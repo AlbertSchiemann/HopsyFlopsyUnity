@@ -1,0 +1,107 @@
+.VisualEle_3inCorner {
+    height: 320px;
+    width: 1000px;
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.VisualEle_2inCorner {
+    height: 320px;
+    width: 800px;
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.Button_2inCorner {
+    font-size: 0;
+    width: 280px;
+    height: 280px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(56, 56, 56, 0);
+}
+
+.Button_3inCorner {
+    font-size: 0;
+    width: 280px;
+    height: 280px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(56, 56, 56, 0);
+}
+
+.but_temp {
+    height: 100px;
+    width: 600px;
+    position: relative;
+    font-size: 45px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    -unity-font-style: bold;
+}
+
+.Button_Back {
+    position: absolute;
+    top: auto;
+    left: auto;
+    height: 200px;
+    width: 600px;
+    font-size: 73px;
+    -unity-font-style: bold;
+    bottom: 5%;
+}
+
+.Vis_BackGround {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Button_HelpNav {
+    height: 227px;
+    width: 616px;
+    font-size: 80px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    margin-left: 91px;
+    margin-right: 91px;
+    margin-top: 91px;
+    margin-bottom: 91px;
+    border-top-left-radius: 63px;
+    border-bottom-left-radius: 63px;
+    border-top-right-radius: 63px;
+    border-bottom-right-radius: 63px;
+}

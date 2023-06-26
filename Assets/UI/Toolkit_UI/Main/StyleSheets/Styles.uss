@@ -14,6 +14,7 @@
     height: 90%;
     -unity-font-style: bold;
     background-image: url('project://database/Assets/UI/Previous_UI/Pictures/einkaufwagen.jpeg?fileID=2800000&guid=ea18fb52835791046a8e0f166110581a&type=3#einkaufwagen');
+    -unity-background-scale-mode: scale-to-fit;
     -unity-slice-left: 1;
     -unity-slice-top: 1;
     -unity-slice-right: 9;
@@ -32,8 +33,8 @@
     height: 20%;
     width: 25%;
     position: absolute;
-    bottom: 3%;
-    right: 2%;
+    bottom: 2%;
+    right: 1%;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -124,4 +125,7 @@
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.unity-text-element {
 }

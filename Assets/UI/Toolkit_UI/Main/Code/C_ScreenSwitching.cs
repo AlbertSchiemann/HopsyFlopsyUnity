@@ -19,8 +19,8 @@ public class C_ScreenSwitching : MonoBehaviour
         [SerializeField] UIDocument TK_mainMenu;
         [SerializeField] UIDocument TK_helpMenu;
         [SerializeField] UIDocument TK_settingsMenu;
-        [SerializeField] GameObject TK_storeMenu;
-        [SerializeField] GameObject TK_w1Menu;
+        [SerializeField] UIDocument TK_storeMenu;
+        [SerializeField] UIDocument TK_w1Menu;
 
 
         void Start () {

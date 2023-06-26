@@ -1065,7 +1065,7 @@ PrefabInstance:
     - target: {fileID: 9099768537576318289, guid: 823fd28c628348a47a4b1a49cebfc469,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9214892610160180602, guid: 823fd28c628348a47a4b1a49cebfc469,
         type: 3}
@@ -1206,7 +1206,7 @@ PrefabInstance:
     - target: {fileID: 2733850680695952828, guid: 08e014febe0939443ae37131c686e66e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14.593903
+      value: 14.593933
       objectReference: {fileID: 0}
     - target: {fileID: 2733850680695952828, guid: 08e014febe0939443ae37131c686e66e,
         type: 3}
