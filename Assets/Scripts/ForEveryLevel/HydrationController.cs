@@ -124,7 +124,9 @@ public class HydrationController : MonoBehaviour
     {
         if (hydration <= 0)
         {
+            Debug.Log("open loose!");
             levelScript.OpenLoose();
+            Debug.Log("open loose!!");
             // Sound is missing
             Invoke("Sceneload", Delay); 
         }

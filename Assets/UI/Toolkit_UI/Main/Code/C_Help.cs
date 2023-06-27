@@ -17,7 +17,6 @@ public class C_Help : MonoBehaviour
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
-
         //butStore = root.Q<Button>("but_store");
         //butSettings = root.Q<Button>("but_settings");
         //butBack = root.Q<Button>("but_back");
