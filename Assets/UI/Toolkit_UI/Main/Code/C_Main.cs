@@ -40,8 +40,8 @@ public class C_Main : MonoBehaviour
         butSettings = root.Q<Button>("but_settings");
         butSettings = root.Q<Button>("but_settings");
 
-        playBut.clicked += StartButtonPressed;
-        messageBut.clicked += MessageButtonPressed;
+        //playBut.clicked += StartButtonPressed;
+        //messageBut.clicked += MessageButtonPressed;
     }
 
 

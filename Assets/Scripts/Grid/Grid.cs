@@ -96,6 +96,11 @@ public class Grid : MonoBehaviour{
         {
             DestroyImmediate(gridCell);
         }
+        GameObject[] clone2 = GameObject.FindGameObjectsWithTag("GridBlockCollector");
+        foreach (GameObject gridCell in clone2)
+        {
+            DestroyImmediate(gridCell);
+        }
     }
     
 
@@ -451,6 +456,9 @@ public class Grid2DCreated : ScriptableObject  {
         int numCols = blocks.GetLength(1);
         int blockSize = 1;
         
+        GameObject gridParent = new GameObject("GridBlocks");  // Create a new GameObject to serve as the parent
+        gridParent.tag = "GridBlockCollector";
+
 
         for (int row = 0; row < numRows; row++) 
         {
@@ -461,9 +469,10 @@ public class Grid2DCreated : ScriptableObject  {
                 GameObject prefab = prefabs[blockValue];                                             // asking for the prefab in the spot
       
                 Vector3 position = new Vector3(col * blockSize, 0, row * blockSize);                 // Instantiate the prefab at the corresponding position
-                Instantiate(prefab, position, Quaternion.identity);                                  // Create(what to create, where to create, in what size/rotation)
+                Instantiate(prefab, position, Quaternion.identity, gridParent.transform);                                  // Create(what to create, where to create, in what size/rotation)
                 prefab.tag = "GridCellClone";
                 prefab.name = "GridSpace (X: " + (col+1).ToString() + ",Z: " + row.ToString() + ")"; // giving them a Location-name  
+                                                                                                    // Set the parent of the prefab to the grid
             }
         }
     }
