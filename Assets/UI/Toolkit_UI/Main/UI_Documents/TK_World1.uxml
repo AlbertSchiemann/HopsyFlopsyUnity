@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
-    <ui:VisualElement class="Vis_BackGround">
+    <ui:VisualElement name="vis_world1" class="Vis_BackGround">
         <ui:VisualElement name="3Corners" class="VisualEle_3inCorner" style="align-items: center; width: 1000px; right: 1%; bottom: 2%; height: 320px;">
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_help" class="Button_3inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_QuestionMark.png?fileID=2800000&amp;guid=5e0ffdf80019ed540bde43e39f2fc96b&amp;type=3#B_QuestionMark&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_store" class="Button_3inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Buy.png?fileID=2800000&amp;guid=ff079e20dc4bf1a40aee392077525087&amp;type=3#B_Buy&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />

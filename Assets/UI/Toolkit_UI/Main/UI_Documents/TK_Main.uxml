@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/Styles.uss?fileID=7433441132597879392&amp;guid=bfc4c920412d1b445b43fbbbc2292653&amp;type=3#Styles" />
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
-    <ui:VisualElement style="width: 100%; height: 100%; justify-content: center; align-items: center;">
+    <ui:VisualElement name="vis_main" style="width: 100%; height: 100%; justify-content: center; align-items: center;">
         <ui:Button text="Play Last" display-tooltip-when-elided="true" name="PlayLast" style="height: 300px; width: 745px; margin-left: 31px; margin-right: 31px; margin-top: 31px; margin-bottom: 31px; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; font-size: 99px; border-top-left-radius: 52px; border-bottom-left-radius: 52px; border-top-right-radius: 52px; border-bottom-right-radius: 52px; -unity-font-style: bold;" />
         <ui:Button text="MainLevel" display-tooltip-when-elided="true" name="MainLv" style="width: 456px; height: 115px; font-size: 69px; -unity-font-style: bold;" />
         <ui:VisualElement name="OurLevels" style="width: auto; height: auto; left: 2034px; position: absolute; top: 9%; align-items: center; justify-content: center; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">

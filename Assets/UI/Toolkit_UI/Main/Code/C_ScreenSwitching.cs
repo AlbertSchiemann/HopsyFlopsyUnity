@@ -22,22 +22,38 @@ public class C_ScreenSwitching : MonoBehaviour
         [SerializeField] UIDocument TK_storeMenu;
         [SerializeField] UIDocument TK_w1Menu;
 
+    public UnityEngine.UIElements.Button sb;
 
-        void Start () {
+    void Start () {
 
-     //   VisualElement Settings;
-     //   TK_settingsMenu.enabled=false;
-     //   TK_mainMenu.enabled = false;
+        //   VisualElement Settings;
+        //   TK_settingsMenu.enabled=false;
+        //   TK_mainMenu.enabled = false;
 
-        UIDocument x = GetComponent<UIDocument>();
+        ////UIDocument x = GetComponent<UIDocument>();
 
-        VisualElement root = TK_mainMenu.rootVisualElement;
-        VisualElement main = root.Q<VisualElement>("Main");
-        main.style.display = DisplayStyle.None;
+        ////VisualElement root = TK_mainMenu.rootVisualElement;
+        ////VisualElement main = root.Q<VisualElement>("Main");
+        ////main.style.display = DisplayStyle.None;
 
         //TK_mainMenu.SetActive(true); TK_helpMenu.SetActive(false);
+        TK_mainMenu.enabled = false; TK_helpMenu.enabled = false;
+
+
+        VisualElement main = TK_mainMenu.rootVisualElement.Q<VisualElement>("vis_main");
+        VisualElement w1 = TK_w1Menu.rootVisualElement.Q<VisualElement>("vis_world1");
+        VisualElement help = TK_helpMenu.rootVisualElement.Q<VisualElement>("vis_help");
+        VisualElement store = TK_storeMenu.rootVisualElement.Q<VisualElement>("vis_store");
+        VisualElement settings = TK_settingsMenu.rootVisualElement.Q<VisualElement>("vis_settings");
+
+        main.style.display = DisplayStyle.None;
+        w1.style.display = DisplayStyle.None;
+        help.style.display = DisplayStyle.None;
+        store.style.display = DisplayStyle.None;
+        settings.style.display = DisplayStyle.None;
+
     }
-    }
+}
 //}
 
         
