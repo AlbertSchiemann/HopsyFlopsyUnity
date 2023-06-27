@@ -7,55 +7,55 @@ using UnityEngine.SceneManagement;
 
 public class C_UI_OpenOther : MonoBehaviour
 {
-    public void ToMain_Level()
+    public static void ToMain_Level()
     {
-        SceneManager.LoadScene("Main_Level");
+        SceneManager.LoadScene("World1Level1");
     }
-    public void ToJulius()
+    public static void ToJulius()
     {
-        SceneManager.LoadScene("Julius-Level1Blockout");
+        SceneManager.LoadScene("Julius_GridTest");
     }
-    public void ToDenis()
+    public static void ToDenis()
     {
-        SceneManager.LoadScene("Denis-Level1Blockout");
+        SceneManager.LoadScene("Denis_Level");
     }
-    public void ToPatty()
+    public static void ToPatty()
     {
-        SceneManager.LoadScene("Nyra-Level1Blockout");
+        SceneManager.LoadScene("Nyra_Level");
     }
-    public void ToAlbert()
+    public static void ToAlbert()
     {
-        SceneManager.LoadScene("Albert-Level1Blockout");
+        SceneManager.LoadScene("Albert_Level");
     }
-    public void ToCarl()
+    public static void ToCarl()
     {
         SceneManager.LoadScene("Carl-Level1Blockout");
     }
-    public void ToArtists()
+    public static void ToArtists()
     {
-        SceneManager.LoadScene("Artist_Level");
+        SceneManager.LoadScene("Artists_Level");
     }
-    public void ToLevel1() {        
+    public static void ToLevel1() {        
         SceneManager.LoadScene("Main_Level");
     }
-    public void ToLevel2()
+    public static void ToLevel2()
     {
         // SceneManager.LoadScene("UI testing");
     }
-    public void ToNextLevel()
+    public static void ToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void ToLastLevel() {
+    public static void ToLastLevel() {
         SceneManager.LoadScene(AlwaysThere.LastLevel);
     }
-    public void ToRestart() {
+    public static void ToRestart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void ToMainMenu() {
-        SceneManager.LoadScene("UI testing");
+    public static void ToMainMenu() {
+        SceneManager.LoadScene("TK_MainMenu");
     }
 
                 public void ToMain_Help() 

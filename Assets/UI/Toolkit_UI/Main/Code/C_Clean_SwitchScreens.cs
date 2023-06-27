@@ -29,6 +29,7 @@ public class C_Clean_SwitchScreens : MonoBehaviour
         else if (AlwaysThere.MainMenu_Index == 4) OpenW1();
 
         AlwaysThere.MainMenu_Index = 0;
+        ActiveDocument = TK_mainMenu;
     }
     public void OpenMain()
     {

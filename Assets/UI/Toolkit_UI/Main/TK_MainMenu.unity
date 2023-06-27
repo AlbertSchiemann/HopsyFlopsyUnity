@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d32d8ee12b938a41a98aed475ca1949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchScreenW1: {fileID: 1267483052}
 --- !u!1 &808847289
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc8538682c148449aab7481966b5218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchScreen: {fileID: 1267483052}
 --- !u!1 &1267483048
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c9ed9319bd758d41ba0b9249e910e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchScreenW1: {fileID: 1267483052}
 --- !u!1 &1356907997
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1a615487d8e28489b7bf1a8673d570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchScreenStore: {fileID: 1267483052}
 --- !u!1 &2108053237
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,3 +737,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574d3a6db1c4db40a68c1d73b09d0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  switchScreenW1: {fileID: 1267483052}

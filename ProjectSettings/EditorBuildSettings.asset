@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/UI/Previous_UI/UI testing 1.unity
     guid: af283813f3bd71649b5e126781404f27
   - enabled: 1
     path: Assets/UI/Previous_UI/UI testing.unity
     guid: a271f9c66b2adee42afdc3b32257147d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Scenes/Main_Level.unity
     guid: 843fd389070fb704abc90490b9ea4283
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Scenes/Denis-Level1Blockout.unity
     guid: fe01559c1ec5a4a4c9dec7cffc3944c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Scenes/Carl-Level1Blockout.unity
     guid: a903b9a994a9e944c892fea01485e75d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Scenes/Albert-Level1Blockout.unity
     guid: ba703590f52f1ba4e87129411664c151
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Old Scenes/Nyra-Level1Blockout.unity
     guid: 9f9e02b07f15ad54692f198c9bb39ea0
   - enabled: 0
@@ -42,11 +42,32 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/UI/Toolkit_UI/Main/TK_MainMenu.unity
-    guid: 062f560f98537ce4bb366caa01baa77c
+    path: Assets/Scenes/World 1/World1Level1.unity
+    guid: 349030c6dafbb1d489ae0e4e2c6c754f
+  - enabled: 1
+    path: Assets/Scenes/Albert_Level.unity
+    guid: abc30a96edaf3d643b0f55b1e8f2edc5
+  - enabled: 1
+    path: Assets/Scenes/Artists_Level.unity
+    guid: 3abbac484ea7f92488578f4e793e30eb
+  - enabled: 1
+    path: Assets/Scenes/Denis_Level.unity
+    guid: 12ec01012607c0e4ea32ac97a8670bd8
+  - enabled: 1
+    path: Assets/Scenes/Julius_GridTest.unity
+    guid: bfb543146a446ef4f8cfacfd2f5963d5
+  - enabled: 1
+    path: Assets/Scenes/Nyra_Level.unity
+    guid: b85f2157d99889d498cd3bc27e8bebb4
+  - enabled: 1
+    path: Assets/Scenes/Second_Level.unity
+    guid: b776834c3b17e144fa706e7821413c60
   - enabled: 1
     path: Assets/UI/Toolkit_UI/Level/TK_LevelUI_Test.unity
     guid: 978604959163ae64bab0e45516328ab3
+  - enabled: 1
+    path: Assets/UI/Toolkit_UI/Main/TK_MainMenu.unity
+    guid: 062f560f98537ce4bb366caa01baa77c
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c0bf89014b740924992cc4fb6fba90fb,
       type: 2}
