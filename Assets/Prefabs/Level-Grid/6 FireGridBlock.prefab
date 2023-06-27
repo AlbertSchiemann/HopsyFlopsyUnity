@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5902958069559235603}
   m_Layer: 0
   m_Name: 6 FireGridBlock
-  m_TagString: GridCell
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

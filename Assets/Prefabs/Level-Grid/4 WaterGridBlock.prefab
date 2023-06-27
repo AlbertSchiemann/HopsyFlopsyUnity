@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3922497149566265428}
   m_Layer: 0
   m_Name: 4 WaterGridBlock
-  m_TagString: GridCell
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

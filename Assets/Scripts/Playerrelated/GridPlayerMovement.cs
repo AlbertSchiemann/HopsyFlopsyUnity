@@ -35,9 +35,11 @@ public class GridPlayerMovement : MonoBehaviour
         InstantiatePlayer();
         isAllowedToMove = true;                                             // Enter the Starting Gridposition of the Player, so a check of the surrounding blocks gets called
         playerPosition.IsValidMove(1, 6);                                   // and the player cant move through blocked blocks              
-                                                
-        //GameStateManagerScript.onGameStart += AllowMovement;            
-        //GameStateManagerScript.onGamePaused += PreventMovement;           // Pause doesnt work yet
+        UpdateGameObjectPosition();
+        isAllowedToMove = false;
+
+        GameStateManagerScript.onGameStart += AllowMovement;            
+        GameStateManagerScript.onGamePaused += PreventMovement;           // Pause doesnt work yet
     }
 
     void Update()
@@ -47,7 +49,7 @@ public class GridPlayerMovement : MonoBehaviour
             playerPosition.CheckInput(_moveClip, _collisionClip);
             UpdateGameObjectPosition();
             playerPosition.Update();
-        }
+        }else if (isAllowedToMove == false) { return; }
         else { Debug.LogError("PlayerPosition is null!"); }
     }
 
@@ -263,5 +265,13 @@ public class GridPlayerMovement : MonoBehaviour
                 return false;
             }  
         }
+    }
+    private void AllowMovement()
+    {
+        isAllowedToMove = true;
+    }
+    private void PreventMovement()
+    {
+        isAllowedToMove = false;
     }
 }
