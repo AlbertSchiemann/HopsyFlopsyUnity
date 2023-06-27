@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3858271687757666785}
   m_Layer: 0
   m_Name: 5 WaterGridBlockBlocked
-  m_TagString: GridCell
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

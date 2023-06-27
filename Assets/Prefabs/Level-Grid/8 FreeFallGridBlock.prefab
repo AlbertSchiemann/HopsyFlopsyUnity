@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 30200554806373355}
   m_Layer: 0
   m_Name: 8 FreeFallGridBlock
-  m_TagString: GridCell
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScript: {fileID: 0}
-  _failClip: []
+  _failClip:
+  - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
   fallingAnimator: {fileID: -3905575413645458369, guid: c7a57c5d248456f44a7efe574c58cf19,
     type: 3}
   Delay: 1

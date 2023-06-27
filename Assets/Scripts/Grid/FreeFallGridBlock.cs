@@ -27,15 +27,17 @@ public class FreeFallGridBlock : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-        
+
             // Debug.Log("Player entered the wind block.");
 
             playerInstantiate.GetComponent<Animator>().enabled = true;
 
             playerInstantiate.GetComponent<Animator>().SetBool("fallingBool", true);
 
+            SoundManager.Instance.PlaySound(_failClip);
+
             // Debug.Log("Player entered the wind block2.");
-            
+
         }
     }
 }

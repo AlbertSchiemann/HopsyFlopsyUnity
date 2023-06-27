@@ -25,7 +25,7 @@ public class WaterGridBlock : MonoBehaviour
         {
             hydrationController.isCollidingWithWater = true;
 
-            // SoundManager.Instance.PlaySound(_hydrateClip);
+            SoundManager.Instance.PlaySound(_hydrateClip);
         }
     }
 
@@ -34,8 +34,6 @@ public class WaterGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hydrationController.isCollidingWithWater = true; // Update the local variable
-
-            // Sound missing
         }
     }
 

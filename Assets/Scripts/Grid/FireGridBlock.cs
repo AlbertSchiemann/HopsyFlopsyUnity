@@ -7,6 +7,7 @@ public class FireGridBlock : MonoBehaviour
     // This script is just working as a trigger for the HydrationController script
     // and updates it if the player is colliding with the fire block or not
 
+    [SerializeField] private AudioClip[] _sizzleClip;
     public HydrationController hydrationController;         // Reference to the HydrationController of the level
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
@@ -21,8 +22,7 @@ public class FireGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hydrationController.isCollidingWithFire = true;
-
-            // Grilled Fish Sound missing
+            SoundManager.Instance.PlaySound(_sizzleClip);
         }
     }
 
@@ -39,6 +39,7 @@ public class FireGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hydrationController.isCollidingWithFire = false;
+            SoundManager.Instance.StopSound(_sizzleClip);
         }
     }
 }

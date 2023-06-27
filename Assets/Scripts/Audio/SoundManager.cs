@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource _musicSource, _effectSource, _atmoSource;
     [SerializeField] private float minPitch = .50f, maxPitch = 1.50f;
 
-
+    private bool hasPlayedSound = false;
 
     public const string Bg_key = "Background";
     public const string Sfx_key = "Effects";
@@ -39,9 +39,23 @@ public class SoundManager : MonoBehaviour
         float randomPitch = Random.Range(minPitch, maxPitch);
         AudioClip _soundbyte = clip[randomIndex];
 
+        if (!hasPlayedSound)
+        {
+            _effectSource.clip = _soundbyte;
+            _effectSource.pitch = randomPitch;
+            _effectSource.Play();
+            hasPlayedSound = true;
+        }
+
+        hasPlayedSound = false;
+    }
+
+    public void StopSound(AudioClip[] clip)
+    {
+        AudioClip _soundbyte = clip[0];
+
         _effectSource.clip = _soundbyte;
-        _effectSource.pitch = randomPitch;
-        _effectSource.Play();
+        _effectSource.Stop();
     }
 
     public void LoadVolume() //Volume Saved in VolumeSettings.cs

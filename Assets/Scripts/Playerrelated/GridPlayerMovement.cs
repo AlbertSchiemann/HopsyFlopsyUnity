@@ -21,10 +21,12 @@ public class GridPlayerMovement : MonoBehaviour
   
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
     [SerializeField] private int StartY =  3;                          
-       
 
     public float PlayerHeigth = .5f;                        // Position in Y Axis of the Prefab
     private bool isAllowedToMove = true;                    // enables player movement in general
+
+    [SerializeField] private AudioClip[] _moveClip;
+    [SerializeField] private AudioClip[] _collisionClip;
 
     void Start()
     {
@@ -42,7 +44,7 @@ public class GridPlayerMovement : MonoBehaviour
     {
         if (playerPosition != null && isAllowedToMove == true)
         {
-            playerPosition.CheckInput();
+            playerPosition.CheckInput(_moveClip, _collisionClip);
             UpdateGameObjectPosition();
             playerPosition.Update();
         }
@@ -104,53 +106,53 @@ public class GridPlayerMovement : MonoBehaviour
             }
         }
 
-        public void CheckInput()            // Check for Input and call the Move-Function
+        public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip)            // Check for Input and call the Move-Function
         {
             if (!isMoving)
             {
                 if (SwipeManager.shortTap)
                 {
-                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); }
+                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); }
                     else
                     {
                         //Debug.Log("Not allowed to Move Forward.");
-                        // Soundinput missing for Player running into a wall
+                        SoundManager.Instance.PlaySound(collClip);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp)
                 {
-                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); }
+                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); }
                     else 
-                    { 
+                    {
                         //Debug.Log("Not allowed to Move Forward.");
-                        // Soundinput missing for Player running into a wall
+                        SoundManager.Instance.PlaySound(collClip);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown)
                 {
-                    if (isAllowedToMoveBack == true) { moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); }
+                    if (isAllowedToMoveBack == true) { moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); SoundManager.Instance.PlaySound(moveClip); }
                     else 
-                    { 
+                    {
                         // Debug.Log("Not allowed to Move Back."); 
-                        // Soundinput missing for Player running into a wall
+                        SoundManager.Instance.PlaySound(collClip);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft)
                 {
-                    if (isAllowedToMoveLeft == true) { moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); }
+                    if (isAllowedToMoveLeft == true) { moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); SoundManager.Instance.PlaySound(moveClip); }
                     else 
-                    { 
+                    {
                         // Debug.Log("Not allowed to Move Left."); 
-                        // Soundinput missing for Player running into a wall
+                        SoundManager.Instance.PlaySound(collClip);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight)
                 {
-                    if (isAllowedToMoveRight == true) { moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); }
+                    if (isAllowedToMoveRight == true) { moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); SoundManager.Instance.PlaySound(moveClip); }
                     else 
-                    { 
+                    {
                         // Debug.Log("Not allowed to Move Right.");
-                        // Soundinput missing for Player running into a wall 
+                        SoundManager.Instance.PlaySound(collClip);
                     }
                 }
             }     

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5902958069559235603}
   m_Layer: 0
   m_Name: 6 FireGridBlock
-  m_TagString: GridCell
+  m_TagString: GridCellClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a800800f9e1b2409eb5b8f9b998c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sizzleClip:
+  - {fileID: 8300000, guid: 4f172fd9c22850047b707f0443f0e875, type: 3}
   hydrationController: {fileID: 1732025794787576876, guid: 5b55c43e038a07e44b9e9bde0351aad4,
     type: 3}
 --- !u!65 &5902958069559235603
