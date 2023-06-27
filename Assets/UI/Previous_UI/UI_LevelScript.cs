@@ -105,7 +105,7 @@ public class UI_LevelScript : MonoBehaviour
         {
             GameObject gameStateManager = GameObject.Find("GameStateManager");
             gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
-            Debug.Log("open loose");
+            //Debug.Log("open loose");
             darkerBackground.SetActive(true);
             looseMenu.SetActive(true);
             if (looseMenu != ActiveMenu) ActiveMenu.SetActive(false);

@@ -96,7 +96,7 @@ public class HydrationController : MonoBehaviour
     {
         if (isCollidingWithFire)
         {
-            Debug.Log("colliding with fire");
+            //Debug.Log("colliding with fire");
             hydration -= hydrationDecayRate * hydrationDecayFire * Time.deltaTime ;
             waterBar.SetHealth(hydration);
         }
@@ -124,12 +124,17 @@ public class HydrationController : MonoBehaviour
     {
         if (hydration <= 0)
         {
-            Debug.Log("open loose!");
+            //Debug.Log("open loose!");
             levelScript.OpenLoose();
-            Debug.Log("open loose!!");
+            //Debug.Log("open loose!!");
             // Sound is missing
             Invoke("Sceneload", Delay); 
         }
+    }
+        void Sceneload()
+    {
+        // restart the game if the player collides with the enemy
+        levelScript.OpenLoose();  
     }
 
     private void ActivateHydration()

@@ -33,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
                                                         // or if he should run the path back and forth in a loop
     
     [SerializeField] private AudioClip[] _failClip;     // Death Sound
+
     public float DelayTillReload = 1.0f;                          // Delay till Scene gets reloaded after death
     void Start()
     {
@@ -125,7 +126,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void BLMoveRight()                                                          // Backward Loop functions starting here
     {
-                StartCoroutine(PerformMovement(pointsMoveRight, MovingLeft));
+        StartCoroutine(PerformMovement(pointsMoveRight, MovingLeft));
         StartCoroutine(WaitAndExecute(pointsMoveRight, () =>
         {
             InitiateEnemy();
@@ -149,7 +150,7 @@ public class EnemyMovement : MonoBehaviour
     private void BLMoveBackward()
     {
         StartCoroutine(PerformMovement(pointsMoveBackward, MovingForward));
-        StartCoroutine(WaitAndExecute(pointsMoveLeft, BLMoveLeft));
+        StartCoroutine(WaitAndExecute(pointsMoveBackward, BLMoveLeft));
 
     }
 
@@ -242,11 +243,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("EnemyCollision - Eaten!");                           // Restart the game if the player collides with the enemy
-            levelScript.OpenLoose();
+            //Debug.Log("EnemyCollision - Eaten!");                           // Restart the game if the player collides with the enemy
+            //levelScript.OpenLoose();
             Invoke("Sceneload", DelayTillReload);
+            
             // PlayerCollision.GetComponent.Sceneload();
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+        void Sceneload()
+    {
+        // restart the game if the player collides with the enemy
+        levelScript.OpenLoose();  
     }
 }

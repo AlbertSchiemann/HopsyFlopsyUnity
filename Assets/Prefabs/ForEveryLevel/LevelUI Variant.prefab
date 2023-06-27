@@ -90,7 +90,7 @@ PrefabInstance:
     - target: {fileID: 8391376483684748360, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
       propertyPath: m_Name
-      value: LevelUI
+      value: LevelUI Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8899137212063986045, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
