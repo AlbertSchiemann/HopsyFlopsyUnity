@@ -53,8 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
   playerPrefab: {fileID: 2260953583789165416}
+  StartX: 23
+  StartY: 3
   PlayerHeigth: 1
-  DelayInBetweenMoves: 0.2
+  _moveClip: []
+  _collisionClip: []
 --- !u!54 &7830886847906416693
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,8 +135,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.011442362, y: 0.018051103, z: 0.01977343}
-  m_Center: {x: 0.00011783018, y: -0.0034335556, z: -0.0027454435}
+  m_Size: {x: 0.02, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &-3905575413645458369
 Animator:
   serializedVersion: 5
