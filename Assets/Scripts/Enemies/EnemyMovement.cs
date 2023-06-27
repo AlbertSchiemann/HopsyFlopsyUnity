@@ -35,6 +35,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _failClip;     // Death Sound
 
     public float DelayTillReload = 1.0f;                          // Delay till Scene gets reloaded after death
+    private void Awake()
+    {
+        GameObject levelUIObject = GameObject.Find("LevelUI");
+        levelScript = levelUIObject.GetComponent<UI_LevelScript>();
+    }
     void Start()
     {
         if (StartingPoint.y > generalHeigth)            // take the bigger value for the height and start from there
