@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2011560529445668226}
   m_Layer: 0
   m_Name: 10 Respawn_-_
-  m_TagString: GridCellClone
+  m_TagString: GridCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

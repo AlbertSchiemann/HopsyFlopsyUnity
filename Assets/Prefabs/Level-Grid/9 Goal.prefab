@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: -2015846721476601789}
   m_Layer: 0
   m_Name: 9 Goal
-  m_TagString: GridCellClone
+  m_TagString: GridCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
