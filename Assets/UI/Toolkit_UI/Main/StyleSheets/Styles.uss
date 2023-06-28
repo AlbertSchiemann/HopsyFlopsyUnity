@@ -129,3 +129,18 @@
 
 .unity-text-element {
 }
+
+.but_nav_settings {
+    height: 131px;
+    width: 578px;
+    margin-left: 37px;
+    margin-right: 37px;
+    margin-top: 37px;
+    margin-bottom: 37px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 73px;
+    background-color: rgba(188, 188, 188, 0);
+}

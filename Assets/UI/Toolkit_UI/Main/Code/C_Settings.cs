@@ -13,19 +13,17 @@ public class C_Settings : MonoBehaviour
     Button butHelpi;
 
 
-    void Start()
+    void OnEnable()
     {
         VisualElement rootSettings = GetComponent<UIDocument>().rootVisualElement;
 
-        //butHelpi = rootSettings.Q<Button>("but_help");
-        //butStore = rootSettings.Q<Button>("but_store");
-        //butBack = rootSettings.Q<Button>("but_back");
+        butHelpi = rootSettings.Q<Button>("but_help");
+        butStore = rootSettings.Q<Button>("but_store");
+        butBack = rootSettings.Q<Button>("but_back");
 
-        //butHelpi.clicked += Help;
-        //butStore.clicked += Store;
-        //butBack.clicked += Back;
-
-
+        butHelpi.clicked += Help;
+        butStore.clicked += Store;
+        butBack.clicked += Back;
 
     }
 
