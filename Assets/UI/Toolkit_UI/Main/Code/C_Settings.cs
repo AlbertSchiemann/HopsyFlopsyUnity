@@ -30,9 +30,7 @@ public class C_Settings : MonoBehaviour
 
     void Help()
     {
-        Debug.Log("before");
         switchScreenW1.OpenHelp();
-        Debug.Log("after");
     }
 
     void Store()
@@ -43,7 +41,6 @@ public class C_Settings : MonoBehaviour
 
     void Back()
     {
-        Debug.Log("afterr");
         switchScreenW1.OpenMain();
     }
 

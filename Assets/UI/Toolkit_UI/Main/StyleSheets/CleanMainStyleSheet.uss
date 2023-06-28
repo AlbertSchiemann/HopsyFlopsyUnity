@@ -105,4 +105,21 @@
     margin-right: 91px;
     margin-top: 91px;
     margin-bottom: 91px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.but_SettingsNav {
+    height: 131px;
+    width: 578px;
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 73px;
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-scale-mode: scale-to-fit;
 }
