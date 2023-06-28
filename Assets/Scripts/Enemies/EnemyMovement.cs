@@ -35,6 +35,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _failClip;     // Death Sound
 
     public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
+    public float startDelay = 2.2f;                          // Delay till Enemy gets destroyed after death
     private void Awake()
     {
         GameObject levelUIObject = GameObject.Find("LevelUI");
@@ -51,8 +52,13 @@ public class EnemyMovement : MonoBehaviour
         //print(grid2dCreated);
         InitiateEnemy();                                // Initiate the Enemy in his Starting Position
         UpdateGameObjectPosition();                     // Set the Transform of the Enemy to his Starting Position
+        Invoke("StartMovement", startDelay);            // Start the Movement after a delay
+        
+    }
 
-        if (pointsMoveRight != 0)                       // Starting of the Forward Loop - it starts with the first direction that has points
+    private void StartMovement()
+    {
+    	if (pointsMoveRight != 0)                       // Starting of the Forward Loop - it starts with the first direction that has points
         {
             FLMoveRight(); 
         }
@@ -74,8 +80,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-
-
     private IEnumerator PerformMovement(int numSteps, System.Action<int> movementAction) // One Step at a time
     {
         for (int i = 0; i < numSteps; i++)
@@ -91,6 +95,12 @@ public class EnemyMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(numSteps * moveDelay);
         action.Invoke();
+    }
+
+    private void FLDelay()
+    {
+        Invoke("FLMoveRight", moveDelay);                                               // Invoke the first function after a delay (so the enemy doesnt move instantly
+    
     }
 
     private void FLMoveRight()                                                          // Forward Loop functions starting here
@@ -164,6 +174,8 @@ public class EnemyMovement : MonoBehaviour
         enemyPosition = new EnemyPosition((int)StartingPoint.x, generalHeigth, (int)StartingPoint.z, grid2dCreated, enemyPrefab);
     }
         
+
+
     public void MovingRight(int x)                                                          // Move the Enemy and Update the Position
     {
         int newX = enemyPosition.posX + x;

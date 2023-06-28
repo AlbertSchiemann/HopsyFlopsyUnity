@@ -130,11 +130,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScript: {fileID: 0}
+  DelayTillReload: 0.2
   _failClip:
   - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
   fallingAnimator: {fileID: -3905575413645458369, guid: c7a57c5d248456f44a7efe574c58cf19,
     type: 3}
-  Delay: 1
 --- !u!65 &30200554806373355
 BoxCollider:
   m_ObjectHideFlags: 0
