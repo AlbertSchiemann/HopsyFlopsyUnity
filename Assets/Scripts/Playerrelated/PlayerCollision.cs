@@ -38,13 +38,6 @@ public class PlayerCollision : MonoBehaviour
         {
             Debug.Log("Enemy von Player getroffen!");
         }
-
-        if(other.gameObject.tag == "DeathZoneFreeFall")
-        {
-            Debug.Log("Free Fall Death");
-            Invoke("Sceneload", Delay);
-            // SoundManager.Instance.PlaySound(_failClip);
-        }
     }
 
     void Sceneload()

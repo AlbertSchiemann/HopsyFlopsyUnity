@@ -8,19 +8,22 @@ public class FreeFallGridBlock : MonoBehaviour
     // This script is just calling the animator of the playerprefab
 
     public UI_LevelScript levelScript;
+
+    public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
     
 
     [SerializeField] private AudioClip[] _failClip;         // Sound if the player falls into the abyss
     [SerializeField] private Animator fallingAnimator;      // Animator of the playerprefab that shall be triggered
     
 
-    public float Delay = 1.0f;                              // Delay till Scene gets reloaded
 
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
     private void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
+        GameObject levelUIObject = GameObject.Find("LevelUI");
+        levelScript = levelUIObject.GetComponent<UI_LevelScript>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,15 +32,24 @@ public class FreeFallGridBlock : MonoBehaviour
         {
 
             // Debug.Log("Player entered the wind block.");
-
-            playerInstantiate.GetComponent<Animator>().enabled = true;
-
-            playerInstantiate.GetComponent<Animator>().SetBool("fallingBool", true);
-
+            Invoke("Sceneload", DelayTillReload);
+            GameObject player = other.gameObject;
+            
+            player.GetComponent<GridPlayerMovement>().PreventMovement();
             SoundManager.Instance.PlaySound(_failClip);
+
+            //playerInstantiate.GetComponent<Animator>().enabled = true;
+
+            //playerInstantiate.GetComponent<Animator>().SetBool("fallingBool", true);
+
 
             // Debug.Log("Player entered the wind block2.");
 
         }
+    }
+        void Sceneload()
+    {
+        // restart the game if the player collides with the enemy
+        levelScript.OpenLoose();  
     }
 }

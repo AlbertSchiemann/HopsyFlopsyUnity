@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     
     [SerializeField] private AudioClip[] _failClip;     // Death Sound
 
-    public float DelayTillReload = 1.0f;                          // Delay till Scene gets reloaded after death
+    public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
     private void Awake()
     {
         GameObject levelUIObject = GameObject.Find("LevelUI");
@@ -251,6 +251,9 @@ public class EnemyMovement : MonoBehaviour
             //Debug.Log("EnemyCollision - Eaten!");                           // Restart the game if the player collides with the enemy
             //levelScript.OpenLoose();
             Invoke("Sceneload", DelayTillReload);
+            GameObject player = other.gameObject;
+            player.GetComponent<GridPlayerMovement>().PreventMovement();
+            SoundManager.Instance.PlaySound(_failClip);
             
             // PlayerCollision.GetComponent.Sceneload();
             // SceneManager.LoadScene(SceneManager.GetActiveScene().name);

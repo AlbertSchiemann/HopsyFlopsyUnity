@@ -21,7 +21,7 @@ public class HydrationController : MonoBehaviour
     public bool isCollidingWithWater = false;               // Check if waterTile is colliding
     public bool isCollidingWithFire = false;                // Check if firetile is colliding
 
-    public float Delay = 1.0f;                              // Delay till Scene gets reloaded
+    public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
 
 
     public UI_LevelScript levelScript;
@@ -124,11 +124,11 @@ public class HydrationController : MonoBehaviour
     {
         if (hydration <= 0)
         {
-            //Debug.Log("open loose!");
-            levelScript.OpenLoose();
-            //Debug.Log("open loose!!");
-            // Sound is missing
-            Invoke("Sceneload", Delay); 
+            Invoke("Sceneload", DelayTillReload); 
+            SoundManager.Instance.PlaySound(_failClip);
+            GameObject player = playerInstantiate.gameObject;
+            player.GetComponent<GridPlayerMovement>().PreventMovement();
+
         }
     }
         void Sceneload()

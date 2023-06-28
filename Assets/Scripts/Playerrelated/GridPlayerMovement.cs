@@ -270,7 +270,7 @@ public class GridPlayerMovement : MonoBehaviour
     {
         isAllowedToMove = true;
     }
-    private void PreventMovement()
+    public void PreventMovement()
     {
         isAllowedToMove = false;
     }
