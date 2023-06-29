@@ -266,7 +266,7 @@ public class GridPlayerMovement : MonoBehaviour
             }  
         }
     }
-    public void AllowMovement()
+    private void AllowMovement()
     {
         isAllowedToMove = true;
     }
