@@ -13,28 +13,24 @@ public class C_Settings : MonoBehaviour
     Button butHelpi;
 
 
-    void Start()
+    void OnEnable()
     {
         VisualElement rootSettings = GetComponent<UIDocument>().rootVisualElement;
 
-        //butHelpi = rootSettings.Q<Button>("but_help");
-        //butStore = rootSettings.Q<Button>("but_store");
-        //butBack = rootSettings.Q<Button>("but_back");
+        butHelpi = rootSettings.Q<Button>("but_help");
+        butStore = rootSettings.Q<Button>("but_store");
+        butBack = rootSettings.Q<Button>("but_back");
 
-        //butHelpi.clicked += Help;
-        //butStore.clicked += Store;
-        //butBack.clicked += Back;
-
-
+        butHelpi.clicked += Help;
+        butStore.clicked += Store;
+        butBack.clicked += Back;
 
     }
 
 
     void Help()
     {
-        Debug.Log("before");
         switchScreenW1.OpenHelp();
-        Debug.Log("after");
     }
 
     void Store()
@@ -45,7 +41,6 @@ public class C_Settings : MonoBehaviour
 
     void Back()
     {
-        Debug.Log("afterr");
         switchScreenW1.OpenMain();
     }
 

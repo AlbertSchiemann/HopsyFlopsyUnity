@@ -16,12 +16,11 @@ public class C_Clean_SwitchScreens : MonoBehaviour
     void Start()
     {
 
-        TK_mainMenu.enabled = true;
-        TK_helpMenu.enabled = false;
-        TK_settingsMenu.enabled = false;
-        TK_storeMenu.enabled = false;
-        TK_w1Menu.enabled = false;
-
+        TK_mainMenu.gameObject.SetActive(true);
+        TK_helpMenu.gameObject.SetActive(false);
+        TK_settingsMenu.gameObject.SetActive(false);
+        TK_storeMenu.gameObject.SetActive(false);
+        TK_w1Menu.gameObject.SetActive(false);
 
         if      (AlwaysThere.MainMenu_Index == 1) OpenHelp();  //with these if (elses) you can directly open other canvasses from other scenes
         else if (AlwaysThere.MainMenu_Index == 2) OpenSettings();
@@ -34,8 +33,8 @@ public class C_Clean_SwitchScreens : MonoBehaviour
     public void OpenMain()
     {
 
-        TK_mainMenu.enabled=true;
-        if (TK_mainMenu != ActiveDocument) ActiveDocument.enabled=false; //if the canvas already is open then dont close it
+        TK_mainMenu.gameObject.SetActive(true);
+        if (TK_mainMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false); //if the canvas already is open then dont close it
         ActiveDocument = TK_mainMenu;
 
 
@@ -43,8 +42,8 @@ public class C_Clean_SwitchScreens : MonoBehaviour
     public void OpenHelp()
     {
 
-        TK_helpMenu.enabled = true;
-        if (TK_helpMenu != ActiveDocument) ActiveDocument.enabled = false;
+        TK_helpMenu.gameObject.SetActive(true);
+        if (TK_helpMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
         ActiveDocument = TK_helpMenu;
 
     }
@@ -52,8 +51,8 @@ public class C_Clean_SwitchScreens : MonoBehaviour
 
     public void OpenSettings()
     {
-        TK_settingsMenu.enabled = true;
-        if (TK_settingsMenu != ActiveDocument) ActiveDocument.enabled = false;
+        TK_settingsMenu.gameObject.SetActive(true);
+        if (TK_settingsMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
         ActiveDocument = TK_settingsMenu;
     }
 
@@ -61,8 +60,8 @@ public class C_Clean_SwitchScreens : MonoBehaviour
     public void OpenStore()
     {
 
-        TK_storeMenu.enabled = true;
-        if (TK_storeMenu != ActiveDocument) ActiveDocument.enabled = false;
+        TK_storeMenu.gameObject.SetActive(true);
+        if (TK_storeMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
         ActiveDocument = TK_storeMenu;
     }
 
@@ -70,8 +69,8 @@ public class C_Clean_SwitchScreens : MonoBehaviour
     public void OpenW1()
     {
 
-        TK_w1Menu.enabled = true;
-        if (TK_storeMenu != ActiveDocument) ActiveDocument.enabled = false;
+        TK_w1Menu.gameObject.SetActive(true);
+        if (TK_storeMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
         ActiveDocument = TK_w1Menu;
     }
 

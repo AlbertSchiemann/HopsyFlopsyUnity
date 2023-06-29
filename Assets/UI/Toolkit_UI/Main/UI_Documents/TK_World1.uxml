@@ -7,6 +7,6 @@
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_settings" class="Button_3inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Setting.png?fileID=2800000&amp;guid=b2a391bd6e3b58f4aab9bed2573e9373&amp;type=3#B_Setting&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
         </ui:VisualElement>
         <ui:Button text="Level 1" display-tooltip-when-elided="true" name="Level1" style="height: 300px; width: 745px; margin-left: 31px; margin-right: 31px; margin-top: 31px; margin-bottom: 31px; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; font-size: 99px; border-top-left-radius: 52px; border-bottom-left-radius: 52px; border-top-right-radius: 52px; border-bottom-right-radius: 52px; -unity-font-style: bold;" />
-        <ui:Button text="Back" display-tooltip-when-elided="true" name="Back" enable-rich-text="true" class="Button_Back" />
+        <ui:Button display-tooltip-when-elided="true" name="Back" enable-rich-text="true" class="Button_Back" />
     </ui:VisualElement>
 </ui:UXML>

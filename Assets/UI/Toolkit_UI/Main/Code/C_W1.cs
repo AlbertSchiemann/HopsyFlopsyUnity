@@ -16,7 +16,7 @@ public class C_W1 : MonoBehaviour
      Button butSettings;
 
 
-    void Start()
+    void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 

@@ -36,7 +36,7 @@ public class C_ScreenSwitching : MonoBehaviour
         ////VisualElement main = root.Q<VisualElement>("Main");
         ////main.style.display = DisplayStyle.None;
 
-        //TK_mainMenu.SetActive(true); TK_helpMenu.SetActive(false);
+      //  TK_mainMenu.gameObject.SetActive(true); TK_helpMenu.SetActive(false);
         TK_mainMenu.enabled = false; TK_helpMenu.enabled = false;
 
 
@@ -46,7 +46,7 @@ public class C_ScreenSwitching : MonoBehaviour
         VisualElement store = TK_storeMenu.rootVisualElement.Q<VisualElement>("vis_store");
         VisualElement settings = TK_settingsMenu.rootVisualElement.Q<VisualElement>("vis_settings");
 
-        main.style.display = DisplayStyle.None;
+        main.style.display = DisplayStyle.Flex;
         w1.style.display = DisplayStyle.None;
         help.style.display = DisplayStyle.None;
         store.style.display = DisplayStyle.None;

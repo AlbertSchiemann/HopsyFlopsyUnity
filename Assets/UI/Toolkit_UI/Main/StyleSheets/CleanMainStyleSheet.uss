@@ -1,3 +1,10 @@
+.Vis_BackGround {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .VisualEle_3inCorner {
     height: 320px;
     width: 1000px;
@@ -20,38 +27,38 @@
     flex-direction: row;
 }
 
-.Button_2inCorner {
-    font-size: 0;
-    width: 280px;
-    height: 280px;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    -unity-slice-left: 1;
-    -unity-slice-top: 1;
-    -unity-slice-right: 1;
-    -unity-slice-bottom: 1;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: rgba(56, 56, 56, 0);
-}
-
 .Button_3inCorner {
     font-size: 0;
     width: 280px;
     height: 280px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-slice-left: 1;
-    -unity-slice-top: 1;
-    -unity-slice-right: 1;
-    -unity-slice-bottom: 1;
     margin-left: 25px;
     margin-right: 25px;
     margin-top: 25px;
     margin-bottom: 25px;
     background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.Button_2inCorner {
+    font-size: 0;
+    width: 280px;
+    height: 280px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
 }
 
 .but_temp {
@@ -72,20 +79,18 @@
 
 .Button_Back {
     position: absolute;
-    top: auto;
-    left: auto;
-    height: 200px;
-    width: 600px;
-    font-size: 73px;
+    top: 4.5%;
+    left: 3%;
+    height: 250px;
+    width: 250px;
     -unity-font-style: bold;
-    bottom: 5%;
-}
-
-.Vis_BackGround {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_TurnBack.png?fileID=2800000&guid=1668d7eb5ff93a14bbc63216ec99b24e&type=3#B_TurnBack');
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
 }
 
 .Button_HelpNav {
@@ -100,8 +105,21 @@
     margin-right: 91px;
     margin-top: 91px;
     margin-bottom: 91px;
-    border-top-left-radius: 63px;
-    border-bottom-left-radius: 63px;
-    border-top-right-radius: 63px;
-    border-bottom-right-radius: 63px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.but_SettingsNav {
+    height: 131px;
+    width: 578px;
+    margin-left: 42px;
+    margin-right: 42px;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 73px;
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-scale-mode: scale-to-fit;
 }

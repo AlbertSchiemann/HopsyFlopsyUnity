@@ -13,7 +13,7 @@ public class C_UI_OpenOther : MonoBehaviour
     }
     public static void ToJulius()
     {
-        SceneManager.LoadScene("Julius_GridTest");
+        SceneManager.LoadScene("Julius_Level");
     }
     public static void ToDenis()
     {
@@ -36,7 +36,7 @@ public class C_UI_OpenOther : MonoBehaviour
         SceneManager.LoadScene("Artists_Level");
     }
     public static void ToLevel1() {        
-        SceneManager.LoadScene("Main_Level");
+        SceneManager.LoadScene("World1Level1");
     }
     public static void ToLevel2()
     {
@@ -52,6 +52,10 @@ public class C_UI_OpenOther : MonoBehaviour
     }
     public static void ToRestart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public static void ToVideo()
+    {
+       // SceneManager.LoadScene("Video");
     }
 
     public static void ToMainMenu() {

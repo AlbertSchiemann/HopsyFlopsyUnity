@@ -25,7 +25,7 @@ public class C_Main : MonoBehaviour
     public Button butPatty;
 
 
-    void Start()
+    void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
