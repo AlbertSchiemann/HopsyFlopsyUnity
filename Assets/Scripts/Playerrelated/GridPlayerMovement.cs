@@ -39,7 +39,7 @@ public class GridPlayerMovement : MonoBehaviour
         isAllowedToMove = false;
 
         GameStateManagerScript.onGameStart += AllowMovement;            
-        GameStateManagerScript.onGamePaused += PreventMovement;           // Pause doesnt work yet
+        GameStateManagerScript.onGamePaused += PreventMovement;      
     }
 
     void Update()
@@ -49,7 +49,7 @@ public class GridPlayerMovement : MonoBehaviour
             playerPosition.CheckInput(_moveClip, _collisionClip);
             UpdateGameObjectPosition();
             playerPosition.Update();
-        }else if (isAllowedToMove == false) { return; }
+        } else if (isAllowedToMove == false) { return; }
         else { Debug.LogError("PlayerPosition is null!"); }
     }
 
@@ -266,7 +266,7 @@ public class GridPlayerMovement : MonoBehaviour
             }  
         }
     }
-    private void AllowMovement()
+    public void AllowMovement()
     {
         isAllowedToMove = true;
     }
