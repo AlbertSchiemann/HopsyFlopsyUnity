@@ -123,3 +123,6 @@
     background-color: rgba(188, 188, 188, 0);
     -unity-background-scale-mode: scale-to-fit;
 }
+
+.unity-base-slider--horizontal {
+}
