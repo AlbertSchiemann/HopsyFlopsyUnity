@@ -58,7 +58,7 @@ public class GridPlayerMovement : MonoBehaviour
         playerPosition = new PlayerPosition(StartX, StartY, grid2dCreated, playerPrefab);
     }
         
-    private void UpdateGameObjectPosition()                 // Update the Position of the Player on the Grid by transforming his position
+    public void UpdateGameObjectPosition()                 // Update the Position of the Player on the Grid by transforming his position
     {
         transform.position = new Vector3(playerPosition.posX, PlayerHeigth, playerPosition.posY);
     }
