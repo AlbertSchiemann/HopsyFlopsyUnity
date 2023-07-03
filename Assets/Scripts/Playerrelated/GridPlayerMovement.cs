@@ -25,6 +25,8 @@ public class GridPlayerMovement : MonoBehaviour
     public float PlayerHeigth = .5f;                        // Position in Y Axis of the Prefab
     private bool isAllowedToMove = true;                    // enables player movement in general
 
+    public bool UpdateActive = true;                        // enables the update of the playerposition
+
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
 
@@ -47,7 +49,12 @@ public class GridPlayerMovement : MonoBehaviour
         if (playerPosition != null && isAllowedToMove == true)
         {
             playerPosition.CheckInput(_moveClip, _collisionClip);
-            UpdateGameObjectPosition();
+
+            if (UpdateActive)
+            {
+                UpdateGameObjectPosition();
+            }
+            
             playerPosition.Update();
         }else if (isAllowedToMove == false) { return; }
         else { Debug.LogError("PlayerPosition is null!"); }
@@ -165,6 +172,7 @@ public class GridPlayerMovement : MonoBehaviour
         public void moveForward ()      {Move( 0, 1); direction =    "TapForward";}
         public void moveForwardTap ()   {Move( 0, 1); direction =    "Forward";}
         public void moveBackward ()     {Move( 0,-1); direction =   "Backward";}
+        public void moveCrane()         {Move( 2, 2); direction =    "Crane";}
         public void Move(int x, int y) 
         {
             int newPosX = posX + x;
@@ -273,5 +281,9 @@ public class GridPlayerMovement : MonoBehaviour
     public void PreventMovement()
     {
         isAllowedToMove = false;
+    }
+    public void CraneMovement()
+    {
+        playerPosition.moveCrane();
     }
 }
