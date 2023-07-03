@@ -13,7 +13,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="vis_sound" style="position: absolute; height: 751px; width: 2222px; top: 324px; left: 604px;">
             <ui:Button display-tooltip-when-elided="true" style="height: 300px; width: 300px; left: 6%; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOFF.png?fileID=2800000&amp;guid=8dc779dae17f22442b31560587411cc3&amp;type=3#B_SoundVolumeOFF&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);" />
-            <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="SFX" low-value="0" style="width: 1584px; position: absolute; top: 116px; left: auto; right: 63px; align-items: stretch; justify-content: flex-start; font-size: 20px; height: 51px; margin-left: 29px; margin-right: 29px; margin-top: 29px; margin-bottom: 29px;" />
+            <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="SFX" low-value="0" usage-hints="None" style="width: 1584px; position: absolute; top: 116px; left: auto; right: 63px; align-items: stretch; justify-content: flex-start; font-size: 20px; height: 51px; margin-left: 29px; margin-right: 29px; margin-top: 29px; margin-bottom: 29px;" />
         </ui:VisualElement>
         <ui:Label text="HammerBuddies.Games@gmail.com&#10;" display-tooltip-when-elided="true" name="txt_contact" style="height: 234px; position: absolute; width: 2179px; top: 43%; left: 20%; font-size: 123px; -unity-text-align: upper-center;" />
         <ui:VisualElement name="vis_credits" style="height: 927px; width: 2218px; position: absolute; top: 152px; left: 591px;" />

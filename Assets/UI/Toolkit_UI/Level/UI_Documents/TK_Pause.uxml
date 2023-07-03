@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
+    <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
+    <ui:VisualElement name="vis_" class="Vis_BackGround" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle">
+            <ui:Button display-tooltip-when-elided="true" name="but_playOn" text="resume" class="but_3inMiddle" />
+            <ui:Button display-tooltip-when-elided="true" name="but_restart" text="restart" class="but_3inMiddle" />
+            <ui:Button display-tooltip-when-elided="true" name="but_main" text="main" class="but_3inMiddle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="vis_4inCorner" class="VisualEle_4inCornerUp" style="display: flex;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_help" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_QuestionMark.png?fileID=2800000&amp;guid=5e0ffdf80019ed540bde43e39f2fc96b&amp;type=3#B_QuestionMark&apos;);" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_store" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Buy.png?fileID=2800000&amp;guid=ff079e20dc4bf1a40aee392077525087&amp;type=3#B_Buy&apos;);" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_settings" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Setting.png?fileID=2800000&amp;guid=b2a391bd6e3b58f4aab9bed2573e9373&amp;type=3#B_Setting&apos;);" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_hide" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/arrowDown.jpeg?fileID=2800000&amp;guid=25d8c9121b4c41f4792ba505baf8663a&amp;type=3#arrowDown&apos;);" />
+        </ui:VisualElement>
+        <ui:Button display-tooltip-when-elided="true" name="but_show" class="Button_CornerHide" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/Unbenannt.jpeg?fileID=2800000&amp;guid=30b94d5b20b42ff45a5b42d6465e67c3&amp;type=3#Unbenannt&apos;); right: 2%; bottom: 2%; display: flex;" />
+    </ui:VisualElement>
+</ui:UXML>

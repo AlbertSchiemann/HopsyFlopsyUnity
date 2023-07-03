@@ -126,3 +126,6 @@
 
 .unity-base-slider--horizontal {
 }
+
+.unity-slider-int {
+}

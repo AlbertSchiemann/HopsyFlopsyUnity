@@ -1,0 +1,82 @@
+.vis_3inMiddle {
+    height: 907px;
+    width: 830px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(136, 222, 255, 0.61);
+    border-top-left-radius: 122px;
+    border-bottom-left-radius: 122px;
+    border-top-right-radius: 122px;
+    border-bottom-right-radius: 122px;
+}
+
+.VisualEle_4inCornerUp {
+    height: 1200px;
+    width: 300px;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.VisualEle_2inCornerUp {
+    height: 320px;
+    width: 800px;
+    position: absolute;
+    bottom: 2%;
+    right: 1%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.but_3inMiddle {
+    height: 25%;
+    width: 90%;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 76px;
+}
+
+.Button_4inCorner {
+    font-size: 0;
+    width: 250px;
+    height: 250px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.Button_CornerHide {
+    width: 250px;
+    height: 250px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    position: absolute;
+}

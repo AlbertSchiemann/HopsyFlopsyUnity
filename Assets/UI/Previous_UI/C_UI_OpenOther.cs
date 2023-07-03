@@ -62,22 +62,22 @@ public class C_UI_OpenOther : MonoBehaviour
         SceneManager.LoadScene("TK_MainMenu");
     }
 
-                public void ToMain_Help() 
+                public static void ToMain_Help() 
                 {
                     AlwaysThere.MainMenu_Index = 1;
                     ToMainMenu();
                 }
-                public void ToMain_Settings()
+                public static void ToMain_Settings()
                 {
                     AlwaysThere.MainMenu_Index = 2;
                     ToMainMenu();
                 }
-                public void ToMain_Store()
+                public static void ToMain_Store()
                 {
                     AlwaysThere.MainMenu_Index = 3;
                     ToMainMenu();
                 }
-                public void ToMain_W1()
+                public static void ToMain_W1()
                 {
                     AlwaysThere.MainMenu_Index = 4;
                     ToMainMenu();

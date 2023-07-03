@@ -15,12 +15,14 @@ public class C_Clean_SwitchScreens : MonoBehaviour
     [SerializeField] UIDocument TK_w1Menu;
     void Start()
     {
-
+        
         TK_mainMenu.gameObject.SetActive(true);
         TK_helpMenu.gameObject.SetActive(false);
         TK_settingsMenu.gameObject.SetActive(false);
         TK_storeMenu.gameObject.SetActive(false);
         TK_w1Menu.gameObject.SetActive(false);
+
+        ActiveDocument = TK_mainMenu;
 
         if      (AlwaysThere.MainMenu_Index == 1) OpenHelp();  //with these if (elses) you can directly open other canvasses from other scenes
         else if (AlwaysThere.MainMenu_Index == 2) OpenSettings();
@@ -28,7 +30,6 @@ public class C_Clean_SwitchScreens : MonoBehaviour
         else if (AlwaysThere.MainMenu_Index == 4) OpenW1();
 
         AlwaysThere.MainMenu_Index = 0;
-        ActiveDocument = TK_mainMenu;
     }
     public void OpenMain()
     {
@@ -70,7 +71,7 @@ public class C_Clean_SwitchScreens : MonoBehaviour
     {
 
         TK_w1Menu.gameObject.SetActive(true);
-        if (TK_storeMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
+        if (TK_w1Menu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
         ActiveDocument = TK_w1Menu;
     }
 

@@ -224,6 +224,11 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 562299588637567028, guid: 4720595ce045d844eb3ea45e11378919,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1502726377429115440, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -237,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 2131079892587649475, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2259449168419183017, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
@@ -294,6 +299,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4197076257857219583, guid: 4720595ce045d844eb3ea45e11378919,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4242181234792491044, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
       propertyPath: m_IsActive
@@ -307,7 +317,7 @@ PrefabInstance:
     - target: {fileID: 5218806011804080222, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5789557366835046011, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
@@ -315,6 +325,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6977820464849927412, guid: 4720595ce045d844eb3ea45e11378919,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690905145760302775, guid: 4720595ce045d844eb3ea45e11378919,
         type: 3}
       propertyPath: m_IsActive
       value: 0

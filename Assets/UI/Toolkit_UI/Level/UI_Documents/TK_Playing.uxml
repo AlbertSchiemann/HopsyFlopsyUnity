@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
+    <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
+    <ui:VisualElement name="vis_" class="Vis_BackGround" style="width: 100%; height: 100%;">
+        <ui:Button display-tooltip-when-elided="true" name="but_pause" class="Button_Back" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Pause.png?fileID=2800000&amp;guid=a190f8231c6a0fb48a2892b2e428629b&amp;type=3#B_Pause&apos;);" />
+    </ui:VisualElement>
+</ui:UXML>
