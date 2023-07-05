@@ -927,11 +927,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: d5269e9f-4502-4792-acc0-bfb6924c13d1
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: HopsyFlopsy
+  organizationId: albert0schiemann
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
