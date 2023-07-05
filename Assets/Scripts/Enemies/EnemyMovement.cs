@@ -108,6 +108,7 @@ public class EnemyMovement : MonoBehaviour
     {
         StartCoroutine(PerformMovement(pointsMoveRight, MovingRight));
         StartCoroutine(WaitAndExecute(pointsMoveRight, FLMoveForward));
+
     }
 
     private void FLMoveForward()
