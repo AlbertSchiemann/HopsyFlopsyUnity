@@ -499,7 +499,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4625563449472741506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2498,6 +2498,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenSettingsMain
       objectReference: {fileID: 0}
+    - target: {fileID: 8332623278874767165, guid: f58f5c155d5889f4383343dc95b2c5f8,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f58f5c155d5889f4383343dc95b2c5f8, type: 3}
 --- !u!224 &7316361291562204839 stripped
@@ -2513,6 +2518,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2733850680695952828}
     m_Modifications:
+    - target: {fileID: 987505648353984359, guid: 08a1e735bdd95da40a31b75caeb115cf,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3610855608336664812, guid: 08a1e735bdd95da40a31b75caeb115cf,
         type: 3}
       propertyPath: m_Pivot.x
