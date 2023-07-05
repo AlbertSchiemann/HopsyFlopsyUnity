@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MovementDirection { Forward, Backward, Left, Right }
 public class EnemyMovement : MonoBehaviour
 {
-
+    [SerializeField] MovementDirection[] m_MovementDirections;
     // The Starting Rotation of the Enemy is always according to the grid - so he always faces forward
     // The Starting position has to be handmade for each one, so it cant take the worldposition of the prefab and calculate the gridposition
     // The enemy will always call all direction-functions, but only the ones with points will be executed
