@@ -44,17 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd4c59f621b483448b13d70d09102ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalBlockPrefab: {fileID: 0}
-  NormalBlockBlockedPrefab: {fileID: 0}
-  BridgePrefab: {fileID: 0}
-  BridgeBlockedPrefab: {fileID: 0}
-  WaterPrefab: {fileID: 0}
-  WaterBlockedPrefab: {fileID: 0}
-  FirePrefab: {fileID: 0}
-  FireBlockedPrefab: {fileID: 0}
-  FreeFallPrefab: {fileID: 0}
-  GoalPrefab: {fileID: 0}
-  RespawnPrefab: {fileID: 0}
-  transparent: {fileID: 2100000, guid: 2f6ac88a85eb1784785a7658c9c73ebc, type: 2}
+  NormalBlockPrefab: {fileID: 1395000862042864183, guid: 1601e6b9697fed34e95ae101cd201e21,
+    type: 3}
+  NormalBlockBlockedPrefab: {fileID: 1395000862042864183, guid: 755cbe607411d324fa4db49c8ffece9c,
+    type: 3}
+  BridgePrefab: {fileID: 1395000862042864183, guid: b0b5c03f17d6a954ca2851a11b918340,
+    type: 3}
+  BridgeBlockedPrefab: {fileID: 1395000862042864183, guid: 7e99fb2ab513ff541b80c32a4d34c955,
+    type: 3}
+  WaterPrefab: {fileID: 1395000862042864183, guid: f1e8c244389a72747bccadb700793e07,
+    type: 3}
+  WaterBlockedPrefab: {fileID: 1395000862042864183, guid: 090f228fdc871e24da2fb7f50bc6196f,
+    type: 3}
+  FirePrefab: {fileID: 6998130575842937162, guid: b8d3f089fc3d9914297608f481fca7a6,
+    type: 3}
+  FireBlockedPrefab: {fileID: 6998130575842937162, guid: 7e405cb79b1a7f64fa8d957db2ee681a,
+    type: 3}
+  FreeFallPrefab: {fileID: 6603254241396769788, guid: 21a3aee173008d649b24efb493abac22,
+    type: 3}
+  GoalPrefab: {fileID: 9158997071291295766, guid: 3d900e45bef51ac4983b300eb9b40277,
+    type: 3}
+  RespawnPrefab: {fileID: 1395000862042864183, guid: 87cdc1868128f534097a9cd45e169f6e,
+    type: 3}
   levelNumber: 0
+  transparent: {fileID: 2100000, guid: 2f6ac88a85eb1784785a7658c9c73ebc, type: 2}
   GridBlocksVisible: 1
