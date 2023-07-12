@@ -19,10 +19,10 @@ public class EnemyMovementArray : MonoBehaviour
         public int Directionslength;
     }
     [SerializeField] MovementStruct[] movementDirection; // Array of the Movement Directions and their length
-    
-    
-    
-    
+
+
+
+
     // The Starting Rotation of the Enemy is always according to the grid - so he always faces forward
     // The Starting position has to be handmade for each one, so it cant take the worldposition of the prefab and calculate the gridposition
     // The enemy will always call all direction-functions, but only the ones with points will be executed
@@ -34,10 +34,13 @@ public class EnemyMovementArray : MonoBehaviour
     [SerializeField] private float moveDelay = 1f;      // Delay between each step of the Enemy
     private Grid2DCreated grid2dCreated;                // Insert the grid of the Level
     [SerializeField] private Grid grid;
-    private EnemyPosition enemyPosition; 
+    private EnemyPosition enemyPosition;
     [SerializeField] private GameObject enemyPrefab;    // Insert the Enemy Prefab
     public UI_LevelScript levelScript;                  // Reference to the LevelScripts
     [SerializeField] private AudioClip[] _failClip;     // Death Sound
+
+    public static bool canTankHit = false;              // Shield Power-Up Bool
+    [SerializeField] private AudioClip[] _deflectClip;  // Shield Destroy Sound
 
     public float delayTillDeathscreenShows = .2f;                          // Delay till Scene gets reloaded after death
     public float delayTillStartOfMovement = 2.2f;                          // Delay till Enemy gets destroyed after death
@@ -54,7 +57,7 @@ public class EnemyMovementArray : MonoBehaviour
         {
             generalHeigth = StartingPoint.y;
         }
-        
+
         grid2dCreated = grid.getGridCreated();
         InitiateEnemy();                                // Initiate the Enemy in his Starting Position
         UpdateGameObjectPosition();                     // Set the Transform of the Enemy to his Starting Position
@@ -63,7 +66,8 @@ public class EnemyMovementArray : MonoBehaviour
 
     private void StartMovement()
     {
-        if (i < movementDirection.Length){ 
+        if (i < movementDirection.Length)
+        {
             i++;
         }
         else { Debug.Log("Hilfe"); return; }
@@ -71,25 +75,25 @@ public class EnemyMovementArray : MonoBehaviour
         MovementStruct current = movementDirection[i - 1];
         Debug.Log(movementDirection.Length + "  " + i);
 
-        if (i == movementDirection.Length) { Invoke("InBetweenLooping" , current.Directionslength + 1); }
+        if (i == movementDirection.Length) { Invoke("InBetweenLooping", current.Directionslength + 1); }
 
         switch (current.Movementdirection)
         {
             case Direction.Right:
-                    FLMoveRight(current.Directionslength);
-                    Debug.Log("1");
+                FLMoveRight(current.Directionslength);
+                Debug.Log("1");
                 break;
             case Direction.Forward:
-                    FLMoveForward(current.Directionslength);
-                    Debug.Log("2");
+                FLMoveForward(current.Directionslength);
+                Debug.Log("2");
                 break;
             case Direction.Left:
-                    FLMoveLeft(current.Directionslength);
-                    Debug.Log("3");
+                FLMoveLeft(current.Directionslength);
+                Debug.Log("3");
                 break;
             case Direction.Backward:
-                    FLMoveBackward(current.Directionslength);
-                    Debug.Log("4");
+                FLMoveBackward(current.Directionslength);
+                Debug.Log("4");
                 break;
             default:
                 Debug.Log("No Movement Implemented in Inspector");
@@ -98,10 +102,10 @@ public class EnemyMovementArray : MonoBehaviour
     }
     private void InBetweenLooping()
     {
-            InitiateEnemy();
-            UpdateGameObjectPosition();
-            i = 0;
-            Invoke("StartMovement", 1);
+        InitiateEnemy();
+        UpdateGameObjectPosition();
+        i = 0;
+        Invoke("StartMovement", 1);
     }
     private IEnumerator PerformMovement(int numSteps, System.Action<int> movementAction) // One Step at a time
     {
@@ -158,14 +162,14 @@ public class EnemyMovementArray : MonoBehaviour
     {
         int newZ = enemyPosition.posZ + z;
         enemyPosition.posZ = newZ;
-        enemyPrefab.transform.position = new Vector3(0, 0,enemyPosition.posZ);
+        enemyPrefab.transform.position = new Vector3(0, 0, enemyPosition.posZ);
         UpdateGameObjectPosition();
     }
     public void MovingBackward(int z)
     {
         int newZ = enemyPosition.posZ - z;
         enemyPosition.posZ = newZ;
-        enemyPrefab.transform.position = new Vector3(0, 0,enemyPosition.posZ);
+        enemyPrefab.transform.position = new Vector3(0, 0, enemyPosition.posZ);
         UpdateGameObjectPosition();
     }
 
@@ -200,9 +204,10 @@ public class EnemyMovementArray : MonoBehaviour
         }
 
     }
-    
-    public class EnemyPosition {              // when Player gets called, he gets a starting-position and the grid reference
-        public int posX; 
+
+    public class EnemyPosition
+    {              // when Player gets called, he gets a starting-position and the grid reference
+        public int posX;
         public float posY;
         public int posZ;
         private Grid2DCreated grid;
@@ -210,7 +215,8 @@ public class EnemyMovementArray : MonoBehaviour
         private GameObject enemy;              // Reference to the Enemy
 
         public string direction = string.Empty;
-        public EnemyPosition(int x, float y, int z, Grid2DCreated grid, GameObject enemyPrefab) {  // Constructor: Enemy gets the Position of the Block he is on
+        public EnemyPosition(int x, float y, int z, Grid2DCreated grid, GameObject enemyPrefab)
+        {  // Constructor: Enemy gets the Position of the Block he is on
             this.posX = x;
             this.posY = y;
             this.posZ = z;
@@ -224,21 +230,30 @@ public class EnemyMovementArray : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("EnemyCollision - Eaten!");                           // Restart the game if the player collides with the enemy
-            //levelScript.OpenLoose();
-            Invoke("Sceneload", delayTillDeathscreenShows);
-            GameObject player = other.gameObject;
-            player.GetComponent<GridPlayerMovement>().PreventMovement();
-            SoundManager.Instance.PlaySound(_failClip);
-            
-            // PlayerCollision.GetComponent.Sceneload();
-            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (!canTankHit)
+            {
+                //Debug.Log("EnemyCollision - Eaten!");                           // Restart the game if the player collides with the enemy
+                //levelScript.OpenLoose();
+                Invoke("Sceneload", delayTillDeathscreenShows);
+                GameObject player = other.gameObject;
+                player.GetComponent<GridPlayerMovement>().PreventMovement();
+                SoundManager.Instance.PlaySound(_failClip);
+
+                // PlayerCollision.GetComponent.Sceneload();
+                // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            else
+            {
+                Debug.Log("DEFLECT");
+                SoundManager.Instance.PlaySound(_deflectClip);
+                canTankHit = false;
+            }
         }
     }
     void Sceneload()
     {
         // restart the game if the player collides with the enemy
-        levelScript.OpenLoose();  
+        levelScript.OpenLoose();
     }
 }
 
