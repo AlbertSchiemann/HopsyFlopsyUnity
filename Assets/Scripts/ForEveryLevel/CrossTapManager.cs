@@ -30,7 +30,7 @@ public class CrossTapManager : MonoBehaviour
         leftTap = true;
         Invoke("Reset", 0.1f);
     }
-    public void Reset()
+    private void Reset()
     {
         upTap = false;
         downTap = false;
