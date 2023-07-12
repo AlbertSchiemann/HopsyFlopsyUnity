@@ -12,7 +12,7 @@ public class HydrationController : MonoBehaviour
     
     bool isHydrationActivated;
 
-    public float hydrationMax = 100f;                       // Maximum amount of Hydration
+    public static float hydrationMax = 100f;                       // Maximum amount of Hydration
     public float hydrationDecayRate = 10f;                  // Rate in which the Hydration goes down 
     public float hydrationDecayFire = 2f;
     public float hydrationRestoreAmount = 100f;             // Rate in which Hydration gets restored in Water Tiles
@@ -29,6 +29,7 @@ public class HydrationController : MonoBehaviour
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
+    [SerializeField] Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
 
     private PlayerInstantiate playerInstantiate;
 
@@ -143,7 +144,17 @@ public class HydrationController : MonoBehaviour
 
     public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
-        if (hydration <= 0)
+        /*
+        if (hydration <= 5 && waterbottle.WaterbottleChecker() == true)
+        {
+            waterbottle.Refill();
+            //SoundManager.Instance.PlaySound(_hydrateClip);
+            Debug.Log("Waterbottle used");
+            waterbottle.DeleteBottle();
+        }
+        
+        else */
+         if (hydration <= 0)
         {
             Invoke("Sceneload", DelayTillReload); 
             SoundManager.Instance.PlaySound(_failClip);
@@ -152,6 +163,12 @@ public class HydrationController : MonoBehaviour
 
         }
     }
+    public void MaxHydration()
+    {
+        hydration = hydrationMax;
+        waterBar.SetMaxHealth(hydrationMax);
+    }
+    
         void Sceneload()
     {
         // restart the game if the player collides with the enemy

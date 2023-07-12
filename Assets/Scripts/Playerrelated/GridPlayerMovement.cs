@@ -18,6 +18,8 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private Grid grid;
     private PlayerPosition playerPosition;                  // get the player-coordinates and transform them into grid coordinates
     [SerializeField] private GameObject playerPrefab; 
+    [SerializeField] private AudioClip[] _hydrateClip;
+    public HydrationController hydrationController;
   
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
     [SerializeField] private int StartY =  3;                          
@@ -29,6 +31,7 @@ public class GridPlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
+    [SerializeField] private Waterbottle waterbottle;
 
     void Start()
     {
@@ -48,7 +51,7 @@ public class GridPlayerMovement : MonoBehaviour
     {
         if (playerPosition != null && isAllowedToMove == true)
         {
-            playerPosition.CheckInput(_moveClip, _collisionClip);
+            playerPosition.CheckInput(_moveClip, _collisionClip, _hydrateClip, waterbottle);
 
             if (UpdateActive)
             {
@@ -79,6 +82,8 @@ public class GridPlayerMovement : MonoBehaviour
         private float rotationBackward = 180;
         private Grid2DCreated grid;
         private GameObject playerPrefab;                    // Reference to the player GameObject
+        private Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
+        private HydrationController hydrationController;    // Reference to the HydrationController
         private bool isAllowedToMoveLeft = true;            // Bool to track if player is allowed to move into a direction or not
         private bool isAllowedToMoveRight = true;
         private bool isAllowedToMoveBack = true;
@@ -115,7 +120,7 @@ public class GridPlayerMovement : MonoBehaviour
             }
         }
 
-        public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip)            // Check for Input and call the Move-Function
+        public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip, AudioClip[] _hydrateClip, Waterbottle waterbottle)            // Check for Input and call the Move-Function
         {
             if (!isMoving)
             {
@@ -164,18 +169,22 @@ public class GridPlayerMovement : MonoBehaviour
                         SoundManager.Instance.PlaySound(collClip);
                     }
                 }
-                /*if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    if (waterbottle.WaterbottleChecker())
+                    Debug.Log("Space pressed");
+                    if (waterbottle.WaterbottleChecker() == true)
                     {
-                        waterbottle.Start();
+                        waterbottle.Refill();
+                        //SoundManager.Instance.PlaySound(_hydrateClip);
                         Debug.Log("Waterbottle used");
+                        waterbottle.DeleteBottle();
                     }
-                    else
+                    else if (waterbottle.WaterbottleChecker() == false)
                     {
                         Debug.Log("No Waterbottle");
                     }
-                }*/
+                    else { Debug.Log("Error");}
+                }
             }     
         }
 
@@ -298,4 +307,5 @@ public class GridPlayerMovement : MonoBehaviour
     {
         playerPosition.moveCrane();
     }
+    
 }
