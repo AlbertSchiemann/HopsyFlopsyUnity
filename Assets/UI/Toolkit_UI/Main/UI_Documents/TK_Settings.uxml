@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
     <ui:VisualElement name="vis_settings" class="Vis_BackGround">
-        <ui:VisualElement class="VisualEle_2inCorner">
+        <ui:VisualElement name="vis_2inCorner" class="VisualEle_2inCorner">
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_help" class="Button_2inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_QuestionMark.png?fileID=2800000&amp;guid=5e0ffdf80019ed540bde43e39f2fc96b&amp;type=3#B_QuestionMark&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_store" class="Button_2inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Buy.png?fileID=2800000&amp;guid=ff079e20dc4bf1a40aee392077525087&amp;type=3#B_Buy&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
         </ui:VisualElement>
@@ -11,11 +11,19 @@
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_Credits" class="but_SettingsNav" />
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_contact" class="but_SettingsNav" />
         </ui:VisualElement>
-        <ui:VisualElement name="vis_sound" style="position: absolute; height: 751px; width: 2222px; top: 324px; left: 604px;">
-            <ui:Button display-tooltip-when-elided="true" style="height: 300px; width: 300px; left: 6%; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOFF.png?fileID=2800000&amp;guid=8dc779dae17f22442b31560587411cc3&amp;type=3#B_SoundVolumeOFF&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-color: rgba(188, 188, 188, 0);" />
-            <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="SFX" low-value="0" usage-hints="None" style="width: 1584px; position: absolute; top: 116px; left: auto; right: 63px; align-items: stretch; justify-content: flex-start; font-size: 20px; height: 51px; margin-left: 29px; margin-right: 29px; margin-top: 29px; margin-bottom: 29px;" />
-        </ui:VisualElement>
         <ui:Label text="HammerBuddies.Games@gmail.com&#10;" display-tooltip-when-elided="true" name="txt_contact" style="height: 234px; position: absolute; width: 2179px; top: 43%; left: 20%; font-size: 123px; -unity-text-align: upper-center;" />
         <ui:VisualElement name="vis_credits" style="height: 927px; width: 2218px; position: absolute; top: 152px; left: 591px;" />
+        <ui:VisualElement name="vis_sound" style="position: absolute; height: 751px; width: 2222px; top: 305px; left: 604px; flex-direction: row;">
+            <ui:VisualElement name="vis_sound_buttons" style="position: relative; height: 751px; width: 749px; top: auto; left: auto; align-items: center; justify-content: center;">
+                <ui:Button display-tooltip-when-elided="true" name="but_sound_off" class="Button_Sound" style="display: none;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_sound_on" class="Button_Sound" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOn.png?fileID=2800000&amp;guid=c752a667313298b41a633568d45c82b1&amp;type=3#B_SoundVolumeOn&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="but_sfx_off" class="Button_Sound" style="display: none;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_sfx_on" class="Button_Sound" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOn.png?fileID=2800000&amp;guid=c752a667313298b41a633568d45c82b1&amp;type=3#B_SoundVolumeOn&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="vis_sound_slider" style="position: relative; height: 751px; width: 2222px; top: auto; left: auto;">
+                <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="SFX" low-value="0" usage-hints="None" show-input-field="false" class="slider" style="top: 444px; right: 18px;" />
+                <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="Sound" low-value="0" usage-hints="None" show-input-field="false" class="slider" style="top: 92px; right: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
