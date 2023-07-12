@@ -6,6 +6,10 @@ public class CrossTapManager : MonoBehaviour
 {
     public static bool upTap, downTap, rightTap, leftTap = false;
 
+    private void Update() {
+        //Empty Update Function to disable script
+    }
+
     public void UpButton()
     {
         upTap = true;
