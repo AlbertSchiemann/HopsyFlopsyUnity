@@ -138,7 +138,9 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.2.2
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -4024954918204241069, guid: c0bf89014b740924992cc4fb6fba90fb, type: 2}
+  - {fileID: 11400000, guid: 6f4ee0d6ed38fb14f93219f1e1c1a743, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -929,11 +931,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: d5269e9f-4502-4792-acc0-bfb6924c13d1
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: HopsyFlopsy
-  organizationId: albert0schiemann
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
