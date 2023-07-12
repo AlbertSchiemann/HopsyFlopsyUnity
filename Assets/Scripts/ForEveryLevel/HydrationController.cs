@@ -120,6 +120,27 @@ public class HydrationController : MonoBehaviour
         }
     }
 
+    // used for Power Ups:
+    public void PauseDehydration(float pausetime, bool pauseactive)
+    {
+        if (pauseactive)
+        {
+            watercollision();
+        }
+        Timer(pausetime);
+    }
+    private void Timer (float pausetime)
+    {
+        Invoke("watercollisiondisabled", pausetime);
+        Invoke("pauseactive = false", pausetime);
+    }
+    private void Pausestop (bool pauseactive)
+    {
+        pauseactive = false;
+    }
+
+    
+
     public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
         if (hydration <= 0)
@@ -137,13 +158,22 @@ public class HydrationController : MonoBehaviour
         levelScript.OpenLoose();  
     }
 
-    private void ActivateHydration()
+    public void ActivateHydration()
     {
         isHydrationActivated = true;
     }
-    private void DeactivateHydration()
+    public void DeactivateHydration()
     {
         isHydrationActivated = false;
     }
+    public void watercollision()
+    {
+        isCollidingWithWater = true;
+    }
+    public void watercollisiondisabled()
+    {
+        isCollidingWithWater = false;
+    }
+    
 }
 

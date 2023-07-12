@@ -164,6 +164,18 @@ public class GridPlayerMovement : MonoBehaviour
                         SoundManager.Instance.PlaySound(collClip);
                     }
                 }
+                /*if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (waterbottle.WaterbottleChecker())
+                    {
+                        waterbottle.Start();
+                        Debug.Log("Waterbottle used");
+                    }
+                    else
+                    {
+                        Debug.Log("No Waterbottle");
+                    }
+                }*/
             }     
         }
 

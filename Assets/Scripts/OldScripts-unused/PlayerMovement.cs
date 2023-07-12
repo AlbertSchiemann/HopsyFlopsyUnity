@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private PlayerCollision collisionChecker;
 
+    public Waterbottle waterbottle;
+
     [SerializeField] private AudioClip[] _moveClip;
 
     void Start()
@@ -115,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Right");
             }
         }
+        
     }
 
     public void MovePlayer()
