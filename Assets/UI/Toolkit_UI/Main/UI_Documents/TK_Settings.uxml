@@ -6,7 +6,7 @@
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_store" class="Button_2inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Buy.png?fileID=2800000&amp;guid=ff079e20dc4bf1a40aee392077525087&amp;type=3#B_Buy&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
         </ui:VisualElement>
         <ui:Button display-tooltip-when-elided="true" name="but_back" class="Button_Back" />
-        <ui:VisualElement name="vis_settingsNav" style="position: absolute; left: -16px; height: 767px; width: 730px; align-items: center; justify-content: center; top: 316px;">
+        <ui:VisualElement name="vis_settingsNav" style="position: absolute; left: 1%; height: 767px; width: 730px; align-items: center; justify-content: center; top: 316px;">
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_Sound" class="but_SettingsNav" />
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_Credits" class="but_SettingsNav" />
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_contact" class="but_SettingsNav" />

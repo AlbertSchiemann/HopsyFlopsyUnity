@@ -1,5 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="vis_water" style="flex-grow: 1;">
-        <ui:ProgressBar value="22" title="my-progress" style="position: absolute; flex-direction: row; height: 1004px; width: 612px; flex-grow: 1;" />
+    <ui:VisualElement name="vis_water" style="flex-grow: 1; flex-wrap: nowrap; flex-direction: column-reverse; align-items: center; justify-content: space-between;">
+        <ui:VisualElement name="Background" style="background-color: rgb(255, 255, 255); flex-grow: 0; flex-direction: column-reverse; position: absolute; left: 5%; top: 28%; height: 60%; width: 4.5%;">
+            <ui:VisualElement name="Foreground" style="flex-grow: 0; background-color: rgb(67, 190, 233); height: 50%; flex-direction: column;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
