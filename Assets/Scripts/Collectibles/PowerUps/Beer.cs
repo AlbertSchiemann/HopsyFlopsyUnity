@@ -9,6 +9,7 @@ public class Beer : MonoBehaviour
     // Screen gets shaky?
 
     [SerializeField] private AudioClip[] _hydrateClip;
+    [SerializeField] public Material transparent;
 
     public HydrationController hydrationController;         // Reference to the levels HydrationController 
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
@@ -19,10 +20,11 @@ public class Beer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            hydrationController.PauseDehydration(_dehydrationDelay, true);
-            // SoundManager.Instance.PlaySound(_hydrateClip);
-          
+            
+            Destroy(GetComponent<Collider>());
+            GameObject cube = gameObject.transform.Find("Cylinder").gameObject;
+            cube.GetComponent<MeshRenderer>().material = transparent;
+
         }
     }
 }
