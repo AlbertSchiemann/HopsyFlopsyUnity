@@ -168,6 +168,12 @@ public class HydrationController : MonoBehaviour
         hydration = hydrationMax;
         waterBar.SetMaxHealth(hydrationMax);
     }
+
+    public void BeerHydration()
+    {
+        hydration = hydration +20;
+        waterBar.SetHealth(hydration);
+    }
     
         void Sceneload()
     {

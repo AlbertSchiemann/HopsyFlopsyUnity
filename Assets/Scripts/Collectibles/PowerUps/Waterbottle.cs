@@ -15,6 +15,18 @@ public class Waterbottle : MonoBehaviour
     public int waterbottlecounter = 0;
 
     public bool useWaterbottle = false;
+    Vector3 objectRotation;
+    float newUpdateRate = 0.05f;
+
+    void Start()
+    {
+        InvokeRepeating("SlowUpdate", 0.0f, newUpdateRate);
+    }
+    void SlowUpdate()
+    {
+        objectRotation = new Vector3(0, -5f, 0) + transform.eulerAngles;
+        transform.eulerAngles = objectRotation;
+    }
 
     public void Refill()
     {

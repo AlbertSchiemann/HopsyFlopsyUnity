@@ -119,6 +119,7 @@ public class GridPlayerMovement : MonoBehaviour
                 }
             }
         }
+        
 
         public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip, AudioClip[] _hydrateClip, Waterbottle waterbottle)            // Check for Input and call the Move-Function
         {
@@ -306,6 +307,25 @@ public class GridPlayerMovement : MonoBehaviour
     public void CraneMovement()
     {
         playerPosition.moveCrane();
+    }
+    public void RandomMovement()
+    {
+        int randomNum = Random.Range(0, 4);
+
+        switch(randomNum){
+        case 0:
+            playerPosition.moveLeft();
+        break;
+        case 1:
+            playerPosition.moveRight();
+        break;
+        case 2:
+            playerPosition.moveForward();
+        break;
+        case 3:
+            playerPosition.moveBackward();
+        break;
+        }
     }
     
 }

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8238068850904668336}
-  - component: {fileID: 4557102933338762294}
   - component: {fileID: 1411851885087491821}
+  - component: {fileID: 4557102933338762294}
   m_Layer: 0
   m_Name: Beer
   m_TagString: Untagged
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304903313262149441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.13052596, w: 0.99144495}
   m_LocalPosition: {x: 21.75, y: 0.75, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33,20 +33,7 @@ Transform:
   - {fileID: 3191607721847015444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4557102933338762294
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304903313262149441}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.4, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
 --- !u!114 &1411851885087491821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,8 +47,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hydrateClip: []
-  hydrationController: {fileID: 0}
-  _dehydrationDelay: 0.2
+  transparent: {fileID: 2100000, guid: 2f6ac88a85eb1784785a7658c9c73ebc, type: 2}
+  drunkmodeduration: 12
+  hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+    type: 3}
+  cameraFollow: {fileID: 4145950133543350858, guid: cf2278bc32b8a8549828ad7d02b3f61c,
+    type: 3}
+  _dehydrationDelay: 0.4
+--- !u!65 &4557102933338762294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304903313262149441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.4, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8387396769679352033
 GameObject:
   m_ObjectHideFlags: 0

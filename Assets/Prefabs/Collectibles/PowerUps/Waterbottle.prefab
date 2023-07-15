@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304903313262149441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.1305268, w: 0.9914448}
   m_LocalPosition: {x: 21.75, y: 0.75, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3191607721847015444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15}
 --- !u!114 &6366778455681078648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hydrateClip: []
+  transparent: {fileID: 2100000, guid: 2f6ac88a85eb1784785a7658c9c73ebc, type: 2}
   hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
     type: 3}
   waterbottlecounter: 0
