@@ -11,8 +11,11 @@ public class Beer : MonoBehaviour
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] public Material transparent;
 
+    public float drunkmodeduration = 15f;
+
     public HydrationController hydrationController;         // Reference to the levels HydrationController 
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
+    public CameraFollow cameraFollow;
 
     [SerializeField] private float _dehydrationDelay = .2f;  // recharge Hydration a bit
 
@@ -24,6 +27,7 @@ public class Beer : MonoBehaviour
             Destroy(GetComponent<Collider>());
             GameObject cube = gameObject.transform.Find("Cylinder").gameObject;
             cube.GetComponent<MeshRenderer>().material = transparent;
+            cameraFollow.shakeDuration = drunkmodeduration;
 
         }
     }
