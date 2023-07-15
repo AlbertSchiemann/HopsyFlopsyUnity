@@ -32,6 +32,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
     [SerializeField] private Waterbottle waterbottle;
+    [SerializeField] private GameObject bucket;
 
     void Start()
     {
@@ -315,15 +316,23 @@ public class GridPlayerMovement : MonoBehaviour
         switch(randomNum){
         case 0:
             playerPosition.moveLeft();
+            GameObject newObject1 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
         break;
         case 1:
             playerPosition.moveRight();
+            GameObject newObject2 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
         break;
         case 2:
             playerPosition.moveForward();
+            GameObject newObject3 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
         break;
         case 3:
             playerPosition.moveBackward();
+            GameObject newObject4 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
         break;
         }
     }
