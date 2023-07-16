@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/IronSource/DemoScene/IronSourceDemo.unity
+    guid: ccc0ac08126704384bdda74c26d99797
+  - enabled: 0
     path: Assets/Scenes/World 1/World1Level1 1.unity
     guid: 3546138e620c0534798d9d50f26c7eb5
   - enabled: 0
@@ -41,10 +44,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Nyra_Level.unity
     guid: b85f2157d99889d498cd3bc27e8bebb4
-  - enabled: 1
+  - enabled: 0
     path: Assets/UI/Toolkit_UI/Level/TK_LevelUI_Test.unity
     guid: 978604959163ae64bab0e45516328ab3
-  - enabled: 1
+  - enabled: 0
     path: Assets/UI/Toolkit_UI/Main/TK_MainMenu.unity
     guid: 062f560f98537ce4bb366caa01baa77c
   m_configObjects:
