@@ -1,6 +1,6 @@
 .vis_3inMiddle {
-    height: 907px;
-    width: 830px;
+    height: 55%;
+    width: 27%;
     justify-content: center;
     align-items: center;
     background-color: rgba(136, 222, 255, 0.61);
@@ -14,7 +14,7 @@
     height: 1200px;
     width: 300px;
     position: absolute;
-    bottom: 2%;
+    bottom: 1.5%;
     right: 2%;
     align-items: center;
     justify-content: center;
@@ -30,6 +30,22 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
+}
+
+.VisualEle_Star {
+    background-color: rgba(255, 255, 255, 0);
+    width: 350px;
+    height: 350px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_Play.png?fileID=2800000&guid=35941c4a8f5472340a420f50b450bc9b&type=3#B_Play');
+    -unity-background-image-tint-color: rgba(178, 178, 178, 0.34);
+}
+
+.vis_lowerStar {
+    top: 22%;
 }
 
 .but_3inMiddle {
@@ -81,3 +97,8 @@
     position: absolute;
 }
 
+.Button_restart {
+}
+
+.Button_main {
+}

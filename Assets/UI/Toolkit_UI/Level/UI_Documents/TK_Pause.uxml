@@ -4,7 +4,7 @@
     <ui:VisualElement name="vis_" class="Vis_BackGround" style="width: 100%; height: 100%;">
         <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column;">
             <ui:Button display-tooltip-when-elided="true" name="but_playOn" text="resume" class="but_3inMiddle" />
-            <ui:Button display-tooltip-when-elided="true" name="but_restart" text="restart" class="but_3inMiddle" />
+            <ui:Button display-tooltip-when-elided="true" name="but_restart" text="restart" class="but_3inMiddle Button_restart Button_main" />
             <ui:Button display-tooltip-when-elided="true" name="but_main" text="main" class="but_3inMiddle" />
         </ui:VisualElement>
         <ui:VisualElement name="vis_4inCorner" class="VisualEle_4inCornerUp" style="display: flex;">

@@ -9,6 +9,6 @@
         <ui:VisualElement name="vis_eplanationControls" style="position: absolute; height: 720px; width: 2659px; top: auto; left: auto;" />
         <ui:Button text="Turorial Level" display-tooltip-when-elided="true" name="but_Level1" class="Button_HelpNav" />
         <ui:Button text="Explanation&#10;of Controls" display-tooltip-when-elided="true" name="but_controlExpl" class="Button_HelpNav" />
-        <ui:Button text="Intro Video" display-tooltip-when-elided="true" name="but_IntroVideo" class="Button_HelpNav" />
+        <ui:Button display-tooltip-when-elided="true" name="but_IntroVideo" class="Button_HelpNav" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text/Intro%20Video.png?fileID=2800000&amp;guid=c11642343b2418147adcafeff98a22e2&amp;type=3#Intro Video&apos;); background-color: rgba(255, 255, 255, 0);" />
     </ui:VisualElement>
 </ui:UXML>
