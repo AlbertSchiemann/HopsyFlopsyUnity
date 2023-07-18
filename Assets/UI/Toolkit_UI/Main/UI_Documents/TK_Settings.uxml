@@ -7,12 +7,14 @@
         </ui:VisualElement>
         <ui:Button display-tooltip-when-elided="true" name="but_back" class="Button_Back" />
         <ui:VisualElement name="vis_settingsNav" style="position: absolute; left: 1%; height: 767px; width: 730px; align-items: center; justify-content: center; top: 316px;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_Sound" class="but_SettingsNav" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_Credits" class="but_SettingsNav" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_contact" class="but_SettingsNav" />
+            <ui:Button text="sound" display-tooltip-when-elided="true" name="but_Sound" class="but_SettingsNav" />
+            <ui:Button text="credits" display-tooltip-when-elided="true" name="but_Credits" class="but_SettingsNav" />
+            <ui:Button text="contact" display-tooltip-when-elided="true" name="but_contact" class="but_SettingsNav" />
         </ui:VisualElement>
         <ui:Label text="HammerBuddies.Games@gmail.com&#10;" display-tooltip-when-elided="true" name="txt_contact" style="height: 234px; position: absolute; width: 2179px; top: 43%; left: 20%; font-size: 123px; -unity-text-align: upper-center;" />
-        <ui:VisualElement name="vis_credits" style="height: 927px; width: 2218px; position: absolute; top: 152px; left: 591px;" />
+        <ui:VisualElement name="vis_credits" style="height: 927px; width: 2218px; position: absolute; top: 152px; left: 591px; display: flex; align-items: center; justify-content: center;">
+            <ui:Label text="Carl Blasuius GD1021 Programmer, Producer&#10;Albert Schiemann GD1021 Lead Programmer&#10;Julius Manecke GD1022 Programming&#10;Patricia Schultze GD 1022 Programming&#10;Denis Feler GD1021 Programmer-Sound Designer&#10;Nicole Medina Arones GD1020 3D Lead Artist&#10;Aaron Reichert von und zu McHammergeil GD1022 Artist&#10;Johannes Lange GD1022 Artist&#10;Jiakun Chen GD1021 Artist&#10;Xiangning Shen GD1022 Artist" display-tooltip-when-elided="true" style="font-size: 62px; width: auto; height: auto; align-items: center; justify-content: center; position: absolute;" />
+        </ui:VisualElement>
         <ui:VisualElement name="vis_sound" style="position: absolute; height: 751px; width: 2222px; top: 305px; left: 604px; flex-direction: row;">
             <ui:VisualElement name="vis_sound_buttons" style="position: relative; height: 751px; width: 749px; top: auto; left: auto; align-items: center; justify-content: center;">
                 <ui:Button display-tooltip-when-elided="true" name="but_sound_off" class="Button_Sound" style="display: none;" />
