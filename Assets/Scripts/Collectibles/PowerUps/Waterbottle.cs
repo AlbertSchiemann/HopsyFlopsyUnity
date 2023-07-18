@@ -7,7 +7,6 @@ public class Waterbottle : MonoBehaviour
     // Activatable - fills up hydration bar to some extend
     // gets activated automatically when hydration drops to 0
     [SerializeField] private AudioClip[] _hydrateClip;
-    [SerializeField] public Material transparent;
 
     public HydrationController hydrationController;         // Reference to the levels HydrationController 
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
@@ -46,8 +45,8 @@ public class Waterbottle : MonoBehaviour
                 waterbottlecounter = 1;
                 Debug.Log("Waterbottlecounter = " + waterbottlecounter);
                 Destroy(GetComponent<Collider>());
-                GameObject cube = gameObject.transform.Find("Cylinder").gameObject;
-                cube.GetComponent<MeshRenderer>().material = transparent;
+                GameObject cube = gameObject.transform.Find("Bottle").gameObject;
+                Destroy(cube);
             }
             else
             {

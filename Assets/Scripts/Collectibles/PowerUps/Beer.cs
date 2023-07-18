@@ -9,7 +9,6 @@ public class Beer : MonoBehaviour
     // Screen gets shaky?
 
     [SerializeField] private AudioClip[] _hydrateClip;
-    [SerializeField] public Material transparent;
     
     Vector3 objectRotation;
     float newUpdateRate = 0.05f;
@@ -37,14 +36,16 @@ public class Beer : MonoBehaviour
         {
             
             Destroy(GetComponent<Collider>());
-            GameObject cube = gameObject.transform.Find("Cylinder").gameObject;
-            cube.GetComponent<MeshRenderer>().material = transparent;
+            GameObject cube = gameObject.transform.Find("Bottle").gameObject;
+            Destroy(cube);
             cameraFollow.shakeDuration = drunkmodeduration;
             hydrationController.BeerHydration();
             Invoke("RandomCall" , 2f);
-            Invoke("RandomCall" , 5f);
+            Invoke("RandomCall" , 4f);
+            Invoke("RandomCall" , 6f);
             Invoke("RandomCall" , 8f);
-            Invoke("RandomCall" , 11f);
+            Invoke("RandomCall" , 10f);
+            Invoke("RandomCall" , 12f);
 
 
         }

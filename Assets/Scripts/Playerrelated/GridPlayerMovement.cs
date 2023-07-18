@@ -40,7 +40,7 @@ public class GridPlayerMovement : MonoBehaviour
         print(grid2dCreated);
         InstantiatePlayer();
         isAllowedToMove = true;                                             // Enter the Starting Gridposition of the Player, so a check of the surrounding blocks gets called
-        playerPosition.IsValidMove(1, 6);                                   // and the player cant move through blocked blocks              
+        playerPosition.IsValidMove(StartX, StartY);                                   // and the player cant move through blocked blocks              
         UpdateGameObjectPosition();
         isAllowedToMove = false;
 
@@ -196,6 +196,7 @@ public class GridPlayerMovement : MonoBehaviour
         public void moveForwardTap ()   {Move( 0, 1); direction =    "Forward";}
         public void moveBackward ()     {Move( 0,-1); direction =   "Backward";}
         public void moveCrane()         {Move( 2, 2); direction =    "Crane";}
+        public void moveSkateboard()    {Move( 0, 10); direction =    "Skateboard";}
         public void Move(int x, int y) 
         {
             int newPosX = posX + x;
@@ -308,6 +309,10 @@ public class GridPlayerMovement : MonoBehaviour
     public void CraneMovement()
     {
         playerPosition.moveCrane();
+    }
+    public void SkateboardMovement()
+    {
+        playerPosition.moveSkateboard();
     }
     public void RandomMovement()
     {
