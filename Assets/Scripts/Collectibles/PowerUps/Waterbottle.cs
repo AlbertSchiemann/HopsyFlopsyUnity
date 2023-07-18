@@ -17,6 +17,8 @@ public class Waterbottle : MonoBehaviour
     Vector3 objectRotation;
     float newUpdateRate = 0.05f;
 
+    //C_PowerUp powerUp;
+
     void Start()
     {
         InvokeRepeating("SlowUpdate", 0.0f, newUpdateRate);
@@ -47,6 +49,7 @@ public class Waterbottle : MonoBehaviour
                 Destroy(GetComponent<Collider>());
                 GameObject cube = gameObject.transform.Find("Bottle").gameObject;
                 Destroy(cube);
+                //powerUp.PickUpBottle();
             }
             else
             {

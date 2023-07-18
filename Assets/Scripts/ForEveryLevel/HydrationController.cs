@@ -53,8 +53,7 @@ public class HydrationController : MonoBehaviour
         
         hydration = hydrationMax;
 
-     //   waterBar.SetMaxHealth();
-        
+      
         GameStateManagerScript.onGameStart += ActivateHydration;
         GameStateManagerScript.onGamePaused += DeactivateHydration;
 

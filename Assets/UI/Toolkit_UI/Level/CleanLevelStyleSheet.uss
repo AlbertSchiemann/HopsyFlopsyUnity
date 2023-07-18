@@ -102,3 +102,28 @@
 
 .Button_main {
 }
+
+.button_bottle {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/WaterBottleBig.png?fileID=2800000&guid=ef7ce82c33902394a961b2d7b9c01028&type=3#WaterBottleBig');
+    top: auto;
+    left: 2.6%;
+    right: auto;
+    bottom: 4%;
+    rotate: -10deg;
+    background-color: rgba(56, 56, 56, 0);
+}
+
+.button_shield {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/ShieldBig.png?fileID=2800000&guid=3cd4873232dd4664097240d06dd802fa&type=3#ShieldBig');
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    rotate: 0;
+}
