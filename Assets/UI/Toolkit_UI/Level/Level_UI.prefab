@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7398626331986876869}
   - component: {fileID: 7398626331986876870}
+  - component: {fileID: 599487795125906679}
   m_Layer: 0
-  m_Name: LevelUI
+  m_Name: Level_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,6 +63,19 @@ MonoBehaviour:
   TK_settingsMenu: {fileID: 3837354929586318579}
   TK_storeMenu: {fileID: 2529184622439043984}
   winCurrencyText: {fileID: 0}
+--- !u!114 &599487795125906679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398626331986876868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f476b627a054b14386a8304c4a09d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelScript: {fileID: 7398626331986876870}
 --- !u!1 &7398626332080246416
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +276,7 @@ GameObject:
   - component: {fileID: 7398626332973533259}
   - component: {fileID: 7398626332973533268}
   - component: {fileID: 7398626332973533269}
+  - component: {fileID: 8620504056808633041}
   m_Layer: 5
   m_Name: Playing
   m_TagString: Untagged
@@ -314,6 +329,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 7398626331986876870}
+--- !u!114 &8620504056808633041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398626332973533258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969b00dbb5c55d04d8ba8791b35576b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7398626333400890033
 GameObject:
   m_ObjectHideFlags: 0

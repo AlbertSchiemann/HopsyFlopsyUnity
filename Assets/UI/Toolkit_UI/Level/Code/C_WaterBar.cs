@@ -16,7 +16,7 @@ public class C_WaterBar : MonoBehaviour
 
 
         waterSlider = root.Q<VisualElement>("Foreground");
-        SetHealth(100);
+        SetMaxHealth();
         water = waterSlider.style.height.value.value;
         Debug.Log("slider: " + water);
 

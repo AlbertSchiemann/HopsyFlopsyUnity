@@ -36,7 +36,7 @@ public class EnemyMovementArray : MonoBehaviour
     [SerializeField] private Grid grid;
     private EnemyPosition enemyPosition;
     [SerializeField] private GameObject enemyPrefab;    // Insert the Enemy Prefab
-    public UI_LevelScript levelScript;                  // Reference to the LevelScripts
+    public C_LevelSwitchScreens levelScript;                  // Reference to the LevelScripts
     [SerializeField] private AudioClip[] _failClip;     // Death Sound
 
     public static bool canTankHit = false;              // Shield Power-Up Bool
@@ -47,8 +47,8 @@ public class EnemyMovementArray : MonoBehaviour
     int i;
     private void Awake()
     {
-        GameObject levelUIObject = GameObject.Find("LevelUI");
-        levelScript = levelUIObject.GetComponent<UI_LevelScript>();
+        GameObject levelUIObject = GameObject.Find("Level_UI");
+        levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
         i = 0;
     }
     void Start()

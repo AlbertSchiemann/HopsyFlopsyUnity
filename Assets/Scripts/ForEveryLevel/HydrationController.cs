@@ -24,8 +24,8 @@ public class HydrationController : MonoBehaviour
     public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
 
 
-    public UI_LevelScript levelScript;
-    public UI_Script_WaterBar waterBar;
+    public C_LevelSwitchScreens levelScript;
+    public C_WaterBar waterBar;
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
@@ -53,7 +53,7 @@ public class HydrationController : MonoBehaviour
         
         hydration = hydrationMax;
 
-        waterBar.SetMaxHealth(hydrationMax);
+     //   waterBar.SetMaxHealth();
         
         GameStateManagerScript.onGameStart += ActivateHydration;
         GameStateManagerScript.onGamePaused += DeactivateHydration;
@@ -156,7 +156,7 @@ public class HydrationController : MonoBehaviour
     public void MaxHydration()
     {
         hydration = hydrationMax;
-        waterBar.SetMaxHealth(hydrationMax);
+        waterBar.SetMaxHealth();
     }
 
     public void BeerHydration()

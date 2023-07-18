@@ -4,4 +4,7 @@
     <ui:VisualElement name="vis_" class="Vis_BackGround" style="width: 100%; height: 100%;">
         <ui:Button display-tooltip-when-elided="true" name="but_pause" class="Button_Back" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Pause.png?fileID=2800000&amp;guid=a190f8231c6a0fb48a2892b2e428629b&amp;type=3#B_Pause&apos;);" />
     </ui:VisualElement>
+    <ui:VisualElement name="Background" style="background-color: rgb(255, 255, 255); flex-grow: 0; flex-direction: column-reverse; position: absolute; left: 5%; top: 28%; height: 60%; width: 4.5%;">
+        <ui:VisualElement name="Foreground" style="flex-grow: 0; background-color: rgb(67, 190, 233); height: 50%; flex-direction: column;" />
+    </ui:VisualElement>
 </ui:UXML>
