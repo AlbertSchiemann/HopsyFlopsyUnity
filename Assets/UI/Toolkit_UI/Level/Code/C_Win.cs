@@ -26,6 +26,7 @@ public class C_Win : MonoBehaviour
     VisualElement star2;
     VisualElement star3;
 
+    public static bool allCollected = false;
 
     void OnEnable()
     {

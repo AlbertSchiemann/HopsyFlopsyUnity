@@ -34,18 +34,18 @@
 
 .VisualEle_Star {
     background-color: rgba(255, 255, 255, 0);
-    width: 350px;
-    height: 350px;
-    margin-left: 6px;
-    margin-right: 6px;
-    margin-top: 6px;
-    margin-bottom: 6px;
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_Play.png?fileID=2800000&guid=35941c4a8f5472340a420f50b450bc9b&type=3#B_Play');
+    width: 500px;
+    height: 500px;
+    margin-left: -34px;
+    margin-right: -34px;
+    margin-top: -34px;
+    margin-bottom: -34px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/StarSmal.png?fileID=2800000&guid=d59181ed5fdb44145a8880ec6e80192e&type=3#StarSmal');
     -unity-background-image-tint-color: rgba(178, 178, 178, 0.34);
 }
 
 .vis_lowerStar {
-    top: 22%;
+    top: 26%;
 }
 
 .but_3inMiddle {
