@@ -3,5 +3,6 @@
         <ui:VisualElement name="Background" style="background-color: rgb(255, 255, 255); flex-grow: 0; flex-direction: column-reverse; position: absolute; left: 5%; top: 28%; height: 60%; width: 4.5%;">
             <ui:VisualElement name="Foreground" style="flex-grow: 0; background-color: rgb(67, 190, 233); height: 50%; flex-direction: column;" />
         </ui:VisualElement>
+        <ui:Button text="Button" display-tooltip-when-elided="true" style="height: 381px; width: 869px;" />
     </ui:VisualElement>
 </ui:UXML>
