@@ -9,6 +9,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private AudioClip[] _shieldClip;
     Vector3 objectRotation;
     float newUpdateRate = 0.05f;
+    C_PowerUps powerUp;
 
     void Start()
     {
@@ -28,6 +29,8 @@ public class Shield : MonoBehaviour
             Destroy(gameObject);
             EnemyMovementArray.canTankHit = true;
             SoundManager.Instance.PlaySound(_shieldClip);
+            powerUp.PickUpShield();
         }
     }
+
 }

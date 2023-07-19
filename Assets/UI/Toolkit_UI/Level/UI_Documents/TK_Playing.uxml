@@ -1,15 +1,15 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
     <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
-    <ui:VisualElement name="vis_" class="Vis_BackGround" style="width: 100%; height: 100%;">
-        <ui:Button display-tooltip-when-elided="true" name="but_pause" class="Button_Back" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Pause.png?fileID=2800000&amp;guid=a190f8231c6a0fb48a2892b2e428629b&amp;type=3#B_Pause&apos;); top: 3.4%; left: 2.6%;" />
-    </ui:VisualElement>
     <ui:VisualElement name="Background" style="background-color: rgb(255, 255, 255); flex-grow: 0; flex-direction: column-reverse; position: absolute; left: 4.7%; top: 26%; height: 50%; width: 4.3%;">
         <ui:VisualElement name="Foreground" style="flex-grow: 0; background-color: rgb(67, 190, 233); height: 50%; flex-direction: column;" />
     </ui:VisualElement>
     <ui:VisualElement name="vis_upperCorner" style="position: absolute; top: 4%; right: 2.6%; flex-direction: row;">
         <ui:Button display-tooltip-when-elided="true" name="but_shield" class="button_shield" style="background-color: rgba(188, 188, 188, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
-        <ui:Label text="xx/xx" display-tooltip-when-elided="true" name="txt_currency" style="position: relative; top: auto; right: auto; font-size: 103px; height: 250px; width: 400px; align-items: center; justify-content: center; -unity-text-align: middle-center; margin-left: 61px; background-color: rgb(106, 191, 255); -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;);" />
+        <ui:Label text="xx/xx" display-tooltip-when-elided="true" name="txt_currency" style="position: relative; top: auto; right: auto; font-size: 103px; height: 250px; width: 400px; align-items: center; justify-content: center; -unity-text-align: middle-center; margin-left: 61px; background-color: rgb(106, 191, 255); -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); border-top-left-radius: 68px; border-bottom-left-radius: 68px; border-top-right-radius: 68px; border-bottom-right-radius: 68px;" />
     </ui:VisualElement>
-    <ui:Button display-tooltip-when-elided="true" name="but_bottle" class="button_bottle" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+    <ui:Button display-tooltip-when-elided="true" name="but_bottle" class="button_bottle" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; transition-property: ignored; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s;" />
+    <ui:VisualElement name="vis_" class="Vis_BackGround" style="width: 100%; height: 100%;">
+        <ui:Button display-tooltip-when-elided="true" name="but_pause" class="Button_Back" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Pause.png?fileID=2800000&amp;guid=a190f8231c6a0fb48a2892b2e428629b&amp;type=3#B_Pause&apos;); top: 3.4%; left: 2.6%;" />
+    </ui:VisualElement>
 </ui:UXML>

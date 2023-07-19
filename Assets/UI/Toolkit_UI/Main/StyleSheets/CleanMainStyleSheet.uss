@@ -27,6 +27,12 @@
     flex-direction: row;
 }
 
+.vis_itemPicture {
+    height: 500px;
+    width: 500px;
+    margin-bottom: 159px;
+}
+
 .Button_3inCorner {
     font-size: 0;
     width: 280px;
@@ -193,4 +199,13 @@
     margin-right: 39px;
     margin-top: 39px;
     margin-bottom: 39px;
+}
+
+.button_ItemEquip {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    height: 111px;
+    width: 367px;
 }

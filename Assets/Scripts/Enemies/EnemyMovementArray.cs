@@ -45,6 +45,9 @@ public class EnemyMovementArray : MonoBehaviour
     public float delayTillDeathscreenShows = .2f;                          // Delay till Scene gets reloaded after death
     public float delayTillStartOfMovement = 2.2f;                          // Delay till Enemy gets destroyed after death
     int i;
+
+    C_PowerUps powerUp;
+
     private void Awake()
     {
         GameObject levelUIObject = GameObject.Find("Level_UI");
@@ -247,6 +250,7 @@ public class EnemyMovementArray : MonoBehaviour
                 Debug.Log("DEFLECT");
                 SoundManager.Instance.PlaySound(_deflectClip);
                 canTankHit = false;
+                powerUp.UseShield();
             }
         }
     }

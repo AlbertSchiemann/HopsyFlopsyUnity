@@ -76,8 +76,9 @@ public class C_Win : MonoBehaviour
         var tempColor = star1.style.unityBackgroundImageTintColor;
         Debug.Log(tempColor);
         //tempColor.a = 1f;
-        star1.style.opacity = star1.resolvedStyle.opacity + 255 ;
-        star1.style.unityBackgroundImageTintColor = Color.grey;
+        star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+        star3.style.unityBackgroundImageTintColor = Color.grey;
+        star1.style.unityBackgroundImageTintColor = new Color(0.35f, 0.35f, 0.35f, 1f);
         // -unity-background-image-tint-color: rgba(178, 178, 178, 0.34);
     }  
 

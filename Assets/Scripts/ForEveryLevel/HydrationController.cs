@@ -143,7 +143,13 @@ public class HydrationController : MonoBehaviour
 
     public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
-        if (hydration <= 0)
+       if (hydration <= 0 && waterbottle.WaterbottleChecker() == true)
+        {
+            waterbottle.Refill();
+            //SoundManager.Instance.PlaySound(_hydrateClip);
+            Debug.Log("Waterbottle used");
+        }
+        else if (hydration <= 0)
         {
             Invoke("Sceneload", DelayTillReload); 
             SoundManager.Instance.PlaySound(_failClip);

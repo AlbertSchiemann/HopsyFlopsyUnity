@@ -11,13 +11,13 @@ public class Waterbottle : MonoBehaviour
     public HydrationController hydrationController;         // Reference to the levels HydrationController 
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
-    public int waterbottlecounter = 0;
+    public bool waterbottlecounter = false;
 
     public bool useWaterbottle = false;
     Vector3 objectRotation;
     float newUpdateRate = 0.05f;
 
-    //C_PowerUp powerUp;
+    private C_PowerUps powerUp;
 
     void Start()
     {
@@ -32,24 +32,21 @@ public class Waterbottle : MonoBehaviour
     public void Refill()
     {
         hydrationController.MaxHydration();
-    }
-    public void DeleteBottle()
-    {
-        waterbottlecounter = 0;
+        waterbottlecounter = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if  (waterbottlecounter == 0) 
+            if  (waterbottlecounter == false) 
             {
-                waterbottlecounter = 1;
+                waterbottlecounter = true;
                 Debug.Log("Waterbottlecounter = " + waterbottlecounter);
                 Destroy(GetComponent<Collider>());
                 GameObject cube = gameObject.transform.Find("Bottle").gameObject;
                 Destroy(cube);
-                //powerUp.PickUpBottle();
+                powerUp.PickUpBottle();
             }
             else
             {
@@ -59,7 +56,7 @@ public class Waterbottle : MonoBehaviour
     }
     public bool WaterbottleChecker ()
     {
-        if (waterbottlecounter > 0)
+        if (waterbottlecounter)
         {
             return true;
         }

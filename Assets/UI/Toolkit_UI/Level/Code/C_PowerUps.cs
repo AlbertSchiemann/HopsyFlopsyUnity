@@ -30,7 +30,7 @@ public class C_PowerUps : MonoBehaviour
         butBottle.clicked += UseBottle;
     }
 
-    public static void PickUpBottle()
+    public  void PickUpBottle()
     {
         //opacity = 100%
         bottleThere = true;
@@ -41,7 +41,6 @@ public class C_PowerUps : MonoBehaviour
         if (bottleThere)
         {
         waterbottle.Refill();
-        //waterbottle.DeleteBottle();
         bottleThere = false;
         //opacity = lower
 
@@ -49,7 +48,7 @@ public class C_PowerUps : MonoBehaviour
 
 
     }
-    public static void PickUpShiel()
+    public void PickUpShield()
     {
         //opacity = 100%
         shieldThere = true;
@@ -60,8 +59,6 @@ public class C_PowerUps : MonoBehaviour
     {
         if (shieldThere)
         {
-            //shield.Refill();
-            //waterbottle.DeleteBottle();
             shieldThere = false;
             //opacity = lower
 

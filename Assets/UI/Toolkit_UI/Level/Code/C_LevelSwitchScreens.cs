@@ -25,12 +25,12 @@ public class C_LevelSwitchScreens : MonoBehaviour
     {
         C_UI_OpenOther.SaveLastLevel();
 
-        TK_beforeMenu.gameObject.SetActive(true);
+        TK_beforeMenu.gameObject.SetActive(false);
         TK_helpMenu.gameObject.SetActive(false);
         TK_settingsMenu.gameObject.SetActive(false);
         TK_storeMenu.gameObject.SetActive(false);
         TK_playingMenu.gameObject.SetActive(false);
-        TK_winMenu.gameObject.SetActive(false);
+        TK_winMenu.gameObject.SetActive(true);
         TK_looseMenu.gameObject.SetActive(false);
         TK_pauseMenu.gameObject.SetActive(false);
 

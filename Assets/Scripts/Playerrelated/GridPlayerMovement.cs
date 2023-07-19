@@ -20,6 +20,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private GameObject playerPrefab; 
     [SerializeField] private AudioClip[] _hydrateClip;
     public HydrationController hydrationController;
+    C_PowerUps powerUp;
   
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
     [SerializeField] private int StartY =  3;                          
@@ -95,6 +96,8 @@ public class GridPlayerMovement : MonoBehaviour
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
         public bool isMoving = false;
+        C_PowerUps powerUp;
+
         public PlayerPosition(int x, int y, Grid2DCreated grid, GameObject playerPrefab)  // Constructor: Player gets the Position of the Block he is on saved in posX and posY for the next move
         {  
             this.posX = x;
@@ -179,7 +182,7 @@ public class GridPlayerMovement : MonoBehaviour
                         waterbottle.Refill();
                         //SoundManager.Instance.PlaySound(_hydrateClip);
                         Debug.Log("Waterbottle used");
-                        waterbottle.DeleteBottle();
+                        powerUp.UseBottle();
                     }
                     else if (waterbottle.WaterbottleChecker() == false)
                     {
