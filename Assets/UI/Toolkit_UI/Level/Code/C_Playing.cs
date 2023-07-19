@@ -11,9 +11,19 @@ public class C_Playing : MonoBehaviour
 
     Button butPause;
 
+    private GameStateManagerScript GameStateManagerScript;
+
+   private void Awake()
+    {
+        GameObject GameStateManager = GameObject.Find("GameStateManager");
+        GameStateManagerScript = GameStateManager.GetComponent<GameStateManagerScript>();
+    }
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+
+        GameStateManagerScript.StartGame();
 
         butPause = root.Q<Button>("but_pause");
 
@@ -25,3 +35,4 @@ public class C_Playing : MonoBehaviour
         switchScreen.OpenPause();
     }
 }
+  
