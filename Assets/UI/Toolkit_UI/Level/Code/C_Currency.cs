@@ -20,6 +20,7 @@ public class C_Currency : MonoBehaviour
         CurrencyAmount += amount;
         txtCurrency.text = CurrencyAmount.ToString() + " / " + CurrencyTotal.ToString(); 
         if (CurrencyAmount == CurrencyTotal) { C_Win.allCollected = true; }
+
     }
 
     public void RemoveCurrency(int amount)

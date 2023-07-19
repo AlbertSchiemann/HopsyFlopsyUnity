@@ -27,6 +27,7 @@ public class C_Win : MonoBehaviour
     VisualElement star3;
 
     public static bool allCollected = false;
+    public static bool inTime = false;
 
     void OnEnable()
     {
@@ -65,22 +66,43 @@ public class C_Win : MonoBehaviour
         butHide.clicked += Hide;
         butShow.clicked += Show;
 
-        StarReachedCollectible();
-
+        Stars();
     }
 
     void StarReachedCollectible()
     {
-        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-        star1 = root.Q<VisualElement>("vis_star1");
-        var tempColor = star1.style.unityBackgroundImageTintColor;
-        Debug.Log(tempColor);
-        //tempColor.a = 1f;
-        star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
-        star3.style.unityBackgroundImageTintColor = Color.grey;
-        star1.style.unityBackgroundImageTintColor = new Color(0.35f, 0.35f, 0.35f, 1f);
-        // -unity-background-image-tint-color: rgba(178, 178, 178, 0.34);
-    }  
+    //    VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+    //    star1 = root.Q<VisualElement>("vis_star1");
+    //    var tempColor = star1.style.unityBackgroundImageTintColor;
+    //    Debug.Log(tempColor);
+    //    //tempColor.a = 1f;
+    //    star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+    //    star3.style.unityBackgroundImageTintColor = Color.grey;
+    //    star1.style.unityBackgroundImageTintColor = new Color(0.35f, 0.35f, 0.35f, 1f);
+    //    // -unity-background-image-tint-color: rgba(178, 178, 178, 0.34);
+    }
+    void Stars()
+    {
+        if (allCollected&&inTime)
+        {
+            //aniamtion star1
+            star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            //animation star2
+            star3.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            //animation star3
+        }
+        else if (allCollected||inTime)
+        {
+            //animaition star1
+            star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            //aniamtion star2
+        }
+        else
+        {
+            //aniamtion star1
+        }
+    }
+
 
     void Help()
     {

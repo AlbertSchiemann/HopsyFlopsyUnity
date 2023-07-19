@@ -9,7 +9,7 @@
         </ui:VisualElement>
         <ui:Label text="Level Completed!" display-tooltip-when-elided="true" style="font-size: 42px; top: -2%; width: 20%; height: 5%; -unity-text-align: upper-center; display: none;" />
         <ui:VisualElement name="vis_stars" style="align-items: center; justify-content: center; position: relative; flex-direction: row; width: 1174px; height: 401px; left: 0; top: -4%;">
-            <ui:VisualElement name="vis_star1" class="VisualEle_Star vis_lowerStar" style="transition-property: all, -unity-background-image-tint-color, ignored; transition-duration: 0s, 5s, 0s; transition-timing-function: ease, ease, ease; transition-delay: 0s, 0s, 0s;" />
+            <ui:VisualElement name="vis_star1" class="VisualEle_Star vis_lowerStar" style="transition-property: all, -unity-background-image-tint-color, ignored; transition-duration: 0s, 5s, 0s; transition-timing-function: ease, ease, ease; transition-delay: 0s, 0s, 0s; -unity-background-image-tint-color: rgba(255, 255, 255, 255);" />
             <ui:VisualElement name="vis_star2" class="VisualEle_Star" />
             <ui:VisualElement name="vis_star3" class="VisualEle_Star vis_lowerStar" />
         </ui:VisualElement>
