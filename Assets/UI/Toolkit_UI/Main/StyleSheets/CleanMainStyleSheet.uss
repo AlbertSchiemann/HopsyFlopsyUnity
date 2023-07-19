@@ -33,6 +33,15 @@
     margin-bottom: 159px;
 }
 
+.vis_shopItem {
+    align-items: center;
+    justify-content: center;
+    margin-left: 29px;
+    margin-right: 29px;
+    margin-top: 29px;
+    margin-bottom: 29px;
+}
+
 .Button_3inCorner {
     font-size: 0;
     width: 280px;

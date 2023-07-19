@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -52,7 +53,9 @@ public class C_Store : MonoBehaviour
     }
     public void EquipSkin1()
     {
+        Debug.Log("skin changed");
         player.ChangeSkin(skinToEquip1);
+        Debug.Log("skin changed");
     }
     public void EquipSkin2()
     {
@@ -82,7 +85,6 @@ public class C_Store : MonoBehaviour
 
     void Back()
     {
-        Debug.Log("afterr");
         switchScreenStore.OpenMain();
     }
 }

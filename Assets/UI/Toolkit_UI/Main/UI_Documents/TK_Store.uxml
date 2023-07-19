@@ -6,9 +6,23 @@
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_settings" class="Button_2inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Setting.png?fileID=2800000&amp;guid=b2a391bd6e3b58f4aab9bed2573e9373&amp;type=3#B_Setting&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
         </ui:VisualElement>
         <ui:Button display-tooltip-when-elided="true" name="but_back" class="Button_Back" />
-        <ui:VisualElement name="vis_shopItem" style="align-items: center; justify-content: center;">
-            <ui:VisualElement name="vis_itemPicture" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
-            <ui:Button display-tooltip-when-elided="true" name="but_itemEquip" class="button_ItemEquip" />
+        <ui:VisualElement name="vis_shopWindow" style="flex-direction: row; bottom: 5%;">
+            <ui:VisualElement name="vis_shopItem1" class="vis_shopItem" style="align-items: center; justify-content: center;">
+                <ui:VisualElement name="vis_itemPicture1" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_itemEquip1" class="button_ItemEquip" />
+            </ui:VisualElement>
+            <ui:VisualElement name="vis_shopItem2" class="vis_shopItem">
+                <ui:VisualElement name="vis_itemPicture2" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_itemEquip2" class="button_ItemEquip" />
+            </ui:VisualElement>
+            <ui:VisualElement name="vis_shopItem3" class="vis_shopItem" style="align-items: center; justify-content: center;">
+                <ui:VisualElement name="vis_itemPicture3" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_itemEquip3" class="button_ItemEquip" />
+            </ui:VisualElement>
+            <ui:VisualElement name="vis_shopItem4" class="vis_shopItem" style="align-items: center; justify-content: center;">
+                <ui:VisualElement name="vis_itemPicture4" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_itemEquip4" class="button_ItemEquip" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
