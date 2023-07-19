@@ -27,6 +27,8 @@ public class HydrationController : MonoBehaviour
     public C_LevelSwitchScreens levelScript;
     public C_WaterBar waterBar;
 
+    C_PowerUps powerUp;
+
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
     [SerializeField] Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
@@ -148,6 +150,7 @@ public class HydrationController : MonoBehaviour
             waterbottle.Refill();
             //SoundManager.Instance.PlaySound(_hydrateClip);
             Debug.Log("Waterbottle used");
+            powerUp.UseBottle();
         }
         else if (hydration <= 0)
         {
@@ -170,7 +173,7 @@ public class HydrationController : MonoBehaviour
         waterBar.SetHealth(hydration);
     }
     
-        void Sceneload()
+    void Sceneload()
     {
         // restart the game if the player collides with the enemy
         levelScript.OpenLoose();  

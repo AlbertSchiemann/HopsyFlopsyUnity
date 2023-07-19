@@ -34,8 +34,6 @@ public class Skateboard : MonoBehaviour
             Debug.Log("Skateboard triggered");
             playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = false;
             
-            playerPrefab.GetComponent<GridPlayerMovement>().PreventMovement();
-            
             playerPrefab.GetComponent<GridPlayerMovement>().SkateboardMovement();
             
         }

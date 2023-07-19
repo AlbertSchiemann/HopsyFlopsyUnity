@@ -20,7 +20,6 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private GameObject playerPrefab; 
     [SerializeField] private AudioClip[] _hydrateClip;
     public HydrationController hydrationController;
-    C_PowerUps powerUp;
   
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
     [SerializeField] private int StartY =  3;                          
@@ -91,13 +90,13 @@ public class GridPlayerMovement : MonoBehaviour
         private bool isAllowedToMoveBack = true;
         private bool isAllowedToMoveForward = true;
         private bool isAllowedToMoveForwardTap = true; 
+        private bool skatingNotHit = true;
         public string direction = string.Empty;             // dunno
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
         public bool isMoving = false;
-        C_PowerUps powerUp;
-
+        C_PowerUps powerUps;
         public PlayerPosition(int x, int y, Grid2DCreated grid, GameObject playerPrefab)  // Constructor: Player gets the Position of the Block he is on saved in posX and posY for the next move
         {  
             this.posX = x;
@@ -180,9 +179,9 @@ public class GridPlayerMovement : MonoBehaviour
                     if (waterbottle.WaterbottleChecker() == true)
                     {
                         waterbottle.Refill();
+                        powerUps.UseBottle();
                         //SoundManager.Instance.PlaySound(_hydrateClip);
                         Debug.Log("Waterbottle used");
-                        powerUp.UseBottle();
                     }
                     else if (waterbottle.WaterbottleChecker() == false)
                     {
@@ -199,7 +198,25 @@ public class GridPlayerMovement : MonoBehaviour
         public void moveForwardTap ()   {Move( 0, 1); direction =    "Forward";}
         public void moveBackward ()     {Move( 0,-1); direction =   "Backward";}
         public void moveCrane()         {Move( 2, 2); direction =    "Crane";}
-        public void moveSkateboard()    {Move( 0, 10); direction =    "Skateboard";}
+        public void moveSkateboard()    
+        {
+            Debug.Log("Skating1");
+            if(isAllowedToMoveForward)
+            {
+                Debug.Log("Skating2");
+                moveForward();
+                
+            }
+            else if (!isAllowedToMoveForward)
+            {
+                Debug.Log("Skating3");
+                moveBackward();
+                return;
+            }
+            else {Debug.LogError("Skateboarding not functioning!");}
+
+            direction =    "Skateboard";
+        }
         public void Move(int x, int y) 
         {
             int newPosX = posX + x;
@@ -218,7 +235,7 @@ public class GridPlayerMovement : MonoBehaviour
             else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
                         blocktype = "Blocking Normalblock!";} 
             else if (block == GridBlockTypeToChoose.Bridge){
-                        blocktype = "Brideblock!";} 
+                        blocktype = "Bridgeblock!";} 
             else if (block == GridBlockTypeToChoose.BridgeBlocked){
                         blocktype = "Blocking Bridge!";} 
             else if (block == GridBlockTypeToChoose.Water){
@@ -315,7 +332,25 @@ public class GridPlayerMovement : MonoBehaviour
     }
     public void SkateboardMovement()
     {
-        playerPosition.moveSkateboard();
+        //if ()
+        //{
+            Debug.Log("Skating4");
+            Invoke("playerPosition.moveSkateboard", .2f);
+            Invoke("playerPosition.moveSkateboard", .4f);
+            Invoke("playerPosition.moveSkateboard", .6f);
+            Invoke("playerPosition.moveSkateboard", .8f);
+            Invoke("playerPosition.moveSkateboard", 1f);
+            Invoke("playerPosition.moveSkateboard", 1.2f);
+            Invoke("playerPosition.moveSkateboard", 1.4f);
+            Invoke("playerPosition.moveSkateboard", 1.6f);
+            Invoke("playerPosition.moveSkateboard", 1.8f);
+            Invoke("playerPosition.moveSkateboard", 2f);
+            Invoke("playerPosition.moveSkateboard", 2.2f);
+            Invoke("playerPosition.moveSkateboard", 2.4f);
+            Invoke("AllowMovement", 2.4f);
+        //}
+        
+
     }
     public void RandomMovement()
     {
