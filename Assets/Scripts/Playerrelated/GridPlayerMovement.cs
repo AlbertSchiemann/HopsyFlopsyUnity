@@ -24,7 +24,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
     [SerializeField] private int StartY =  3;                          
 
-    public float PlayerHeigth = .5f;                        // Position in Y Axis of the Prefab
+    public float PlayerHeigth = 1f;                        // Position in Y Axis of the Prefab
     private bool isAllowedToMove = true;                    // enables player movement in general
 
     public bool UpdateActive = true;                        // enables the update of the playerposition
@@ -81,6 +81,7 @@ public class GridPlayerMovement : MonoBehaviour
         private float rotationRight = 90;
         private float rotationForward = 0;
         private float rotationBackward = 180;
+        private float PlayerHeigth = 1f;
         private Grid2DCreated grid;
         private GameObject playerPrefab;                    // Reference to the player GameObject
         private Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
@@ -200,17 +201,19 @@ public class GridPlayerMovement : MonoBehaviour
         public void moveCrane()         {Move( 2, 2); direction =    "Crane";}
         public void moveSkateboard()    
         {
+            // umstellen auf playerposition
+            //playerPrefab.transform.position = new Vector3(posX, -16.85f, posY);
             Debug.Log("Skating1");
             if(isAllowedToMoveForward)
             {
                 Debug.Log("Skating2");
-                moveForward();
-                
+                playerPrefab.transform.position = new Vector3(posX, PlayerHeigth, posY++);
+                IsValidMove(posX, posY);	
             }
             else if (!isAllowedToMoveForward)
             {
                 Debug.Log("Skating3");
-                moveBackward();
+                playerPrefab.transform.position = new Vector3(posX, PlayerHeigth, posY--);
                 return;
             }
             else {Debug.LogError("Skateboarding not functioning!");}
@@ -332,25 +335,29 @@ public class GridPlayerMovement : MonoBehaviour
     }
     public void SkateboardMovement()
     {
-        //if ()
-        //{
-            Debug.Log("Skating4");
-            Invoke("playerPosition.moveSkateboard", .2f);
-            Invoke("playerPosition.moveSkateboard", .4f);
-            Invoke("playerPosition.moveSkateboard", .6f);
-            Invoke("playerPosition.moveSkateboard", .8f);
-            Invoke("playerPosition.moveSkateboard", 1f);
-            Invoke("playerPosition.moveSkateboard", 1.2f);
-            Invoke("playerPosition.moveSkateboard", 1.4f);
-            Invoke("playerPosition.moveSkateboard", 1.6f);
-            Invoke("playerPosition.moveSkateboard", 1.8f);
-            Invoke("playerPosition.moveSkateboard", 2f);
-            Invoke("playerPosition.moveSkateboard", 2.2f);
-            Invoke("playerPosition.moveSkateboard", 2.4f);
-            Invoke("AllowMovement", 2.4f);
-        //}
         
+        Debug.Log($"{playerPosition.posX} {playerPosition.posY} = SkateboardMovement - Position");
+        Invoke("CallOfMoveSkateboard", .2f);
+        Invoke("CallOfMoveSkateboard", .4f);
+        Invoke("CallOfMoveSkateboard", .55f);
+        Invoke("CallOfMoveSkateboard", .65f);
+        Invoke("CallOfMoveSkateboard", .75f);
+        Invoke("CallOfMoveSkateboard", .85f);
+        Invoke("CallOfMoveSkateboard", .95f);
+        Invoke("CallOfMoveSkateboard", 1.1f);
+        Invoke("CallOfMoveSkateboard", 1.25f);
+        Invoke("CallOfMoveSkateboard", 1.4f);
+        Invoke("CallOfMoveSkateboard", 1.55f);
 
+    
+        Invoke("AllowMovement", 1.55f);
+        // Skateboard unter player spawnen
+     
+    }
+
+    public void CallOfMoveSkateboard()
+    {
+        playerPosition.moveSkateboard();
     }
     public void RandomMovement()
     {

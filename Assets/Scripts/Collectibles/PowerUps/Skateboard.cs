@@ -32,7 +32,7 @@ public class Skateboard : MonoBehaviour
             Destroy(cube);
 
             Debug.Log("Skateboard triggered");
-            playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = false;
+            //playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = false;
             
             playerPrefab.GetComponent<GridPlayerMovement>().SkateboardMovement();
             
