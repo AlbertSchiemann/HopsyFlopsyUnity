@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7398626331986876869}
-  - component: {fileID: 7398626331986876870}
   - component: {fileID: 599487795125906679}
+  - component: {fileID: 8665902501282802515}
   m_Layer: 0
   m_Name: Level_UI
   m_TagString: Untagged
@@ -42,7 +42,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7398626331986876870
+--- !u!114 &599487795125906679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398626331986876868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f476b627a054b14386a8304c4a09d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelScript: {fileID: 8665902501282802515}
+--- !u!114 &8665902501282802515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,19 +75,6 @@ MonoBehaviour:
   TK_helpMenu: {fileID: 2492955328517221735}
   TK_settingsMenu: {fileID: 3837354929586318579}
   TK_storeMenu: {fileID: 2529184622439043984}
---- !u!114 &599487795125906679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7398626331986876868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f476b627a054b14386a8304c4a09d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelScript: {fileID: 7398626331986876870}
 --- !u!1 &7398626332080246416
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc2e3ad7f0f8ef469491bb340041f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreen: {fileID: 7398626331986876870}
+  switchScreen: {fileID: 8665902501282802515}
 --- !u!1 &7398626332479722882
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2993b983f157bf54eb8816176a4f9ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreen: {fileID: 7398626331986876870}
+  switchScreen: {fileID: 8665902501282802515}
 --- !u!1 &7398626332480150755
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dace5052b8906894d8da3ae3b8cb3815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreen: {fileID: 7398626331986876870}
+  switchScreen: {fileID: 8665902501282802515}
 --- !u!1 &7398626332973533258
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa30fce9eade0bd4cb819c5cc3eeeb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreen: {fileID: 7398626331986876870}
+  switchScreen: {fileID: 8665902501282802515}
 --- !u!114 &8620504056808633041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d091f0ce593a3746a2d261433157fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playing: {fileID: 7398626332973533269}
 --- !u!1 &7398626333400890033
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67954c62d51224d4baed395331216282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreen: {fileID: 7398626331986876870}
+  switchScreen: {fileID: 8665902501282802515}
 --- !u!1 &7398626333989871698
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a672a51570d64439e1463f56b460b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreen: {fileID: 7398626331986876870}
+  switchScreen: {fileID: 8665902501282802515}
 --- !u!4 &2492955328517221734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4915101588612383631, guid: fd5c9fc120f693e4c9d3653766267358,
@@ -677,7 +678,17 @@ PrefabInstance:
     - target: {fileID: 5022722432467659365, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022722432467659365, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
+        type: 3}
+      propertyPath: skinToEquip4
+      value: 
+      objectReference: {fileID: 7398626331986876868}
+    - target: {fileID: 5022722432467659365, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
+        type: 3}
+      propertyPath: switchScreenStore
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5022722432467659370, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
         type: 3}
@@ -702,12 +713,39 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7398626333317855739}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2529184622439043985}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2529184622439043985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5022722432467659370, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7398626333317855739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4994978762356110086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2529184622439043985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0c05bffc26b7a49a1d44b405a42b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchScreenStore: {fileID: 8665902501282802515}
+  skinToEquip1: {fileID: 4490092296019293943, guid: b8642eab11bd60e419e80d3d4fe445eb,
+    type: 3}
+  skinToEquip2: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+    type: 3}
+  skinToEquip3: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
+    type: 3}
+  skinToEquip4: {fileID: 8577306237156758912, guid: 80073f311b244ac4c941633d5b2fb12b,
+    type: 3}
 --- !u!4 &2529184622439043999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022722432467659364, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
@@ -829,4 +867,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95aa3859d1dd80845a53d7ba44cb2ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreen: {fileID: 7398626331986876870}
+  switchScreen: {fileID: 8665902501282802515}

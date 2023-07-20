@@ -22,7 +22,7 @@ public class C_Store : MonoBehaviour
     public GameObject skinToEquip2;
     public GameObject skinToEquip3;
     public GameObject skinToEquip4;
-    private SkinLoader player;
+    //private SkinLoader player;
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -40,6 +40,8 @@ public class C_Store : MonoBehaviour
         butSettings.clicked += Settings;
         butBack.clicked += Back;
 
+     //   player = GameObject.Find("Player3D Grid").GetComponent<SkinLoader>();
+
         butEquip1.clicked += EquipSkin1;
         butEquip2.clicked += EquipSkin2;
         butEquip3.clicked += EquipSkin3;
@@ -47,43 +49,39 @@ public class C_Store : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
-        player = GameObject.Find("Player3D Grid").GetComponent<SkinLoader>();
-    }
     public void EquipSkin1()
     {
         Debug.Log("skin changed");
-        player.ChangeSkin(skinToEquip1);
+      //  player.ChangeSkin(skinToEquip1);
         Debug.Log("skin changed");
     }
     public void EquipSkin2()
     {
-        player.ChangeSkin(skinToEquip2);
+        //player.ChangeSkin(skinToEquip2);
     }
     public void EquipSkin3()
     {
-        player.ChangeSkin(skinToEquip3);
+      //  player.ChangeSkin(skinToEquip3);
     }
     public void EquipSkin4()
     {
-        player.ChangeSkin(skinToEquip4);
+        //player.ChangeSkin(skinToEquip4);
     }
 
-    void Help()
+    public void Help()
     {
         Debug.Log("before");
         switchScreenStore.OpenHelp();
         Debug.Log("after");
     }
 
-    void Settings()
+    public void Settings()
     {
         switchScreenStore.OpenSettings();
 
     }
 
-    void Back()
+    public void Back()
     {
         switchScreenStore.OpenMain();
     }

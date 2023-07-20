@@ -16,7 +16,7 @@ public class C_PowerUps : MonoBehaviour
     static bool bottleThere = false;
     static bool shieldThere = false;
 
-    //Waterbottle waterobject = new Waterbottle();
+    public C_Playing playing;
 
 
     void OnEnable()
@@ -32,7 +32,7 @@ public class C_PowerUps : MonoBehaviour
 
     public  void PickUpBottle()
     {
-        //opacity = 100%
+        playing.OpacityBottleUp();
         bottleThere = true;
     }
 
@@ -42,7 +42,7 @@ public class C_PowerUps : MonoBehaviour
         {
         waterbottle.Refill();
         bottleThere = false;
-        //opacity = lower
+        playing.OpacityBottleDown();
 
         }
 
@@ -50,7 +50,7 @@ public class C_PowerUps : MonoBehaviour
     }
     public void PickUpShield()
     {
-        //opacity = 100%
+        playing.OpacityShiedUp();
         shieldThere = true;
 
     }
@@ -60,7 +60,7 @@ public class C_PowerUps : MonoBehaviour
         if (shieldThere)
         {
             shieldThere = false;
-            //opacity = lower
+           playing.OpacityShieldDown();
 
         }
 

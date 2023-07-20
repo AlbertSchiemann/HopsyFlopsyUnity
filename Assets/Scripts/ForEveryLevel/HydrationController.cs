@@ -13,7 +13,7 @@ public class HydrationController : MonoBehaviour
     bool isHydrationActivated;
 
     public static float hydrationMax = 100f;                       // Maximum amount of Hydration
-    public float hydrationDecayRate = 10f;                  // Rate in which the Hydration goes down 
+    public float hydrationDecayRate = 18f;                  // Rate in which the Hydration goes down 
     public float hydrationDecayFire = 2f;
     public float hydrationRestoreAmount = 100f;             // Rate in which Hydration gets restored in Water Tiles
 
@@ -24,7 +24,7 @@ public class HydrationController : MonoBehaviour
     public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
 
 
-    public C_LevelSwitchScreens levelScript;
+    [SerializeField] C_LevelSwitchScreens levelScript;
     public C_WaterBar waterBar;
 
     C_PowerUps powerUp;
@@ -145,9 +145,8 @@ public class HydrationController : MonoBehaviour
 
     public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
-       if (hydration <= 0 && waterbottle.WaterbottleChecker() == true)
+       if (hydration <= 0 && waterbottle.waterbottleThere == true)
         {
-            waterbottle.Refill();
             //SoundManager.Instance.PlaySound(_hydrateClip);
             Debug.Log("Waterbottle used");
             powerUp.UseBottle();

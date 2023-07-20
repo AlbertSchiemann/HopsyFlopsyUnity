@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class C_WaterBar : MonoBehaviour
 {
     VisualElement waterSlider;
-    StyleLength WaterMax;
     float water;
 
     void OnEnable()
@@ -32,10 +31,8 @@ public class C_WaterBar : MonoBehaviour
 
     public void SetHealth(float health)
     {
-      //  int value = health / water * 100;
         waterSlider.style.height = Length.Percent(health);
         Debug.Log("Slider: " +waterSlider.style.height);
-        //Debug.Log("health: "+health);
     }
 
 }

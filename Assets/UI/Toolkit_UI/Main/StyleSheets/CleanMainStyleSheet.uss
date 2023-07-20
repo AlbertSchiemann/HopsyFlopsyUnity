@@ -218,3 +218,20 @@
     height: 111px;
     width: 367px;
 }
+
+.Button_Back:hover {
+    position: absolute;
+    top: 4.5%;
+    left: 3%;
+    height: 250px;
+    width: 250px;
+    -unity-font-style: bold;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_TurnBack.png?fileID=2800000&guid=1668d7eb5ff93a14bbc63216ec99b24e&type=3#B_TurnBack');
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-background-image-tint-color: rgba(195, 195, 195, 255);
+}
