@@ -430,6 +430,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  skinToEquip1: {fileID: 4490092296019293943, guid: b8642eab11bd60e419e80d3d4fe445eb,
+    type: 3}
+  skinToEquip2: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+    type: 3}
+  skinToEquip3: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
+    type: 3}
+  skinToEquip4: {fileID: 8577306237156758912, guid: 80073f311b244ac4c941633d5b2fb12b,
+    type: 3}
+  currentSkin: {fileID: 0}
 --- !u!1 &7398626333989871698
 GameObject:
   m_ObjectHideFlags: 0

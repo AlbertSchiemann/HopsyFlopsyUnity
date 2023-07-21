@@ -18,11 +18,8 @@ public class C_Store : MonoBehaviour
     Button butEquip3;
     Button butEquip4;
 
-    public GameObject skinToEquip1;
-    public GameObject skinToEquip2;
-    public GameObject skinToEquip3;
-    public GameObject skinToEquip4;
-    //private SkinLoader player;
+
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -52,20 +49,20 @@ public class C_Store : MonoBehaviour
     public void EquipSkin1()
     {
         Debug.Log("skin changed");
-      //  player.ChangeSkin(skinToEquip1);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
         Debug.Log("skin changed");
     }
     public void EquipSkin2()
     {
-        //player.ChangeSkin(skinToEquip2);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
     }
     public void EquipSkin3()
     {
-      //  player.ChangeSkin(skinToEquip3);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
     }
     public void EquipSkin4()
     {
-        //player.ChangeSkin(skinToEquip4);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin4;
     }
 
     public void Help()

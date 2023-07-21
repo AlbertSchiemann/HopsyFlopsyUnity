@@ -2,14 +2,14 @@
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
     <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
     <ui:VisualElement name="vis_" class="Vis_BackGround" style="width: 100%; height: 100%; flex-direction: column-reverse;">
-        <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column; bottom: 9%; padding-left: 62px; padding-right: 62px; padding-top: 62px; padding-bottom: 62px; height: 45%;">
-            <ui:Button display-tooltip-when-elided="true" name="but_restart" text="restart" class="but_3inMiddle Button_restart Button_main" />
-            <ui:Button display-tooltip-when-elided="true" name="but_nextLevel" text="Next Level" class="but_3inMiddle" style="font-size: 84px; -unity-font-style: bold;" />
-            <ui:Button display-tooltip-when-elided="true" name="but_main" text="main" class="but_3inMiddle" />
+        <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column; bottom: 3%; padding-left: 62px; padding-right: 62px; padding-top: 62px; padding-bottom: 62px; height: 50%;">
+            <ui:Button display-tooltip-when-elided="true" name="but_restart" class="but_3inMiddle Button_restart" />
+            <ui:Button display-tooltip-when-elided="true" name="but_nextLevel" class="but_3inMiddle" style="font-size: 84px; -unity-font-style: bold; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/NextLevelOutline.png?fileID=2800000&amp;guid=ec4a4711bff7d694cbb3242f8eb3dba9&amp;type=3#NextLevelOutline&apos;); height: 239px; width: 669px;" />
+            <ui:Button display-tooltip-when-elided="true" name="but_main" class="but_3inMiddle Button_main" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&amp;guid=c9ab7843247239b4abac5669f9567f48&amp;type=3#MainMenuOutline&apos;);" />
         </ui:VisualElement>
         <ui:Label text="Level Completed!" display-tooltip-when-elided="true" style="font-size: 42px; top: -2%; width: 20%; height: 5%; -unity-text-align: upper-center; display: none;" />
         <ui:VisualElement name="vis_stars" style="align-items: center; justify-content: center; position: relative; flex-direction: row; width: 1174px; height: 401px; left: 0; top: -4%;">
-            <ui:VisualElement name="vis_star1" class="VisualEle_Star vis_lowerStar" style="transition-property: all, -unity-background-image-tint-color, ignored; transition-duration: 0s, 5s, 0s; transition-timing-function: ease, ease, ease; transition-delay: 0s, 0s, 0s; -unity-background-image-tint-color: rgba(255, 255, 255, 255);" />
+            <ui:VisualElement name="vis_star1" class="VisualEle_Star vis_lowerStar" style="transition-property: all, -unity-background-image-tint-color, ignored; transition-duration: 0s, 5s, 0s; transition-timing-function: ease, ease, ease; transition-delay: 0s, 0s, 0s; -unity-background-image-tint-color: rgb(255, 255, 255);" />
             <ui:VisualElement name="vis_star2" class="VisualEle_Star" />
             <ui:VisualElement name="vis_star3" class="VisualEle_Star vis_lowerStar" />
         </ui:VisualElement>

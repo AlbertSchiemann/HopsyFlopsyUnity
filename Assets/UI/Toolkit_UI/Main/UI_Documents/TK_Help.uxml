@@ -7,8 +7,8 @@
         </ui:VisualElement>
         <ui:Button display-tooltip-when-elided="true" name="but_back" class="Button_Back" />
         <ui:VisualElement name="vis_eplanationControls" style="position: absolute; height: 720px; width: 2659px; top: auto; left: auto;" />
-        <ui:Button text="Turorial Level" display-tooltip-when-elided="true" name="but_Level1" class="Button_HelpNav" />
+        <ui:Button display-tooltip-when-elided="true" name="but_Level1" class="Button_HelpNav" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/TutorialLevelOutline.png?fileID=2800000&amp;guid=d0da29bea2eb1b14785d113a1ccdc8ed&amp;type=3#TutorialLevelOutline&apos;); background-color: rgba(188, 188, 188, 0);" />
         <ui:Button display-tooltip-when-elided="true" name="but_controlExpl" class="Button_HelpNav" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/with_outlines/ControlsOutline.png?fileID=2800000&amp;guid=b6c13565dffc37344b3c4414a425af78&amp;type=3#ControlsOutline&apos;); background-color: rgba(188, 188, 188, 0);" />
-        <ui:Button display-tooltip-when-elided="true" name="but_IntroVideo" class="Button_HelpNav" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text/Intro%20Video.png?fileID=2800000&amp;guid=c11642343b2418147adcafeff98a22e2&amp;type=3#Intro Video&apos;); background-color: rgba(255, 255, 255, 0);" />
+        <ui:Button display-tooltip-when-elided="true" name="but_IntroVideo" class="Button_HelpNav" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/IntroVideoOutline.png?fileID=2800000&amp;guid=75b5446aac00f614e84ed5ceb73b5de9&amp;type=3#IntroVideoOutline&apos;); background-color: rgba(255, 255, 255, 0);" />
     </ui:VisualElement>
 </ui:UXML>

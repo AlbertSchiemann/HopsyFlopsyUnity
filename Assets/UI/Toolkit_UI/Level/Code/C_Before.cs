@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -15,7 +16,17 @@ public class C_Before : MonoBehaviour
 
     private GameStateManagerScript GameStateManagerScript;
 
-   private void Awake()
+
+    public GameObject skinToEquip1;
+    public GameObject skinToEquip2;
+    public GameObject skinToEquip3;
+    public GameObject skinToEquip4;
+
+    GameObject currentSkin;
+
+    private SkinLoader player;
+
+    private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
         GameStateManagerScript = GameStateManager.GetComponent<GameStateManagerScript>();
@@ -23,6 +34,7 @@ public class C_Before : MonoBehaviour
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+        player = GameObject.Find("Player3D Grid").GetComponent<SkinLoader>();
 
         GameStateManagerScript.PauseGame();
 
@@ -41,6 +53,13 @@ public class C_Before : MonoBehaviour
         butMain.clicked += Main;
         butPlay.clicked += Play;
 
+        if (AlwaysThere.currentSkin == 0) currentSkin = skinToEquip1;
+        else if (AlwaysThere.currentSkin == 1) currentSkin = skinToEquip2;
+        else if (AlwaysThere.currentSkin == 2) currentSkin = skinToEquip3;
+        else if (AlwaysThere.currentSkin == 3) currentSkin = skinToEquip4;
+        Warning.Error(currentSkin.ToString());
+
+        player.ChangeSkin(currentSkin);
     }
 
 

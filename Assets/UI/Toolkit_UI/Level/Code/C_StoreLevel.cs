@@ -53,19 +53,23 @@ public class C_StoreLevel : MonoBehaviour
     {
         Debug.Log("skin changed");
           player.ChangeSkin(skinToEquip1);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
         Debug.Log("skin changed");
     }
     public void EquipSkin2()
     {
         player.ChangeSkin(skinToEquip2);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
     }
     public void EquipSkin3()
     {
         player.ChangeSkin(skinToEquip3);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
     }
     public void EquipSkin4()
     {
         player.ChangeSkin(skinToEquip4);
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin4;
     }
 
     public void Help()
