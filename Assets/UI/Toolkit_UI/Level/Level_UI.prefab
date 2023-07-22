@@ -353,6 +353,17 @@ MonoBehaviour:
   waveImage8: {fileID: 1994388070, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
   waveImage9: {fileID: -104666011, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
   waveImage10: {fileID: -1280489651, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  bubbles0: {fileID: -894689059, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles1: {fileID: 2038364868, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles2: {fileID: 651113773, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles3: {fileID: -1169131046, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles4: {fileID: 1163871940, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles5: {fileID: -1251396753, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles6: {fileID: 316865037, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles7: {fileID: -974114541, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles8: {fileID: 1438832515, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles9: {fileID: -1873922158, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  bubbles10: {fileID: -1907707125, guid: 5960c771706bcf3498a250c11947161e, type: 3}
 --- !u!114 &2829387000558705927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,6 +533,17 @@ MonoBehaviour:
   waveImage8: {fileID: 0}
   waveImage9: {fileID: 0}
   waveImage10: {fileID: 0}
+  bubbles0: {fileID: 0}
+  bubbles1: {fileID: 0}
+  bubbles2: {fileID: 0}
+  bubbles3: {fileID: 0}
+  bubbles4: {fileID: 0}
+  bubbles5: {fileID: 0}
+  bubbles6: {fileID: 0}
+  bubbles7: {fileID: 0}
+  bubbles8: {fileID: 0}
+  bubbles9: {fileID: 0}
+  bubbles10: {fileID: 0}
 --- !u!1001 &7398626332879138537
 PrefabInstance:
   m_ObjectHideFlags: 0

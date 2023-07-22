@@ -9,6 +9,8 @@ public class C_WaterBar : MonoBehaviour
     VisualElement waterSlider;
     VisualElement waterGlas;
     VisualElement wave;
+    VisualElement bubbles;
+    VisualElement bubbleground;
 
     //float water;
 
@@ -24,6 +26,17 @@ public class C_WaterBar : MonoBehaviour
     public Sprite waveImage9;
     public Sprite waveImage10;
 
+    public Sprite bubbles0;
+    public Sprite bubbles1;
+    public Sprite bubbles2;
+    public Sprite bubbles3;
+    public Sprite bubbles4;
+    public Sprite bubbles5;
+    public Sprite bubbles6;
+    public Sprite bubbles7;
+    public Sprite bubbles8;
+    public Sprite bubbles9;
+    public Sprite bubbles10;
 
     float time = 0f;
     float TimeDelay=0.15f;
@@ -36,8 +49,10 @@ public class C_WaterBar : MonoBehaviour
 
 
         waterSlider = root.Q<VisualElement>("Foreground");
+        bubbleground = root.Q<VisualElement>("Bubbleground");
         waterGlas = root.Q<VisualElement>("waterbar_back");
         wave = root.Q<VisualElement>("wave");
+        bubbles = root.Q<VisualElement>("bubbles");
         SetMaxHealth();
         //water = waterSlider.style.height.value.value;
         //Debug.Log("slider: " + water);
@@ -56,48 +71,56 @@ public class C_WaterBar : MonoBehaviour
             time = 0f;
             switcher++;
             Waving(waveImage0);
+            Bubbling(bubbles0);
         }
         if (time >= TimeDelay && switcher==1)
         {
             time = 0f;
             switcher++;
             Waving(waveImage1);
+            Bubbling(bubbles1);
         }
         if (time >= TimeDelay && switcher == 2)
         {
             time = 0f;
             switcher++;
             Waving(waveImage2);
+            Bubbling(bubbles2);
         }
         if (time >= TimeDelay && switcher == 3)
         {
             time = 0f;
             switcher++;
             Waving(waveImage3);
+            Bubbling(bubbles3);
         }
         if (time >= TimeDelay && switcher == 4)
         {
             time = 0f;
             switcher++;
             Waving(waveImage4);
+            Bubbling(bubbles4);
         }
         if (time >= TimeDelay && switcher == 5)
         {
             time = 0f;
             switcher++;
             Waving(waveImage5);
+            Bubbling(bubbles5);
         }
         if (time >= TimeDelay && switcher == 6)
         {
             time = 0f;
             switcher++;
             Waving(waveImage6);
+            Bubbling(bubbles6);
         }
         if (time >= TimeDelay && switcher == 7)
         {
             time = 0f;
             switcher++;
             Waving(waveImage7);
+            Bubbling(bubbles7);
             //Debug.Log("wave7");
         }
         if (time >= TimeDelay && switcher == 8)
@@ -105,12 +128,14 @@ public class C_WaterBar : MonoBehaviour
             time = 0f;
             switcher++;
             Waving(waveImage8);
+            Bubbling(bubbles8);
         }
         if (time >= TimeDelay && switcher == 10)
         {
             time = 0f;
             switcher=0;
             Waving(waveImage10);
+            Bubbling(bubbles10);
             //Debug.Log("wave10");
         }
         if (time >= TimeDelay && switcher == 9)
@@ -118,6 +143,7 @@ public class C_WaterBar : MonoBehaviour
             time = 0f;
             switcher++;
             Waving(waveImage9);
+            Bubbling(bubbles9);
             //Debug.Log("wave9");
         }
         //// 10 frames later
@@ -136,17 +162,24 @@ public class C_WaterBar : MonoBehaviour
         wave.style.backgroundImage = new StyleBackground(waveImage);
 
     }
+    public void Bubbling(Sprite bubblesImage)
+    {
+        bubbles.style.backgroundImage = new StyleBackground(bubblesImage);
+
+    }
 
 
     public void SetMaxHealth()
     {
         waterSlider.style.height = Length.Percent(100);
+        bubbleground.style.height = Length.Percent(100);
 
     }
 
     public void SetHealth(float health)
     {
         waterSlider.style.height = Length.Percent(health);
+        bubbleground.style.height = Length.Percent(health-3);
         if (health < 10)
         {
             waterGlas.style.unityBackgroundImageTintColor = new Color(1f, 0f, 0f, 0.7f);
