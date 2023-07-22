@@ -73,10 +73,11 @@ public class EnemyMovementArray : MonoBehaviour
         {
             i++;
         }
-        else { Debug.Log("Hilfe"); return; }
+        else { //Debug.Log("Hilfe"); 
+            return; }
 
         MovementStruct current = movementDirection[i - 1];
-        Debug.Log(movementDirection.Length + "  " + i);
+        //Debug.Log(movementDirection.Length + "  " + i);
 
         if (i == movementDirection.Length) { Invoke("InBetweenLooping", current.Directionslength + 1); }
 
@@ -84,19 +85,19 @@ public class EnemyMovementArray : MonoBehaviour
         {
             case Direction.Right:
                 FLMoveRight(current.Directionslength);
-                Debug.Log("1");
+                //Debug.Log("1");
                 break;
             case Direction.Forward:
                 FLMoveForward(current.Directionslength);
-                Debug.Log("2");
+                //Debug.Log("2");
                 break;
             case Direction.Left:
                 FLMoveLeft(current.Directionslength);
-                Debug.Log("3");
+                //Debug.Log("3");
                 break;
             case Direction.Backward:
                 FLMoveBackward(current.Directionslength);
-                Debug.Log("4");
+               //Debug.Log("4");
                 break;
             default:
                 Debug.Log("No Movement Implemented in Inspector");

@@ -130,3 +130,13 @@
     bottom: auto;
     rotate: 0;
 }
+
+.Wave {
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/waterbar/wave.png?fileID=-2055082365&guid=3ee65a67c4b3eb14cb23bc0b1fc83f29&type=3#wave_6');
+    width: 100%;
+    height: 170px;
+    -unity-background-scale-mode: stretch-to-fill;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    top: -15px;
+}

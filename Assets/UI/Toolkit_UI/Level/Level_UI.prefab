@@ -342,6 +342,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b00dbb5c55d04d8ba8791b35576b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveImage0: {fileID: 581892226, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage1: {fileID: -2034436667, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage2: {fileID: 897793251, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage3: {fileID: -772100293, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage4: {fileID: -1938969961, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage5: {fileID: 1953689111, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage6: {fileID: -2055082365, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage7: {fileID: 2000431027, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage8: {fileID: 1994388070, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage9: {fileID: -104666011, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
+  waveImage10: {fileID: -1280489651, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
 --- !u!114 &2829387000558705927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,7 +449,6 @@ MonoBehaviour:
     type: 3}
   skinToEquip4: {fileID: 8577306237156758912, guid: 80073f311b244ac4c941633d5b2fb12b,
     type: 3}
-  currentSkin: {fileID: 0}
 --- !u!1 &7398626333989871698
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +511,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b00dbb5c55d04d8ba8791b35576b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveImage0: {fileID: 0}
+  waveImage1: {fileID: 0}
+  waveImage2: {fileID: 0}
+  waveImage3: {fileID: 0}
+  waveImage4: {fileID: 0}
+  waveImage5: {fileID: 0}
+  waveImage6: {fileID: 0}
+  waveImage7: {fileID: 0}
+  waveImage8: {fileID: 0}
+  waveImage9: {fileID: 0}
+  waveImage10: {fileID: 0}
 --- !u!1001 &7398626332879138537
 PrefabInstance:
   m_ObjectHideFlags: 0

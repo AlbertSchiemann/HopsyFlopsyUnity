@@ -51,8 +51,7 @@ public class C_StoreLevel : MonoBehaviour
 
     public void EquipSkin1()
     {
-        Debug.Log("skin changed");
-          player.ChangeSkin(skinToEquip1);
+        player.ChangeSkin(skinToEquip1);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
         Debug.Log("skin changed");
     }
@@ -74,9 +73,7 @@ public class C_StoreLevel : MonoBehaviour
 
     public void Help()
     {
-        Debug.Log("before");
         switchScreenStore.OpenHelp();
-        Debug.Log("after");
     }
 
     public void Settings()
