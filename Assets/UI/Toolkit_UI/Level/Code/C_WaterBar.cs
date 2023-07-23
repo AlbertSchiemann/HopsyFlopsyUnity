@@ -41,7 +41,7 @@ public class C_WaterBar : MonoBehaviour
     float time = 0f;
     float TimeDelay=0.15f;
     int switcher=0;
-
+    int Warning = 0;
 
     void OnEnable()
     {
@@ -180,15 +180,21 @@ public class C_WaterBar : MonoBehaviour
     {
         waterSlider.style.height = Length.Percent(health);
         bubbleground.style.height = Length.Percent(health-3);
-        if (health < 10)
+        if (health < 15&&Warning==1)
         {
             waterGlas.style.unityBackgroundImageTintColor = new Color(1f, 0f, 0f, 0.7f);
+            Warning++;
 
         }
-        else if (health < 25)
+        else if (health < 35 && Warning == 0)
         {
             waterGlas.style.unityBackgroundImageTintColor = new Color(0.7f, 0f, 0f, 0.7f); 
+            Warning++;
 
+        }
+        else if (health >35 && Warning != 0) {
+            waterGlas.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            Warning=0;
         }
        // Debug.Log("Slider: " +waterSlider.style.height);
     }
