@@ -48,13 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dde6d30fda3a44cbec3ebebf08f186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hydrateClip: []
+  _hydrateClip:
+  - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
   drunkmodeduration: 15
   hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
     type: 3}
   playerInstantiate: {fileID: 339750392863251824, guid: c7a57c5d248456f44a7efe574c58cf19,
     type: 3}
-  cameraFollow: {fileID: 0}
+  cameraFollow: {fileID: 4145950133543350858, guid: cf2278bc32b8a8549828ad7d02b3f61c,
+    type: 3}
 --- !u!114 &8591930450863746617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,8 +69,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6496acd3f779f7b4dbb197b5418c282e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hydrateClip: []
-  hydrationController: {fileID: 0}
+  _hydrateClip:
+  - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
+  hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+    type: 3}
   _dehydrationDelay: 5
 --- !u!114 &4556757064069618644
 MonoBehaviour:
@@ -82,7 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd82343987bc1fc45928e97397307ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shieldClip: []
+  _shieldClip:
+  - {fileID: 8300000, guid: 5aff49db74ff81248b98649f5aa8fc63, type: 3}
 --- !u!114 &2407204776289255503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,8 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788f071f1015ade43bab1d8d94e73610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
-  skateboardmeshForSkating: {fileID: 0}
+  playerPrefab: {fileID: 2260953583789165416, guid: c7a57c5d248456f44a7efe574c58cf19,
+    type: 3}
+  skateboardmeshForSkating: {fileID: 988494694632866887, guid: 9adda3a60c37d1747b3e4154d858f5d3,
+    type: 3}
 --- !u!114 &2444956204999689444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0452517fcf1ca14790962b606ce25fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hydrateClip: []
+  _hydrateClip:
+  - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
   hydrationController: {fileID: 0}
   waterbottleThere: 0
   useWaterbottle: 0

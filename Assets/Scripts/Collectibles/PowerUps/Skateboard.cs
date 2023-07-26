@@ -13,7 +13,7 @@ public class Skateboard : MonoBehaviour
     Vector3 objectRotation;
     float newUpdateRate = 0.05f;
 
-    Vector3 skateboardPosition = new Vector3(0, 0.5f, 3);
+    Vector3 skateboardPosition = new Vector3(0, 0.1f, 3);
 
     void Start()
     {
