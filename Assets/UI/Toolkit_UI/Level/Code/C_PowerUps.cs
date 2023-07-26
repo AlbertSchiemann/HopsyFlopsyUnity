@@ -14,8 +14,7 @@ public class C_PowerUps : MonoBehaviour
     [SerializeField] Shield shield;
     [SerializeField] Waterbottle waterbottle;
 
-    static bool bottleThere = false;
-    static bool shieldThere = false;
+  
 
     public C_Playing playing;
 
@@ -40,31 +39,31 @@ public class C_PowerUps : MonoBehaviour
     public  void PickUpBottle()
     {
         OpacityBottleUp();
-        bottleThere = true;
+        AlwaysThere.bottleThere = true;
     }
 
     public void UseBottle()
     { 
         Debug.Log("UseBottle");
-        if (bottleThere)
+        if (AlwaysThere.bottleThere)
         {
         waterbottle.Refill();
-        bottleThere = false;
+        AlwaysThere.bottleThere = false;
         OpacityBottleDown();
         }
     }
     public void PickUpShield()
     {
         OpacityShiedUp();
-        shieldThere = true;
+        AlwaysThere.shieldThere = true;
 
     }
 
     public void UseShield()
     {
-        if (shieldThere)
+        if (AlwaysThere.shieldThere)
         {
-            shieldThere = false;
+            AlwaysThere.shieldThere = false;
            OpacityShieldDown();
 
         }

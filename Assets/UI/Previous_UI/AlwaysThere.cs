@@ -11,5 +11,8 @@ public static class AlwaysThere
         }
     public static int currentSkin;
 
+    public static bool bottleThere = false;
+    public static bool shieldThere = false;
+
 
 }

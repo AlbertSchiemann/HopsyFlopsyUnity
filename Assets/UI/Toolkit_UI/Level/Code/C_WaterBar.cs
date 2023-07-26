@@ -39,7 +39,7 @@ public class C_WaterBar : MonoBehaviour
     public Sprite bubbles10;
 
     float time = 0f;
-    float TimeDelay=0.05f;
+    float TimeDelay=0.15f;
     int switcher=0;
     int Warning = 0;
 
@@ -66,87 +66,21 @@ public class C_WaterBar : MonoBehaviour
         time = time + 1f * Time.deltaTime;
         //Invoke("Waving(waveImage2)",1);
         //Invoke("Waving(waveImage1)", 1);
-        if (time >= TimeDelay&&switcher==0)
+
+        if (time >= TimeDelay)
         {
-            time = 0f;
-            switcher++;
-            Waving(waveImage0);
-            Bubbling(bubbles0);
+                 if (switcher == 0) Animation(waveImage0, bubbles0);
+            else if (switcher == 1) Animation(waveImage1, bubbles1);
+            else if (switcher == 2) Animation(waveImage2, bubbles2);
+            else if (switcher == 3) Animation(waveImage3, bubbles3);
+            else if (switcher == 4) Animation(waveImage4, bubbles4);
+            else if (switcher == 5) Animation(waveImage5, bubbles5);
+            else if (switcher == 6) Animation(waveImage6, bubbles6);
+            else if (switcher == 7) Animation(waveImage7, bubbles7);
+            else if (switcher == 8) Animation(waveImage8, bubbles8);
+            else if (switcher == 9) Animation(waveImage9, bubbles9);
+            else if (switcher == 10) { Animation(waveImage10, bubbles10); switcher = 0; } 
         }
-        if (time >= TimeDelay && switcher==1)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage1);
-            Bubbling(bubbles1);
-        }
-        if (time >= TimeDelay && switcher == 2)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage2);
-            Bubbling(bubbles2);
-        }
-        if (time >= TimeDelay && switcher == 3)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage3);
-            Bubbling(bubbles3);
-        }
-        if (time >= TimeDelay && switcher == 4)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage4);
-            Bubbling(bubbles4);
-        }
-        if (time >= TimeDelay && switcher == 5)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage5);
-            Bubbling(bubbles5);
-        }
-        if (time >= TimeDelay && switcher == 6)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage6);
-            Bubbling(bubbles6);
-        }
-        if (time >= TimeDelay && switcher == 7)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage7);
-            Bubbling(bubbles7);
-            //Debug.Log("wave7");
-        }
-        if (time >= TimeDelay && switcher == 8)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage8);
-            Bubbling(bubbles8);
-        }
-        if (time >= TimeDelay && switcher == 10)
-        {
-            time = 0f;
-            switcher=0;
-            Waving(waveImage10);
-            Bubbling(bubbles10);
-            //Debug.Log("wave10");
-        }
-        if (time >= TimeDelay && switcher == 9)
-        {
-            time = 0f;
-            switcher++;
-            Waving(waveImage9);
-            Bubbling(bubbles9);
-            //Debug.Log("wave9");
-        }
-        //// 10 frames later
 
     }
 
@@ -156,6 +90,14 @@ public class C_WaterBar : MonoBehaviour
 
     //    // Code to execute after the delay
     //}
+
+    public void Animation(Sprite waveImage, Sprite bubbles)
+    {
+        time = 0f;
+        switcher++;
+        Waving(waveImage);
+        Bubbling(bubbles);
+    }
 
     public void Waving(Sprite waveImage)
     {
@@ -172,7 +114,7 @@ public class C_WaterBar : MonoBehaviour
     public void SetMaxHealth()
     {
         waterSlider.style.height = Length.Percent(100);
-        bubbleground.style.height = Length.Percent(100);
+        bubbleground.style.height = Length.Percent(100-3);
 
     }
 
