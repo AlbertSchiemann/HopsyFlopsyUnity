@@ -17,4 +17,5 @@
         <ui:Button display-tooltip-when-elided="true" name="but_pause" class="Button_Back" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Pause.png?fileID=2800000&amp;guid=a190f8231c6a0fb48a2892b2e428629b&amp;type=3#B_Pause&apos;); top: 3.4%; left: 2.6%;" />
         <ui:Button display-tooltip-when-elided="true" name="but_bottle" class="button_bottle" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
     </ui:VisualElement>
+    <ui:VisualElement style="position: absolute;" />
 </ui:UXML>
