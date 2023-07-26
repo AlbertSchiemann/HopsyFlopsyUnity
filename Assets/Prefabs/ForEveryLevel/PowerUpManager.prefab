@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2037332552452532376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7501950254384444039}
+  - component: {fileID: 410978430954432930}
+  - component: {fileID: 8591930450863746617}
+  - component: {fileID: 4556757064069618644}
+  - component: {fileID: 2407204776289255503}
+  - component: {fileID: 2444956204999689444}
+  m_Layer: 0
+  m_Name: PowerUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7501950254384444039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037332552452532376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.159437, y: -14.314582, z: -3.4450426}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410978430954432930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037332552452532376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71dde6d30fda3a44cbec3ebebf08f186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hydrateClip: []
+  drunkmodeduration: 15
+  hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+    type: 3}
+  playerInstantiate: {fileID: 339750392863251824, guid: c7a57c5d248456f44a7efe574c58cf19,
+    type: 3}
+  cameraFollow: {fileID: 0}
+--- !u!114 &8591930450863746617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037332552452532376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6496acd3f779f7b4dbb197b5418c282e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hydrateClip: []
+  hydrationController: {fileID: 0}
+  _dehydrationDelay: 5
+--- !u!114 &4556757064069618644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037332552452532376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd82343987bc1fc45928e97397307ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shieldClip: []
+--- !u!114 &2407204776289255503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037332552452532376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788f071f1015ade43bab1d8d94e73610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 0}
+  skateboardmeshForSkating: {fileID: 0}
+--- !u!114 &2444956204999689444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037332552452532376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0452517fcf1ca14790962b606ce25fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hydrateClip: []
+  hydrationController: {fileID: 0}
+  waterbottleThere: 0
+  useWaterbottle: 0
+  powerUp: {fileID: 0}

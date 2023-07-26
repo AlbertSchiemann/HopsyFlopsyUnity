@@ -27,7 +27,7 @@ public class HydrationController : MonoBehaviour
     [SerializeField] C_LevelSwitchScreens levelScript;
     public C_WaterBar waterBar;
 
-    C_PowerUps powerUp;
+    [SerializeField] C_PowerUps powerUp;
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
@@ -145,7 +145,7 @@ public class HydrationController : MonoBehaviour
 
     public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
-       if (hydration <= 0 && waterbottle.waterbottleThere == true)
+       if (hydration <= 5 && waterbottle.waterbottleThere == true)
         {
             //SoundManager.Instance.PlaySound(_hydrateClip);
             Debug.Log("Waterbottle used");

@@ -30,31 +30,15 @@ public class C_Playing : MonoBehaviour
 
         butPause = root.Q<Button>("but_pause");
 
-        butBottle = root.Q<Button>("but_bottle");
-        visShield = root.Q<VisualElement>("vis_shield");
+        //butBottle = root.Q<Button>("but_bottle");
+        //visShield = root.Q<VisualElement>("vis_shield");
 
         butPause.clicked += Pause;
 
-        OpacityShieldDown();
-        OpacityBottleDown();
+        
     }
 
-    public void OpacityBottleDown()
-    {
-        butBottle.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.3f);
-    }
-    public void OpacityBottleUp()
-    {
-        butBottle.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
-    }
-    public void OpacityShieldDown()
-    {
-        visShield.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.3f);
-    }
-    public void OpacityShiedUp()
-    {
-        visShield.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
-    }
+    
 
     void Pause()
     {

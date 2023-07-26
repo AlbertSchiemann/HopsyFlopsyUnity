@@ -179,7 +179,7 @@ public class GridPlayerMovement : MonoBehaviour
                     Debug.Log("Space pressed");
                     if (waterbottle.WaterbottleChecker() == true)
                     {
-                        waterbottle.Refill();
+                        
                         powerUps.UseBottle();
                         //SoundManager.Instance.PlaySound(_hydrateClip);
                         Debug.Log("Waterbottle used");

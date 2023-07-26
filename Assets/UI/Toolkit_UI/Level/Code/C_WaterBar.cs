@@ -39,7 +39,7 @@ public class C_WaterBar : MonoBehaviour
     public Sprite bubbles10;
 
     float time = 0f;
-    float TimeDelay=0.15f;
+    float TimeDelay=0.05f;
     int switcher=0;
     int Warning = 0;
 

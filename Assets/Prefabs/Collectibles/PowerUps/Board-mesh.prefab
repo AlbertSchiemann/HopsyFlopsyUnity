@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881706781269083746}
-  - component: {fileID: 215549641017873280}
-  - component: {fileID: 554413659984599327}
+  - component: {fileID: -8380413634502449043}
   m_Layer: 0
-  m_Name: Sk8Board
+  m_Name: Board-mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &215549641017873280
+--- !u!114 &-8380413634502449043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,26 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 988494694632866887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 788f071f1015ade43bab1d8d94e73610, type: 3}
+  m_Script: {fileID: 11500000, guid: 182ded3eb69eb8c4a87a665007ee7651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 2260953583789165416, guid: c7a57c5d248456f44a7efe574c58cf19,
-    type: 3}
-  skateboardmeshForSkating: {fileID: 988494694632866887, guid: 9adda3a60c37d1747b3e4154d858f5d3,
-    type: 3}
---- !u!65 &554413659984599327
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988494694632866887}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.24495125, y: 0.49173212, z: 0.14212906}
-  m_Center: {x: 0.0077409744, y: 0.11883378, z: 0.04321915}
+  selfdestructtime: 1.55
 --- !u!1001 &2820883491847401864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,17 +61,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fc42a5f25dff3994db7228e5a39f9808,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc42a5f25dff3994db7228e5a39f9808,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.686262
+      value: 0.37908417
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc42a5f25dff3994db7228e5a39f9808,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39696681
+      value: 0.026464455
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc42a5f25dff3994db7228e5a39f9808,
         type: 3}

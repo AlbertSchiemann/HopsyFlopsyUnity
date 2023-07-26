@@ -8,9 +8,12 @@ public class Skateboard : MonoBehaviour
     // fast movement
 
     [SerializeField] private GameObject playerPrefab;            // get a Instantiation of the Player
+    [SerializeField] private GameObject skateboardmeshForSkating;        // get a Instantiation of the Skateboard
 
     Vector3 objectRotation;
     float newUpdateRate = 0.05f;
+
+    Vector3 skateboardPosition = new Vector3(0, 0.5f, 3);
 
     void Start()
     {
@@ -34,7 +37,9 @@ public class Skateboard : MonoBehaviour
             Debug.Log("Skateboard triggered");
             //playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = false;
             
+            Instantiate(skateboardmeshForSkating, playerPrefab.transform.position - skateboardPosition, playerPrefab.transform.rotation, playerPrefab.transform);
             playerPrefab.GetComponent<GridPlayerMovement>().SkateboardMovement();
+            Invoke("DestroySkateboard", 1.55f);
             
         }
     }

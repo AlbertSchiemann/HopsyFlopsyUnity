@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0452517fcf1ca14790962b606ce25fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hydrateClip: []
+  _hydrateClip:
+  - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
   hydrationController: {fileID: 0}
-  waterbottlecounter: 0
+  waterbottleThere: 0
   useWaterbottle: 0
 --- !u!65 &4557102933338762294
 BoxCollider:
