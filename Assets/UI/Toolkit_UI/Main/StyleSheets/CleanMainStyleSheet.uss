@@ -27,6 +27,21 @@
     flex-direction: row;
 }
 
+.vis_itemPicture {
+    height: 500px;
+    width: 500px;
+    margin-bottom: 68px;
+}
+
+.vis_shopItem {
+    align-items: center;
+    justify-content: center;
+    margin-left: 29px;
+    margin-right: 29px;
+    margin-top: 29px;
+    margin-bottom: 29px;
+}
+
 .Button_3inCorner {
     font-size: 0;
     width: 280px;
@@ -94,27 +109,27 @@
 }
 
 .Button_HelpNav {
-    height: 227px;
-    width: 616px;
+    height: 300px;
+    width: 700px;
     font-size: 80px;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    margin-left: 91px;
-    margin-right: 91px;
-    margin-top: 91px;
-    margin-bottom: 91px;
+    margin-left: 47px;
+    margin-right: 47px;
+    margin-top: 47px;
+    margin-bottom: 47px;
     -unity-background-scale-mode: scale-to-fit;
 }
 
 .but_SettingsNav {
-    height: 131px;
-    width: 578px;
-    margin-left: 42px;
-    margin-right: 42px;
-    margin-top: 42px;
-    margin-bottom: 42px;
+    height: 200px;
+    width: 650px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
@@ -193,4 +208,33 @@
     margin-right: 39px;
     margin-top: 39px;
     margin-bottom: 39px;
+}
+
+.button_ItemEquip {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    height: 200px;
+    width: 500px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/EquipOutline.png?fileID=2800000&guid=90a77bd570898c14aace724a250854e3&type=3#EquipOutline');
+    background-color: rgba(56, 56, 56, 0);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.Button_Back:hover {
+    position: absolute;
+    top: 4.5%;
+    left: 3%;
+    height: 250px;
+    width: 250px;
+    -unity-font-style: bold;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_TurnBack.png?fileID=2800000&guid=1668d7eb5ff93a14bbc63216ec99b24e&type=3#B_TurnBack');
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-background-image-tint-color: rgb(195, 195, 195);
 }

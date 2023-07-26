@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UI_WinTrigger_Script : MonoBehaviour
 {
-    public UI_LevelScript levelScript;
+    public C_LevelSwitchScreens levelScript;
 
     private void Start()
     {
-        GameObject levelUIObject = GameObject.Find("LevelUI");
-        levelScript = levelUIObject.GetComponent<UI_LevelScript>();
+        GameObject levelUIObject = GameObject.Find("Level_UI");
+        levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
     }
 
     private void OnTriggerEnter(Collider other)

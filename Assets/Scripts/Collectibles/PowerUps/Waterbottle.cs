@@ -7,35 +7,47 @@ public class Waterbottle : MonoBehaviour
     // Activatable - fills up hydration bar to some extend
     // gets activated automatically when hydration drops to 0
     [SerializeField] private AudioClip[] _hydrateClip;
-    [SerializeField] public Material transparent;
 
     public HydrationController hydrationController;         // Reference to the levels HydrationController 
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
-    public int waterbottlecounter = 0;
+    public bool waterbottleThere = false;
 
     public bool useWaterbottle = false;
+    Vector3 objectRotation;
+    float newUpdateRate = 0.05f;
+
+    [SerializeField] C_PowerUps powerUp;
+
+    void Start()
+    {
+        InvokeRepeating("SlowUpdate", 0.0f, newUpdateRate);
+    }
+    void SlowUpdate()
+    {
+        objectRotation = new Vector3(0, -5f, 0) + transform.eulerAngles;
+        transform.eulerAngles = objectRotation;
+    }
 
     public void Refill()
     {
         hydrationController.MaxHydration();
-    }
-    public void DeleteBottle()
-    {
-        waterbottlecounter = 0;
+        waterbottleThere = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if  (waterbottlecounter == 0) 
+            if  (waterbottleThere == false) 
             {
-                waterbottlecounter = 1;
-                Debug.Log("Waterbottlecounter = " + waterbottlecounter);
+                waterbottleThere = true;
+                Debug.Log("Waterbottlecounter = " + waterbottleThere);
                 Destroy(GetComponent<Collider>());
-                GameObject cube = gameObject.transform.Find("Cylinder").gameObject;
-                cube.GetComponent<MeshRenderer>().material = transparent;
+                GameObject cube = gameObject.transform.Find("Bottle").gameObject;
+                Destroy(cube);
+                Debug.Log("Waterbottle triggered");
+                powerUp.PickUpBottle();
             }
             else
             {
@@ -45,7 +57,7 @@ public class Waterbottle : MonoBehaviour
     }
     public bool WaterbottleChecker ()
     {
-        if (waterbottlecounter > 0)
+        if (waterbottleThere)
         {
             return true;
         }

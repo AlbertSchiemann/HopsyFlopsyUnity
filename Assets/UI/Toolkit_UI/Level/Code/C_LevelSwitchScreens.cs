@@ -18,9 +18,6 @@ public class C_LevelSwitchScreens : MonoBehaviour
     [SerializeField] UIDocument TK_settingsMenu;
     [SerializeField] UIDocument TK_storeMenu;
 
-    [SerializeField] GameObject winCurrencyText;
-
-    public static bool WinCurrencyText = false;
 
     private bool WON = false;
 

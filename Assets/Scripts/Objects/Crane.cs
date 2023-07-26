@@ -17,7 +17,7 @@ public class Crane : MonoBehaviour
         {
             Debug.Log("Crane triggered");
             playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = false;
-            //GameObject player = other.gameObject;
+            
             playerPrefab.GetComponent<GridPlayerMovement>().PreventMovement();
             
             playerPrefab.GetComponent<GridPlayerMovement>().CraneMovement();
@@ -31,6 +31,7 @@ public class Crane : MonoBehaviour
             // player.GetComponent<Animator>().SetBool("moving", true);
 
             Invoke("AfterAnimation", animationSpeed);
+            Invoke("AfterAnimationUpdate", animationSpeed);
 
             playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = true;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,12 @@ public class C_Store : MonoBehaviour
     Button butHelpi;
     Button butSettings;
 
+    Button butEquip1;
+    Button butEquip2;
+    Button butEquip3;
+    Button butEquip4;
+
+
 
     void OnEnable()
     {
@@ -21,29 +28,58 @@ public class C_Store : MonoBehaviour
         butSettings = root.Q<Button>("but_settings");
         butBack = root.Q<Button>("but_back");
 
+        butEquip1 = root.Q<Button>("but_itemEquip1");
+        butEquip2 = root.Q<Button>("but_itemEquip2");
+        butEquip3 = root.Q<Button>("but_itemEquip3");
+        butEquip4 = root.Q<Button>("but_itemEquip4");
+
         butHelpi.clicked += Help;
         butSettings.clicked += Settings;
         butBack.clicked += Back;
 
+     //   player = GameObject.Find("Player3D Grid").GetComponent<SkinLoader>();
+
+        butEquip1.clicked += EquipSkin1;
+        butEquip2.clicked += EquipSkin2;
+        butEquip3.clicked += EquipSkin3;
+        butEquip4.clicked += EquipSkin4;
+
     }
 
+    public void EquipSkin1()
+    {
+        Debug.Log("skin changed");
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
+        Debug.Log("skin changed");
+    }
+    public void EquipSkin2()
+    {
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
+    }
+    public void EquipSkin3()
+    {
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
+    }
+    public void EquipSkin4()
+    {
+        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin4;
+    }
 
-    void Help()
+    public void Help()
     {
         Debug.Log("before");
         switchScreenStore.OpenHelp();
         Debug.Log("after");
     }
 
-    void Settings()
+    public void Settings()
     {
         switchScreenStore.OpenSettings();
 
     }
 
-    void Back()
+    public void Back()
     {
-        Debug.Log("afterr");
         switchScreenStore.OpenMain();
     }
 }

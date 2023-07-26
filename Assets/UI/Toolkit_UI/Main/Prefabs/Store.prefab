@@ -62,4 +62,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1a615487d8e28489b7bf1a8673d570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchScreenStore: {fileID: 0}
+  switchScreenStore: {fileID: 6356622009191579061, guid: bd94cb6834a91c847aecb3e8cb05e99a,
+    type: 3}
+  skinToEquip1: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+    type: 3}
+  skinToEquip2: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
+    type: 3}
+  skinToEquip3: {fileID: 4490092296019293943, guid: b8642eab11bd60e419e80d3d4fe445eb,
+    type: 3}
+  skinToEquip4: {fileID: 8577306237156758912, guid: 80073f311b244ac4c941633d5b2fb12b,
+    type: 3}

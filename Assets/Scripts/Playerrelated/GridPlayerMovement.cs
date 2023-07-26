@@ -24,7 +24,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
     [SerializeField] private int StartY =  3;                          
 
-    public float PlayerHeigth = .5f;                        // Position in Y Axis of the Prefab
+    public float PlayerHeigth = 1f;                        // Position in Y Axis of the Prefab
     private bool isAllowedToMove = true;                    // enables player movement in general
 
     public bool UpdateActive = true;                        // enables the update of the playerposition
@@ -32,6 +32,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
     [SerializeField] private Waterbottle waterbottle;
+    [SerializeField] private GameObject bucket;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class GridPlayerMovement : MonoBehaviour
         print(grid2dCreated);
         InstantiatePlayer();
         isAllowedToMove = true;                                             // Enter the Starting Gridposition of the Player, so a check of the surrounding blocks gets called
-        playerPosition.IsValidMove(1, 6);                                   // and the player cant move through blocked blocks              
+        playerPosition.IsValidMove(StartX, StartY);                                   // and the player cant move through blocked blocks              
         UpdateGameObjectPosition();
         isAllowedToMove = false;
 
@@ -80,6 +81,7 @@ public class GridPlayerMovement : MonoBehaviour
         private float rotationRight = 90;
         private float rotationForward = 0;
         private float rotationBackward = 180;
+        private float PlayerHeigth = 1f;
         private Grid2DCreated grid;
         private GameObject playerPrefab;                    // Reference to the player GameObject
         private Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
@@ -89,11 +91,13 @@ public class GridPlayerMovement : MonoBehaviour
         private bool isAllowedToMoveBack = true;
         private bool isAllowedToMoveForward = true;
         private bool isAllowedToMoveForwardTap = true; 
+        private bool skatingNotHit = true;
         public string direction = string.Empty;             // dunno
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
         public bool isMoving = false;
+        C_PowerUps powerUps;
         public PlayerPosition(int x, int y, Grid2DCreated grid, GameObject playerPrefab)  // Constructor: Player gets the Position of the Block he is on saved in posX and posY for the next move
         {  
             this.posX = x;
@@ -119,6 +123,7 @@ public class GridPlayerMovement : MonoBehaviour
                 }
             }
         }
+        
 
         public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip, AudioClip[] _hydrateClip, Waterbottle waterbottle)            // Check for Input and call the Move-Function
         {
@@ -174,10 +179,10 @@ public class GridPlayerMovement : MonoBehaviour
                     Debug.Log("Space pressed");
                     if (waterbottle.WaterbottleChecker() == true)
                     {
-                        waterbottle.Refill();
+                        
+                        powerUps.UseBottle();
                         //SoundManager.Instance.PlaySound(_hydrateClip);
                         Debug.Log("Waterbottle used");
-                        waterbottle.DeleteBottle();
                     }
                     else if (waterbottle.WaterbottleChecker() == false)
                     {
@@ -194,6 +199,27 @@ public class GridPlayerMovement : MonoBehaviour
         public void moveForwardTap ()   {Move( 0, 1); direction =    "Forward";}
         public void moveBackward ()     {Move( 0,-1); direction =   "Backward";}
         public void moveCrane()         {Move( 2, 2); direction =    "Crane";}
+        public void moveSkateboard()    
+        {
+            // umstellen auf playerposition
+            //playerPrefab.transform.position = new Vector3(posX, -16.85f, posY);
+            Debug.Log("Skating1");
+            if(isAllowedToMoveForward)
+            {
+                Debug.Log("Skating2");
+                playerPrefab.transform.position = new Vector3(posX, PlayerHeigth, posY++);
+                IsValidMove(posX, posY);	
+            }
+            else if (!isAllowedToMoveForward)
+            {
+                Debug.Log("Skating3");
+                playerPrefab.transform.position = new Vector3(posX, PlayerHeigth, posY--);
+                return;
+            }
+            else {Debug.LogError("Skateboarding not functioning!");}
+
+            direction =    "Skateboard";
+        }
         public void Move(int x, int y) 
         {
             int newPosX = posX + x;
@@ -212,7 +238,7 @@ public class GridPlayerMovement : MonoBehaviour
             else if (block == GridBlockTypeToChoose.NormalBlockBlocked){
                         blocktype = "Blocking Normalblock!";} 
             else if (block == GridBlockTypeToChoose.Bridge){
-                        blocktype = "Brideblock!";} 
+                        blocktype = "Bridgeblock!";} 
             else if (block == GridBlockTypeToChoose.BridgeBlocked){
                         blocktype = "Blocking Bridge!";} 
             else if (block == GridBlockTypeToChoose.Water){
@@ -306,6 +332,59 @@ public class GridPlayerMovement : MonoBehaviour
     public void CraneMovement()
     {
         playerPosition.moveCrane();
+    }
+    public void SkateboardMovement()
+    {
+        
+        Debug.Log($"{playerPosition.posX} {playerPosition.posY} = SkateboardMovement - Position");
+        Invoke("CallOfMoveSkateboard", .2f);
+        Invoke("CallOfMoveSkateboard", .4f);
+        Invoke("CallOfMoveSkateboard", .55f);
+        Invoke("CallOfMoveSkateboard", .65f);
+        Invoke("CallOfMoveSkateboard", .75f);
+        Invoke("CallOfMoveSkateboard", .85f);
+        Invoke("CallOfMoveSkateboard", .95f);
+        Invoke("CallOfMoveSkateboard", 1.1f);
+        Invoke("CallOfMoveSkateboard", 1.25f);
+        Invoke("CallOfMoveSkateboard", 1.4f);
+        Invoke("CallOfMoveSkateboard", 1.55f);
+
+    
+        Invoke("AllowMovement", 1.55f);
+        // Skateboard unter player spawnen
+     
+    }
+
+    public void CallOfMoveSkateboard()
+    {
+        playerPosition.moveSkateboard();
+    }
+    public void RandomMovement()
+    {
+        int randomNum = Random.Range(0, 4);
+
+        switch(randomNum){
+        case 0:
+            playerPosition.moveLeft();
+            GameObject newObject1 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
+        break;
+        case 1:
+            playerPosition.moveRight();
+            GameObject newObject2 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
+        break;
+        case 2:
+            playerPosition.moveForward();
+            GameObject newObject3 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
+        break;
+        case 3:
+            playerPosition.moveBackward();
+            GameObject newObject4 = Instantiate(bucket, new Vector3(playerPosition.posX, 2, playerPosition.posY), Quaternion.identity);
+            
+        break;
+        }
     }
     
 }

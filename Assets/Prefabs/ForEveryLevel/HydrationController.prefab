@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 488882986320239352}
   - component: {fileID: 488882986320239351}
-  - component: {fileID: 488882986320239350}
   m_Layer: 0
   m_Name: HydrationController
   m_TagString: Untagged
@@ -45,31 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf1af99caa7c7c418b1b34b22ddd5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hydrationMax: 100
   hydrationDecayRate: 10
   hydrationDecayFire: 2
   hydrationRestoreAmount: 100
   isCollidingWithWater: 0
   isCollidingWithFire: 0
-  Delay: 1
-  levelScript: {fileID: 4118953451913472026, guid: 4720595ce045d844eb3ea45e11378919,
-    type: 3}
-  waterBar: {fileID: 488882986320239350}
+  DelayTillReload: 0.2
+  levelScript: {fileID: 0}
+  waterBar: {fileID: 0}
   _hydrateClip:
   - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
   _failClip:
   - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
---- !u!114 &488882986320239350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488882986320239349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd7398057df1054b9d6da32ec700485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterSlider: {fileID: 4636279051083772747, guid: bd12ece60fe81ac47a5f8d79cc444ec1,
-    type: 3}
+  waterbottle: {fileID: 0}

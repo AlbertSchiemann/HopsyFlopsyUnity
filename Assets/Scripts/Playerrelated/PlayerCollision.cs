@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerCollision : MonoBehaviour
 {
     public float Delay = 1.0f; // Delay till scene reloads
-    public UI_LevelScript levelScript;
+    public C_LevelSwitchScreens levelScript;
 
     public float RayRange = 1;
 

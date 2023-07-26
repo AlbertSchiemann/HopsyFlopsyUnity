@@ -49,17 +49,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 949e809da0720a1428e53ea17662a2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 0}
+  grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
   playerPrefab: {fileID: 2260953583789165416}
   _hydrateClip: []
-  hydrationController: {fileID: 0}
+  hydrationController: {fileID: 488882986320239351, guid: 5b55c43e038a07e44b9e9bde0351aad4,
+    type: 3}
   StartX: 23
   StartY: 3
   PlayerHeigth: 1
   UpdateActive: 1
-  _moveClip: []
-  _collisionClip: []
-  waterbottle: {fileID: 0}
+  _moveClip:
+  - {fileID: 8300000, guid: 99ad06c126c9f194e9a278b5c5ee84ee, type: 3}
+  _collisionClip:
+  - {fileID: 8300000, guid: a90282a5b40c869408b0861ada240a9e, type: 3}
+  waterbottle: {fileID: 6366778455681078648, guid: 0e38e75efb5800940ae1c67959636d6d,
+    type: 3}
+  bucket: {fileID: 4116155033741112577, guid: fb73e5247d34421479bf4b01ce8c9c6c, type: 3}
 --- !u!54 &7830886847906416693
 Rigidbody:
   m_ObjectHideFlags: 0

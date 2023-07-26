@@ -23,10 +23,18 @@ public class C_Pause : MonoBehaviour
 
     VisualElement visCorner4;
 
+    private GameStateManagerScript GameStateManagerScript;
 
+    private void Awake()
+    {
+        GameObject GameStateManager = GameObject.Find("GameStateManager");
+        GameStateManagerScript = GameStateManager.GetComponent<GameStateManagerScript>();
+    }
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+
+        GameStateManagerScript.PauseGame();
 
         butHelp = root.Q<Button>("but_help");
         butStore = root.Q<Button>("but_store");

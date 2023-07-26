@@ -21,38 +21,46 @@ public class C_Loose : MonoBehaviour
 
     VisualElement visCorner4;
 
+    private GameStateManagerScript GameStateManagerScript;
 
-    //void OnEnable()
-    //{
-    //    VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+    private void Awake()
+    {
+        GameObject GameStateManager = GameObject.Find("GameStateManager");
+        GameStateManagerScript = GameStateManager.GetComponent<GameStateManagerScript>();
+    }
+    void OnEnable()
+    {
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
-    //    butHelp = root.Q<Button>("but_help");
-    //    butStore = root.Q<Button>("but_store");
-    //    butSettings = root.Q<Button>("but_settings");
+        GameStateManagerScript.PauseGame();
 
-    //    butMain = root.Q<Button>("but_main");
-    //    butRestart = root.Q<Button>("but_restart");
+        butHelp = root.Q<Button>("but_help");
+        butStore = root.Q<Button>("but_store");
+        butSettings = root.Q<Button>("but_settings");
 
-
-    //butHide = root.Q<Button>("but_hide");
-    //butShow = root.Q<Button>("but_show");
+        butMain = root.Q<Button>("but_main");
+        butRestart = root.Q<Button>("but_restart");
 
 
-    //    visCorner4 = root.Q<VisualElement>("vis_4inCorner");
-    //  visCorner4.style.display = DisplayStyle.None;
+        butHide = root.Q<Button>("but_hide");
+        butShow = root.Q<Button>("but_show");
 
 
-    //    butHelp.clicked += Help;
-    //    butStore.clicked += Store;
-    //    butSettings.clicked += Settings;
+        visCorner4 = root.Q<VisualElement>("vis_4inCorner");
+        visCorner4.style.display = DisplayStyle.None;
 
-    //    butMain.clicked += Main;
-    //    butRestart.clicked += Restart;
 
-    //    butHide.clicked += Hide;
-    //    butShow.clicked += Show;
+        butHelp.clicked += Help;
+        butStore.clicked += Store;
+        butSettings.clicked += Settings;
 
-    //}
+        butMain.clicked += Main;
+        butRestart.clicked += Restart;
+
+        butHide.clicked += Hide;
+        butShow.clicked += Show;
+
+    }
 
 
     void Help()

@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
+    <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
+    <ui:VisualElement name="vis_" class="Vis_BackGround vis_darkerBackground">
+        <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column; bottom: 3%; padding-left: 62px; padding-right: 62px; padding-top: 62px; padding-bottom: 62px; height: 50%;">
+            <ui:Button display-tooltip-when-elided="true" name="but_restart" class="but_3inMiddle Button_restart" />
+            <ui:Button display-tooltip-when-elided="true" name="but_nextLevel" class="but_3inMiddle" style="font-size: 84px; -unity-font-style: bold; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/NextLevelOutline.png?fileID=2800000&amp;guid=ec4a4711bff7d694cbb3242f8eb3dba9&amp;type=3#NextLevelOutline&apos;); height: 239px; width: 669px;" />
+            <ui:Button display-tooltip-when-elided="true" name="but_main" class="but_3inMiddle Button_main" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&amp;guid=c9ab7843247239b4abac5669f9567f48&amp;type=3#MainMenuOutline&apos;);" />
+        </ui:VisualElement>
+        <ui:Label text="Level Completed!" display-tooltip-when-elided="true" style="font-size: 42px; top: -2%; width: 20%; height: 5%; -unity-text-align: upper-center; display: none;" />
+        <ui:VisualElement name="vis_stars" style="align-items: center; justify-content: center; position: relative; flex-direction: row; width: 1174px; height: 401px; left: 0; top: -4%;">
+            <ui:VisualElement name="vis_star1" class="VisualEle_Star vis_lowerStar" style="transition-property: all, -unity-background-image-tint-color, ignored; transition-duration: 0s, 5s, 0s; transition-timing-function: ease, ease, ease; transition-delay: 0s, 0s, 0s; -unity-background-image-tint-color: rgb(255, 255, 255);" />
+            <ui:VisualElement name="vis_star2" class="VisualEle_Star" />
+            <ui:VisualElement name="vis_star3" class="VisualEle_Star vis_lowerStar" />
+        </ui:VisualElement>
+        <ui:VisualElement name="vis_4inCorner" class="VisualEle_4inCornerUp" style="display: flex;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_help" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_QuestionMark.png?fileID=2800000&amp;guid=5e0ffdf80019ed540bde43e39f2fc96b&amp;type=3#B_QuestionMark&apos;);" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_store" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Buy.png?fileID=2800000&amp;guid=ff079e20dc4bf1a40aee392077525087&amp;type=3#B_Buy&apos;);" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_settings" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Setting.png?fileID=2800000&amp;guid=b2a391bd6e3b58f4aab9bed2573e9373&amp;type=3#B_Setting&apos;);" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_hide" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_DropDownMenu1.png?fileID=2800000&amp;guid=437b987a0c655e44399b9584ab4ceb66&amp;type=3#B_DropDownMenu1&apos;);" />
+        </ui:VisualElement>
+        <ui:Button display-tooltip-when-elided="true" name="but_show" class="Button_CornerHide" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_DropDownMenu2.png?fileID=2800000&amp;guid=cb03669cb670d864c8f6ffa35add6061&amp;type=3#B_DropDownMenu2&apos;); right: 2%; bottom: 2%; display: flex;" />
+    </ui:VisualElement>
+</ui:UXML>

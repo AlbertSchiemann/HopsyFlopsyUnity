@@ -36,7 +36,7 @@ public class EnemyMovementArray : MonoBehaviour
     [SerializeField] private Grid grid;
     private EnemyPosition enemyPosition;
     [SerializeField] private GameObject enemyPrefab;    // Insert the Enemy Prefab
-    public UI_LevelScript levelScript;                  // Reference to the LevelScripts
+    public C_LevelSwitchScreens levelScript;                  // Reference to the LevelScripts
     [SerializeField] private AudioClip[] _failClip;     // Death Sound
 
     public static bool canTankHit = false;              // Shield Power-Up Bool
@@ -45,10 +45,13 @@ public class EnemyMovementArray : MonoBehaviour
     public float delayTillDeathscreenShows = .2f;                          // Delay till Scene gets reloaded after death
     public float delayTillStartOfMovement = 2.2f;                          // Delay till Enemy gets destroyed after death
     int i;
+
+    C_PowerUps powerUp;
+
     private void Awake()
     {
-        GameObject levelUIObject = GameObject.Find("LevelUI");
-        levelScript = levelUIObject.GetComponent<UI_LevelScript>();
+        GameObject levelUIObject = GameObject.Find("Level_UI");
+        levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
         i = 0;
     }
     void Start()
@@ -70,10 +73,11 @@ public class EnemyMovementArray : MonoBehaviour
         {
             i++;
         }
-        else { Debug.Log("Hilfe"); return; }
+        else { //Debug.Log("Hilfe"); 
+            return; }
 
         MovementStruct current = movementDirection[i - 1];
-        Debug.Log(movementDirection.Length + "  " + i);
+        //Debug.Log(movementDirection.Length + "  " + i);
 
         if (i == movementDirection.Length) { Invoke("InBetweenLooping", current.Directionslength + 1); }
 
@@ -81,19 +85,19 @@ public class EnemyMovementArray : MonoBehaviour
         {
             case Direction.Right:
                 FLMoveRight(current.Directionslength);
-                Debug.Log("1");
+                //Debug.Log("1");
                 break;
             case Direction.Forward:
                 FLMoveForward(current.Directionslength);
-                Debug.Log("2");
+                //Debug.Log("2");
                 break;
             case Direction.Left:
                 FLMoveLeft(current.Directionslength);
-                Debug.Log("3");
+                //Debug.Log("3");
                 break;
             case Direction.Backward:
                 FLMoveBackward(current.Directionslength);
-                Debug.Log("4");
+               //Debug.Log("4");
                 break;
             default:
                 Debug.Log("No Movement Implemented in Inspector");
@@ -247,6 +251,7 @@ public class EnemyMovementArray : MonoBehaviour
                 Debug.Log("DEFLECT");
                 SoundManager.Instance.PlaySound(_deflectClip);
                 canTankHit = false;
+                powerUp.UseShield();
             }
         }
     }

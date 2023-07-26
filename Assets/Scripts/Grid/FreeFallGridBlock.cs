@@ -7,7 +7,7 @@ public class FreeFallGridBlock : MonoBehaviour
 {
     // This script is just calling the animator of the playerprefab
 
-    public UI_LevelScript levelScript;
+    public C_LevelSwitchScreens levelScript;
 
     public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
     
@@ -22,8 +22,8 @@ public class FreeFallGridBlock : MonoBehaviour
     private void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
-        GameObject levelUIObject = GameObject.Find("LevelUI");
-        levelScript = levelUIObject.GetComponent<UI_LevelScript>();
+        GameObject levelUIObject = GameObject.Find("Level_UI");
+        levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
     }
 
     private void OnTriggerEnter(Collider other)

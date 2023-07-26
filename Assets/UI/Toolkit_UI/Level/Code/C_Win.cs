@@ -4,6 +4,7 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI.MessageBox;
 
 public class C_Win : MonoBehaviour
 {
@@ -21,42 +22,86 @@ public class C_Win : MonoBehaviour
     Button butShow;
 
     VisualElement visCorner4;
+    VisualElement star1;
+    VisualElement star2;
+    VisualElement star3;
+
+    public static bool allCollected = false;
+    public static bool inTime = false;
+
+    void OnEnable()
+    {
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+
+        butHelp = root.Q<Button>("but_help");
+        butStore = root.Q<Button>("but_store");
+        butSettings = root.Q<Button>("but_settings");
+
+        butMain = root.Q<Button>("but_main");
+        butNext = root.Q<Button>("but_nextLevel");
+        butRestart = root.Q<Button>("but_restart");
+
+        butHide = root.Q<Button>("but_hide");
+        butShow = root.Q<Button>("but_show");
 
 
-    //void OnEnable()
-    //{
+        visCorner4 = root.Q<VisualElement>("vis_4inCorner");
+
+        star1 = root.Q<VisualElement>("vis_star1");
+        star2 = root.Q<VisualElement>("vis_star2");
+        star3 = root.Q<VisualElement>("vis_star3");
+
+
+        visCorner4.style.display = DisplayStyle.None;
+
+
+        butHelp.clicked += Help;
+        butStore.clicked += Store;
+        butSettings.clicked += Settings;
+
+        butMain.clicked += Main;
+        butNext.clicked += Next;
+        butRestart.clicked += Restart;
+
+        butHide.clicked += Hide;
+        butShow.clicked += Show;
+
+        Stars();
+    }
+
+    void StarReachedCollectible()
+    {
     //    VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-
-    //    butHelp = root.Q<Button>("but_help");
-    //    butStore = root.Q<Button>("but_store");
-    //    butSettings = root.Q<Button>("but_settings");
-
-    //    butMain = root.Q<Button>("but_main");
-    //    butNext = root.Q<Button>("but_next");
-    //    butRestart = root.Q<Button>("but_restart");
-
-    //butHide = root.Q<Button>("but_hide");
-    //butShow = root.Q<Button>("but_show");
-
-
-    //      visCorner4 = root.Q<VisualElement>("vis_4inCorner");
-
-
-    //   visCorner4.style.display = DisplayStyle.None;
-
-
-    //    butHelp.clicked += Help;
-    //    butStore.clicked += Store;
-    //    butSettings.clicked += Settings;
-
-    //    butMain.clicked += Main;
-    //    butNext.clicked += Next;
-    //    butRestart.clicked += Restart;
-
-    //    butHide.clicked += Hide;
-    //    butShow.clicked += Show;
-
-    //}
+    //    star1 = root.Q<VisualElement>("vis_star1");
+    //    var tempColor = star1.style.unityBackgroundImageTintColor;
+    //    Debug.Log(tempColor);
+    //    //tempColor.a = 1f;
+    //    star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+    //    star3.style.unityBackgroundImageTintColor = Color.grey;
+    //    star1.style.unityBackgroundImageTintColor = new Color(0.35f, 0.35f, 0.35f, 1f);
+    //    // -unity-background-image-tint-color: rgba(178, 178, 178, 0.34);
+    }
+    void Stars()
+    {
+        if (allCollected&&inTime)
+        {
+            //aniamtion star1
+            star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            //animation star2
+            star3.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            //animation star3
+        }
+        else if (allCollected||inTime)
+        {
+            //animaition star1
+            star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            //aniamtion star2
+        }
+        else
+        {
+            //aniamtion star1
+        }
+    }
 
 
     void Help()

@@ -1,6 +1,13 @@
+.vis_darkerBackground {
+    width: 100%;
+    height: 100%;
+    flex-direction: column-reverse;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
 .vis_3inMiddle {
-    height: 907px;
-    width: 830px;
+    height: 55%;
+    width: 27%;
     justify-content: center;
     align-items: center;
     background-color: rgba(136, 222, 255, 0.61);
@@ -14,7 +21,7 @@
     height: 1200px;
     width: 300px;
     position: absolute;
-    bottom: 2%;
+    bottom: 1.5%;
     right: 2%;
     align-items: center;
     justify-content: center;
@@ -32,19 +39,36 @@
     flex-direction: row;
 }
 
+.VisualEle_Star {
+    background-color: rgba(255, 255, 255, 0);
+    width: 500px;
+    height: 500px;
+    margin-left: -34px;
+    margin-right: -34px;
+    margin-top: -34px;
+    margin-bottom: -34px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/StarSmal.png?fileID=2800000&guid=d59181ed5fdb44145a8880ec6e80192e&type=3#StarSmal');
+    -unity-background-image-tint-color: rgb(89, 89, 89);
+}
+
+.vis_lowerStar {
+    top: 26%;
+}
+
 .but_3inMiddle {
-    height: 25%;
+    height: 28%;
     width: 90%;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     background-color: rgba(56, 56, 56, 0);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
     font-size: 76px;
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .Button_4inCorner {
@@ -81,3 +105,45 @@
     position: absolute;
 }
 
+.Button_restart {
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
+}
+
+.Button_main {
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
+}
+
+.button_bottle {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/WaterBottleBig.png?fileID=2800000&guid=ef7ce82c33902394a961b2d7b9c01028&type=3#WaterBottleBig');
+    top: auto;
+    left: 2.6%;
+    right: auto;
+    bottom: 4%;
+    rotate: -10deg;
+    background-color: rgba(56, 56, 56, 0);
+}
+
+.button_shield {
+    position: relative;
+    height: 250px;
+    width: 250px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/ShieldBig.png?fileID=2800000&guid=3cd4873232dd4664097240d06dd802fa&type=3#ShieldBig');
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    rotate: 0;
+}
+
+.Wave {
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/waterbar/wave.png?fileID=-2055082365&guid=3ee65a67c4b3eb14cb23bc0b1fc83f29&type=3#wave_6');
+    width: 100%;
+    height: 170px;
+    -unity-background-scale-mode: stretch-to-fill;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    top: -15px;
+}

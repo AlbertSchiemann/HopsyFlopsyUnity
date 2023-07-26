@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Grid grid;
     private EnemyPosition enemyPosition; 
     [SerializeField] private GameObject enemyPrefab;    // Insert the Enemy Prefab
-    public UI_LevelScript levelScript;                  // Reference to the LevelScript
+    public C_LevelSwitchScreens levelScript;                  // Reference to the LevelScript
 
 
     public float generalHeigth = .5f;                   // Position in Y Axis of the Prefab, normally on grid with .5f
@@ -39,8 +39,8 @@ public class EnemyMovement : MonoBehaviour
     public float startDelay = 2.2f;                          // Delay till Enemy gets destroyed after death
     private void Awake()
     {
-        GameObject levelUIObject = GameObject.Find("LevelUI");
-        levelScript = levelUIObject.GetComponent<UI_LevelScript>();
+        GameObject levelUIObject = GameObject.Find("Level_UI");
+        levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
     }
     void Start()
     {

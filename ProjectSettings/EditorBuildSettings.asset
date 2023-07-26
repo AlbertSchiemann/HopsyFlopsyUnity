@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/IronSource/DemoScene/IronSourceDemo.unity
+    guid: ccc0ac08126704384bdda74c26d99797
+  - enabled: 1
     path: Assets/Scenes/World 1/World1Level1 1.unity
     guid: 3546138e620c0534798d9d50f26c7eb5
   - enabled: 0
@@ -23,22 +26,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/UI/Previous_UI/Tutorials/PageUI_Tut.unity
     guid: aed4338895a4bff45a822cedb941fed7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Second_Level.unity
     guid: b776834c3b17e144fa706e7821413c60
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Albert_Level.unity
     guid: abc30a96edaf3d643b0f55b1e8f2edc5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Artists_Level.unity
     guid: 3abbac484ea7f92488578f4e793e30eb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Denis_Level.unity
     guid: 12ec01012607c0e4ea32ac97a8670bd8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Julius_GridTest.unity
     guid: bfb543146a446ef4f8cfacfd2f5963d5
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Nyra_Level.unity
     guid: b85f2157d99889d498cd3bc27e8bebb4
   - enabled: 1

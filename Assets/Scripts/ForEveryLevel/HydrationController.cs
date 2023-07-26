@@ -13,7 +13,7 @@ public class HydrationController : MonoBehaviour
     bool isHydrationActivated;
 
     public static float hydrationMax = 100f;                       // Maximum amount of Hydration
-    public float hydrationDecayRate = 10f;                  // Rate in which the Hydration goes down 
+    public float hydrationDecayRate = 18f;                  // Rate in which the Hydration goes down 
     public float hydrationDecayFire = 2f;
     public float hydrationRestoreAmount = 100f;             // Rate in which Hydration gets restored in Water Tiles
 
@@ -24,8 +24,10 @@ public class HydrationController : MonoBehaviour
     public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
 
 
-    public UI_LevelScript levelScript;
-    public UI_Script_WaterBar waterBar;
+    [SerializeField] C_LevelSwitchScreens levelScript;
+    public C_WaterBar waterBar;
+
+    [SerializeField] C_PowerUps powerUp;
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
@@ -53,8 +55,7 @@ public class HydrationController : MonoBehaviour
         
         hydration = hydrationMax;
 
-        waterBar.SetMaxHealth(hydrationMax);
-        
+      
         GameStateManagerScript.onGameStart += ActivateHydration;
         GameStateManagerScript.onGamePaused += DeactivateHydration;
 
@@ -144,17 +145,13 @@ public class HydrationController : MonoBehaviour
 
     public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
-        /*
-        if (hydration <= 5 && waterbottle.WaterbottleChecker() == true)
+       if (hydration <= 5 && waterbottle.waterbottleThere == true)
         {
-            waterbottle.Refill();
             //SoundManager.Instance.PlaySound(_hydrateClip);
             Debug.Log("Waterbottle used");
-            waterbottle.DeleteBottle();
+            powerUp.UseBottle();
         }
-        
-        else */
-         if (hydration <= 0)
+        else if (hydration <= 0)
         {
             Invoke("Sceneload", DelayTillReload); 
             SoundManager.Instance.PlaySound(_failClip);
@@ -166,10 +163,16 @@ public class HydrationController : MonoBehaviour
     public void MaxHydration()
     {
         hydration = hydrationMax;
-        waterBar.SetMaxHealth(hydrationMax);
+        waterBar.SetMaxHealth();
+    }
+
+    public void BeerHydration()
+    {
+        hydration = hydration +20;
+        waterBar.SetHealth(hydration);
     }
     
-        void Sceneload()
+    void Sceneload()
     {
         // restart the game if the player collides with the enemy
         levelScript.OpenLoose();  
