@@ -18,7 +18,7 @@ public class C_Store : MonoBehaviour
     Button butEquip3;
     Button butEquip4;
 
-
+    [SerializeField] private AudioClip[] _UISound;
 
     void OnEnable()
     {
@@ -48,25 +48,30 @@ public class C_Store : MonoBehaviour
 
     public void EquipSkin1()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         Debug.Log("skin changed");
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
         Debug.Log("skin changed");
     }
     public void EquipSkin2()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
     }
     public void EquipSkin3()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
     }
     public void EquipSkin4()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin4;
     }
 
     public void Help()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         Debug.Log("before");
         switchScreenStore.OpenHelp();
         Debug.Log("after");
@@ -74,12 +79,14 @@ public class C_Store : MonoBehaviour
 
     public void Settings()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenSettings();
 
     }
 
     public void Back()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenMain();
     }
 }

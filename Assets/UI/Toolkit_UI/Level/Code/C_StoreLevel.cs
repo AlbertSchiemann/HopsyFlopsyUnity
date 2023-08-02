@@ -23,6 +23,9 @@ public class C_StoreLevel : MonoBehaviour
     public GameObject skinToEquip3;
     public GameObject skinToEquip4;
     private SkinLoader player;
+
+    [SerializeField] private AudioClip[] _UISound;
+    
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -51,39 +54,45 @@ public class C_StoreLevel : MonoBehaviour
 
     public void EquipSkin1()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip1);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
         Debug.Log("skin changed");
     }
     public void EquipSkin2()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip2);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
     }
     public void EquipSkin3()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip3);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
     }
     public void EquipSkin4()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip4);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin4;
     }
 
     public void Help()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenHelp();
     }
 
     public void Settings()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenSettings();
-
     }
 
     public void Back()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenPause();
     }
 }

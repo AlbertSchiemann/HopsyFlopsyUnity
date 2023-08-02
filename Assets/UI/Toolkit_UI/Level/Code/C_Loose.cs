@@ -23,6 +23,8 @@ public class C_Loose : MonoBehaviour
 
     private GameStateManagerScript GameStateManagerScript;
 
+    [SerializeField] private AudioClip[] _UISound;
+
     private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
@@ -65,33 +67,37 @@ public class C_Loose : MonoBehaviour
 
     void Help()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Help();
     }
 
     void Store()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Store();
-
     }
 
     void Settings()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Settings();
-
     }
 
     void Main()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMainMenu();
     }
 
     void Restart()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void Hide()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         butShow.style.display = DisplayStyle.Flex;
         //animation of hiding + vis_4inCorner.display=none;
         visCorner4.style.display = DisplayStyle.None;
@@ -99,6 +105,7 @@ public class C_Loose : MonoBehaviour
 
     void Show()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         //animation of hiding + vis_4inCorner.display=none;
         visCorner4.style.display = DisplayStyle.Flex;
         butShow.style.display = DisplayStyle.None;

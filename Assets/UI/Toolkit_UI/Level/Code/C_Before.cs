@@ -16,7 +16,6 @@ public class C_Before : MonoBehaviour
 
     private GameStateManagerScript GameStateManagerScript;
 
-
     public GameObject skinToEquip1;
     public GameObject skinToEquip2;
     public GameObject skinToEquip3;
@@ -25,6 +24,8 @@ public class C_Before : MonoBehaviour
     GameObject currentSkin;
 
     private SkinLoader player;
+
+    [SerializeField] private AudioClip[] _UISound;
 
     private void Awake()
     {
@@ -65,32 +66,38 @@ public class C_Before : MonoBehaviour
 
     void Help()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Help();
     }
 
     void Store()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Store();
 
     }
 
     void Settings()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Settings();
 
     }
 
     void Main()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMainMenu();
     }
 
     void Restart()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     void Play()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenPlaying();
     }
 }

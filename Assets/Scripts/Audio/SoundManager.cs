@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     private bool hasPlayedSound = false;
     private bool isAllowedToPlay = false;
     private bool playingBg = false;
+    private bool FirstStart = false;
 
     public const string Bg_key = "Background";
     public const string Sfx_key = "Effects";
@@ -59,7 +60,7 @@ public class SoundManager : MonoBehaviour
 
     //Soundeffect Array, for randomized sounds in pitch and file
     public void PlaySound(AudioClip[] clip){
-        if (isAllowedToPlay)
+        if (FirstStart)
         {
             int randomIndex = Random.Range(0, clip.Length);
             float randomPitch = Random.Range(minPitch, maxPitch);
@@ -98,6 +99,7 @@ public class SoundManager : MonoBehaviour
 
     public void AllowSound()
     {
+        FirstStart = true;
         isAllowedToPlay = true;
     }
 

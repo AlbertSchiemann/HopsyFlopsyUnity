@@ -17,6 +17,8 @@ public class C_HelpLevel : MonoBehaviour
 
     VisualElement vis_ControlExp;
 
+    [SerializeField] private AudioClip[] _UISound;
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -45,22 +47,23 @@ public class C_HelpLevel : MonoBehaviour
 
         void Store()
         {
+            SoundManager.Instance.PlaySound(_UISound);
             switchScreen.OpenStore();
-
         }
 
         void Settings()
         {
+            SoundManager.Instance.PlaySound(_UISound);
             switchScreen.OpenSettings();
-
         }
 
         void Back()
         {
+            SoundManager.Instance.PlaySound(_UISound);
             switchScreen.OpenPause();
         }
 
-    //void Level_1()   //macht keinen sinn, soll szene nicht verlassen, muss wahrscheinlich das prefab geändert werden/ein anderes ui document eingefügt werden
+    //void Level_1()   //macht keinen sinn, soll szene nicht verlassen, muss wahrscheinlich das prefab geï¿½ndert werden/ein anderes ui document eingefï¿½gt werden
     //{
     //    C_UI_OpenOther.ToLevel1();
 
@@ -74,7 +77,7 @@ public class C_HelpLevel : MonoBehaviour
 
     void Explanation()
     {
-        //animation - knöpfe nach oben
+        //animation - knï¿½pfe nach oben
         //vis_exp animation entweder rein vo seite / oder langsam erscheinen
         vis_ControlExp.style.display = DisplayStyle.Flex;
 

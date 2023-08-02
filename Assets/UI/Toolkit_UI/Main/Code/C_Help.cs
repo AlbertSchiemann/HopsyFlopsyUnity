@@ -17,6 +17,8 @@ public class C_Help : MonoBehaviour
 
     VisualElement vis_ControlExp;
 
+    [SerializeField] private AudioClip[] _UISound;
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -45,18 +47,19 @@ public class C_Help : MonoBehaviour
 
         void Store()
         {
+            SoundManager.Instance.PlaySound(_UISound);
             switchScreenW1.OpenStore();
-
         }
 
         void Settings()
         {
+            SoundManager.Instance.PlaySound(_UISound);
             switchScreenW1.OpenSettings();
-
         }
 
         void Back()
         {
+            SoundManager.Instance.PlaySound(_UISound);
             Debug.Log("afterr");
             switchScreenW1.OpenMain();
         }
@@ -75,7 +78,7 @@ public class C_Help : MonoBehaviour
 
     void Explanation()
     {
-        //animation - knöpfe nach oben
+        //animation - knï¿½pfe nach oben
         //vis_exp animation entweder rein vo seite / oder langsam erscheinen
         vis_ControlExp.style.display = DisplayStyle.Flex;
 

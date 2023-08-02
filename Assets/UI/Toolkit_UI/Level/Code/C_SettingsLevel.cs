@@ -16,10 +16,11 @@ public class C_SettingsLevel : MonoBehaviour
     Button butSound;
     Button butContact;
 
-
     VisualElement visCredits;
     VisualElement visSound;
     Label txtContact;
+
+    [SerializeField] private AudioClip[] _UISound;
 
     void OnEnable()
     {
@@ -53,18 +54,23 @@ public class C_SettingsLevel : MonoBehaviour
 
     void Credits()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         visCredits.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.None;
     }
+
     void Sound()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         visCredits.style.display = DisplayStyle.None;
         visSound.style.display = DisplayStyle.Flex;
         txtContact.style.display = DisplayStyle.None;
     }
+
     void Contact()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         txtContact.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.None;
@@ -73,17 +79,20 @@ public class C_SettingsLevel : MonoBehaviour
 
     void Help()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenHelp();
     }
 
     void Store()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenStore();
 
     }
 
     void Back()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenPause();
     }
 

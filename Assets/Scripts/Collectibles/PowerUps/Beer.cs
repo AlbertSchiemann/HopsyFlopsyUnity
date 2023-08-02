@@ -34,7 +34,7 @@ public class Beer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            SoundManager.Instance.PlaySound(_hydrateClip);
             Destroy(GetComponent<Collider>());
             GameObject cube = gameObject.transform.Find("Bottle").gameObject;
             Destroy(cube);

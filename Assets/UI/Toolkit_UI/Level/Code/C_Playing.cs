@@ -16,6 +16,8 @@ public class C_Playing : MonoBehaviour
 
     private GameStateManagerScript GameStateManagerScript;
 
+    [SerializeField] private AudioClip[] _UISound;
+
    private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
@@ -42,6 +44,7 @@ public class C_Playing : MonoBehaviour
 
     void Pause()
     {
+        SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenPause();
     }
 }
