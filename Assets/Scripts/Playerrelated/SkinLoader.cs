@@ -6,7 +6,7 @@ public class SkinLoader : MonoBehaviour
 {
     //public static GameObject skinToLoad;
     [SerializeField] private GameObject defaultSkin;
-    private GameObject currentSkin;
+    public GameObject currentSkin;
     private void Awake()
     {
         ChangeSkin(defaultSkin);

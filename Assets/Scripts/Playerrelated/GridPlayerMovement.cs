@@ -52,7 +52,7 @@ public class GridPlayerMovement : MonoBehaviour
     {
         if (playerPosition != null && isAllowedToMove == true)
         {
-            playerPosition.CheckInput(_moveClip, _collisionClip, _hydrateClip, waterbottle);
+            playerPosition.CheckInput(_moveClip, _collisionClip, _hydrateClip);
 
             if (UpdateActive)
             {
@@ -125,7 +125,7 @@ public class GridPlayerMovement : MonoBehaviour
         }
         
 
-        public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip, AudioClip[] _hydrateClip, Waterbottle waterbottle)            // Check for Input and call the Move-Function
+        public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip, AudioClip[] _hydrateClip)            // Check for Input and call the Move-Function
         {
             if (!isMoving)
             {
@@ -136,6 +136,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         //Debug.Log("Not allowed to Move Forward.");
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp || CrossTapManager.upTap || JoyStickManager.upTap)
@@ -145,6 +146,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         //Debug.Log("Not allowed to Move Forward.");
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || CrossTapManager.downTap || JoyStickManager.downTap)
@@ -154,6 +156,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         // Debug.Log("Not allowed to Move Back."); 
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft || CrossTapManager.leftTap || JoyStickManager.leftTap)
@@ -163,6 +166,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         // Debug.Log("Not allowed to Move Left."); 
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight || CrossTapManager.rightTap || JoyStickManager.rightTap)
@@ -172,6 +176,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         // Debug.Log("Not allowed to Move Right.");
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.Space))
