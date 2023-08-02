@@ -66,13 +66,13 @@ MonoBehaviour:
     value: 1
   scale:
     overrideState: 1
-    value: 3
+    value: 2
   color:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 0.028301895, g: 0.02367391, b: 0.02367391, a: 1}
   depthThreshold:
     overrideState: 1
-    value: 0.4
+    value: 1
   depthNormalThreshold:
     overrideState: 0
     value: 0
