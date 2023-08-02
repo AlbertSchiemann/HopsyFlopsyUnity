@@ -31,6 +31,14 @@ public class PowerUpManager : MonoBehaviour
     {
         
     }
+    public void Bubble()
+    {
+
+    }
+    public void Skateboard()
+    {
+        
+    }
 
     public void Refill()
     {
@@ -105,4 +113,24 @@ public class Waterbottle : MonoBehaviour
     }
     
 }
+
+
+
+private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Destroy(GetComponent<Collider>());
+            GameObject cube = gameObject.transform.Find("Skateboard").gameObject;
+            Destroy(cube);
+
+            Debug.Log("Skateboard triggered");
+            //playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = false;
+            
+            Instantiate(skateboardmeshForSkating, playerPrefab.transform.position - skateboardPosition, playerPrefab.transform.rotation, playerPrefab.transform);
+            playerPrefab.GetComponent<GridPlayerMovement>().SkateboardMovement();
+            Invoke("DestroySkateboard", 1.55f);
+            
+        }
+    }
 */

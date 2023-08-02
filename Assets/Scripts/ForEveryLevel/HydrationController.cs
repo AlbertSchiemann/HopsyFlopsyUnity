@@ -31,7 +31,6 @@ public class HydrationController : MonoBehaviour
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
-    [SerializeField] Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
 
     private PlayerInstantiate playerInstantiate;
     [SerializeField] PowerUpManager powerUpManager;

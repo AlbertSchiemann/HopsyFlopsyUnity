@@ -8,7 +8,7 @@ public class Bubble : MonoBehaviour
 
     [SerializeField] private AudioClip[] _hydrateClip;
 
-    public HydrationController hydrationController;         // Reference to the levels HydrationController 
+    [SerializeField] PowerUpManager powerUpManager;
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
     [SerializeField] private float _dehydrationDelay = 5f;
@@ -17,9 +17,13 @@ public class Bubble : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            hydrationController.PauseDehydration(_dehydrationDelay, true);
+            Debug.Log("Bubble triggered");
+            
             SoundManager.Instance.PlaySound(_hydrateClip);
+
+            Destroy(gameObject);
+
+            powerUpManager.Bubble();
           
         }
     }
