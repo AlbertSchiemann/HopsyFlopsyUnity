@@ -34,6 +34,7 @@ public class HydrationController : MonoBehaviour
     [SerializeField] Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
 
     private PlayerInstantiate playerInstantiate;
+    [SerializeField] PowerUpManager powerUpManager;
 
 
 
@@ -145,7 +146,7 @@ public class HydrationController : MonoBehaviour
 
     public void CheckHydrationDeathCondition()                              // Check if hydration has reached 0, then the player dies
     {
-       if (hydration <= 5 && waterbottle.waterbottleThere == true)
+       if (hydration <= 5 && powerUpManager.waterbottleThere == true)
         {
             //SoundManager.Instance.PlaySound(_hydrateClip);
             Debug.Log("Waterbottle used");

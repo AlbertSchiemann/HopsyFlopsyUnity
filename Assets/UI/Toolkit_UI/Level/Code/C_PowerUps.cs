@@ -12,7 +12,7 @@ public class C_PowerUps : MonoBehaviour
 
 
     [SerializeField] Shield shield;
-    [SerializeField] Waterbottle waterbottle;
+    [SerializeField] PowerUpManager powerUpManager;
 
   
 
@@ -47,7 +47,7 @@ public class C_PowerUps : MonoBehaviour
         Debug.Log("UseBottle");
         if (AlwaysThere.bottleThere)
         {
-        waterbottle.Refill();
+        powerUpManager.Refill();
         AlwaysThere.bottleThere = false;
         OpacityBottleDown();
         }
