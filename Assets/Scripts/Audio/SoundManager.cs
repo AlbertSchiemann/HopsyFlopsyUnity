@@ -17,6 +17,9 @@ public class SoundManager : MonoBehaviour
     private bool playingBg = false;
     private bool FirstStart = false;
 
+    public static bool _disableMusic = false;
+    public static bool _disableSfx = false;
+
     public const string Bg_key = "Background";
     public const string Sfx_key = "Effects";
     
@@ -44,13 +47,13 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        if(isAllowedToPlay && !playingBg)
+        if(isAllowedToPlay && !playingBg && !_disableMusic)
         {
             _musicSource.Play();
             _atmoSource.Play();
             playingBg = true;
         }
-        else if(!isAllowedToPlay && playingBg)
+        else if(!isAllowedToPlay && playingBg && !_disableMusic)
         {
             _musicSource.Stop();
             _atmoSource.Stop();
@@ -62,19 +65,22 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip[] clip){
         if (FirstStart)
         {
-            int randomIndex = Random.Range(0, clip.Length);
-            float randomPitch = Random.Range(minPitch, maxPitch);
-            AudioClip _soundbyte = clip[randomIndex];
-
-            if (!hasPlayedSound)
+            if (!_disableSfx)
             {
-                _effectSource.clip = _soundbyte;
-                _effectSource.pitch = randomPitch;
-                _effectSource.Play();
-                hasPlayedSound = true;
-            }
+                int randomIndex = Random.Range(0, clip.Length);
+                float randomPitch = Random.Range(minPitch, maxPitch);
+                AudioClip _soundbyte = clip[randomIndex];
 
-            hasPlayedSound = false;
+                if (!hasPlayedSound)
+                {
+                    _effectSource.clip = _soundbyte;
+                    _effectSource.pitch = randomPitch;
+                    _effectSource.Play();
+                    hasPlayedSound = true;
+                }
+
+                hasPlayedSound = false;
+            }
         }
         
     }
@@ -85,6 +91,26 @@ public class SoundManager : MonoBehaviour
 
         _effectSource.clip = _soundbyte;
         _effectSource.Stop();
+    }
+
+    public static void EnableMusic()
+    {
+        _disableMusic = false;
+    }
+
+    public static void EnableSfx()
+    {
+        _disableSfx = false;
+    }
+
+    public static void DisableMusic()
+    {
+        _disableMusic = true;
+    }
+
+    public static void DisableSfx()
+    {
+        _disableSfx = true;
     }
 
     public void LoadVolume() //Volume Saved in VolumeSettings.cs

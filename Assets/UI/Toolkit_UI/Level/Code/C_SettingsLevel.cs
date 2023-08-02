@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Audio;
 
 public class C_SettingsLevel : MonoBehaviour
 {
@@ -15,6 +16,20 @@ public class C_SettingsLevel : MonoBehaviour
     Button butCredits;
     Button butSound;
     Button butContact;
+
+    [SerializeField] AudioMixer mixer;
+    Slider sliderMusic;
+    Slider sliderSFX;
+    Button butMusicOn;
+    Button butMusicOff;
+    Button butSfxOn;
+    Button butSfxOff;
+
+    private bool MusicIcon = true;
+    private bool SFXIcon = true;
+
+    public const string Mixer_Bg = "Background";
+    public const string Mixer_Sfx = "Effects";
 
     VisualElement visCredits;
     VisualElement visSound;
@@ -38,7 +53,21 @@ public class C_SettingsLevel : MonoBehaviour
         visSound = rootSettings.Q<VisualElement>("vis_sound");
         txtContact = rootSettings.Q<Label>("txt_contact");
 
+        sliderMusic = rootSettings.Q<Slider>("Sound");
+        sliderSFX = rootSettings.Q<Slider>("SFX");
 
+        //sliderMusic.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
+        //sliderSFX.value = PlayerPrefs.GetFloat(SoundManager.Sfx_key, 1f);
+
+        butMusicOn = rootSettings.Q<Button>("but_sound_on");
+        butMusicOff = rootSettings.Q<Button>("but_sound_off");
+        butSfxOn = rootSettings.Q<Button>("but_sfx_on");
+        butSfxOff = rootSettings.Q<Button>("but_sfx_off");
+
+        butMusicOn.clicked += MusicOff;
+        butMusicOff.clicked += MusicOn;
+        butSfxOn.clicked += SfxOff;
+        butSfxOff.clicked += SfxOn;
 
         butCredits.clicked += Credits;
         butSound.clicked += Sound;
@@ -66,6 +95,32 @@ public class C_SettingsLevel : MonoBehaviour
         visCredits.style.display = DisplayStyle.None;
         visSound.style.display = DisplayStyle.Flex;
         txtContact.style.display = DisplayStyle.None;
+
+        if (MusicIcon)
+        {
+            butMusicOff.style.display = DisplayStyle.None;
+            butMusicOn.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            butMusicOff.style.display = DisplayStyle.Flex;
+            butMusicOn.style.display = DisplayStyle.None;
+
+            SoundManager.DisableMusic();
+        }
+
+        if (SFXIcon)
+        {
+            butSfxOff.style.display = DisplayStyle.None;
+            butSfxOn.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            butSfxOff.style.display = DisplayStyle.Flex;
+            butSfxOn.style.display = DisplayStyle.None;
+
+            SoundManager.DisableSfx();
+        }
     }
 
     void Contact()
@@ -96,7 +151,59 @@ public class C_SettingsLevel : MonoBehaviour
         switchScreen.OpenPause();
     }
 
+    /*
+    private void OnDisable()
+    {
+        PlayerPrefs.SetFloat(SoundManager.Bg_key, sliderMusic.value);
+        PlayerPrefs.SetFloat(SoundManager.Sfx_key, sliderSFX.value);
+        Debug.Log("Current Slider Value on Disable: " + sliderMusic.value + " " + sliderSFX.value);
+    }
+    */
 
+    private void SetBgVolume(float value)
+    {
+        Debug.Log("Set Music Volume");
+        mixer.SetFloat(Mixer_Bg, Mathf.Log10(value) * 20);
+    }
+
+    private void SetSfxVolume(float value)
+    {
+        Debug.Log("Set SFX Volume");
+        mixer.SetFloat(Mixer_Sfx, Mathf.Log10(value) * 20);
+    }
+
+    private void MusicOn()
+    {
+        butMusicOff.style.display = DisplayStyle.None;
+        butMusicOn.style.display = DisplayStyle.Flex;
+
+        SoundManager.EnableMusic();
+        MusicIcon = true;
+    }
+    private void MusicOff()
+    {
+        butMusicOff.style.display = DisplayStyle.Flex;
+        butMusicOn.style.display = DisplayStyle.None;
+
+        SoundManager.DisableMusic();
+        MusicIcon = false;
+    }
+    private void SfxOn()
+    {
+        butSfxOff.style.display = DisplayStyle.None;
+        butSfxOn.style.display = DisplayStyle.Flex;
+
+        SoundManager.EnableSfx();
+        SFXIcon = true;
+    }
+    private void SfxOff()
+    {
+        butSfxOff.style.display = DisplayStyle.Flex;
+        butSfxOn.style.display = DisplayStyle.None;
+
+        SoundManager.DisableSfx();
+        SFXIcon = false;
+    }
 }
 
 
