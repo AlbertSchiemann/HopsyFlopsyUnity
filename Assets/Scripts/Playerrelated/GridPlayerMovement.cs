@@ -18,7 +18,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private Grid grid;
     private PlayerPosition playerPosition;                  // get the player-coordinates and transform them into grid coordinates
     [SerializeField] private GameObject playerPrefab; 
-    [SerializeField] private AudioClip[] _hydrateClip;
+
     public HydrationController hydrationController;
   
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
@@ -31,6 +31,7 @@ public class GridPlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
+    [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private Waterbottle waterbottle;
     [SerializeField] private GameObject bucket;
 

@@ -8,8 +8,15 @@ public class Shield : MonoBehaviour
 
     [SerializeField] private AudioClip[] _shieldClip;
 
-    [SerializeField] PowerUpManager powerUpManager;
+    private PlayerInstantiate playerInstantiate;
 
+    private PowerUpManager powerUpManager;
+
+    void Start()
+    {
+        playerInstantiate = PlayerInstantiate.Instance;
+        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUpManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

@@ -8,13 +8,15 @@ public class PowerUpManager : MonoBehaviour
     public HydrationController hydrationController;
 
     [SerializeField] CameraFollow cameraFollow;
-    public bool waterbottleThere = false;s
+    public bool waterbottleThere = false;
     [SerializeField] private GameObject skateboardmeshForSkating; 
     public float drunkmodedurationBeer = 12f;
     [SerializeField] private float _dehydrationDelayBubble = 5f;
-    private C_PowerUps powerUp;
+    public C_PowerUps powerUp;
+    public C_WaterBar waterBar;
     Vector3 skateboardPosition = new Vector3(0, 0.1f, 3);
-    public static PowerUpManager Instance { get; private set; }
+    public static PlayerInstantiate Instance { get; private set; }
+    public static PowerUpManager InstanceP { get; private set; }
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
@@ -25,12 +27,12 @@ public class PowerUpManager : MonoBehaviour
         if  (waterbottleThere == false) 
         {
             waterbottleThere = true;
-            Debug.Log("Waterbottlecounter = " + waterbottleThere);
-            Destroy(GetComponent<Collider>());
-            GameObject cube = gameObject.transform.Find("Bottle").gameObject;
-            Destroy(cube);
             Debug.Log("Waterbottle triggered");
             powerUp.PickUpBottle();
+        }
+        else
+        {
+            Debug.Log("Waterbottle already there");
         }
     }
 
@@ -38,10 +40,10 @@ public class PowerUpManager : MonoBehaviour
     {
         cameraFollow.shakeDuration = drunkmodedurationBeer;
         hydrationController.BeerHydration();
-        Invoke("RandomCall" , 2f);
-        Invoke("RandomCall" , 4f);
-        Invoke("RandomCall" , 6f);
-        Invoke("RandomCall" , 8f);
+        Invoke("RandomCall" ,  2f);
+        Invoke("RandomCall" ,  4f);
+        Invoke("RandomCall" ,  6f);
+        Invoke("RandomCall" ,  8f);
         Invoke("RandomCall" , 10f);
         Invoke("RandomCall" , 12f);
     }   
@@ -65,6 +67,7 @@ public class PowerUpManager : MonoBehaviour
     {
         hydrationController.MaxHydration();
         waterbottleThere = false;
+        waterBar.SetHealth(99f);
     }
 
     public bool WaterbottleChecker ()

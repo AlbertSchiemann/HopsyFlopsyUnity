@@ -8,10 +8,16 @@ public class Bubble : MonoBehaviour
 
     [SerializeField] private AudioClip[] _hydrateClip;
 
-    [SerializeField] PowerUpManager powerUpManager;
+    private PowerUpManager powerUpManager;
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
     [SerializeField] private float _dehydrationDelay = 5f;
+
+    void Start()
+    {
+        playerInstantiate = PlayerInstantiate.Instance;
+        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUpManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,11 +30,6 @@ public class Bubble : MonoBehaviour
             Destroy(gameObject);
 
             powerUpManager.Bubble();
-          
         }
     }
-
-
-
-
 }

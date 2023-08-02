@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dde6d30fda3a44cbec3ebebf08f186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpManager: {fileID: 6411890151548220535, guid: 9277dfb0b593bae4b99ae05d9eb6f9dd,
-    type: 3}
-  _hydrateClip: []
+  _hydrateClip:
+  - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
 --- !u!65 &4557102933338762294
 BoxCollider:
   m_ObjectHideFlags: 0

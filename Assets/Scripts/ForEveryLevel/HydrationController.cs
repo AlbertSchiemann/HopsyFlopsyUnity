@@ -150,6 +150,7 @@ public class HydrationController : MonoBehaviour
             //SoundManager.Instance.PlaySound(_hydrateClip);
             Debug.Log("Waterbottle used");
             powerUp.UseBottle();
+            powerUpManager.waterbottleThere = false;
         }
         else if (hydration <= 0)
         {

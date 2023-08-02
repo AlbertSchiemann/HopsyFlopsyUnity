@@ -25,11 +25,11 @@ public class C_PowerUps : MonoBehaviour
 
         visShield = root.Q<VisualElement>("vis_shield");
         butBottle = root.Q<Button>("but_bottle");
-      //   Test = root.Q<Button>("test");
 
+        powerUpManager = PowerUpManager.InstanceP;
 
-        
-//Test.clicked += UseBottle;
+        // Test = root.Q<Button>("test");
+        // Test.clicked += UseBottle;
        
         butBottle.clicked += UseBottle;
         if (!AlwaysThere.bottleThere) OpacityShieldDown();
@@ -47,9 +47,9 @@ public class C_PowerUps : MonoBehaviour
         Debug.Log("UseBottle");
         if (AlwaysThere.bottleThere)
         {
-        powerUpManager.Refill();
-        AlwaysThere.bottleThere = false;
-        OpacityBottleDown();
+            powerUpManager.Refill();
+            AlwaysThere.bottleThere = false;
+            OpacityBottleDown();
         }
     }
     public void PickUpShield()
