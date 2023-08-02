@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7501950254384444039}
-  - component: {fileID: 2444956204999689444}
-  - component: {fileID: 410978430954432930}
-  - component: {fileID: 8591930450863746617}
+  - component: {fileID: 6411890151548220535}
   m_Layer: 0
   m_Name: PowerUpManager
   m_TagString: Untagged
@@ -34,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2444956204999689444
+--- !u!114 &6411890151548220535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,43 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2037332552452532376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0452517fcf1ca14790962b606ce25fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9aa31e5f824887c40baae957ee2641f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hydrateClip: []
   hydrationController: {fileID: 0}
-  waterbottleThere: 0
-  useWaterbottle: 0
-  powerUp: {fileID: 0}
---- !u!114 &410978430954432930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037332552452532376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71dde6d30fda3a44cbec3ebebf08f186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hydrateClip: []
-  drunkmodeduration: 15
-  hydrationController: {fileID: 0}
-  playerInstantiate: {fileID: 0}
   cameraFollow: {fileID: 0}
---- !u!114 &8591930450863746617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037332552452532376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6496acd3f779f7b4dbb197b5418c282e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hydrateClip: []
-  hydrationController: {fileID: 0}
-  _dehydrationDelay: 5
+  waterbottleThere: 0
+  skateboardmeshForSkating: {fileID: 0}
+  drunkmodedurationBeer: 12
+  _dehydrationDelayBubble: 5

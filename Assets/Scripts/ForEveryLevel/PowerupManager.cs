@@ -2,47 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class PowerUpManager : MonoBehaviour
 {
     private PlayerInstantiate playerInstantiate;
     public HydrationController hydrationController;
-    public bool waterbottleThere = false;
+
+    [SerializeField] CameraFollow cameraFollow;
+    public bool waterbottleThere = false;s
     [SerializeField] private GameObject skateboardmeshForSkating; 
-
-    
-
+    public float drunkmodedurationBeer = 12f;
+    [SerializeField] private float _dehydrationDelayBubble = 5f;
+    private C_PowerUps powerUp;
+    Vector3 skateboardPosition = new Vector3(0, 0.1f, 3);
     public static PowerUpManager Instance { get; private set; }
-
-
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Waterbottle()
     {
-        
+        if  (waterbottleThere == false) 
+        {
+            waterbottleThere = true;
+            Debug.Log("Waterbottlecounter = " + waterbottleThere);
+            Destroy(GetComponent<Collider>());
+            GameObject cube = gameObject.transform.Find("Bottle").gameObject;
+            Destroy(cube);
+            Debug.Log("Waterbottle triggered");
+            powerUp.PickUpBottle();
+        }
     }
+
+    public void Beer()
+    {
+        cameraFollow.shakeDuration = drunkmodedurationBeer;
+        hydrationController.BeerHydration();
+        Invoke("RandomCall" , 2f);
+        Invoke("RandomCall" , 4f);
+        Invoke("RandomCall" , 6f);
+        Invoke("RandomCall" , 8f);
+        Invoke("RandomCall" , 10f);
+        Invoke("RandomCall" , 12f);
+    }   
+
     public void Bubble()
     {
-
+        hydrationController.PauseDehydration(_dehydrationDelayBubble, true);
     }
     public void Skateboard()
     {
-        
+        Instantiate(skateboardmeshForSkating, playerInstantiate.transform.position - skateboardPosition, playerInstantiate.transform.rotation, playerInstantiate.transform);
+        playerInstantiate.GetComponent<GridPlayerMovement>().SkateboardMovement();
+        Invoke("DestroySkateboard", 1.55f);
     }
-
+    public void Shield()
+    {
+        EnemyMovementArray.canTankHit = true;
+        powerUp.PickUpShield();
+    } 
     public void Refill()
     {
-
+        hydrationController.MaxHydration();
+        waterbottleThere = false;
     }
 
     public bool WaterbottleChecker ()
@@ -56,81 +78,8 @@ public class PowerUpManager : MonoBehaviour
             return false;
         }
     }
+    public void RandomCall()
+    {
+        playerInstantiate.GetComponent<GridPlayerMovement>().RandomMovement();
+    }
 }
-/*
-public class Waterbottle : MonoBehaviour
-{
-    // Activatable - fills up hydration bar to some extend
-    // gets activated automatically when hydration drops to 0
-    [SerializeField] private AudioClip[] _hydrateClip;
-
-    public HydrationController hydrationController;         // Reference to the levels HydrationController 
-    private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
-
-    public bool waterbottleThere = false;
-
-    public bool useWaterbottle = false;
-    Vector3 objectRotation;
-    float newUpdateRate = 0.05f;
-
-    [SerializeField] C_PowerUps powerUp;
-
-    void Start()
-    {
-        InvokeRepeating("SlowUpdate", 0.0f, newUpdateRate);
-    }
-    void SlowUpdate()
-    {
-        objectRotation = new Vector3(0, -5f, 0) + transform.eulerAngles;
-        transform.eulerAngles = objectRotation;
-    }
-
-    public void Refill()
-    {
-        hydrationController.MaxHydration();
-        waterbottleThere = false;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if  (waterbottleThere == false) 
-            {
-                waterbottleThere = true;
-                Debug.Log("Waterbottlecounter = " + waterbottleThere);
-                Destroy(GetComponent<Collider>());
-                GameObject cube = gameObject.transform.Find("Bottle").gameObject;
-                Destroy(cube);
-                Debug.Log("Waterbottle triggered");
-                powerUp.PickUpBottle();
-            }
-            else
-            {
-                Debug.Log("Already got a Waterbottle");
-            }
-        }
-    }
-    
-}
-
-
-
-private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Destroy(GetComponent<Collider>());
-            GameObject cube = gameObject.transform.Find("Skateboard").gameObject;
-            Destroy(cube);
-
-            Debug.Log("Skateboard triggered");
-            //playerPrefab.GetComponent<GridPlayerMovement>().UpdateActive = false;
-            
-            Instantiate(skateboardmeshForSkating, playerPrefab.transform.position - skateboardPosition, playerPrefab.transform.rotation, playerPrefab.transform);
-            playerPrefab.GetComponent<GridPlayerMovement>().SkateboardMovement();
-            Invoke("DestroySkateboard", 1.55f);
-            
-        }
-    }
-*/

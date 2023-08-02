@@ -301,6 +301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shieldClip:
   - {fileID: 8300000, guid: a90282a5b40c869408b0861ada240a9e, type: 3}
+  powerUpManager: {fileID: 6411890151548220535, guid: 9277dfb0b593bae4b99ae05d9eb6f9dd,
+    type: 3}
 --- !u!65 &-8627256097674351850
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788f071f1015ade43bab1d8d94e73610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 2260953583789165416, guid: c7a57c5d248456f44a7efe574c58cf19,
-    type: 3}
-  skateboardmeshForSkating: {fileID: 988494694632866887, guid: 9adda3a60c37d1747b3e4154d858f5d3,
+  powerUpManager: {fileID: 6411890151548220535, guid: 9277dfb0b593bae4b99ae05d9eb6f9dd,
     type: 3}
 --- !u!65 &554413659984599327
 BoxCollider:
