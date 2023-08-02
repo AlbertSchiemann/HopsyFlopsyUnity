@@ -17,10 +17,12 @@
         </ui:VisualElement>
         <ui:VisualElement name="vis_sound" style="position: absolute; height: 751px; width: 2222px; top: 25%; left: 604px; flex-direction: row;">
             <ui:VisualElement name="vis_sound_buttons" style="position: relative; height: 751px; width: 749px; top: auto; left: auto; align-items: center; justify-content: center;">
+                <ui:Label text="sound" display-tooltip-when-elided="true" style="font-size: 51px;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_sound_off" class="Button_Sound" style="display: none;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_sound_on" class="Button_Sound" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOn.png?fileID=2800000&amp;guid=c752a667313298b41a633568d45c82b1&amp;type=3#B_SoundVolumeOn&apos;);" />
                 <ui:Button display-tooltip-when-elided="true" name="but_sfx_off" class="Button_Sound" style="display: none;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_sfx_on" class="Button_Sound" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOn.png?fileID=2800000&amp;guid=c752a667313298b41a633568d45c82b1&amp;type=3#B_SoundVolumeOn&apos;);" />
+                <ui:Label text="sfx" display-tooltip-when-elided="true" style="font-size: 51px;" />
             </ui:VisualElement>
             <ui:VisualElement name="vis_sound_slider" style="position: relative; height: 751px; width: 2222px; top: auto; left: auto;">
                 <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="SFX" low-value="0" usage-hints="None" show-input-field="false" class="slider" style="top: 444px; right: 18px;" />

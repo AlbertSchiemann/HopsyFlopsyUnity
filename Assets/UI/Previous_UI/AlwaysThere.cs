@@ -14,5 +14,7 @@ public static class AlwaysThere
     public static bool bottleThere = false;
     public static bool shieldThere = false;
 
+    public static bool MusicIcon = true;
+    public static bool SFXIcon = true;
 
 }
