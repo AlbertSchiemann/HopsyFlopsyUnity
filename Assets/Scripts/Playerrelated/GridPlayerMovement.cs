@@ -84,7 +84,7 @@ public class GridPlayerMovement : MonoBehaviour
         private float PlayerHeigth = 1f;
         private Grid2DCreated grid;
         private GameObject playerPrefab;                    // Reference to the player GameObject
-        private Waterbottle waterbottle;                    // Reference to the Waterbottle GameObject
+        private PowerUpManager powerUpManager;                    // Reference to the Waterbottle GameObject
         private HydrationController hydrationController;    // Reference to the HydrationController
         private bool isAllowedToMoveLeft = true;            // Bool to track if player is allowed to move into a direction or not
         private bool isAllowedToMoveRight = true;
@@ -177,14 +177,14 @@ public class GridPlayerMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     Debug.Log("Space pressed");
-                    if (waterbottle.WaterbottleChecker() == true)
+                    if (powerUpManager.WaterbottleChecker() == true)
                     {
                         
                         powerUps.UseBottle();
                         //SoundManager.Instance.PlaySound(_hydrateClip);
                         Debug.Log("Waterbottle used");
                     }
-                    else if (waterbottle.WaterbottleChecker() == false)
+                    else if (powerUpManager.WaterbottleChecker() == false)
                     {
                         Debug.Log("No Waterbottle");
                     }
