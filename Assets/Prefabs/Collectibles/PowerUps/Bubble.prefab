@@ -145,9 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hydrateClip:
   - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
-  powerUpManager: {fileID: 6411890151548220535, guid: 9277dfb0b593bae4b99ae05d9eb6f9dd,
-    type: 3}
-  _dehydrationDelay: 5
+  _dehydrationDelay: 2
 --- !u!65 &7480734500866304782
 BoxCollider:
   m_ObjectHideFlags: 0

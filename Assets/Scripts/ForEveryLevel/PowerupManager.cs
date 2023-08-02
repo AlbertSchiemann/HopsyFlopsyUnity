@@ -30,7 +30,7 @@ public class PowerUpManager : MonoBehaviour
             Debug.Log("Waterbottle triggered");
             powerUp.PickUpBottle();
         }
-        else
+        else 
         {
             Debug.Log("Waterbottle already there");
         }

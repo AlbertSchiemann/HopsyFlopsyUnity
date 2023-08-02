@@ -152,13 +152,20 @@ public class HydrationController : MonoBehaviour
             powerUp.UseBottle();
             powerUpManager.waterbottleThere = false;
         }
-        else if (hydration <= 0)
+        else if (hydration <= 0 && powerUpManager.waterbottleThere == false)
         {
             Invoke("Sceneload", DelayTillReload); 
             SoundManager.Instance.PlaySound(_failClip);
             GameObject player = playerInstantiate.gameObject;
             player.GetComponent<GridPlayerMovement>().PreventMovement();
-
+        }
+        else if (hydration >= 0)
+        {
+            return;
+        }
+        else
+        {
+            Debug.Log("Hydrationdeath is fucked up...");
         }
     }
     public void MaxHydration()
