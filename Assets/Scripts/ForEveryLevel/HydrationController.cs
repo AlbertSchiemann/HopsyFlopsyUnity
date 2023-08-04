@@ -125,7 +125,7 @@ public class HydrationController : MonoBehaviour
     }
 
     // used for Power Ups:
-    public void PauseDehydration(float pausetime, bool pauseactive)
+    public void PauseDehydration(float pausetime)
     {
         if (pauseactive)
         {
@@ -138,9 +138,14 @@ public class HydrationController : MonoBehaviour
         Invoke("watercollisiondisabled", pausetime);
         Invoke("Pausestop", pausetime);
     }
-    private void Pausestop (bool pauseactive)
+    private void Pausestop ()
     {
         pauseactive = false;
+    }
+
+    public void Pausestart ()
+    {
+        pauseactive = true;
     }
 
     

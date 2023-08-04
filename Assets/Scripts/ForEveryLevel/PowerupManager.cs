@@ -50,7 +50,8 @@ public class PowerUpManager : MonoBehaviour
 
     public void Bubble()
     {
-        hydrationController.PauseDehydration(_dehydrationDelayBubble, true);
+        hydrationController.Pausestart();
+        hydrationController.PauseDehydration(_dehydrationDelayBubble);
     }
     public void Skateboard()
     {
