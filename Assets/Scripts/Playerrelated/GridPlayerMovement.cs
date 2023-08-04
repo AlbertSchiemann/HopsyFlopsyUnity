@@ -85,7 +85,7 @@ public class GridPlayerMovement : MonoBehaviour
         private float PlayerHeigth = 1f;
         private Grid2DCreated grid;
         private GameObject playerPrefab;                    // Reference to the player GameObject
-        private PowerUpManager powerUpManager;                    // Reference to the Waterbottle GameObject
+        private PowerUp_Manager powerUpManager;                    // Reference to the Waterbottle GameObject
         private HydrationController hydrationController;    // Reference to the HydrationController
         private bool isAllowedToMoveLeft = true;            // Bool to track if player is allowed to move into a direction or not
         private bool isAllowedToMoveRight = true;

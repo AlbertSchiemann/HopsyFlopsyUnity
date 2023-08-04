@@ -10,12 +10,12 @@ public class Shield : MonoBehaviour
 
     private PlayerInstantiate playerInstantiate;
 
-    private PowerUpManager powerUpManager;
+    private PowerUp_Manager powerUpManager;
 
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
-        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUpManager>();
+        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUp_Manager>();
     }
     private void OnTriggerEnter(Collider other)
     {

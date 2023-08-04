@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpManager : MonoBehaviour
+public class PowerUp_Manager : MonoBehaviour
 {
     private PlayerInstantiate playerInstantiate;
     public HydrationController hydrationController;
@@ -16,7 +16,7 @@ public class PowerUpManager : MonoBehaviour
     public C_WaterBar waterBar;
     Vector3 skateboardPosition = new Vector3(0, 0.1f, 3);
     public static PlayerInstantiate Instance { get; private set; }
-    public static PowerUpManager InstanceP { get; private set; }
+    public static PowerUp_Manager InstanceP { get; private set; }
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;

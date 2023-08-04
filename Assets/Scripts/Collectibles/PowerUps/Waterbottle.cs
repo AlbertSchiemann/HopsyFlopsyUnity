@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Waterbottle : MonoBehaviour
 {
-    private PowerUpManager powerUpManager;
+    private PowerUp_Manager powerUpManager;
     private PlayerInstantiate playerInstantiate; 
 
     [SerializeField] private AudioClip[] _hydrateClip;
@@ -12,7 +12,7 @@ public class Waterbottle : MonoBehaviour
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
-        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUpManager>();
+        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUp_Manager>();
     }
 
     private void OnTriggerEnter(Collider other)

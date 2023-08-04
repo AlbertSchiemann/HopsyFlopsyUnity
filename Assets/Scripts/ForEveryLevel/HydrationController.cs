@@ -33,7 +33,7 @@ public class HydrationController : MonoBehaviour
     [SerializeField] private AudioClip[] _failClip;
 
     private PlayerInstantiate playerInstantiate;
-    [SerializeField] PowerUpManager powerUpManager;
+    [SerializeField] PowerUp_Manager powerUpManager;
 
     public bool pauseactive;
 
