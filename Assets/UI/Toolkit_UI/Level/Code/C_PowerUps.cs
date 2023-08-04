@@ -64,7 +64,7 @@ public class C_PowerUps : MonoBehaviour
         if (AlwaysThere.shieldThere)
         {
             AlwaysThere.shieldThere = false;
-           OpacityShieldDown();
+            OpacityShieldDown();
 
         }
 

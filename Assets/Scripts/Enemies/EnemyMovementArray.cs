@@ -46,7 +46,7 @@ public class EnemyMovementArray : MonoBehaviour
     public float delayTillStartOfMovement = 2.2f;                          // Delay till Enemy gets destroyed after death
     int i;
 
-    C_PowerUps powerUp;
+    public C_PowerUps powerUp;
 
     private void Awake()
     {
@@ -252,7 +252,17 @@ public class EnemyMovementArray : MonoBehaviour
                 SoundManager.Instance.PlaySound(_deflectClip);
                 canTankHit = false;
                 powerUp.UseShield();
+                return;
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canTankHit = false;
+            powerUp.UseShield();
+            return;
         }
     }
     void Sceneload()

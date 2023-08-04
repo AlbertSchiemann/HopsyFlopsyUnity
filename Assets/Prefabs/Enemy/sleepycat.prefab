@@ -59,6 +59,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5780ba4c58969f74c8d5a921b13a03ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayTillDeathscreenShows: 0.2
+  levelScript: {fileID: 0}
+  _failClip:
+  - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
+  _deflectClip:
+  - {fileID: 8300000, guid: 5a6fa4e7ec28cee4a94bdc4026323e46, type: 3}
 --- !u!1001 &2349142304532300649
 PrefabInstance:
   m_ObjectHideFlags: 0

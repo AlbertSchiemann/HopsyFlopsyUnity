@@ -38,6 +38,15 @@ public class EnemyCollision : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canTankHit = false;
+            powerUp.UseShield();
+            return;
+        }
+    }
     void Sceneload()
     {
         levelScript.OpenLoose();
