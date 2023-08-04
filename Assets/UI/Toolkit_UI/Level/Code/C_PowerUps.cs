@@ -26,8 +26,6 @@ public class C_PowerUps : MonoBehaviour
         visShield = root.Q<VisualElement>("vis_shield");
         butBottle = root.Q<Button>("but_bottle");
 
-        powerUpManager = PowerUpManager.InstanceP;
-
         // Test = root.Q<Button>("test");
         // Test.clicked += UseBottle;
        

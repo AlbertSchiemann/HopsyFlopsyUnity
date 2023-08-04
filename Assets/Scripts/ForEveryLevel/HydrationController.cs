@@ -35,6 +35,8 @@ public class HydrationController : MonoBehaviour
     private PlayerInstantiate playerInstantiate;
     [SerializeField] PowerUpManager powerUpManager;
 
+    public bool pauseactive;
+
 
 
     public static HydrationController Instance { get; private set; }    // Instantiatie the Hydration Controller to assign it automatically
@@ -134,7 +136,7 @@ public class HydrationController : MonoBehaviour
     private void Timer (float pausetime)
     {
         Invoke("watercollisiondisabled", pausetime);
-        Invoke("pauseactive = false", pausetime);
+        Invoke("Pausestop", pausetime);
     }
     private void Pausestop (bool pauseactive)
     {
