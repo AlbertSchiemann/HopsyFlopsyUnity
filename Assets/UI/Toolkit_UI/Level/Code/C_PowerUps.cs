@@ -12,7 +12,7 @@ public class C_PowerUps : MonoBehaviour
 
 
     [SerializeField] Shield shield;
-    [SerializeField] PowerUp_Manager powerUpManager;
+    [SerializeField] PowerUpManager powerUpManager;
 
   
 

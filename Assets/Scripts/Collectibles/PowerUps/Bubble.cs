@@ -8,7 +8,7 @@ public class Bubble : MonoBehaviour
 
     [SerializeField] private AudioClip[] _hydrateClip;
 
-    private PowerUp_Manager powerUpManager;
+    private PowerUpManager powerUpManager;
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
     [SerializeField] private float _dehydrationDelay = 1f;
@@ -16,7 +16,7 @@ public class Bubble : MonoBehaviour
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
-        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUp_Manager>();
+        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUpManager>();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Skateboard : MonoBehaviour
 {
-    private PowerUp_Manager powerUpManager;
+    private PowerUpManager powerUpManager;
     private PlayerInstantiate playerInstantiate; 
 
     void Start()
     {
         playerInstantiate = PlayerInstantiate.Instance;
-        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUp_Manager>();
+        powerUpManager = GameObject.Find("PowerUpManager").GetComponent<PowerUpManager>();
     }
 
     private void OnTriggerEnter(Collider other)
