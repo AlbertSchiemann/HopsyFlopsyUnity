@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  _UISound: []
 --- !u!1 &7398626332479722882
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  _UISound: []
 --- !u!1 &7398626332480150755
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  _UISound: []
 --- !u!1 &7398626332973533258
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  _UISound: []
 --- !u!114 &8620504056808633041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +392,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d091f0ce593a3746a2d261433157fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: {fileID: 0}
+  powerUpManager: {fileID: 0}
   playing: {fileID: 7398626332973533269}
 --- !u!1 &7398626333400890033
 GameObject:
@@ -452,14 +458,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
-  skinToEquip1: {fileID: 4490092296019293943, guid: b8642eab11bd60e419e80d3d4fe445eb,
+  skinToEquip1: {fileID: 9024113599275742173, guid: 7b3ecb17dae4d1b49b4c32666cd9eaed,
     type: 3}
-  skinToEquip2: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+  skinToEquip2: {fileID: 6293549093163053230, guid: 81fb4bdc5c8381847a42e268065f9691,
     type: 3}
-  skinToEquip3: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
+  skinToEquip3: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
     type: 3}
-  skinToEquip4: {fileID: 8577306237156758912, guid: 80073f311b244ac4c941633d5b2fb12b,
+  skinToEquip4: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
     type: 3}
+  _UISound: []
 --- !u!1 &7398626333989871698
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  _UISound: []
 --- !u!4 &2492955328517221734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4915101588612383631, guid: fd5c9fc120f693e4c9d3653766267358,
@@ -790,14 +798,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreenStore: {fileID: 8665902501282802515}
-  skinToEquip1: {fileID: 4490092296019293943, guid: b8642eab11bd60e419e80d3d4fe445eb,
+  skinToEquip1: {fileID: 9024113599275742173, guid: 7b3ecb17dae4d1b49b4c32666cd9eaed,
     type: 3}
-  skinToEquip2: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+  skinToEquip2: {fileID: 6293549093163053230, guid: 81fb4bdc5c8381847a42e268065f9691,
     type: 3}
-  skinToEquip3: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
+  skinToEquip3: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
     type: 3}
-  skinToEquip4: {fileID: 8577306237156758912, guid: 80073f311b244ac4c941633d5b2fb12b,
+  skinToEquip4: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
     type: 3}
+  _UISound:
+  - {fileID: 8300000, guid: 2ad02caaf30efab44a2bba83ae459ac0, type: 3}
 --- !u!4 &2529184622439043999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022722432467659364, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
@@ -920,3 +930,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  mixer: {fileID: 0}
+  _UISound: []

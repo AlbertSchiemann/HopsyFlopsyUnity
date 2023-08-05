@@ -3,7 +3,16 @@ guid: bc0c05bffc26b7a49a1d44b405a42b0d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - switchScreenStore: {instanceID: 0}
+  - skinToEquip1: {fileID: 9024113599275742173, guid: 7b3ecb17dae4d1b49b4c32666cd9eaed,
+      type: 3}
+  - skinToEquip2: {fileID: 6293549093163053230, guid: 81fb4bdc5c8381847a42e268065f9691,
+      type: 3}
+  - skinToEquip3: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+      type: 3}
+  - skinToEquip4: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

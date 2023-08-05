@@ -12,6 +12,7 @@ public class BaseCollectibleScript : MonoBehaviour
 
     void Start()
     {
+        ++C_Currency.CurrencyTotal;
         InvokeRepeating("SlowUpdate", 0.0f, newUpdateRate);
     }
     void SlowUpdate()
