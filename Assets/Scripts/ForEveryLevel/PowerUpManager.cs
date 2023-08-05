@@ -7,7 +7,7 @@ public class PowerUpManager : MonoBehaviour
     private PlayerInstantiate playerInstantiate;
     public HydrationController hydrationController;
 
-    [SerializeField] CameraFollow cameraFollow;
+    [SerializeField] CameraFollow verticalCameraFollow;
     public bool waterbottleThere = false;
     [SerializeField] private GameObject skateboardmeshForSkating; 
     public float drunkmodedurationBeer = 12f;
@@ -38,7 +38,7 @@ public class PowerUpManager : MonoBehaviour
 
     public void Beer()
     {
-        cameraFollow.shakeDuration = drunkmodedurationBeer;
+        verticalCameraFollow.shakeDuration = drunkmodedurationBeer;
         hydrationController.BeerHydration();
         Invoke("RandomCall" ,  2f);
         Invoke("RandomCall" ,  4f);

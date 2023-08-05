@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset = new(0, 1, -2);               // initial offset between camera and player
 
     private Vector3 velocity = Vector3.zero;
-    private Vector3 fix = new(0, -1, 0);
+    private Vector3 fix = new(0, -6, 0);
     void Update()
     {
         // set the target position as the player's position plus the offset

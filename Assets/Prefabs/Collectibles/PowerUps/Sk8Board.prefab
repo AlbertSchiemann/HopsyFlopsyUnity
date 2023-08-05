@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 881706781269083746}
   - component: {fileID: 215549641017873280}
   - component: {fileID: 554413659984599327}
+  - component: {fileID: 279577008495291415}
   m_Layer: 0
   m_Name: Sk8Board
   m_TagString: Untagged
@@ -46,8 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788f071f1015ade43bab1d8d94e73610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpManager: {fileID: 6411890151548220535, guid: 9277dfb0b593bae4b99ae05d9eb6f9dd,
-    type: 3}
 --- !u!65 &554413659984599327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61,6 +60,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24495125, y: 0.49173212, z: 0.14212906}
   m_Center: {x: 0.0077409744, y: 0.11883378, z: 0.04321915}
+--- !u!114 &279577008495291415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988494694632866887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc1bc27f35fcb040830fc310f4bc732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationspeed: 0.03
+  direction: 3
 --- !u!1001 &2820883491847401864
 PrefabInstance:
   m_ObjectHideFlags: 0

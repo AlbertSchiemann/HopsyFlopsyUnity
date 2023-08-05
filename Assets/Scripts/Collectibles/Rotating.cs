@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Rotating : MonoBehaviour
 {
-    float newUpdateRate = 0.05f;
+    public float rotationspeed = 0.05f;
+    public float direction = -3f;
     Vector3 objectRotation;
     void Start()
     {
-        InvokeRepeating("SlowUpdate", 0.0f, newUpdateRate);
+        InvokeRepeating("SlowUpdate", 0.0f, rotationspeed);
     }
     void SlowUpdate()
     {
-        objectRotation = new Vector3(0, -3f, 0) + transform.eulerAngles;
+        objectRotation = new Vector3(0, direction, 0) + transform.eulerAngles;
         transform.eulerAngles = objectRotation;
     }
 }
