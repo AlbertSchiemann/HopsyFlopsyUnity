@@ -62,8 +62,18 @@ public class C_Loose : MonoBehaviour
         butHide.clicked += Hide;
         butShow.clicked += Show;
 
+        TimeShow();
+
+        C_Currency.CurrencyTotal = 0;
+
     }
 
+    void TimeShow()
+    {
+        //displying needed time
+        AlwaysThere.time = 0;
+
+    }
 
     void Help()
     {

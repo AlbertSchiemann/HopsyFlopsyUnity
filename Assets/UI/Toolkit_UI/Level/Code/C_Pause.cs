@@ -21,6 +21,8 @@ public class C_Pause : MonoBehaviour
     Button butHide;
     Button butShow;
 
+    public float MaxTime = 200;
+
     VisualElement visCorner4;
 
     private GameStateManagerScript GameStateManagerScript;
@@ -65,6 +67,8 @@ public class C_Pause : MonoBehaviour
 
         butHide.clicked += Hide;
         butShow.clicked += Show;
+        if (AlwaysThere.time < MaxTime) { Debug.Log("Yes");Debug.Log(AlwaysThere.time); }
+        else { Debug.Log("No"); Debug.Log(AlwaysThere.time); }
 
     }
 
@@ -97,6 +101,7 @@ public class C_Pause : MonoBehaviour
 
     void Restart()
     {
+        C_Currency.CurrencyTotal = 0;
         SoundManager.Instance.PlaySound(_UISound);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

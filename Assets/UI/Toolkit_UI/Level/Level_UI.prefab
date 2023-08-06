@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 195e2651a6b0d2042a7f9c008a18ddb9, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 970502a45e5cf6042b56c79905daaa41,
+  sourceAsset: {fileID: 9197481963319205126, guid: 19f91371cfb691d4598a68bb8ac343cd,
     type: 3}
   m_SortingOrder: 0
 --- !u!114 &7398626332080246419
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  MaxTime: 60
   _UISound: []
 --- !u!1 &7398626332479722882
 GameObject:
@@ -202,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  MaxTime: 200
   _UISound: []
 --- !u!1 &7398626332480150755
 GameObject:

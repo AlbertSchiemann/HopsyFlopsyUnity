@@ -26,8 +26,13 @@ public class C_Win : MonoBehaviour
     VisualElement star2;
     VisualElement star3;
 
+    Label txtCollextible;
+    Label txtTime;
+
     public static bool allCollected = false;
     public static bool inTime = false;
+
+    public int MaxTime = 60;
 
     [SerializeField] private AudioClip[] _UISound;
 
@@ -45,6 +50,9 @@ public class C_Win : MonoBehaviour
 
         butHide = root.Q<Button>("but_hide");
         butShow = root.Q<Button>("but_show");
+
+        txtCollextible = root.Q<Label>("txt_collectibles");
+        txtTime = root.Q<Label>("txt_time");
 
 
         visCorner4 = root.Q<VisualElement>("vis_4inCorner");
@@ -68,7 +76,19 @@ public class C_Win : MonoBehaviour
         butHide.clicked += Hide;
         butShow.clicked += Show;
 
+        if (AlwaysThere.time <= MaxTime) inTime = true;
+        Debug.Log(inTime);
+       
+        if (AlwaysThere.CurrencyStar) allCollected = true;
+        if (AlwaysThere.TimeStar) inTime = true;
+        Debug.Log("after in Time " + inTime);
+        Debug.Log("after Collected " + allCollected);
+
+
         Stars();
+
+        C_Currency.CurrencyTotal = 0;
+
     }
 
     void StarReachedCollectible()
@@ -92,17 +112,25 @@ public class C_Win : MonoBehaviour
             //animation star2
             star3.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
             //animation star3
+            AlwaysThere.TimeStar = true;
+            AlwaysThere.CurrencyStar = true;
         }
         else if (allCollected||inTime)
         {
             //animaition star1
             star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
             //aniamtion star2
+            if (allCollected) AlwaysThere.CurrencyStar = true;
+            else AlwaysThere.TimeStar = true;
         }
         else
         {
             //aniamtion star1
         }
+        txtTime.text = AlwaysThere.time + " / " + MaxTime;
+        txtCollextible.text = C_Currency.CurrencyAmount + " / " + C_Currency.CurrencyTotal;
+        AlwaysThere.time = 0;
+
     }
 
 
