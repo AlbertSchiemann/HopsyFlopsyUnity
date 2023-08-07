@@ -19,7 +19,6 @@ public class Waterbottle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Waterbottle triggered");
             
             SoundManager.Instance.PlaySound(_hydrateClip);
 

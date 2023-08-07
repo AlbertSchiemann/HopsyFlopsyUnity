@@ -23,7 +23,6 @@ public class Beer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Beer triggered");
             
             SoundManager.Instance.PlaySound(_hydrateClip);
 

@@ -116,7 +116,6 @@ public class EnemyMovementArray : MonoBehaviour
         for (int f = 0; f < numSteps; f++)
         {
             movementAction(1);
-            //Debug.Log("1 Step");
             yield return new WaitForSeconds(moveDelay);
         }
         StartMovement();
@@ -248,7 +247,6 @@ public class EnemyMovementArray : MonoBehaviour
             }
             else
             {
-                Debug.Log("DEFLECT");
                 SoundManager.Instance.PlaySound(_deflectClip);
                 canTankHit = false;
                 powerUp.UseShield();

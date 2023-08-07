@@ -159,13 +159,11 @@ public class C_SettingsLevel : MonoBehaviour
 
     private void SetBgVolume(float value)
     {
-        Debug.Log("Set Music Volume");
         mixer.SetFloat(Mixer_Bg, Mathf.Log10(value) * 20);
     }
 
     private void SetSfxVolume(float value)
     {
-        Debug.Log("Set SFX Volume");
         mixer.SetFloat(Mixer_Sfx, Mathf.Log10(value) * 20);
     }
 

@@ -31,7 +31,6 @@ public class EnemyCollision : MonoBehaviour
             }
             else
             {
-                Debug.Log("DEFLECT");
                 SoundManager.Instance.PlaySound(_deflectClip);
                 canTankHit = false;
                 powerUp.UseShield();

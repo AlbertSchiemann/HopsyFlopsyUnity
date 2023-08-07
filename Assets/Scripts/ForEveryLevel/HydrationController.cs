@@ -100,7 +100,6 @@ public class HydrationController : MonoBehaviour
     {
         if (isCollidingWithFire)
         {
-            //Debug.Log("colliding with fire");
             hydration -= hydrationDecayRate * hydrationDecayFire * Time.deltaTime ;
             waterBar.SetHealth(hydration);
         }
@@ -155,7 +154,7 @@ public class HydrationController : MonoBehaviour
        if (hydration <= 5 && powerUpManager.waterbottleThere == true)
         {
             //SoundManager.Instance.PlaySound(_hydrateClip);
-            Debug.Log("Waterbottle used");
+            
             powerUp.UseBottle();
             powerUpManager.waterbottleThere = false;
         }
@@ -172,7 +171,7 @@ public class HydrationController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Hydrationdeath is fucked up...");
+            Debug.LogError("Hydrationdeath is fucked up...");
         }
     }
     public void MaxHydration()

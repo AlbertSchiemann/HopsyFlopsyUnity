@@ -42,7 +42,7 @@ public class C_PowerUps : MonoBehaviour
 
     public void UseBottle()
     { 
-        Debug.Log("UseBottle");
+        
         if (AlwaysThere.bottleThere)
         {
             powerUpManager.Refill();

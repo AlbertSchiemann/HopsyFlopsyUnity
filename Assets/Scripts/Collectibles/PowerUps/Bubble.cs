@@ -23,7 +23,6 @@ public class Bubble : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Bubble triggered");
             
             SoundManager.Instance.PlaySound(_hydrateClip);
 

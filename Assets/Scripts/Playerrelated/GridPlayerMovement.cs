@@ -32,7 +32,6 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
     [SerializeField] private AudioClip[] _hydrateClip;
-    [SerializeField] private Waterbottle waterbottle;
     [SerializeField] private GameObject bucket;
 
     void Start()
@@ -105,12 +104,6 @@ public class GridPlayerMovement : MonoBehaviour
             this.posY = y;
             this.grid = grid;
             this.playerPrefab = playerPrefab;
-            /*                                                                            // just Debuglogs for checking if its working properly
-            if(isBlockChecked == false){
-                LogOutputTargetedBlock();
-                isBlockChecked = true;
-            }
-            */
         }
 
         public void Update()
@@ -135,7 +128,6 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); }
                     else
                     {
-                        //Debug.Log("Not allowed to Move Forward.");
                         SoundManager.Instance.PlaySound(collClip);
                         playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
@@ -145,9 +137,10 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); }
                     else 
                     {
-                        //Debug.Log("Not allowed to Move Forward.");
                         SoundManager.Instance.PlaySound(collClip);
-                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
+                        //playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
+                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().Play("jump_001");
+                        
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || CrossTapManager.downTap || JoyStickManager.downTap)
@@ -155,7 +148,6 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveBack == true) { moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); SoundManager.Instance.PlaySound(moveClip); }
                     else 
                     {
-                        // Debug.Log("Not allowed to Move Back."); 
                         SoundManager.Instance.PlaySound(collClip);
                         playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
@@ -164,8 +156,7 @@ public class GridPlayerMovement : MonoBehaviour
                 {
                     if (isAllowedToMoveLeft == true) { moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); SoundManager.Instance.PlaySound(moveClip); }
                     else 
-                    {
-                        // Debug.Log("Not allowed to Move Left."); 
+                    { 
                         SoundManager.Instance.PlaySound(collClip);
                         playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
@@ -175,26 +166,9 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveRight == true) { moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); SoundManager.Instance.PlaySound(moveClip); }
                     else 
                     {
-                        // Debug.Log("Not allowed to Move Right.");
                         SoundManager.Instance.PlaySound(collClip);
                         playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
-                }
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Debug.Log("Space pressed");
-                    if (powerUpManager.WaterbottleChecker() == true)
-                    {
-                        
-                        powerUps.UseBottle();
-                        //SoundManager.Instance.PlaySound(_hydrateClip);
-                        Debug.Log("Waterbottle used");
-                    }
-                    else if (powerUpManager.WaterbottleChecker() == false)
-                    {
-                        Debug.Log("No Waterbottle");
-                    }
-                    else { Debug.Log("Error");}
                 }
             }     
         }
@@ -209,16 +183,14 @@ public class GridPlayerMovement : MonoBehaviour
         {
             // umstellen auf playerposition
             //playerPrefab.transform.position = new Vector3(posX, -16.85f, posY);
-            Debug.Log("Skating1");
+            
             if(isAllowedToMoveForward)
             {
-                Debug.Log("Skating2");
                 playerPrefab.transform.position = new Vector3(posX, PlayerHeigth, posY++);
                 IsValidMove(posX, posY);	
             }
             else if (!isAllowedToMoveForward)
             {
-                Debug.Log("Skating3");
                 playerPrefab.transform.position = new Vector3(posX, PlayerHeigth, posY--);
                 return;
             }
@@ -263,22 +235,17 @@ public class GridPlayerMovement : MonoBehaviour
                         blocktype = "Respawnblock!";} 
             else {      Debug.LogError("Not a gridBlock!");}
 
-            // Debug.Log($"Trying to Move {direction} onto the block at: {newPosX}, {newPosY}. It is a: {blocktype}");
+            
 
             playerPrefab.transform.position = new Vector3(posX, 0, posY);
 
-            // Debug.Log($"I was able to move on the block at: {newPosX}, {newPosY}");  // just Debuglogs for checking if its working properly
+            
 
             IsValidMove(newPosX, newPosY);                                              // Check the surrounding Blocks of the Player after every move to get the bools 
                                                                                         // for the next movedirections set up
               
         }
-        /*
-        private void LogOutputTargetedBlock() {                                         // just for the check, if the grid is working properly and the player can detect the blocks
-            Debug.Log($"Position: {this.posX}, {this.posY}");
-            Debug.Log($"This is a: { grid.getBlockAt(this.posX, this.posY)}!");
-        }
-        */
+
         public void IsValidMove(int x, int y)                                           // Set the bools up for the surrounding blocks of the player
         {                                                                               // decides if the player can move in a direction or not
             int numRows = grid.blocks.GetLength(0);

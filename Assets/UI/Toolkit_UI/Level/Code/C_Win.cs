@@ -77,12 +77,12 @@ public class C_Win : MonoBehaviour
         butShow.clicked += Show;
 
         if (AlwaysThere.time <= MaxTime) inTime = true;
-        Debug.Log(inTime);
+        //Debug.Log(inTime);
        
         if (AlwaysThere.CurrencyStar) allCollected = true;
         if (AlwaysThere.TimeStar) inTime = true;
-        Debug.Log("after in Time " + inTime);
-        Debug.Log("after Collected " + allCollected);
+        //Debug.Log("after in Time " + inTime);
+        //Debug.Log("after Collected " + allCollected);
 
 
         Stars();
