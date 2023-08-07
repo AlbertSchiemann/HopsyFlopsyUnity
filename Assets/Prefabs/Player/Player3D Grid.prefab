@@ -110,6 +110,11 @@ MonoBehaviour:
   defaultSkin: {fileID: 9024113599275742173, guid: 7b3ecb17dae4d1b49b4c32666cd9eaed,
     type: 3}
   currentSkin: {fileID: 0}
+  GoldfishSkin: {fileID: 0}
+  GoldfishAnimator: {fileID: 0}
+  HammerhaiSkin: {fileID: 0}
+  AnglerfishSkin: {fileID: 0}
+  LastSkin: {fileID: 0}
 --- !u!114 &339750392863251824
 MonoBehaviour:
   m_ObjectHideFlags: 0

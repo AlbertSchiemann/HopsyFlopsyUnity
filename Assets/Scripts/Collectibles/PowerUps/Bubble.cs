@@ -11,7 +11,6 @@ public class Bubble : MonoBehaviour
     private PowerUpManager powerUpManager;
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
-    [SerializeField] private float _dehydrationDelay = 1f;
 
     void Start()
     {

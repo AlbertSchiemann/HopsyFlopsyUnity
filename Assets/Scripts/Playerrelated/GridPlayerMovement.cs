@@ -91,7 +91,6 @@ public class GridPlayerMovement : MonoBehaviour
         private bool isAllowedToMoveBack = true;
         private bool isAllowedToMoveForward = true;
         private bool isAllowedToMoveForwardTap = true; 
-        private bool skatingNotHit = true;
         public string direction = string.Empty;             // dunno
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
@@ -125,49 +124,62 @@ public class GridPlayerMovement : MonoBehaviour
             {
                 if (SwipeManager.shortTap)
                 {
-                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); }
+                    if (isAllowedToMoveForward == true) 
+                    { 
+                        moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); 
+                        playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
+                    }
                     else
                     {
                         SoundManager.Instance.PlaySound(collClip);
-                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp || CrossTapManager.upTap || JoyStickManager.upTap)
                 {
-                    if (isAllowedToMoveForward == true) { moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); }
+                    if (isAllowedToMoveForward == true) 
+                    { 
+                        moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); 
+                        playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
+                    }
                     else 
                     {
                         SoundManager.Instance.PlaySound(collClip);
-                        //playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
-                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().Play("jump_001");
-                        
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || CrossTapManager.downTap || JoyStickManager.downTap)
                 {
-                    if (isAllowedToMoveBack == true) { moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); SoundManager.Instance.PlaySound(moveClip); }
+                    if (isAllowedToMoveBack == true) 
+                    { 
+                        moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); SoundManager.Instance.PlaySound(moveClip); 
+                        playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
+                    }
                     else 
                     {
                         SoundManager.Instance.PlaySound(collClip);
-                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft || CrossTapManager.leftTap || JoyStickManager.leftTap)
                 {
-                    if (isAllowedToMoveLeft == true) { moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); SoundManager.Instance.PlaySound(moveClip); }
+                    if (isAllowedToMoveLeft == true) 
+                    {   
+                        moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); SoundManager.Instance.PlaySound(moveClip);
+                        playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
+                    }
                     else 
                     { 
                         SoundManager.Instance.PlaySound(collClip);
-                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight || CrossTapManager.rightTap || JoyStickManager.rightTap)
                 {
-                    if (isAllowedToMoveRight == true) { moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); SoundManager.Instance.PlaySound(moveClip); }
+                    if (isAllowedToMoveRight == true)
+                    { 
+                        moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); SoundManager.Instance.PlaySound(moveClip); 
+                        playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
+                    }
                     else 
                     {
                         SoundManager.Instance.PlaySound(collClip);
-                        playerPrefab.GetComponent<SkinLoader>().currentSkin.GetComponent<Animator>().SetTrigger("jump");
                     }
                 }
             }     
