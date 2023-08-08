@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDirection: []
+  animEase: 1
   StartingPoint: {x: 25, y: 1, z: 98}
   generalHeigth: 0.1
   moveDelay: 1
@@ -61,6 +62,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5a6fa4e7ec28cee4a94bdc4026323e46, type: 3}
   delayTillDeathscreenShows: 0.2
   delayTillStartOfMovement: 2.2
+  powerUp: {fileID: 0}
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0

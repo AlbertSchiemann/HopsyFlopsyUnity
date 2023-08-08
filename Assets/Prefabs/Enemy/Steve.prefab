@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDirection: []
+  animEase: 35
   StartingPoint: {x: 0, y: 0, z: 0}
   generalHeigth: 0.5
   moveDelay: 1
