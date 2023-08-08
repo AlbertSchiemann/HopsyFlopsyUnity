@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GridPlayerMovement : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class GridPlayerMovement : MonoBehaviour
     public HydrationController hydrationController;
   
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
-    [SerializeField] private int StartY =  3;                          
+    [SerializeField] private int StartY =  3;       
+                  
 
     public float PlayerHeigth = 1f;                        // Position in Y Axis of the Prefab
     private bool isAllowedToMove = true;                    // enables player movement in general
@@ -92,6 +94,8 @@ public class GridPlayerMovement : MonoBehaviour
         private bool isAllowedToMoveForward = true;
         private bool isAllowedToMoveForwardTap = true; 
         public string direction = string.Empty;             // dunno
+        public Ease animEase = Ease.Linear;                // Animation Ease
+        public Ease animEaseRotate = Ease.InOutFlash;          // Animation Ease
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
@@ -126,7 +130,10 @@ public class GridPlayerMovement : MonoBehaviour
                 {
                     if (isAllowedToMoveForward == true) 
                     { 
-                        moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); 
+                        moveForward(); 
+                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
+                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
+                        SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else
@@ -138,7 +145,10 @@ public class GridPlayerMovement : MonoBehaviour
                 {
                     if (isAllowedToMoveForward == true) 
                     { 
-                        moveForward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); SoundManager.Instance.PlaySound(moveClip); 
+                        moveForward(); 
+                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
+                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
+                        SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
@@ -150,7 +160,14 @@ public class GridPlayerMovement : MonoBehaviour
                 {
                     if (isAllowedToMoveBack == true) 
                     { 
-                        moveBackward(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); SoundManager.Instance.PlaySound(moveClip); 
+                        moveBackward(); 
+                        if (playerPrefab.transform.rotation.z != 0 && playerPrefab.transform.rotation.y != 0)
+                        {
+                            playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationBackward), 0.2f).SetEase(animEaseRotate);
+                        }
+                        
+                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); 
+                        SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
@@ -162,7 +179,10 @@ public class GridPlayerMovement : MonoBehaviour
                 {
                     if (isAllowedToMoveLeft == true) 
                     {   
-                        moveLeft(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); SoundManager.Instance.PlaySound(moveClip);
+                        moveLeft(); 
+                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationLeft), 0.2f).SetEase(animEaseRotate);
+                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); 
+                        SoundManager.Instance.PlaySound(moveClip);
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
@@ -174,7 +194,10 @@ public class GridPlayerMovement : MonoBehaviour
                 {
                     if (isAllowedToMoveRight == true)
                     { 
-                        moveRight(); playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); SoundManager.Instance.PlaySound(moveClip); 
+                        moveRight(); 
+                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationRight), 0.2f).SetEase(animEaseRotate);
+                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); 
+                        SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
@@ -249,7 +272,8 @@ public class GridPlayerMovement : MonoBehaviour
 
             
 
-            playerPrefab.transform.position = new Vector3(posX, 0, posY);
+            //playerPrefab.transform.position = new Vector3(posX, 0, posY);
+            playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEase);
 
             
 
