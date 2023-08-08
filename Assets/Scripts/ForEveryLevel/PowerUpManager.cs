@@ -14,7 +14,8 @@ public class PowerUpManager : MonoBehaviour
     [SerializeField] private float _dehydrationDelayBubble = 5f;
     public C_PowerUps powerUp;
     public C_WaterBar waterBar;
-    Vector3 skateboardPosition = new Vector3(0, 0.1f, 3);
+    Vector3 skateboardPosition = new Vector3(0.12f, 0.1f, 0);
+
     public static PlayerInstantiate Instance { get; private set; }
     public static PowerUpManager InstanceP { get; private set; }
     void Start()
@@ -55,7 +56,7 @@ public class PowerUpManager : MonoBehaviour
     }
     public void Skateboard()
     {
-        Instantiate(skateboardmeshForSkating, playerInstantiate.transform.position - skateboardPosition, playerInstantiate.transform.rotation, playerInstantiate.transform);
+        Instantiate(skateboardmeshForSkating, playerInstantiate.transform.position - skateboardPosition, skateboardmeshForSkating.transform.rotation, playerInstantiate.transform);
         playerInstantiate.GetComponent<GridPlayerMovement>().SkateboardMovement();
         Invoke("DestroySkateboard", 1.55f);
     }

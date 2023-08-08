@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hydrateClip:
   - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
-  _dehydrationDelay: 1
 --- !u!65 &7480734500866304782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60,8 +59,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2865944, y: 0.40025043, z: 0.30490303}
-  m_Center: {x: 0.047239304, y: -0.038128436, z: -0.036421776}
+  m_Size: {x: 1.2994752, y: 1.2567074, z: 1.2748466}
+  m_Center: {x: -0.009171963, y: -0.03886968, z: -0.013518532}
 --- !u!1001 &6733228539784867028
 PrefabInstance:
   m_ObjectHideFlags: 0
