@@ -46,8 +46,15 @@ public class GridPlayerMovement : MonoBehaviour
         UpdateGameObjectPosition();
         isAllowedToMove = false;
 
-        GameStateManagerScript.onGameStart += AllowMovement;            
-        GameStateManagerScript.onGamePaused += PreventMovement;           // Pause doesnt work yet
+        //GameStateManagerScript.onGameStart += AllowMovement;
+        Invoke("CameraStart", CameraFollow.CameraRideTimer);
+        GameStateManagerScript.onGamePaused += PreventMovement;           
+    }
+
+    private void CameraStart ()
+    {
+        AllowMovement();
+        Debug.Log("CameraStart");
     }
 
     void Update()
@@ -96,6 +103,8 @@ public class GridPlayerMovement : MonoBehaviour
         public string direction = string.Empty;             // dunno
         public Ease animEase = Ease.Linear;                // Animation Ease
         public Ease animEaseRotate = Ease.InOutFlash;          // Animation Ease
+        public Ease animEaseCollide = Ease.InOutFlash;          // Animation Ease
+        public float collisionAnimationTimer = 0.1f; 
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
@@ -131,78 +140,90 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveForward == true) 
                     { 
                         moveForward(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp || CrossTapManager.upTap || JoyStickManager.upTap)
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp || C_Playing.upTap || C_Playing.upCrossTap)
                 {
                     if (isAllowedToMoveForward == true) 
                     { 
                         moveForward(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || CrossTapManager.downTap || JoyStickManager.downTap)
+                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || C_Playing.downTap || C_Playing.downCrossTap)
                 {
                     if (isAllowedToMoveBack == true) 
                     { 
                         moveBackward(); 
+                        /*
                         if (playerPrefab.transform.rotation.z != 0 && playerPrefab.transform.rotation.y != 0)
                         {
                             playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationBackward), 0.2f).SetEase(animEaseRotate);
                         }
+                        */
                         
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); 
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft || CrossTapManager.leftTap || JoyStickManager.leftTap)
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft || C_Playing.leftTap || C_Playing.leftCrossTap)
                 {
                     if (isAllowedToMoveLeft == true) 
                     {   
                         moveLeft(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationLeft), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationLeft), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); 
                         SoundManager.Instance.PlaySound(moveClip);
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     { 
+                        playerPrefab.transform.DOMove(new Vector3(posX - collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX + collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight || CrossTapManager.rightTap || JoyStickManager.rightTap)
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight || C_Playing.rightTap || C_Playing.rightCrossTap)
                 {
                     if (isAllowedToMoveRight == true)
                     { 
                         moveRight(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationRight), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationRight), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX + collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX - collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
             }     
