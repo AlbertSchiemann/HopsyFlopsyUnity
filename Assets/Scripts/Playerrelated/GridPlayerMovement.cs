@@ -152,7 +152,7 @@ public class GridPlayerMovement : MonoBehaviour
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp || CrossTapManager.upTap || JoyStickManager.upTap)
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp || C_Playing.upTap || C_Playing.upCrossTap)
                 {
                     if (isAllowedToMoveForward == true) 
                     { 
@@ -169,7 +169,7 @@ public class GridPlayerMovement : MonoBehaviour
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || CrossTapManager.downTap || JoyStickManager.downTap)
+                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || C_Playing.downTap || C_Playing.downCrossTap)
                 {
                     if (isAllowedToMoveBack == true) 
                     { 
@@ -192,7 +192,7 @@ public class GridPlayerMovement : MonoBehaviour
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft || CrossTapManager.leftTap || JoyStickManager.leftTap)
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft || C_Playing.leftTap || C_Playing.leftCrossTap)
                 {
                     if (isAllowedToMoveLeft == true) 
                     {   
@@ -209,7 +209,7 @@ public class GridPlayerMovement : MonoBehaviour
                         playerPrefab.transform.DOMove(new Vector3(posX + collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight || CrossTapManager.rightTap || JoyStickManager.rightTap)
+                if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight || C_Playing.rightTap || C_Playing.rightCrossTap)
                 {
                     if (isAllowedToMoveRight == true)
                     { 
