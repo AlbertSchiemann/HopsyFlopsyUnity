@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class BaseCollectibleScript : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class BaseCollectibleScript : MonoBehaviour
     int currencyValue = 1;
 
     [SerializeField] private AudioClip[] _eatClip;
+    [SerializeField] private ParticleSystem _eatEffect;
 
     void Start()
     {
@@ -25,11 +28,17 @@ public class BaseCollectibleScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") 
         {
+            PlayParticle();
             SoundManager.Instance.PlaySound(_eatClip);
             GameObject currencyManager = GameObject.Find("Playing");
             currencyManager.GetComponent<C_Currency>().AddCurrency(currencyValue);
             Destroy(this.gameObject); 
         }
+    }
+
+    private void PlayParticle()
+    {
+        _eatEffect.Play();
     }
 }
 
