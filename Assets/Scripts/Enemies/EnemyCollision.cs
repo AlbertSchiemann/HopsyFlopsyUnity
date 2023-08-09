@@ -48,6 +48,8 @@ public class EnemyCollision : MonoBehaviour
     }
     void Sceneload()
     {
-        levelScript.OpenLoose();
+        if (!C_LevelSwitchScreens.AdWatched)
+            levelScript.OpenAd();
+       else levelScript.OpenLoose();
     }
 }

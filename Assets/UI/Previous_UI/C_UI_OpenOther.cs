@@ -9,7 +9,7 @@ public class C_UI_OpenOther : MonoBehaviour
 {
     public static void ToMain_Level()
     {
-        SceneManager.LoadScene("World1Level1 1");
+        SceneManager.LoadScene("World1Level1");
     }
     public static void ToJulius()
     {
@@ -36,7 +36,7 @@ public class C_UI_OpenOther : MonoBehaviour
         SceneManager.LoadScene("Artists_Level");
     }
     public static void ToLevel1() {        
-        SceneManager.LoadScene("World1Level1 1");
+        SceneManager.LoadScene("World1Level1");
     }
     public static void ToLevel2()
     {

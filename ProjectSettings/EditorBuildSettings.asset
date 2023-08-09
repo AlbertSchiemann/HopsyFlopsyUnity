@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/IronSource/DemoScene/IronSourceDemo.unity
     guid: ccc0ac08126704384bdda74c26d99797
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/UI/Previous_UI/UI testing 1.unity
     guid: af283813f3bd71649b5e126781404f27
   - enabled: 0
@@ -39,23 +36,29 @@ EditorBuildSettings:
     path: Assets/Scenes/Denis_Level.unity
     guid: 12ec01012607c0e4ea32ac97a8670bd8
   - enabled: 0
-    path: Assets/Scenes/Julius_GridTest.unity
-    guid: bfb543146a446ef4f8cfacfd2f5963d5
-  - enabled: 0
     path: Assets/Scenes/Nyra_Level.unity
     guid: b85f2157d99889d498cd3bc27e8bebb4
   - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/UI/Toolkit_UI/Level/TK_LevelUI_Test.unity
     guid: 978604959163ae64bab0e45516328ab3
-  - enabled: 0
+  - enabled: 1
     path: Assets/UI/Toolkit_UI/Main/TK_MainMenu.unity
     guid: 062f560f98537ce4bb366caa01baa77c
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/World 1/World1Level1.unity
     guid: 289e07a31d6755c44b55a12a5e600b63
   - enabled: 1
     path: Assets/Scenes/AdsTestScene.unity
     guid: 2cbbd67004e6e634aab9d5731e1f350e
+  - enabled: 1
+    path: Assets/UI/Toolkit_UI/IntroTrailer/Video.unity
+    guid: 622dc0f4b76e7f14d8c19f3b25cb1910
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: c0bf89014b740924992cc4fb6fba90fb,
       type: 2}

@@ -12,14 +12,17 @@ public class C_LevelSwitchScreens : MonoBehaviour
     [SerializeField] UIDocument TK_playingMenu;
     [SerializeField] UIDocument TK_winMenu;
     [SerializeField] UIDocument TK_looseMenu;
-    [SerializeField] UIDocument TK_pauseMenu;  
-    
+    [SerializeField] UIDocument TK_pauseMenu;
+
+    [SerializeField] UIDocument TK_AdMenu;
+
     [SerializeField] UIDocument TK_helpMenu;
     [SerializeField] UIDocument TK_settingsMenu;
     [SerializeField] UIDocument TK_storeMenu;
 
 
     private bool WON = false;
+    public static bool AdWatched = false;
 
     void Start()
     {
@@ -32,9 +35,21 @@ public class C_LevelSwitchScreens : MonoBehaviour
         TK_playingMenu.gameObject.SetActive(false);
         TK_winMenu.gameObject.SetActive(false);
         TK_looseMenu.gameObject.SetActive(false);
-        TK_pauseMenu.gameObject.SetActive(false);
+        TK_AdMenu.gameObject.SetActive(false);
 
         ActiveDocument = TK_beforeMenu;
+    }
+
+    public void OpenAd()
+    {
+        //GameObject gameStateManager = GameObject.Find("GameStateManager");
+        //gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+
+        TK_AdMenu.gameObject.SetActive(true);
+        if (TK_AdMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false); //if the canvas already is open then dont close it
+        ActiveDocument = TK_AdMenu;
+
+
     }
     public void OpenBefore()
     {

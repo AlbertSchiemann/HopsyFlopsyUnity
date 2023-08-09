@@ -58,7 +58,7 @@ public class C_Before : MonoBehaviour
         else if (AlwaysThere.currentSkin == 1) currentSkin = skinToEquip2;
         else if (AlwaysThere.currentSkin == 2) currentSkin = skinToEquip3;
         else if (AlwaysThere.currentSkin == 3) currentSkin = skinToEquip4;
-        Warning.Error(currentSkin.ToString());
+        
 
         player.ChangeSkin(currentSkin);
     }

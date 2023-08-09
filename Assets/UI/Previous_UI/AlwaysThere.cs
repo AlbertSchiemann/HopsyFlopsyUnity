@@ -21,5 +21,4 @@ public static class AlwaysThere
 
     public static bool TimeStar = false;
     public static bool CurrencyStar = false;
-
 }

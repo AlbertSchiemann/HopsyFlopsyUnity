@@ -42,8 +42,10 @@ public class PlayerCollision : MonoBehaviour
 */
     void Sceneload()
     {
-        // restart the game if the player collides with the enemy
-        levelScript.OpenLoose();  
+        if (!C_LevelSwitchScreens.AdWatched)
+            levelScript.OpenAd();
+        else levelScript.OpenLoose();
+    
     }
 
     public void CollisionCheck()
