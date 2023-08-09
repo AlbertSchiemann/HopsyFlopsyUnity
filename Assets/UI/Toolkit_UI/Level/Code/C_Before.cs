@@ -66,12 +66,14 @@ public class C_Before : MonoBehaviour
 
     void Help()
     {
+        SwipeManager.tapping = false;
         SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Help();
     }
 
     void Store()
     {
+        SwipeManager.tapping = false;
         SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Store();
 
@@ -79,6 +81,7 @@ public class C_Before : MonoBehaviour
 
     void Settings()
     {
+        SwipeManager.tapping = false;
         SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMain_Settings();
 
@@ -86,15 +89,11 @@ public class C_Before : MonoBehaviour
 
     void Main()
     {
+        SwipeManager.tapping = false;
         SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMainMenu();
     }
 
-    void Restart()
-    {
-        SoundManager.Instance.PlaySound(_UISound);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
     void Play()
     {
         SwipeManager.tapping = false;
