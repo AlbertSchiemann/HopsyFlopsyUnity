@@ -55,7 +55,7 @@ public class C_UI_OpenOther : MonoBehaviour
     }
     public static void ToVideo()
     {
-       // SceneManager.LoadScene("Video");
+        SceneManager.LoadScene("Video");
     }
 
     public static void ToMainMenu() {

@@ -75,9 +75,9 @@ public class C_Playing : MonoBehaviour
 
     }
 
-
     void Pause()
     {
+        SwipeManager.tapping = false;
         AlwaysThere.time = (int)Timer;
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenPause();
