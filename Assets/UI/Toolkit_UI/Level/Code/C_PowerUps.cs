@@ -41,8 +41,8 @@ public class C_PowerUps : MonoBehaviour
     }
 
     public void UseBottle()
-    { 
-        
+    {
+        SwipeManager.tapping = false;
         if (AlwaysThere.bottleThere)
         {
             powerUpManager.Refill();

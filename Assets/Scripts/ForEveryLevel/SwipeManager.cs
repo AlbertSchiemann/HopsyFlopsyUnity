@@ -9,76 +9,60 @@ public class SwipeManager : MonoBehaviour
     private Vector2 startTouch, swipeDelta;
     private float tapTimeThreshold = 0.2f;
     private float tapTime;
+    public static bool tapping = true;
 
     private void Update()
     {
-        tap = swipeDown = swipeUp = swipeLeft = swipeRight = shortTap = false;
-
-        // Calculate the distance
-        swipeDelta = Vector2.zero;
-        if (isDraging)
+        if (tapping)
         {
-            if (Input.touches.Length < 0)
-                swipeDelta = Input.touches[0].position - startTouch;
-            else if (Input.GetMouseButton(0))
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
-        }
+            tap = swipeDown = swipeUp = swipeLeft = swipeRight = shortTap = false;
 
-        // Check the distance for the swipe
-        if (swipeDelta.magnitude > 100)
-        {
-            // Determine direction
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-            if (Mathf.Abs(x) > Mathf.Abs(y))
+            // Calculate the distance
+            swipeDelta = Vector2.zero;
+            if (isDraging)
             {
-                // Left or Right
-                if (x < 0)
-                    swipeLeft = true;
-                else
-                    swipeRight = true;
-            }
-            else
-            {
-                // Up or Down
-                if (y < 0)
-                    swipeDown = true;
-                else
-                    swipeUp = true;
+                if (Input.touches.Length < 0)
+                    swipeDelta = Input.touches[0].position - startTouch;
+                else if (Input.GetMouseButton(0))
+                    swipeDelta = (Vector2)Input.mousePosition - startTouch;
             }
 
-            Reset();
-            return; // Exit Update early, we already have a swipe
-        }
+            // Check the distance for the swipe
+            if (swipeDelta.magnitude > 100)
+            {
+                // Determine direction
+                float x = swipeDelta.x;
+                float y = swipeDelta.y;
+                if (Mathf.Abs(x) > Mathf.Abs(y))
+                {
+                    // Left or Right
+                    if (x < 0)
+                        swipeLeft = true;
+                    else
+                        swipeRight = true;
+                }
+                else
+                {
+                    // Up or Down
+                    if (y < 0)
+                        swipeDown = true;
+                    else
+                        swipeUp = true;
+                }
 
-        // Desktop Input
-        if (Input.GetMouseButtonDown(0))
-        {
-            tap = true;
-            isDraging = true;
-            startTouch = Input.mousePosition;
-            tapTime = Time.time;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            isDraging = false;
-            float timeDelta = Time.time - tapTime;
-            if (timeDelta <= tapTimeThreshold && !swipeLeft && !swipeRight && !swipeUp && !swipeDown)
-                shortTap = true;
-            Reset();
-        }
+                Reset();
+                return; // Exit Update early, we already have a swipe
+            }
 
-        // Mobile Input
-        if (Input.touches.Length > 0)
-        {
-            if (Input.touches[0].phase == TouchPhase.Began)
+            // Desktop Input
+            if (Input.GetMouseButtonDown(0))
             {
                 tap = true;
                 isDraging = true;
-                startTouch = Input.touches[0].position;
+                startTouch = Input.mousePosition;
                 tapTime = Time.time;
             }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+            else if (Input.GetMouseButtonUp(0))
             {
                 isDraging = false;
                 float timeDelta = Time.time - tapTime;
@@ -86,7 +70,28 @@ public class SwipeManager : MonoBehaviour
                     shortTap = true;
                 Reset();
             }
+
+            // Mobile Input
+            if (Input.touches.Length > 0)
+            {
+                if (Input.touches[0].phase == TouchPhase.Began)
+                {
+                    tap = true;
+                    isDraging = true;
+                    startTouch = Input.touches[0].position;
+                    tapTime = Time.time;
+                }
+                else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+                {
+                    isDraging = false;
+                    float timeDelta = Time.time - tapTime;
+                    if (timeDelta <= tapTimeThreshold && !swipeLeft && !swipeRight && !swipeUp && !swipeDown)
+                        shortTap = true;
+                    Reset();
+                }
+            }
         }
+        tapping = true;
     }
     private void Reset()
     {
