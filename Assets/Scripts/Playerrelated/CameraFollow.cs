@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothTime = 0.3f;                     // time taken for camera to smoothly follow player
     public Vector3 offset = new(0, 1, -2);              // initial offset between camera and player
     public Vector3 cameraAngle = new(50f, 0f, 0f);
+    public Vector3 cameraRideGoal = new(0f, 7f, 70f);
 
     private Vector3 velocity = Vector3.zero;
 
@@ -36,6 +37,15 @@ public class CameraFollow : MonoBehaviour
     private void UpdateDelaying ()
     {
         UpdateDelay = true;
+    }
+
+    public void GoalCameraride() 
+    {
+        UpdateDelay = false;
+        transform.DOMove(playerTransform.position + cameraRideGoal, 1f);
+
+
+
     }
 
 

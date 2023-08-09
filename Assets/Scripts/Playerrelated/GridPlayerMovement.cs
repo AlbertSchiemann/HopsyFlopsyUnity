@@ -35,6 +35,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _collisionClip;
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private GameObject bucket;
+    [SerializeField] private GameObject cablecart;
 
     void Start()
     {
@@ -104,7 +105,9 @@ public class GridPlayerMovement : MonoBehaviour
         public Ease animEase = Ease.Linear;                // Animation Ease
         public Ease animEaseRotate = Ease.InOutFlash;          // Animation Ease
         public Ease animEaseCollide = Ease.InOutFlash;          // Animation Ease
+        public Ease animEaseJump = Ease.InOutExpo;          // Animation Ease
         public float collisionAnimationTimer = 0.1f; 
+
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
@@ -235,6 +238,13 @@ public class GridPlayerMovement : MonoBehaviour
         public void moveForwardTap ()   {Move( 0, 1); direction =    "Forward";}
         public void moveBackward ()     {Move( 0,-1); direction =   "Backward";}
         public void moveCrane()         {Move( 2, 2); direction =    "Crane";}
+
+        public void PlayerWin()         
+        {
+            playerPrefab.transform.DOMove( new Vector3 (21f,1.75f,119f),1f).SetEase(animEaseJump);
+            playerPrefab.transform.DOMove( new Vector3 (61f,1.75f,119f),3f).SetDelay(1.5f).SetEase(animEaseJump);
+            
+        }
         public void moveSkateboard()    
         {
             // umstellen auf playerposition
@@ -388,6 +398,11 @@ public class GridPlayerMovement : MonoBehaviour
     public void CallOfMoveSkateboard()
     {
         playerPosition.moveSkateboard();
+    }
+    public void CallOfPlayerWin()
+    {
+        playerPosition.PlayerWin();
+        cablecart.transform.DOMove( new Vector3 (39.80000114f,-3.81999969f,120.059998f),3f).SetDelay(1.5f).SetEase(Ease.InOutExpo);
     }
     public void RandomMovement()
     {

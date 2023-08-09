@@ -14,7 +14,7 @@ string appkey = "1acc52165";
     // Start is called before the first frame update
     void Start()
     {
-        IronSource.Agent.init(appkey);
+        //IronSource.Agent.init(appkey);
     }
 
     private void OnEnable()
