@@ -76,19 +76,22 @@ public class C_Win : MonoBehaviour
         butHide.clicked += Hide;
         butShow.clicked += Show;
 
-        if (AlwaysThere.time <= MaxTime) inTime = true;
-        //Debug.Log(inTime);
-       
-        if (AlwaysThere.CurrencyStar) allCollected = true;
-        if (AlwaysThere.TimeStar) inTime = true;
-        //Debug.Log("after in Time " + inTime);
-        //Debug.Log("after Collected " + allCollected);
+        if (switchScreen.WON)
+        {
+            Debug.Log("beginning: " + inTime);
+            if (AlwaysThere.time <= MaxTime) inTime = true;
+            Debug.Log("after compared to level: " + inTime);
+            if (AlwaysThere.CurrencyStar) allCollected = true;
+            if (AlwaysThere.TimeStar) inTime = true;
+            Debug.Log("after compared to always: " + inTime);
+            //Debug.Log("after Collected " + allCollected);
+
+            Stars();
+            inTime = false;
 
 
-        Stars();
-
-        C_Currency.CurrencyTotal = 0;
-
+            C_Currency.CurrencyTotal = 0;
+        }
     }
 
     void StarReachedCollectible()

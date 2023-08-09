@@ -21,10 +21,10 @@ public class C_LevelSwitchScreens : MonoBehaviour
     [SerializeField] UIDocument TK_storeMenu;
 
 
-    private bool WON = false;
+    public bool WON = false;
     public static bool AdWatched = false;
 
-    void Start()
+    void OnEnable()
     {
         C_UI_OpenOther.SaveLastLevel();
 
@@ -115,6 +115,7 @@ public class C_LevelSwitchScreens : MonoBehaviour
     {
         //GameObject gameStateManager = GameObject.Find("GameStateManager");
         //gameStateManager.GetComponent<GameStateManagerScript>().PauseGame();
+        WON = true;
 
         TK_winMenu.gameObject.SetActive(true);
         if (TK_winMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
@@ -123,7 +124,6 @@ public class C_LevelSwitchScreens : MonoBehaviour
         //if (WinCurrencyText == true) winCurrencyText.SetActive(true);  //mit uiToolkit textfeld
         //else winCurrencyText.SetActive(false);
 
-        WON = true;
     }
     public void OpenLoose()
     {

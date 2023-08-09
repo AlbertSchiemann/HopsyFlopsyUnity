@@ -48,6 +48,7 @@ public class EnemyCollision : MonoBehaviour
     }
     void Sceneload()
     {
+        AlwaysThere.time = (int)C_Playing.Timer;
         if (!C_LevelSwitchScreens.AdWatched)
             levelScript.OpenAd();
        else levelScript.OpenLoose();
