@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8238068850904668336}
   - component: {fileID: 1411851885087491821}
   - component: {fileID: 4557102933338762294}
+  - component: {fileID: 3520396029984752612}
   m_Layer: 0
   m_Name: Beer
   m_TagString: Untagged
@@ -61,6 +62,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.4, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3520396029984752612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304903313262149441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc1bc27f35fcb040830fc310f4bc732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationspeed: 0.04
+  direction: 3
 --- !u!1001 &475771479547224324
 PrefabInstance:
   m_ObjectHideFlags: 0

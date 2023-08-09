@@ -14,8 +14,9 @@ public class UI_WinTrigger_Script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger scrpit 1st");
+        AlwaysThere.time = (int)C_Playing.Timer;
+        Debug.Log(AlwaysThere.time + " and " + C_Playing.Timer);
         levelScript.OpenWin();
-        Debug.Log("trigger scrpit last");
+      
     }
 }

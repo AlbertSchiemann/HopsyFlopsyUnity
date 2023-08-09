@@ -25,9 +25,6 @@ public class C_SettingsLevel : MonoBehaviour
     Button butSfxOn;
     Button butSfxOff;
 
-    private bool MusicIcon = true;
-    private bool SFXIcon = true;
-
     public const string Mixer_Bg = "Background";
     public const string Mixer_Sfx = "Effects";
 
@@ -96,7 +93,7 @@ public class C_SettingsLevel : MonoBehaviour
         visSound.style.display = DisplayStyle.Flex;
         txtContact.style.display = DisplayStyle.None;
 
-        if (MusicIcon)
+        if (AlwaysThere.MusicIcon)
         {
             butMusicOff.style.display = DisplayStyle.None;
             butMusicOn.style.display = DisplayStyle.Flex;
@@ -109,7 +106,7 @@ public class C_SettingsLevel : MonoBehaviour
             SoundManager.DisableMusic();
         }
 
-        if (SFXIcon)
+        if (AlwaysThere.SFXIcon)
         {
             butSfxOff.style.display = DisplayStyle.None;
             butSfxOn.style.display = DisplayStyle.Flex;
@@ -162,13 +159,11 @@ public class C_SettingsLevel : MonoBehaviour
 
     private void SetBgVolume(float value)
     {
-        Debug.Log("Set Music Volume");
         mixer.SetFloat(Mixer_Bg, Mathf.Log10(value) * 20);
     }
 
     private void SetSfxVolume(float value)
     {
-        Debug.Log("Set SFX Volume");
         mixer.SetFloat(Mixer_Sfx, Mathf.Log10(value) * 20);
     }
 
@@ -178,7 +173,7 @@ public class C_SettingsLevel : MonoBehaviour
         butMusicOn.style.display = DisplayStyle.Flex;
 
         SoundManager.EnableMusic();
-        MusicIcon = true;
+        AlwaysThere.MusicIcon = true;
     }
     private void MusicOff()
     {
@@ -186,7 +181,7 @@ public class C_SettingsLevel : MonoBehaviour
         butMusicOn.style.display = DisplayStyle.None;
 
         SoundManager.DisableMusic();
-        MusicIcon = false;
+        AlwaysThere.MusicIcon = false;
     }
     private void SfxOn()
     {
@@ -194,7 +189,7 @@ public class C_SettingsLevel : MonoBehaviour
         butSfxOn.style.display = DisplayStyle.Flex;
 
         SoundManager.EnableSfx();
-        SFXIcon = true;
+        AlwaysThere.SFXIcon = true;
     }
     private void SfxOff()
     {
@@ -202,7 +197,7 @@ public class C_SettingsLevel : MonoBehaviour
         butSfxOn.style.display = DisplayStyle.None;
 
         SoundManager.DisableSfx();
-        SFXIcon = false;
+        AlwaysThere.SFXIcon = false;
     }
 }
 

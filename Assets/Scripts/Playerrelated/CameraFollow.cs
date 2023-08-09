@@ -9,13 +9,14 @@ public class CameraFollow : MonoBehaviour
 	public float shakeDuration = 0f;
 	
 	// Amplitude of the shake. A larger value shakes the camera harder.
-	public float shakeAmount = 0.007f;
-	private float decreaseFactor = 1.0f; // lowering of the shaketime per second
-    public float smoothTime = 0.3f;      // time taken for camera to smoothly follow player
-    public Vector3 offset = new(0, 1, -2);               // initial offset between camera and player
+	public float shakeAmount = 0.02f;
+	private float decreaseFactor = 1.0f;                // lowering of the shaketime per second
+    public float smoothTime = 0.3f;                     // time taken for camera to smoothly follow player
+    public Vector3 offset = new(0, 1, -2);              // initial offset between camera and player
+    public float cameraAngle;
 
     private Vector3 velocity = Vector3.zero;
-    private Vector3 fix = new(0, -1, 0);
+
     void Update()
     {
         // set the target position as the player's position plus the offset
@@ -25,12 +26,13 @@ public class CameraFollow : MonoBehaviour
         {
             // smoothly move the camera towards the target position
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+            transform.rotation = Quaternion.Euler(cameraAngle, 0f, 0f);
         }
 
         else if (shakeDuration > 0)
 		{
-			transform.position = Vector3.SmoothDamp(transform.position , targetPosition + offset + fix, ref velocity, smoothTime) + Random.insideUnitSphere * shakeAmount;
-            transform.rotation = Quaternion.Euler(0f, Random.Range(-.2f, .2f), Random.Range(-.3f, .3f));
+			transform.position = Vector3.SmoothDamp(transform.position , targetPosition , ref velocity, smoothTime) + Random.insideUnitSphere * shakeAmount;
+            transform.rotation = Quaternion.Euler(cameraAngle, Random.Range(-.2f, .2f), Random.Range(-.3f, .3f));
 			
 			shakeDuration -= Time.deltaTime * decreaseFactor;
 		}

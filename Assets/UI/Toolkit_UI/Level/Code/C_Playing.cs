@@ -18,6 +18,8 @@ public class C_Playing : MonoBehaviour
 
     [SerializeField] private AudioClip[] _UISound;
 
+    public static float Timer;
+
    private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
@@ -37,13 +39,21 @@ public class C_Playing : MonoBehaviour
 
         butPause.clicked += Pause;
 
+        Timer = AlwaysThere.time;
         
     }
 
-    
+    private void Update()
+    {
+        
+        Timer = Timer + Time.deltaTime;
+
+    }
+
 
     void Pause()
     {
+        AlwaysThere.time = (int)Timer;
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenPause();
     }

@@ -17,9 +17,6 @@ public class Skateboard : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Skateboard triggered");
-            
-
 
             Destroy(gameObject);
 

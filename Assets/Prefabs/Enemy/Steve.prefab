@@ -148,16 +148,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDirection: []
+  animEase: 35
   StartingPoint: {x: 0, y: 0, z: 0}
   generalHeigth: 0.5
   moveDelay: 1
   grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
   enemyPrefab: {fileID: 4984238158877522434}
-  levelScript: {fileID: 622734852713334261, guid: caa8fba8f7b0a8348bd1606e244089f0,
+  levelScript: {fileID: 8665902501282802515, guid: 158693a3fd2b4524e930cafe66fdddab,
     type: 3}
-  _failClip: []
+  _failClip:
+  - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
+  _deflectClip:
+  - {fileID: 8300000, guid: 5a6fa4e7ec28cee4a94bdc4026323e46, type: 3}
   delayTillDeathscreenShows: 0.2
   delayTillStartOfMovement: 2.2
+  powerUp: {fileID: 0}
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0

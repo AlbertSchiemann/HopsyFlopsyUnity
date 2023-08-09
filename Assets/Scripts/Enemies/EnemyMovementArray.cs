@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 public enum Direction
 {
     Right,
@@ -19,6 +20,7 @@ public class EnemyMovementArray : MonoBehaviour
         public int Directionslength;
     }
     [SerializeField] MovementStruct[] movementDirection; // Array of the Movement Directions and their length
+    [SerializeField] private  Ease animEase = Ease.Linear; // Ease of the Movement
 
 
 
@@ -46,7 +48,7 @@ public class EnemyMovementArray : MonoBehaviour
     public float delayTillStartOfMovement = 2.2f;                          // Delay till Enemy gets destroyed after death
     int i;
 
-    C_PowerUps powerUp;
+    public C_PowerUps powerUp;
 
     private void Awake()
     {
@@ -116,7 +118,6 @@ public class EnemyMovementArray : MonoBehaviour
         for (int f = 0; f < numSteps; f++)
         {
             movementAction(1);
-            //Debug.Log("1 Step");
             yield return new WaitForSeconds(moveDelay);
         }
         StartMovement();
@@ -152,29 +153,35 @@ public class EnemyMovementArray : MonoBehaviour
     {
         int newX = enemyPosition.posX + x;
         enemyPosition.posX = newX;
-        enemyPrefab.transform.position = new Vector3(enemyPosition.posX, 0, 0);
+        //enemyPrefab.transform.position = new Vector3(enemyPosition.posX, 0, 0);
+        enemyPrefab.transform.DOMoveX(enemyPosition.posX, moveDelay).SetEase(animEase);
         UpdateGameObjectPosition();
     }
     public void MovingLeft(int x)
     {
         int newX = enemyPosition.posX - x;
         enemyPosition.posX = newX;
-        enemyPrefab.transform.position = new Vector3(enemyPosition.posX, 0, 0);
+        //enemyPrefab.transform.position = new Vector3(enemyPosition.posX, 0, 0);
+        enemyPrefab.transform.DOMoveX(enemyPosition.posX, moveDelay).SetEase(animEase);
         UpdateGameObjectPosition();
     }
     public void MovingForward(int z)
     {
         int newZ = enemyPosition.posZ + z;
         enemyPosition.posZ = newZ;
-        enemyPrefab.transform.position = new Vector3(0, 0, enemyPosition.posZ);
+        //enemyPrefab.transform.position = new Vector3(0, 0, enemyPosition.posZ);
+        enemyPrefab.transform.DOMoveZ(enemyPosition.posZ, moveDelay).SetEase(animEase);
         UpdateGameObjectPosition();
+        
     }
     public void MovingBackward(int z)
     {
         int newZ = enemyPosition.posZ - z;
         enemyPosition.posZ = newZ;
-        enemyPrefab.transform.position = new Vector3(0, 0, enemyPosition.posZ);
+        //enemyPrefab.transform.position = new Vector3(0, 0, enemyPosition.posZ);
+        enemyPrefab.transform.DOMoveZ(enemyPosition.posZ, moveDelay).SetEase(animEase);
         UpdateGameObjectPosition();
+        
     }
 
     private Vector3 previousPosition;                                                    // save the previous Position of the Enemy for the Rotation                                         
@@ -183,7 +190,7 @@ public class EnemyMovementArray : MonoBehaviour
     {
         // Calculate current position
         Vector3 currentPosition = new Vector3(enemyPosition.posX, enemyPosition.posY, enemyPosition.posZ);
-        enemyPrefab.transform.position = currentPosition;
+        //enemyPrefab.transform.position = currentPosition;
 
         // Calculate movement direction
         Vector3 direction = currentPosition - previousPosition;
@@ -248,11 +255,20 @@ public class EnemyMovementArray : MonoBehaviour
             }
             else
             {
-                Debug.Log("DEFLECT");
                 SoundManager.Instance.PlaySound(_deflectClip);
                 canTankHit = false;
                 powerUp.UseShield();
+                return;
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            canTankHit = false;
+            powerUp.UseShield();
+            return;
         }
     }
     void Sceneload()

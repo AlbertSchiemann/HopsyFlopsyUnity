@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 public class C_Currency : MonoBehaviour
 {
     Label txtCurrency; 
-    static int CurrencyAmount = 0;
-    public static int CurrencyTotal = 4; // bessser wenn man automatisch durchzählen lassen könnte in der hierachy
+    public static int CurrencyAmount = 0;
+    public static int CurrencyTotal=0; 
     void OnEnable()
     {
         VisualElement rootSettings = GetComponent<UIDocument>().rootVisualElement;

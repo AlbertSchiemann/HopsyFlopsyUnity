@@ -195,8 +195,8 @@
 }
 
 .Button_Sound {
-    height: 300px;
-    width: 307px;
+    height: 280px;
+    width: 280px;
     left: 6px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOFF.png?fileID=2800000&guid=8dc779dae17f22442b31560587411cc3&type=3#B_SoundVolumeOFF');
     border-left-width: 0;
@@ -208,6 +208,7 @@
     margin-right: 39px;
     margin-top: 39px;
     margin-bottom: 39px;
+    -unity-background-scale-mode: scale-to-fit;
 }
 
 .button_ItemEquip {

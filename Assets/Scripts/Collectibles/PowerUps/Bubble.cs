@@ -11,7 +11,6 @@ public class Bubble : MonoBehaviour
     private PowerUpManager powerUpManager;
     private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
-    [SerializeField] private float _dehydrationDelay = 5f;
 
     void Start()
     {
@@ -23,7 +22,6 @@ public class Bubble : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Bubble triggered");
             
             SoundManager.Instance.PlaySound(_hydrateClip);
 

@@ -35,6 +35,8 @@ public class HydrationController : MonoBehaviour
     private PlayerInstantiate playerInstantiate;
     [SerializeField] PowerUpManager powerUpManager;
 
+    public bool pauseactive;
+
 
 
     public static HydrationController Instance { get; private set; }    // Instantiatie the Hydration Controller to assign it automatically
@@ -98,7 +100,6 @@ public class HydrationController : MonoBehaviour
     {
         if (isCollidingWithFire)
         {
-            //Debug.Log("colliding with fire");
             hydration -= hydrationDecayRate * hydrationDecayFire * Time.deltaTime ;
             waterBar.SetHealth(hydration);
         }
@@ -123,7 +124,7 @@ public class HydrationController : MonoBehaviour
     }
 
     // used for Power Ups:
-    public void PauseDehydration(float pausetime, bool pauseactive)
+    public void PauseDehydration(float pausetime)
     {
         if (pauseactive)
         {
@@ -134,11 +135,16 @@ public class HydrationController : MonoBehaviour
     private void Timer (float pausetime)
     {
         Invoke("watercollisiondisabled", pausetime);
-        Invoke("pauseactive = false", pausetime);
+        Invoke("Pausestop", pausetime);
     }
-    private void Pausestop (bool pauseactive)
+    private void Pausestop ()
     {
         pauseactive = false;
+    }
+
+    public void Pausestart ()
+    {
+        pauseactive = true;
     }
 
     
@@ -148,17 +154,24 @@ public class HydrationController : MonoBehaviour
        if (hydration <= 5 && powerUpManager.waterbottleThere == true)
         {
             //SoundManager.Instance.PlaySound(_hydrateClip);
-            Debug.Log("Waterbottle used");
+            
             powerUp.UseBottle();
             powerUpManager.waterbottleThere = false;
         }
-        else if (hydration <= 0)
+        else if (hydration <= 0 && powerUpManager.waterbottleThere == false)
         {
             Invoke("Sceneload", DelayTillReload); 
             SoundManager.Instance.PlaySound(_failClip);
             GameObject player = playerInstantiate.gameObject;
             player.GetComponent<GridPlayerMovement>().PreventMovement();
-
+        }
+        else if (hydration >= 0)
+        {
+            return;
+        }
+        else
+        {
+            Debug.LogError("Hydrationdeath is fucked up...");
         }
     }
     public void MaxHydration()

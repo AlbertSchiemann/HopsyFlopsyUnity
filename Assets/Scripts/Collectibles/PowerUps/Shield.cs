@@ -21,7 +21,6 @@ public class Shield : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Shielded up");
             Destroy(gameObject);
             SoundManager.Instance.PlaySound(_shieldClip);
             powerUpManager.Shield();

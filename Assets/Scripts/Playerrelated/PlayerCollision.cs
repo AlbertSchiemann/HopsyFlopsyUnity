@@ -30,7 +30,7 @@ public class PlayerCollision : MonoBehaviour
     {
         CollisionCheck();
     }
-
+/*
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
@@ -39,7 +39,7 @@ public class PlayerCollision : MonoBehaviour
             Debug.Log("Enemy von Player getroffen!");
         }
     }
-
+*/
     void Sceneload()
     {
         // restart the game if the player collides with the enemy
@@ -58,7 +58,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 noMoveForward = false;
             }
-            Debug.DrawRay(transform.position, transform.TransformDirection(forwardRay * RayRange));
+            //Debug.DrawRay(transform.position, transform.TransformDirection(forwardRay * RayRange));
         }
         else
         {
@@ -75,7 +75,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 noMoveBackward = false;
             }
-            Debug.DrawRay(transform.position, transform.TransformDirection(backwardRay * RayRange));
+            //Debug.DrawRay(transform.position, transform.TransformDirection(backwardRay * RayRange));
         }
         else
         {
@@ -92,7 +92,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 noMoveRight = false;
             }
-            Debug.DrawRay(transform.position, transform.TransformDirection(rightRay * RayRange));
+            //Debug.DrawRay(transform.position, transform.TransformDirection(rightRay * RayRange));
         }
         else
         {
@@ -109,7 +109,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 noMoveLeft = false;
             }
-            Debug.DrawRay(transform.position, transform.TransformDirection(leftRay * RayRange));
+            //Debug.DrawRay(transform.position, transform.TransformDirection(leftRay * RayRange));
         } 
         else
         {
