@@ -1466,7 +1466,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1697524214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280797570}
+        m_TargetAssemblyTypeName: ISScript, Assembly-CSharp
+        m_MethodName: ShowFullSizeAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1697524214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,7 +1802,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1908966135}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1280797570}
+        m_TargetAssemblyTypeName: ISScript, Assembly-CSharp
+        m_MethodName: LoadFullSizeAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1908966135
 MonoBehaviour:
   m_ObjectHideFlags: 0
