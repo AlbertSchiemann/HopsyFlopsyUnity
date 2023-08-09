@@ -93,6 +93,8 @@ public class C_LevelSwitchScreens : MonoBehaviour
         ActiveDocument = TK_playingMenu;
 
     }
+
+
     public void OpenWin()
     {
         //GameObject gameStateManager = GameObject.Find("GameStateManager");
@@ -124,7 +126,7 @@ public class C_LevelSwitchScreens : MonoBehaviour
     {
 
         TK_pauseMenu.gameObject.SetActive(true);
-        if (TK_looseMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
+        if (TK_pauseMenu != ActiveDocument) ActiveDocument.gameObject.SetActive(false);
         ActiveDocument = TK_pauseMenu;
 
         //Time.timeScale = 0f;
