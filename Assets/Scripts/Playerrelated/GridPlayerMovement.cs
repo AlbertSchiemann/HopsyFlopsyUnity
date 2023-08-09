@@ -96,6 +96,8 @@ public class GridPlayerMovement : MonoBehaviour
         public string direction = string.Empty;             // dunno
         public Ease animEase = Ease.Linear;                // Animation Ease
         public Ease animEaseRotate = Ease.InOutFlash;          // Animation Ease
+        public Ease animEaseCollide = Ease.InOutFlash;          // Animation Ease
+        public float collisionAnimationTimer = 0.1f; 
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
@@ -131,14 +133,16 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveForward == true) 
                     { 
                         moveForward(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || SwipeManager.swipeUp || CrossTapManager.upTap || JoyStickManager.upTap)
@@ -146,14 +150,16 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveForward == true) 
                     { 
                         moveForward(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationForward), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationForward); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || SwipeManager.swipeDown || CrossTapManager.downTap || JoyStickManager.downTap)
@@ -161,18 +167,22 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveBack == true) 
                     { 
                         moveBackward(); 
+                        /*
                         if (playerPrefab.transform.rotation.z != 0 && playerPrefab.transform.rotation.y != 0)
                         {
                             playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationBackward), 0.2f).SetEase(animEaseRotate);
                         }
+                        */
                         
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); 
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationBackward); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || SwipeManager.swipeLeft || CrossTapManager.leftTap || JoyStickManager.leftTap)
@@ -180,14 +190,16 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveLeft == true) 
                     {   
                         moveLeft(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationLeft), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationLeft), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationLeft); 
                         SoundManager.Instance.PlaySound(moveClip);
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     { 
+                        playerPrefab.transform.DOMove(new Vector3(posX - collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX + collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || SwipeManager.swipeRight || CrossTapManager.rightTap || JoyStickManager.rightTap)
@@ -195,14 +207,16 @@ public class GridPlayerMovement : MonoBehaviour
                     if (isAllowedToMoveRight == true)
                     { 
                         moveRight(); 
-                        playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationRight), 0.2f).SetEase(animEaseRotate);
-                        //playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); 
+                        //playerPrefab.transform.DORotate(new Vector3(-90, 180, rotationRight), 0.2f).SetEase(animEaseRotate);
+                        playerPrefab.transform.rotation = Quaternion.Euler(-90, 180, rotationRight); 
                         SoundManager.Instance.PlaySound(moveClip); 
                         playerPrefab.GetComponent<SkinLoader>().AnimationTrigger();
                     }
                     else 
                     {
+                        playerPrefab.transform.DOMove(new Vector3(posX + collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        playerPrefab.transform.DOMove(new Vector3(posX - collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
             }     
