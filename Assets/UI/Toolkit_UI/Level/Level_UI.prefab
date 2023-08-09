@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7296476374712792003}
   - component: {fileID: 7408957664934750834}
+  - component: {fileID: 5424592570290925743}
   m_Layer: 5
   m_Name: AdOption
   m_TagString: Untagged
@@ -49,6 +50,21 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 89a7e36d723db304580500687b27d430,
     type: 3}
   m_SortingOrder: 0
+--- !u!114 &5424592570290925743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818215894156762906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebbab42bf216044290101b40dcea33c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switchScreen: {fileID: 8665902501282802515}
+  _UISound:
+  - {fileID: 8300000, guid: 5f72c2db9438c4c419e42713aa4d572b, type: 3}
 --- !u!1 &7398626331986876868
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelScript: {fileID: 8665902501282802515}
+  gameStateManagerScript: {fileID: 0}
+  cameraFollowVertical: {fileID: 0}
 --- !u!114 &8665902501282802515
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -97,6 +97,7 @@ public class C_Before : MonoBehaviour
     }
     void Play()
     {
+        SwipeManager.tapping = false;
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenPlaying();
     }

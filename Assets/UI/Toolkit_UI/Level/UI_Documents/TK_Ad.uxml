@@ -3,10 +3,10 @@
     <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
     <ui:VisualElement name="vis_" class="Vis_BackGround vis_darkerBackground" style="width: 100%; height: 100%;">
         <ui:VisualElement>
-            <ui:Label text="Do you want to watch&#10;an Ad to revive?" display-tooltip-when-elided="true" style="font-size: 64px; color: rgba(255, 255, 255, 255); -unity-text-align: upper-center;" />
+            <ui:Label text="Do you want to watch&#10;an Ad to revive?" display-tooltip-when-elided="true" style="font-size: 64px; color: rgb(255, 255, 255); -unity-text-align: upper-center;" />
             <ui:VisualElement style="height: 445px; width: 1186px; flex-direction: row; align-items: center; justify-content: center;">
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="but_yes" class="but_yes_no" />
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="but_no" class="but_yes_no" />
+                <ui:Button text="YES" display-tooltip-when-elided="true" name="but_yes" class="but_yes_no" />
+                <ui:Button text="NO" display-tooltip-when-elided="true" name="but_no" class="but_yes_no" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

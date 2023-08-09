@@ -35,6 +35,7 @@ public class C_LevelSwitchScreens : MonoBehaviour
         TK_playingMenu.gameObject.SetActive(false);
         TK_winMenu.gameObject.SetActive(false);
         TK_looseMenu.gameObject.SetActive(false);
+        TK_pauseMenu.gameObject.SetActive(false);
         TK_AdMenu.gameObject.SetActive(false);
 
         ActiveDocument = TK_beforeMenu;

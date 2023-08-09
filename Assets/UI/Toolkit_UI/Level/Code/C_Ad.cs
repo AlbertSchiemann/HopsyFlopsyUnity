@@ -32,18 +32,19 @@ public class C_Ad : MonoBehaviour
         butNo.clicked += No;
         butYes.clicked += Yes;
 
-        C_LevelSwitchScreens.AdWatched = true;
     }
 
-    void Yes()
+    public void Yes()
     {
         SoundManager.Instance.PlaySound(_UISound);
+        C_LevelSwitchScreens.AdWatched = true;
         //OpenAdvertisement;
     }
 
-    void No()
+    public void No()
     {
         SoundManager.Instance.PlaySound(_UISound);
+        Debug.Log("itfztrzf");
         switchScreen.OpenLoose();
     }
 }

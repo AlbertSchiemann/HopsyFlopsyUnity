@@ -147,3 +147,19 @@
     justify-content: space-between;
     top: -15px;
 }
+
+.but_yes_no {
+    margin-left: 55px;
+    margin-right: 55px;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    width: 300px;
+    height: 200px;
+    font-size: 50px;
+    color: rgba(255, 255, 255, 255);
+}
