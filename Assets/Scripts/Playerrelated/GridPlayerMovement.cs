@@ -46,8 +46,15 @@ public class GridPlayerMovement : MonoBehaviour
         UpdateGameObjectPosition();
         isAllowedToMove = false;
 
-        GameStateManagerScript.onGameStart += AllowMovement;            
-        GameStateManagerScript.onGamePaused += PreventMovement;           // Pause doesnt work yet
+        //GameStateManagerScript.onGameStart += AllowMovement;
+        Invoke("CameraStart", CameraFollow.CameraRideTimer);
+        GameStateManagerScript.onGamePaused += PreventMovement;           
+    }
+
+    private void CameraStart ()
+    {
+        AllowMovement();
+        Debug.Log("CameraStart");
     }
 
     void Update()
