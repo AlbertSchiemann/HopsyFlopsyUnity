@@ -44,7 +44,6 @@ public class C_Ad : MonoBehaviour
     public void No()
     {
         SoundManager.Instance.PlaySound(_UISound);
-        Debug.Log("itfztrzf");
         switchScreen.OpenLoose();
     }
 }
