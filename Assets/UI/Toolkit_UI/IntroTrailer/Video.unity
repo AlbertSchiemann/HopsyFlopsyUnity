@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 2125587833}
-  _UISound: []
+  _UISound:
+  - {fileID: 8300000, guid: 5f72c2db9438c4c419e42713aa4d572b, type: 3}
 --- !u!114 &196957258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -766,7 +767,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 2125587833}
-  _UISound: []
+  _UISound:
+  - {fileID: 8300000, guid: 2ad02caaf30efab44a2bba83ae459ac0, type: 3}
 --- !u!114 &2065006420
 MonoBehaviour:
   m_ObjectHideFlags: 0
