@@ -126,10 +126,10 @@
 .but_SettingsNav {
     height: 200px;
     width: 650px;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-top: 9px;
+    margin-bottom: 9px;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
@@ -238,4 +238,15 @@
     border-top-width: 0;
     border-bottom-width: 0;
     -unity-background-image-tint-color: rgb(195, 195, 195);
+}
+
+.vis_settingsMiddle {
+    height: 927px;
+    width: 2218px;
+    position: absolute;
+    top: 242px;
+    left: 659px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

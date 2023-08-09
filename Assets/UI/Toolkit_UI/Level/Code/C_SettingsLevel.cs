@@ -16,6 +16,7 @@ public class C_SettingsLevel : MonoBehaviour
     Button butCredits;
     Button butSound;
     Button butContact;
+    Button butControls;
 
     [SerializeField] AudioMixer mixer;
     Slider sliderMusic;
@@ -28,6 +29,7 @@ public class C_SettingsLevel : MonoBehaviour
     public const string Mixer_Bg = "Background";
     public const string Mixer_Sfx = "Effects";
 
+    VisualElement visControls;
     VisualElement visCredits;
     VisualElement visSound;
     Label txtContact;
@@ -45,6 +47,9 @@ public class C_SettingsLevel : MonoBehaviour
         butCredits = rootSettings.Q<Button>("but_Credits");
         butSound = rootSettings.Q<Button>("but_Sound");
         butContact = rootSettings.Q<Button>("but_contact");
+        butControls = rootSettings.Q<Button>("but_controls");
+
+        visControls = rootSettings.Q<VisualElement>("vis_controls");
 
         visCredits = rootSettings.Q<VisualElement>("vis_credits");
         visSound = rootSettings.Q<VisualElement>("vis_sound");
@@ -69,6 +74,7 @@ public class C_SettingsLevel : MonoBehaviour
         butCredits.clicked += Credits;
         butSound.clicked += Sound;
         butContact.clicked += Contact;
+        butControls.clicked += Controls;
 
         butHelp.clicked += Help;
         butStore.clicked += Store;
@@ -78,9 +84,18 @@ public class C_SettingsLevel : MonoBehaviour
 
     }
 
+    void Controls()
+    {
+        SoundManager.Instance.PlaySound(_UISound);
+        visControls.style.display = DisplayStyle.Flex;
+        visCredits.style.display = DisplayStyle.None;
+        visSound.style.display = DisplayStyle.None;
+        txtContact.style.display = DisplayStyle.None;
+    }
     void Credits()
     {
         SoundManager.Instance.PlaySound(_UISound);
+        visControls.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.None;
@@ -89,6 +104,7 @@ public class C_SettingsLevel : MonoBehaviour
     void Sound()
     {
         SoundManager.Instance.PlaySound(_UISound);
+        visControls.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.None;
         visSound.style.display = DisplayStyle.Flex;
         txtContact.style.display = DisplayStyle.None;
@@ -123,6 +139,7 @@ public class C_SettingsLevel : MonoBehaviour
     void Contact()
     {
         SoundManager.Instance.PlaySound(_UISound);
+        visControls.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.None;
