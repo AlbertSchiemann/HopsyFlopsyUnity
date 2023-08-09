@@ -20,6 +20,15 @@ string appkey = "1acc52165";
     private void OnEnable()
     {
         IronSourceEvents.onSdkInitializationCompletedEvent += SdkInitializationCompletedEvent;
+
+        //Banner
+        //Add AdInfo Banner Events
+        IronSourceBannerEvents.onAdLoadedEvent += BannerOnAdLoadedEvent;
+        IronSourceBannerEvents.onAdLoadFailedEvent += BannerOnAdLoadFailedEvent;
+        IronSourceBannerEvents.onAdClickedEvent += BannerOnAdClickedEvent;
+        IronSourceBannerEvents.onAdScreenPresentedEvent += BannerOnAdScreenPresentedEvent;
+        IronSourceBannerEvents.onAdScreenDismissedEvent += BannerOnAdScreenDismissedEvent;
+        IronSourceBannerEvents.onAdLeftApplicationEvent += BannerOnAdLeftApplicationEvent;
     }
 
     void OnApplicationPause(bool isPaused)
@@ -27,7 +36,16 @@ string appkey = "1acc52165";
         IronSource.Agent.onApplicationPause(isPaused);
     }
 
+    public void LoadBanner()
+    {
+        IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
 
+    }
+
+    public void DestroyBanner()
+    {
+        IronSource.Agent.destroyBanner();
+    }
     private void SdkInitializationCompletedEvent() 
     {
         IronSource.Agent.validateIntegration();
@@ -35,6 +53,32 @@ string appkey = "1acc52165";
 
     //Banner Callbacks
 
+    /************* Banner AdInfo Delegates *************/
+    //Invoked once the banner has loaded
+    void BannerOnAdLoadedEvent(IronSourceAdInfo adInfo)
+    {
+        Debug.Log("Banner Loaded");
+    }
+    //Invoked when the banner loading process has failed.
+    void BannerOnAdLoadFailedEvent(IronSourceError ironSourceError)
+    {
+    }
+    // Invoked when end user clicks on the banner ad
+    void BannerOnAdClickedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    //Notifies the presentation of a full screen content following user click
+    void BannerOnAdScreenPresentedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    //Notifies the presented screen has been dismissed
+    void BannerOnAdScreenDismissedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    //Invoked when the user leaves the app
+    void BannerOnAdLeftApplicationEvent(IronSourceAdInfo adInfo)
+    {
+    }
 
     //Full Size Callbacks
 
