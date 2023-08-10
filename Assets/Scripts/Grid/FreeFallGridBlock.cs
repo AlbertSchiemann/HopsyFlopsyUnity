@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class FreeFallGridBlock : MonoBehaviour
 {
@@ -10,18 +11,15 @@ public class FreeFallGridBlock : MonoBehaviour
     public C_LevelSwitchScreens levelScript;
 
     public float DelayTillReload = .2f;                          // Delay till Scene gets reloaded after death
+    private float DelayTillTweenIsOver = 2.5f;
     
 
     [SerializeField] private AudioClip[] _failClip;         // Sound if the player falls into the abyss
-    [SerializeField] private Animator fallingAnimator;      // Animator of the playerprefab that shall be triggered
-    
 
-
-    private PlayerInstantiate playerInstantiate;            // get a Instantiation of the Player
 
     private void Start()
     {
-        playerInstantiate = PlayerInstantiate.Instance;
+
         GameObject levelUIObject = GameObject.Find("Level_UI");
         levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
     }
@@ -31,23 +29,30 @@ public class FreeFallGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
-            // Debug.Log("Player entered the wind block.");
-            Invoke("Sceneload", DelayTillReload);
+            Invoke("Sceneload", DelayTillReload + DelayTillTweenIsOver);
             GameObject player = other.gameObject;
             
             player.GetComponent<GridPlayerMovement>().PreventMovement();
-            SoundManager.Instance.PlaySound(_failClip);
+            Invoke("Sound", 2.5f);
 
-            //playerInstantiate.GetComponent<Animator>().enabled = true;
+            player.transform.DORotate(new Vector3(-50, 0, 0), .25f).SetDelay(.5f);
+            player.transform.DORotate(new Vector3(0, 20, 10), .25f).SetDelay(.75f);
+            player.transform.DORotate(new Vector3(0, -20, 10), .25f).SetDelay(1f);
+            player.transform.DORotate(new Vector3(0, 20, -10), .25f).SetDelay(1.25f);
+            player.transform.DORotate(new Vector3(0, -20, -10), .25f).SetDelay(1.5f);
+            player.transform.DORotate(new Vector3(0, 0, 0), .3f).SetDelay(1.75f);
+            player.transform.DOMoveY(-15f, 1f).SetDelay(2f);
 
-            //playerInstantiate.GetComponent<Animator>().SetBool("fallingBool", true);
-
-
-            // Debug.Log("Player entered the wind block2.");
 
         }
     }
-        void Sceneload()
+
+    private void Sound ()
+    {
+        SoundManager.Instance.PlaySound(_failClip);
+    }
+
+    void Sceneload()
     {
         AlwaysThere.time = (int)C_Playing.Timer;
         if (!C_LevelSwitchScreens.AdWatched)

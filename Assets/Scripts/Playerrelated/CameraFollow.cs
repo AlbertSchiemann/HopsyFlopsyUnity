@@ -16,13 +16,11 @@ public class CameraFollow : MonoBehaviour
     
     public Vector3 offset = new(0, 1, -2);              // initial offset between camera and player
     private Vector3 velocity = Vector3.zero;
+    public bool ShowCameraRide = true;
 
     private Vector3 CameraStartLighthouse = new(21f,10f,121f);
     private Vector3 CameraPointOverFinish = new(24f,8f,108f);
     private Vector3 CameraBehindPlayer = new(25f,11f,-3.5f);           
-                                 
-    
-    
     
     private Vector3 CameraAngleDefault = new(50f, 0f, 0f);
     private Vector3 CameraRideAngleStart = new(10f, 0f, 0f);
@@ -39,16 +37,23 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
+        if (ShowCameraRide == true)
+        {
+            transform.position = CameraStartLighthouse;
+            transform.rotation = Quaternion.Euler(CameraRideAngleStart);
+            transform.DOMove(CameraPointOverFinish, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+            transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+            transform.DOMove(CameraBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+            transform.DORotate(CameraAngleDefault, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+            transform.DOMove(playerTransform.position + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+            transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+            Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+        }
+        else 
+        {
+            UpdateDelaying();
+        }
         
-        transform.position = CameraStartLighthouse;
-        transform.rotation = Quaternion.Euler(CameraRideAngleStart);
-        transform.DOMove(CameraPointOverFinish, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
-        transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
-        transform.DOMove(CameraBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
-        transform.DORotate(CameraAngleDefault, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
-        transform.DOMove(playerTransform.position + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
-        transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
-        Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
     }
     private void UpdateDelaying ()
     {

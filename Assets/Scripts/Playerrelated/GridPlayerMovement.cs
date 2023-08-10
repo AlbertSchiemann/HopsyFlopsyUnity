@@ -36,6 +36,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private GameObject bucket;
     [SerializeField] private GameObject cablecart;
+    [SerializeField] private CameraFollow cameraFollow;
 
     void Start()
     {
@@ -47,15 +48,19 @@ public class GridPlayerMovement : MonoBehaviour
         UpdateGameObjectPosition();
         isAllowedToMove = false;
 
-        //GameStateManagerScript.onGameStart += AllowMovement;
-        Invoke("CameraStart", CameraFollow.TotalDelayForCameraRide);
+        
+        if (cameraFollow.ShowCameraRide == true)
+        {
+            Invoke("CameraStart", CameraFollow.TotalDelayForCameraRide);
+        }
+        else { GameStateManagerScript.onGameStart += AllowMovement; }
+        
         GameStateManagerScript.onGamePaused += PreventMovement;           
     }
 
     private void CameraStart ()
     {
         AllowMovement();
-        Debug.Log("CameraStart");
     }
 
     void Update()
