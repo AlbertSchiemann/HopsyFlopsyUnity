@@ -48,7 +48,7 @@ public class GridPlayerMovement : MonoBehaviour
         isAllowedToMove = false;
 
         //GameStateManagerScript.onGameStart += AllowMovement;
-        Invoke("CameraStart", CameraFollow.CameraRideTimer);
+        Invoke("CameraStart", CameraFollow.TotalDelayForCameraRide);
         GameStateManagerScript.onGamePaused += PreventMovement;           
     }
 

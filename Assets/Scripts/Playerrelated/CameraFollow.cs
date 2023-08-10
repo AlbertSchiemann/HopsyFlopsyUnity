@@ -13,26 +13,42 @@ public class CameraFollow : MonoBehaviour
 	public float shakeAmount = 0.02f;
 	private float decreaseFactor = 1.0f;                // lowering of the shaketime per second
     public float smoothTime = 0.3f;                     // time taken for camera to smoothly follow player
+    
     public Vector3 offset = new(0, 1, -2);              // initial offset between camera and player
-    public Vector3 cameraAngle = new(50f, 0f, 0f);
-    public Vector3 cameraRideGoal = new(0f, 7f, 70f);
-
     private Vector3 velocity = Vector3.zero;
 
-    private Vector3 CameraRide = new(25f,15f,-7.5f);           // camera position when starting
-    private Vector3 CameraRideAngle = new(0f, 0f, 0f);                             // camera angle when starting
+    private Vector3 CameraStartLighthouse = new(21f,10f,121f);
+    private Vector3 CameraPointOverFinish = new(24f,8f,108f);
+    private Vector3 CameraBehindPlayer = new(25f,11f,-3.5f);           
+                                 
+    
+    
+    
+    private Vector3 CameraAngleDefault = new(50f, 0f, 0f);
+    private Vector3 CameraRideAngleStart = new(10f, 0f, 0f);
+
+    private Vector3 CameraTransformAtGoal = new(0f, 4f, 1f);
+
     private bool UpdateDelay = false;
-    public static float DelayTillCameraRideStart = 1f;
-    public static float CameraRideTime = 3f;
-    public static float CameraRideTimer = CameraRideTime + DelayTillCameraRideStart;
+    
+    private static float DelayTillCameraangleChangesFromLighthouse = 1.1f;
+    private static float DelayTillCameraMovesAwayFromLighthouse = 3f;
+    private static float TimeFromWinToBehindPlayer = 7f;
+    private static float TimeFromCameraRideFromBehindToPlayer = 2f;
+    public static float TotalDelayForCameraRide = TimeFromCameraRideFromBehindToPlayer + TimeFromWinToBehindPlayer + DelayTillCameraMovesAwayFromLighthouse + DelayTillCameraangleChangesFromLighthouse;
 
     void Start()
     {
-        transform.position = CameraRide;
-        transform.rotation = Quaternion.Euler(CameraRideAngle);
-        transform.DOMove(playerTransform.position + offset, CameraRideTime).SetDelay(DelayTillCameraRideStart);
-        transform.DORotate(cameraAngle, CameraRideTime).SetDelay(DelayTillCameraRideStart);
-        Invoke("UpdateDelaying", DelayTillCameraRideStart + CameraRideTime);
+        
+        transform.position = CameraStartLighthouse;
+        transform.rotation = Quaternion.Euler(CameraRideAngleStart);
+        transform.DOMove(CameraPointOverFinish, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+        transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+        transform.DOMove(CameraBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+        transform.DORotate(CameraAngleDefault, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+        transform.DOMove(playerTransform.position + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+        transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+        Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
     }
     private void UpdateDelaying ()
     {
@@ -42,7 +58,7 @@ public class CameraFollow : MonoBehaviour
     public void GoalCameraride() 
     {
         UpdateDelay = false;
-        transform.DOMove(playerTransform.position + cameraRideGoal, 1f);
+        transform.DOMove(playerTransform.position + CameraTransformAtGoal, 1f);
 
 
 
@@ -63,13 +79,13 @@ public class CameraFollow : MonoBehaviour
         {
             // smoothly move the camera towards the target position
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
-            transform.rotation = Quaternion.Euler(cameraAngle);
+            transform.rotation = Quaternion.Euler(CameraAngleDefault);
         }
 
         else if (shakeDuration > 0)
 		{
 			transform.position = Vector3.SmoothDamp(transform.position , targetPosition , ref velocity, smoothTime) + Random.insideUnitSphere * shakeAmount;
-            transform.rotation = Quaternion.Euler(cameraAngle.x, Random.Range(-.2f, .2f), Random.Range(-.3f, .3f));
+            transform.rotation = Quaternion.Euler(CameraAngleDefault.x, Random.Range(-.2f, .2f), Random.Range(-.3f, .3f));
 			
 			shakeDuration -= Time.deltaTime * decreaseFactor;
 		}
