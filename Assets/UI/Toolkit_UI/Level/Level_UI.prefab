@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 7398626331986876869}
   - component: {fileID: 599487795125906679}
   - component: {fileID: 8665902501282802515}
+  - component: {fileID: -1401238265837970820}
   m_Layer: 0
   m_Name: Level_UI
   m_TagString: Untagged
@@ -144,6 +145,19 @@ MonoBehaviour:
   TK_helpMenu: {fileID: 2492955328517221735}
   TK_settingsMenu: {fileID: 3837354929586318579}
   TK_storeMenu: {fileID: 2529184622439043984}
+  WON: 0
+--- !u!114 &-1401238265837970820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398626331986876868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228fec0cc9fb4c648ad17a94385a9e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7398626332080246416
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
-  MaxTime: 200
   _UISound: []
 --- !u!1 &7398626332480150755
 GameObject:

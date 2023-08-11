@@ -40,7 +40,11 @@ public class C_UI_OpenOther : MonoBehaviour
     }
     public static void ToLevel2()
     {
-        // SceneManager.LoadScene("UI testing");
+         SceneManager.LoadScene("World1Level2");
+    }
+    public static void ToLevel3()
+    {
+         SceneManager.LoadScene("World1Level3");
     }
     public static void ToNextLevel()
     {
@@ -49,6 +53,7 @@ public class C_UI_OpenOther : MonoBehaviour
 
     public static void ToLastLevel() {
         SceneManager.LoadScene(AlwaysThere.LastLevel);
+        Debug.Log("last level index: " + AlwaysThere.LastLevel);
     }
     public static void ToRestart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

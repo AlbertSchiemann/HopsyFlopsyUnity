@@ -136,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6356622009191579059}
   - component: {fileID: 6356622009191579061}
+  - component: {fileID: 4277243846441530205}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -180,6 +181,18 @@ MonoBehaviour:
   TK_settingsMenu: {fileID: 6356622009194010273}
   TK_storeMenu: {fileID: 6356622009347184846}
   TK_w1Menu: {fileID: 6356622008649212309}
+--- !u!114 &4277243846441530205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356622009191579057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 228fec0cc9fb4c648ad17a94385a9e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &854404650271294683
 PrefabInstance:
   m_ObjectHideFlags: 0

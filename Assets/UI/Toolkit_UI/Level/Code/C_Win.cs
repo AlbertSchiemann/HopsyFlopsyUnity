@@ -34,6 +34,8 @@ public class C_Win : MonoBehaviour
 
     public int MaxTime = 60;
 
+    int nextLevelIndex;
+
     [SerializeField] private AudioClip[] _UISound;
 
     void OnEnable()
@@ -91,6 +93,11 @@ public class C_Win : MonoBehaviour
 
 
             C_Currency.CurrencyTotal = 0;
+
+            nextLevelIndex=(SceneManager.GetActiveScene().buildIndex + 1);
+            if (nextLevelIndex == 2) { AlwaysThere.level2Unlocked = true; }
+            else if (nextLevelIndex == 3) { AlwaysThere.level3Unlocked = true; }
+            else if (nextLevelIndex == 4) { Debug.Log("next level coming soon"); }
         }
     }
 

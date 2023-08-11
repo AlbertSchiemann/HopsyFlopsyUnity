@@ -49,9 +49,7 @@ public class C_Store : MonoBehaviour
     public void EquipSkin1()
     {
         SoundManager.Instance.PlaySound(_UISound);
-        Debug.Log("skin changed");
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
-        Debug.Log("skin changed");
     }
     public void EquipSkin2()
     {

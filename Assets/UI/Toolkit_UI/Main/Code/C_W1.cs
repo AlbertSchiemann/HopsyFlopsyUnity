@@ -9,8 +9,11 @@ public class C_W1 : MonoBehaviour
     public C_Clean_SwitchScreens switchScreenW1;
 
      Button butLevel1;
+     Button butLevel2;
+     Button butLevel3;
 
-     Button butBack;
+
+       Button butBack;
      Button butStore;
      Button butHelpi;
      Button butSettings;
@@ -26,14 +29,21 @@ public class C_W1 : MonoBehaviour
         butBack = root.Q<Button>("Back");
 
         butLevel1 = root.Q<Button>("Level1");
+        butLevel2 = root.Q<Button>("Level2");
+        butLevel3 = root.Q<Button>("Level3");
 
         butHelpi.clicked += Help;
         butStore.clicked += Store;
         butSettings.clicked += Settings;
         butLevel1.clicked += Level1;
+        butLevel2.clicked += Level2;
+        butLevel3.clicked += Level3;
         butBack.clicked += Back;
 
 
+
+        if (!AlwaysThere.level2Unlocked) butLevel2.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+        if (!AlwaysThere.level3Unlocked) butLevel2.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
 
     }
 
@@ -66,6 +76,14 @@ public class C_W1 : MonoBehaviour
     void Level1()
     {
         C_UI_OpenOther.ToLevel1();
+    }
+    void Level2()
+    {
+        if (AlwaysThere.level2Unlocked) C_UI_OpenOther.ToLevel2();
+    }
+    void Level3()
+    {
+        if (AlwaysThere.level3Unlocked) C_UI_OpenOther.ToLevel3();
     }
 }
 

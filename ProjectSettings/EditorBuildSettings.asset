@@ -51,6 +51,12 @@ EditorBuildSettings:
     path: Assets/Scenes/World 1/World1Level1.unity
     guid: 289e07a31d6755c44b55a12a5e600b63
   - enabled: 1
+    path: Assets/Scenes/World 1/World1Level2.unity
+    guid: 06acfcb8b05036f44b67cbcf27027394
+  - enabled: 1
+    path: Assets/Scenes/World 1/World1Level3.unity
+    guid: b788cb905de58e24c8bb86aea81bd2ac
+  - enabled: 1
     path: Assets/Scenes/AdsTestScene.unity
     guid: 2cbbd67004e6e634aab9d5731e1f350e
   - enabled: 1
