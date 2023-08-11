@@ -195,7 +195,9 @@ string appkey = "1acc52165";
     // When using server-to-server callbacks, you may ignore this event and wait for the ironSource server callback.
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
     {
-        GameObject.Find("ScoreText").GetComponent<TextMesh>().text = "Currents score - 100000";
+        //The reward should be given here
+        //GiveReward();
+        //GameObject.Find("ScoreText").GetComponent<TextMesh>().text = "Currents score - 100000";
     }
     // The rewarded video ad was failed to show.
     void RewardedVideoOnAdShowFailedEvent(IronSourceError error, IronSourceAdInfo adInfo)
