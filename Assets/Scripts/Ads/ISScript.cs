@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ISScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ string appkey = "1acc52165";
     void Start()
     {
         IronSource.Agent.init(appkey);
+        GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = false;
     }
 
     private void OnEnable()
@@ -39,6 +41,17 @@ string appkey = "1acc52165";
         IronSourceInterstitialEvents.onAdShowSucceededEvent += InterstitialOnAdShowSucceededEvent;
         IronSourceInterstitialEvents.onAdShowFailedEvent += InterstitialOnAdShowFailedEvent;
         IronSourceInterstitialEvents.onAdClosedEvent += InterstitialOnAdClosedEvent;
+
+        //Rewarded
+        //Add AdInfo Rewarded Video Events
+        IronSourceRewardedVideoEvents.onAdOpenedEvent += RewardedVideoOnAdOpenedEvent;
+        IronSourceRewardedVideoEvents.onAdClosedEvent += RewardedVideoOnAdClosedEvent;
+        IronSourceRewardedVideoEvents.onAdAvailableEvent += RewardedVideoOnAdAvailable;
+        IronSourceRewardedVideoEvents.onAdUnavailableEvent += RewardedVideoOnAdUnavailable;
+        IronSourceRewardedVideoEvents.onAdShowFailedEvent += RewardedVideoOnAdShowFailedEvent;
+        IronSourceRewardedVideoEvents.onAdRewardedEvent += RewardedVideoOnAdRewardedEvent;
+        IronSourceRewardedVideoEvents.onAdClickedEvent += RewardedVideoOnAdClickedEvent;
+
     }
 
     void OnApplicationPause(bool isPaused)
@@ -57,15 +70,35 @@ string appkey = "1acc52165";
         IronSource.Agent.destroyBanner();
     }
 
-    public void LoadFullAd()
+    public void LoadFullSizeAd()
     {
-        
+        IronSource.Agent.loadInterstitial();
     }
 
-    public void ShowFullAd()
+    public void ShowFullSizeAd()
     {
-       
+        if (IronSource.Agent.isInterstitialReady())
+        {
+            IronSource.Agent.showInterstitial();
+        }
+        else
+        {
+            Debug.Log("The Interstitial Ad is not ready");
+        }
     }
+
+    public void ShowRewardedAd()
+    {
+        if (IronSource.Agent.isRewardedVideoAvailable())
+        {
+            IronSource.Agent.showRewardedVideo();
+        }
+        else
+        {
+            Debug.Log("The Rewarded Ad is not ready");
+        }
+    }
+
     private void SdkInitializationCompletedEvent() 
     {
         IronSource.Agent.validateIntegration();
@@ -106,6 +139,7 @@ string appkey = "1acc52165";
     // Invoked when the interstitial ad was loaded succesfully.
     void InterstitialOnAdReadyEvent(IronSourceAdInfo adInfo)
     {
+        GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = true; 
     }
     // Invoked when the initialization process has failed.
     void InterstitialOnAdLoadFailed(IronSourceError ironSourceError)
@@ -135,4 +169,43 @@ string appkey = "1acc52165";
     }
 
     //Rewarded Callbacks
+
+    /************* RewardedVideo AdInfo Delegates *************/
+    // Indicates that there’s an available ad.
+    // The adInfo object includes information about the ad that was loaded successfully
+    // This replaces the RewardedVideoAvailabilityChangedEvent(true) event
+    void RewardedVideoOnAdAvailable(IronSourceAdInfo adInfo)
+    {
+    }
+    // Indicates that no ads are available to be displayed
+    // This replaces the RewardedVideoAvailabilityChangedEvent(false) event
+    void RewardedVideoOnAdUnavailable()
+    {
+    }
+    // The Rewarded Video ad view has opened. Your activity will loose focus.
+    void RewardedVideoOnAdOpenedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    // The Rewarded Video ad view is about to be closed. Your activity will regain its focus.
+    void RewardedVideoOnAdClosedEvent(IronSourceAdInfo adInfo)
+    {
+    }
+    // The user completed to watch the video, and should be rewarded.
+    // The placement parameter will include the reward data.
+    // When using server-to-server callbacks, you may ignore this event and wait for the ironSource server callback.
+    void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
+    {
+        GameObject.Find("ScoreText").GetComponent<TextMesh>().text = "Currents score - 100000";
+    }
+    // The rewarded video ad was failed to show.
+    void RewardedVideoOnAdShowFailedEvent(IronSourceError error, IronSourceAdInfo adInfo)
+    {
+    }
+    // Invoked when the video ad was clicked.
+    // This callback is not supported by all networks, and we recommend using it only if
+    // it’s supported by all networks you included in your build.
+    void RewardedVideoOnAdClickedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
+    {
+    }
+
 }
