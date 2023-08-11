@@ -252,9 +252,6 @@ public class GridPlayerMovement : MonoBehaviour
         }
         public void moveSkateboard()    
         {
-            // umstellen auf playerposition
-            //playerPrefab.transform.position = new Vector3(posX, -16.85f, posY);
-            
             if(isAllowedToMoveForward)
             {
                 playerPrefab.transform.position = new Vector3(posX, PlayerHeigth, posY++);
