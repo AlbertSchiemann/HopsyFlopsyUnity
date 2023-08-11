@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3458582095783481395}
+  - component: {fileID: 8364648200226361025}
   m_Layer: 0
   m_Name: Marvin
   m_TagString: Untagged
@@ -32,6 +33,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8364648200226361025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7685331266795126264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5986f484e26fc6949810209fb835ec86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementDirection: []
+  animEase: 1
+  StartingPoint: {x: 0, y: 0, z: 0}
+  generalHeigth: 0.5
+  moveDelay: 0.25
+  grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
+  enemyPrefab: {fileID: 7685331266795126264}
+  levelScript: {fileID: 0}
+  _failClip: []
+  _deflectClip: []
+  delayTillDeathscreenShows: 0.2
+  delayTillStartOfMovement: 0
+  powerUp: {fileID: 0}
 --- !u!1001 &8616657168859743280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,22 +88,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6513754f912f6d945ab1589e8e628207,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6513754f912f6d945ab1589e8e628207,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6513754f912f6d945ab1589e8e628207,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6513754f912f6d945ab1589e8e628207,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6513754f912f6d945ab1589e8e628207,
         type: 3}
@@ -87,7 +113,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6513754f912f6d945ab1589e8e628207,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6513754f912f6d945ab1589e8e628207,
         type: 3}
