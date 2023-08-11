@@ -52,7 +52,7 @@ MonoBehaviour:
   animEase: 1
   StartingPoint: {x: 25, y: 1, z: 98}
   generalHeigth: 0.1
-  moveDelay: 1
+  moveDelay: 0.5
   grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
   enemyPrefab: {fileID: 4984238158877522434}
   levelScript: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   _deflectClip:
   - {fileID: 8300000, guid: 5a6fa4e7ec28cee4a94bdc4026323e46, type: 3}
   delayTillDeathscreenShows: 0.2
-  delayTillStartOfMovement: 2.2
+  delayTillStartOfMovement: 0
   powerUp: {fileID: 0}
 --- !u!65 &6805308409636450743
 BoxCollider:
