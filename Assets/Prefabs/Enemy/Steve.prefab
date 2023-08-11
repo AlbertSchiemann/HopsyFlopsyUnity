@@ -161,7 +161,7 @@ MonoBehaviour:
   _deflectClip:
   - {fileID: 8300000, guid: 5a6fa4e7ec28cee4a94bdc4026323e46, type: 3}
   delayTillDeathscreenShows: 0.2
-  delayTillStartOfMovement: 2.2
+  delayTillStartOfMovement: 0
   powerUp: {fileID: 0}
 --- !u!65 &6805308409636450743
 BoxCollider:
