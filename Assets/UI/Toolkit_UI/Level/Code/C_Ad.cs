@@ -13,6 +13,8 @@ public class C_Ad : MonoBehaviour
     Button butNo;
     private GameStateManagerScript GameStateManagerScript;
 
+    public ISScript AdScript;
+
     [SerializeField] private AudioClip[] _UISound;
 
     private void Awake()
@@ -39,10 +41,14 @@ public class C_Ad : MonoBehaviour
         SoundManager.Instance.PlaySound(_UISound);
         C_LevelSwitchScreens.AdWatched = true;
         //OpenAdvertisement;
+        //Debug.Log("load banner function called");
+        AdScript.ShowRewardedAd();
+        switchScreen.OpenPlaying();
     }
 
     public void No()
     {
+        AlwaysThere.time = (int)C_Playing.Timer;
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenLoose();
     }
