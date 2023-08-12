@@ -430,28 +430,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b00dbb5c55d04d8ba8791b35576b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveImage0: {fileID: 581892226, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage1: {fileID: -2034436667, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage2: {fileID: 897793251, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage3: {fileID: -772100293, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage4: {fileID: -1938969961, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage5: {fileID: 1953689111, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage6: {fileID: -2055082365, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage7: {fileID: 2000431027, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage8: {fileID: 1994388070, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage9: {fileID: -104666011, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  waveImage10: {fileID: -1280489651, guid: 3ee65a67c4b3eb14cb23bc0b1fc83f29, type: 3}
-  bubbles0: {fileID: -894689059, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles1: {fileID: 2038364868, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles2: {fileID: 651113773, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles3: {fileID: -1169131046, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles4: {fileID: 1163871940, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles5: {fileID: -1251396753, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles6: {fileID: 316865037, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles7: {fileID: -974114541, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles8: {fileID: 1438832515, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles9: {fileID: -1873922158, guid: 5960c771706bcf3498a250c11947161e, type: 3}
-  bubbles10: {fileID: -1907707125, guid: 5960c771706bcf3498a250c11947161e, type: 3}
+  waveImage0: {fileID: -761729773, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage1: {fileID: 1678786655, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage2: {fileID: -2106031800, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage3: {fileID: -35840169, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage4: {fileID: -244814426, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage5: {fileID: 2074169951, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage6: {fileID: -349370036, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage7: {fileID: -1540629208, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage8: {fileID: -644380204, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage9: {fileID: -1219707408, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage10: {fileID: -1511040868, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage11: {fileID: -112472427, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage12: {fileID: -951899037, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage13: {fileID: -632777209, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage14: {fileID: 621308589, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage15: {fileID: -1930835964, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage16: {fileID: 1242959137, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage17: {fileID: 1556195076, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage18: {fileID: -1075696723, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage19: {fileID: -30749103, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage20: {fileID: -1107341879, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage21: {fileID: -1496958846, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage22: {fileID: 958423784, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage23: {fileID: -2034470729, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage24: {fileID: 2054403496, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage25: {fileID: -1498780998, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage26: {fileID: 1666716358, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage27: {fileID: 215601542, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  waveImage28: {fileID: 654093127, guid: f107fc1831c96514883a853cb8d25f94, type: 3}
+  bubbles0: {fileID: -726802785, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles1: {fileID: 1081882558, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles2: {fileID: -1237947714, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles3: {fileID: 1032316888, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles4: {fileID: 2123695465, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles5: {fileID: -1448947686, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles6: {fileID: -1298433623, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles7: {fileID: 925805800, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles8: {fileID: 1386916837, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles9: {fileID: 1928619550, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles10: {fileID: 1771276154, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles11: {fileID: -12780393, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles12: {fileID: -1853045708, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles13: {fileID: 224141889, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles14: {fileID: 2090195241, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles15: {fileID: -572401889, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles16: {fileID: 1019086467, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles17: {fileID: 1741185023, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles18: {fileID: -173418375, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles19: {fileID: 1537704218, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles20: {fileID: -1657970793, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles21: {fileID: 960584136, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles22: {fileID: 1978268505, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles23: {fileID: -2043121080, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles24: {fileID: 617147850, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles25: {fileID: -1690935462, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles26: {fileID: -1416147447, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles27: {fileID: 496726256, guid: e7111791874426f4295c081b690fa283, type: 3}
+  bubbles28: {fileID: 1394130488, guid: e7111791874426f4295c081b690fa283, type: 3}
 --- !u!114 &2829387000558705927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +660,24 @@ MonoBehaviour:
   waveImage8: {fileID: 0}
   waveImage9: {fileID: 0}
   waveImage10: {fileID: 0}
+  waveImage11: {fileID: 0}
+  waveImage12: {fileID: 0}
+  waveImage13: {fileID: 0}
+  waveImage14: {fileID: 0}
+  waveImage15: {fileID: 0}
+  waveImage16: {fileID: 0}
+  waveImage17: {fileID: 0}
+  waveImage18: {fileID: 0}
+  waveImage19: {fileID: 0}
+  waveImage20: {fileID: 0}
+  waveImage21: {fileID: 0}
+  waveImage22: {fileID: 0}
+  waveImage23: {fileID: 0}
+  waveImage24: {fileID: 0}
+  waveImage25: {fileID: 0}
+  waveImage26: {fileID: 0}
+  waveImage27: {fileID: 0}
+  waveImage28: {fileID: 0}
   bubbles0: {fileID: 0}
   bubbles1: {fileID: 0}
   bubbles2: {fileID: 0}
@@ -635,6 +689,24 @@ MonoBehaviour:
   bubbles8: {fileID: 0}
   bubbles9: {fileID: 0}
   bubbles10: {fileID: 0}
+  bubbles11: {fileID: 0}
+  bubbles12: {fileID: 0}
+  bubbles13: {fileID: 0}
+  bubbles14: {fileID: 0}
+  bubbles15: {fileID: 0}
+  bubbles16: {fileID: 0}
+  bubbles17: {fileID: 0}
+  bubbles18: {fileID: 0}
+  bubbles19: {fileID: 0}
+  bubbles20: {fileID: 0}
+  bubbles21: {fileID: 0}
+  bubbles22: {fileID: 0}
+  bubbles23: {fileID: 0}
+  bubbles24: {fileID: 0}
+  bubbles25: {fileID: 0}
+  bubbles26: {fileID: 0}
+  bubbles27: {fileID: 0}
+  bubbles28: {fileID: 0}
 --- !u!1001 &7398626332879138537
 PrefabInstance:
   m_ObjectHideFlags: 0

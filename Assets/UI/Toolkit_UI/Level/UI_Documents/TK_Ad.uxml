@@ -2,11 +2,11 @@
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
     <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
     <ui:VisualElement name="vis_" class="Vis_BackGround vis_darkerBackground" style="width: 100%; height: 100%;">
-        <ui:VisualElement>
-            <ui:Label text="Do you want to watch&#10;an Ad to revive?" display-tooltip-when-elided="true" style="font-size: 64px; color: rgb(255, 255, 255); -unity-text-align: upper-center;" />
+        <ui:VisualElement style="align-items: center; border-left-width: 7px; border-right-width: 7px; border-top-width: 7px; border-bottom-width: 7px; border-top-left-radius: 37px; border-bottom-left-radius: 37px; border-top-right-radius: 37px; border-bottom-right-radius: 37px; border-left-color: rgba(0, 0, 0, 255); border-right-color: rgba(0, 0, 0, 255); border-top-color: rgba(0, 0, 0, 255); border-bottom-color: rgba(0, 0, 0, 255); height: 665px; justify-content: flex-end; width: 1124px; opacity: 1; background-color: rgba(26, 109, 255, 0.13);">
+            <ui:Label text="Do you want to watch&#10;an Ad to revive?" display-tooltip-when-elided="true" style="font-size: 64px; color: rgb(255, 255, 255); -unity-text-align: upper-center; background-color: rgba(33, 156, 214, 255); border-left-width: 10px; border-right-width: 10px; border-top-width: 10px; border-bottom-width: 10px; border-top-left-radius: 87px; border-bottom-left-radius: 87px; border-top-right-radius: 87px; border-bottom-right-radius: 87px; width: 808px; height: 184px; align-items: center; justify-content: center; border-left-color: rgb(11, 22, 37); border-right-color: rgb(11, 22, 37); border-top-color: rgb(11, 22, 37); border-bottom-color: rgb(11, 22, 37); top: 3%;" />
             <ui:VisualElement style="height: 445px; width: 1186px; flex-direction: row; align-items: center; justify-content: center;">
-                <ui:Button text="YES" display-tooltip-when-elided="true" name="but_yes" class="but_yes_no" />
-                <ui:Button text="NO" display-tooltip-when-elided="true" name="but_no" class="but_yes_no" />
+                <ui:Button display-tooltip-when-elided="true" name="but_yes" class="but_yes_no" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/newest/Yes%20Button.png?fileID=2800000&amp;guid=5b17d2162ce1bac418fe1d09a99a21ea&amp;type=3#Yes Button&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                <ui:Button display-tooltip-when-elided="true" name="but_no" class="but_yes_no" style="-unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/newest/No%20Button.png?fileID=2800000&amp;guid=f9d202e19a550c540b68b7b4b5f7f9a0&amp;type=3#No Button&apos;);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

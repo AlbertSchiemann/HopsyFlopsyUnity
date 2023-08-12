@@ -50,9 +50,7 @@ public class C_W1 : MonoBehaviour
 
     void Help()
     {
-        Debug.Log("before");
         switchScreenW1.OpenHelp();
-        Debug.Log("after");
     }
 
     void Store()

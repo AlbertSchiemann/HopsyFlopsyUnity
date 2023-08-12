@@ -18,10 +18,10 @@
 }
 
 .VisualEle_4inCornerUp {
-    height: 1200px;
-    width: 300px;
+    height: 1070px;
+    width: 280px;
     position: absolute;
-    bottom: 1.5%;
+    bottom: 0;
     right: 2%;
     align-items: center;
     justify-content: center;
@@ -73,8 +73,8 @@
 
 .Button_4inCorner {
     font-size: 0;
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 14px;
@@ -89,8 +89,8 @@
 }
 
 .Button_CornerHide {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -115,8 +115,8 @@
 
 .button_bottle {
     position: absolute;
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/WaterBottleBig.png?fileID=2800000&guid=ef7ce82c33902394a961b2d7b9c01028&type=3#WaterBottleBig');
     top: auto;
     left: 2.6%;
@@ -128,8 +128,8 @@
 
 .button_shield {
     position: relative;
-    height: 250px;
-    width: 250px;
+    height: 220px;
+    width: 220px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/ShieldBig.png?fileID=2800000&guid=3cd4873232dd4664097240d06dd802fa&type=3#ShieldBig');
     top: auto;
     left: auto;
@@ -158,8 +158,9 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    width: 300px;
-    height: 200px;
+    width: 320px;
+    height: 320px;
     font-size: 50px;
-    color: rgba(255, 255, 255, 255);
+    color: rgb(255, 255, 255);
+    top: 6px;
 }

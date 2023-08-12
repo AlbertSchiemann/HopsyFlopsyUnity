@@ -17,24 +17,18 @@ public class C_Main : MonoBehaviour
     public Button butHelp;
     public Button butSettings;
 
-    public Button butArtist;
-    public Button butAlbert;
-    public Button butCarl;
-    public Button butDenis;
-    public Button butJulius;
-    public Button butPatty;
 
+    public VisualElement LoadingFish;
+    public VisualElement LoadingFish_;
+
+    bool Loading = false;
+    float time = 0f;
+    float TimeDelay = 0.5f;
+    int switcher = 0;
 
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
-
-        butAlbert = root.Q<Button>("LV_albert");
-        butArtist = root.Q<Button>("LV_artist");
-        butDenis = root.Q<Button>("LV_denis");
-        butJulius = root.Q<Button>("LV_julius");
-        butPatty = root.Q<Button>("LV_patty");
-        butCarl = root.Q<Button>("LV_carl");
 
         butHelp = root.Q<Button>("but_help");
         butStore = root.Q<Button>("but_store");
@@ -44,13 +38,10 @@ public class C_Main : MonoBehaviour
         butMainLevel = root.Q<Button>("MainLv");
         butWorld1 = root.Q<Button>("but_W1");
 
+        LoadingFish = root.Q<VisualElement>("vis_load");
+        LoadingFish_ = root.Q<VisualElement>("vis_load_");
 
-        butAlbert.clicked += Albert;
-        butArtist.clicked += Artist;
-        butDenis.clicked += Denis;
-        butJulius.clicked += Julius;
-        butPatty.clicked += Patty;
-        butCarl.clicked += Carl;
+
         butHelp.clicked += Help;
         butStore.clicked += Store;
         butSettings.clicked += Settings;
@@ -58,43 +49,36 @@ public class C_Main : MonoBehaviour
         butMainLevel.clicked += MainLevel;
         butWorld1.clicked += W1;
 
-
+        LoadingFish.style.display = DisplayStyle.None;
     }
 
-    void Albert()
+        //private void FixedUpdate()
+        //{
+        // if (Loading)
+        // {
+        //    time = time + 1f * Time.deltaTime;
+
+        //    if (time >= TimeDelay)
+        //    {
+        //        if (switcher == 0) Roataion(360);
+        //        else if (switcher == 1) Roataion(315);
+        //        else if (switcher == 2) Roataion(270);
+        //        else if (switcher == 3) Roataion(225);
+        //        else if (switcher == 4) Roataion(180);
+        //        else if (switcher == 5) Roataion(135);
+        //        else if (switcher == 6) Roataion(90);
+        //        else if (switcher == 7) { Roataion(45); switcher = 0; }
+        //    }
+           
+        // }
+
+        //}
+
+    void Roataion(int degree)
     {
-        C_UI_OpenOther.ToAlbert();
-
-    }
-
-    void Artist()
-        {
-        C_UI_OpenOther.ToArtists();
-
-    }
-
-    void Julius()
-        {
-        C_UI_OpenOther.ToJulius();
-
-    }
-
-    void Denis()
-        {
-        C_UI_OpenOther.ToDenis();
-
-    }
-
-    void Patty ()
-        {
-        C_UI_OpenOther.ToPatty();
-
-    }
-
-    void Carl()
-        {
-        C_UI_OpenOther.ToCarl();
-
+        switcher++;
+        LoadingFish.style.rotate = new Rotate(degree);
+        time = 0;
     }
 
     void Help()
@@ -122,11 +106,20 @@ public class C_Main : MonoBehaviour
 
     void PlayLast()
     {
+        Loading = true;
+        LoadingFish.style.display = DisplayStyle.Flex;
+        butPlayLast.style.display = DisplayStyle.None;
+        LoadingFish_.style.rotate = new Rotate(90);
         C_UI_OpenOther.ToLastLevel();
     }
 
     void MainLevel()
     {
+
+        Loading = true;
+        LoadingFish.style.display = DisplayStyle.Flex;
+        butPlayLast.style.display = DisplayStyle.None;
+        LoadingFish_.style.rotate = new Rotate(90);
         C_UI_OpenOther.ToMain_Level();
     }
 

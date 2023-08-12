@@ -6,8 +6,8 @@
 }
 
 .VisualEle_3inCorner {
-    height: 320px;
-    width: 1000px;
+    height: 300px;
+    width: 900px;
     position: absolute;
     bottom: 2%;
     right: 1%;
@@ -33,22 +33,6 @@
     margin-bottom: 68px;
 }
 
-.vis_itemPicture:hover {
-    height: 500px;
-    width: 500px;
-    margin-bottom: 68px;
-    background-color: rgba(0, 0, 0, 255);
-    -unity-background-image-tint-color: rgba(198, 234, 243, 255);
-}
-
-.vis_itemPicture:active {
-    height: 500px;
-    width: 500px;
-    margin-bottom: 68px;
-    background-color: rgba(0, 0, 0, 255);
-    -unity-background-image-tint-color: rgba(163, 227, 245, 255);
-}
-
 .vis_shopItem {
     align-items: center;
     justify-content: center;
@@ -60,8 +44,8 @@
 
 .Button_3inCorner {
     font-size: 0;
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -90,7 +74,7 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgba(107, 133, 171, 255);
+    -unity-background-image-tint-color: rgb(107, 133, 171);
 }
 
 .Button_3inCorner:active {
@@ -108,13 +92,13 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgba(190, 110, 110, 255);
+    -unity-background-image-tint-color: rgb(190, 110, 110);
 }
 
 .Button_2inCorner {
     font-size: 0;
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -143,7 +127,7 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgba(109, 132, 168, 255);
+    -unity-background-image-tint-color: rgb(109, 132, 168);
 }
 
 .Button_2inCorner:active {
@@ -161,7 +145,7 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgba(180, 94, 94, 255);
+    -unity-background-image-tint-color: rgb(180, 94, 94);
 }
 
 .but_temp {
@@ -184,8 +168,8 @@
     position: absolute;
     top: 4.5%;
     left: 3%;
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     -unity-font-style: bold;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_TurnBack.png?fileID=2800000&guid=1668d7eb5ff93a14bbc63216ec99b24e&type=3#B_TurnBack');
     -unity-background-scale-mode: scale-to-fit;
@@ -227,7 +211,7 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgba(192, 104, 104, 255);
+    -unity-background-image-tint-color: rgb(192, 104, 104);
 }
 
 .Button_HelpNav {
@@ -258,7 +242,7 @@
     margin-top: 47px;
     margin-bottom: 47px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(109, 140, 176, 255);
+    -unity-background-image-tint-color: rgb(109, 140, 176);
 }
 
 .Button_HelpNav:active {
@@ -274,7 +258,7 @@
     margin-top: 47px;
     margin-bottom: 47px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(168, 106, 106, 255);
+    -unity-background-image-tint-color: rgb(168, 106, 106);
 }
 
 .but_SettingsNav {
@@ -307,7 +291,7 @@
     font-size: 73px;
     background-color: rgba(188, 188, 188, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(102, 129, 171, 255);
+    -unity-background-image-tint-color: rgb(102, 129, 171);
 }
 
 .but_SettingsNav:active {
@@ -324,7 +308,7 @@
     font-size: 73px;
     background-color: rgba(188, 188, 188, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(176, 109, 109, 255);
+    -unity-background-image-tint-color: rgb(176, 109, 109);
 }
 
 .unity-base-slider--horizontal {
@@ -383,8 +367,8 @@
 }
 
 .Button_Sound {
-    height: 280px;
-    width: 280px;
+    height: 230px;
+    width: 230px;
     left: 6px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOFF.png?fileID=2800000&guid=8dc779dae17f22442b31560587411cc3&type=3#B_SoundVolumeOFF');
     border-left-width: 0;
@@ -414,7 +398,7 @@
     margin-top: 39px;
     margin-bottom: 39px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(106, 134, 180, 255);
+    -unity-background-image-tint-color: rgb(106, 134, 180);
 }
 
 .Button_Sound:active {
@@ -432,7 +416,7 @@
     margin-top: 39px;
     margin-bottom: 39px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(190, 105, 105, 255);
+    -unity-background-image-tint-color: rgb(190, 105, 105);
 }
 
 .button_ItemEquip {
@@ -457,7 +441,7 @@
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/EquipOutline.png?fileID=2800000&guid=90a77bd570898c14aace724a250854e3&type=3#EquipOutline');
     background-color: rgba(56, 56, 56, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(100, 128, 176, 255);
+    -unity-background-image-tint-color: rgb(100, 128, 176);
 }
 
 .button_ItemEquip:active {
@@ -470,7 +454,7 @@
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/EquipOutline.png?fileID=2800000&guid=90a77bd570898c14aace724a250854e3&type=3#EquipOutline');
     background-color: rgba(56, 56, 56, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(176, 100, 100, 255);
+    -unity-background-image-tint-color: rgb(176, 100, 100);
 }
 
 .vis_settingsMiddle {
@@ -550,7 +534,7 @@
     border-top-width: 0;
     border-bottom-width: 0;
     position: absolute;
-    -unity-background-image-tint-color: rgba(118, 134, 180, 255);
+    -unity-background-image-tint-color: rgb(118, 134, 180);
 }
 
 .Button_CornerHide:active {
@@ -603,7 +587,7 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgba(106, 138, 180, 255);
+    -unity-background-image-tint-color: rgb(106, 138, 180);
 }
 
 .Button_4inCorner:active {
@@ -621,7 +605,7 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgba(176, 105, 105, 255);
+    -unity-background-image-tint-color: rgb(176, 105, 105);
 }
 
 .but_3inMiddle {
@@ -654,7 +638,7 @@
     border-bottom-width: 0;
     font-size: 76px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(108, 136, 178, 255);
+    -unity-background-image-tint-color: rgb(108, 136, 178);
 }
 
 .but_3inMiddle:active {
@@ -671,7 +655,7 @@
     border-bottom-width: 0;
     font-size: 76px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgba(183, 104, 104, 255);
+    -unity-background-image-tint-color: rgb(183, 104, 104);
 }
 
 .Button_restart {
@@ -680,12 +664,12 @@
 
 .Button_restart:hover {
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
-    -unity-background-image-tint-color: rgba(102, 125, 171, 255);
+    -unity-background-image-tint-color: rgb(102, 125, 171);
 }
 
 .Button_restart:active {
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
-    -unity-background-image-tint-color: rgba(188, 109, 109, 255);
+    -unity-background-image-tint-color: rgb(188, 109, 109);
 }
 
 .Button_main {
@@ -694,10 +678,76 @@
 
 .Button_main:hover {
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
-    -unity-background-image-tint-color: rgba(106, 134, 185, 255);
+    -unity-background-image-tint-color: rgb(106, 134, 185);
 }
 
 .Button_main:active {
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
-    -unity-background-image-tint-color: rgba(188, 114, 114, 255);
+    -unity-background-image-tint-color: rgb(188, 114, 114);
+}
+
+.but_PlayLast {
+    height: 348px;
+    width: 841px;
+    margin-bottom: 31px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayLastOutline.png?fileID=2800000&guid=1212be7ab248be74babb0bd2ddc5124a&type=3#PlayLastOutline');
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.but_PlayLast:active {
+    height: 348px;
+    width: 841px;
+    margin-bottom: 31px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayLastOutline.png?fileID=2800000&guid=1212be7ab248be74babb0bd2ddc5124a&type=3#PlayLastOutline');
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgb(178, 244, 221);
+}
+
+.but_PlayLast:hover {
+    height: 348px;
+    width: 841px;
+    margin-bottom: 31px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayLastOutline.png?fileID=2800000&guid=1212be7ab248be74babb0bd2ddc5124a&type=3#PlayLastOutline');
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgb(109, 140, 176);
+}
+
+.but_level123 {
+    height: 240px;
+    width: 289px;
+    margin-left: 31px;
+    margin-right: 31px;
+    margin-top: 31px;
+    margin-bottom: 31px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 99px;
+    border-top-left-radius: 52px;
+    border-bottom-left-radius: 52px;
+    border-top-right-radius: 52px;
+    border-bottom-right-radius: 52px;
+    -unity-font-style: bold;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/newest/CollectableIcon.png?fileID=2800000&guid=7a91618285fdd3743902aa6fd60638ed&type=3#CollectableIcon');
+    -unity-background-scale-mode: scale-to-fit;
+    position: absolute;
+    top: 377px;
+    left: 523px;
+    background-color: rgba(0, 0, 0, 0);
 }

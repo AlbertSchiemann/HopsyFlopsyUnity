@@ -70,7 +70,7 @@ public class C_PowerUps : MonoBehaviour
 
     public void OpacityBottleDown()
     {
-        butBottle.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.3f);
+        butBottle.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.5f);
     }
     public void OpacityBottleUp()
     {
@@ -78,7 +78,7 @@ public class C_PowerUps : MonoBehaviour
     }
     public void OpacityShieldDown()
     {
-        visShield.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.3f);
+        visShield.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.5f);
     }
     public void OpacityShiedUp()
     {
