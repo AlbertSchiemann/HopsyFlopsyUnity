@@ -46,7 +46,7 @@ public class EnemyMovementArray : MonoBehaviour
 
     public float delayTillDeathscreenShows = .2f;                          // Delay till Scene gets reloaded after death
     private float delayTillStartOfMovement = .01f;                          // Delay till Enemy gets destroyed after death
-    int i;
+    private int currentMovementStep;
 
     public C_PowerUps powerUp;
 
@@ -54,7 +54,7 @@ public class EnemyMovementArray : MonoBehaviour
     {
         GameObject levelUIObject = GameObject.Find("Level_UI");
         levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
-        i = 0;
+        currentMovementStep = 0;
     }
     void Start()
     {
@@ -72,22 +72,25 @@ public class EnemyMovementArray : MonoBehaviour
 
     private void StartMovement()
     {
-        if (i < movementDirection.Length)
+        if (currentMovementStep < movementDirection.Length)
         {
-            i++;
+            currentMovementStep++;
         }
-        else { //Debug.Log("Hilfe"); 
-            return; }
-
-        MovementStruct current = movementDirection[i - 1];
-        //Debug.Log(movementDirection.Length + "  " + i);
-
-        if (i == movementDirection.Length) 
-        { 
-            Invoke("InBetweenLooping", current.Directionslength + .01f);
-            UpdateGameObjectPosition();
-            //InBetweenLooping();
+        else if (currentMovementStep == movementDirection.Length)
+        {
+            currentMovementStep = 0;
+            InBetweenLooping();
+            Debug.Log("currentMovementStep == movementDirection.Length");
+            return;
         }
+        else {
+            Debug.Log("Return StartMovement");
+            return; 
+        }
+
+
+
+        MovementStruct current = movementDirection[currentMovementStep - 1];
 
         switch (current.Movementdirection)
         {
@@ -116,9 +119,7 @@ public class EnemyMovementArray : MonoBehaviour
     {
         InitiateEnemy();
         UpdateGameObjectPosition();
-        i = 0;
-        Invoke("StartMovement", .01f);
-        //StartMovement();
+        StartMovement();
     }
     private IEnumerator PerformMovement(int numSteps, System.Action<int> movementAction) // One Step at a time
     {
@@ -127,8 +128,7 @@ public class EnemyMovementArray : MonoBehaviour
             movementAction(1);
             yield return new WaitForSeconds(moveDelay);
         }
-        Invoke("StartMovement", .01f);
-        //StartMovement();
+        StartMovement();
     }
 
 
