@@ -405,6 +405,7 @@ public class GridPlayerMovement : MonoBehaviour
     {
         playerPosition.PlayerWin();
         cablecart.transform.DOMove( new Vector3 (39.80000114f,-3.81999969f,120.059998f),3f).SetDelay(1.5f).SetEase(Ease.InOutExpo);
+        hydrationController.DeactivateHydration();
     }
     public void RandomMovement()
     {

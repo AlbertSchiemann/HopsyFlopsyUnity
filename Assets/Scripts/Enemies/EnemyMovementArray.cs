@@ -45,7 +45,7 @@ public class EnemyMovementArray : MonoBehaviour
     [SerializeField] private AudioClip[] _deflectClip;  // Shield Destroy Sound
 
     public float delayTillDeathscreenShows = .2f;                          // Delay till Scene gets reloaded after death
-    public float delayTillStartOfMovement = 2.2f;                          // Delay till Enemy gets destroyed after death
+    private float delayTillStartOfMovement = .01f;                          // Delay till Enemy gets destroyed after death
     int i;
 
     public C_PowerUps powerUp;
@@ -58,6 +58,7 @@ public class EnemyMovementArray : MonoBehaviour
     }
     void Start()
     {
+        
         if (StartingPoint.y > generalHeigth)            // take the bigger value for the height and start from there
         {
             generalHeigth = StartingPoint.y;
@@ -81,7 +82,12 @@ public class EnemyMovementArray : MonoBehaviour
         MovementStruct current = movementDirection[i - 1];
         //Debug.Log(movementDirection.Length + "  " + i);
 
-        if (i == movementDirection.Length) { Invoke("InBetweenLooping", current.Directionslength + 1); }
+        if (i == movementDirection.Length) 
+        { 
+            Invoke("InBetweenLooping", current.Directionslength + .01f);
+            UpdateGameObjectPosition();
+            //InBetweenLooping();
+        }
 
         switch (current.Movementdirection)
         {
@@ -102,7 +108,7 @@ public class EnemyMovementArray : MonoBehaviour
                //Debug.Log("4");
                 break;
             default:
-                Debug.Log("No Movement Implemented in Inspector");
+                Debug.Log("No Movement Implemented for the Enemy in Inspector");
                 break;
         }
     }
@@ -111,7 +117,8 @@ public class EnemyMovementArray : MonoBehaviour
         InitiateEnemy();
         UpdateGameObjectPosition();
         i = 0;
-        Invoke("StartMovement", 1);
+        Invoke("StartMovement", .01f);
+        //StartMovement();
     }
     private IEnumerator PerformMovement(int numSteps, System.Action<int> movementAction) // One Step at a time
     {
@@ -120,7 +127,8 @@ public class EnemyMovementArray : MonoBehaviour
             movementAction(1);
             yield return new WaitForSeconds(moveDelay);
         }
-        StartMovement();
+        Invoke("StartMovement", .01f);
+        //StartMovement();
     }
 
 
