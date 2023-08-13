@@ -744,7 +744,7 @@
     border-top-right-radius: 52px;
     border-bottom-right-radius: 52px;
     -unity-font-style: bold;
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/newest/CollectableIcon.png?fileID=2800000&guid=7a91618285fdd3743902aa6fd60638ed&type=3#CollectableIcon');
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/GlasBowl.png?fileID=2800000&guid=45b003a1b3f2e344c834de60771b8cbd&type=3#GlasBowl');
     -unity-background-scale-mode: scale-to-fit;
     position: relative;
     top: auto;
