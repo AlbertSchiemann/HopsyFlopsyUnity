@@ -30,6 +30,7 @@ public class GridPlayerMovement : MonoBehaviour
     private bool isAllowedToMove = true;                    // enables player movement in general
 
     public bool UpdateActive = true;                        // enables the update of the playerposition
+    private bool isIntroductionCameraTweeningDone = false;
 
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
@@ -59,6 +60,7 @@ public class GridPlayerMovement : MonoBehaviour
 
     private void CameraStart ()
     {
+        isIntroductionCameraTweeningDone = true;
         AllowMovement();
     }
 
@@ -364,6 +366,7 @@ public class GridPlayerMovement : MonoBehaviour
     }
     public void AllowMovement()
     {
+        if (!isIntroductionCameraTweeningDone) { return; }
         isAllowedToMove = true;
     }
     public void PreventMovement()
