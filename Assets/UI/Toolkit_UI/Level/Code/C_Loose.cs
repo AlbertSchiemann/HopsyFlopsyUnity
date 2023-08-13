@@ -65,6 +65,10 @@ public class C_Loose : MonoBehaviour
         TimeShow();
 
         C_Currency.CurrencyTotal = 0;
+        AlwaysThere.FishMoney += C_Currency.CurrencyAmount;
+        C_Currency.CurrencyAmount = 0;
+        AlwaysThere.shieldThere = false;
+        AlwaysThere.bottleThere = false;
 
     }
 

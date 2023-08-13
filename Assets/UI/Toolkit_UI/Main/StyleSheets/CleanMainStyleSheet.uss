@@ -746,8 +746,22 @@
     -unity-font-style: bold;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/newest/CollectableIcon.png?fileID=2800000&guid=7a91618285fdd3743902aa6fd60638ed&type=3#CollectableIcon');
     -unity-background-scale-mode: scale-to-fit;
-    position: absolute;
-    top: 377px;
-    left: 523px;
+    position: relative;
+    top: auto;
+    left: auto;
     background-color: rgba(0, 0, 0, 0);
+}
+
+.vis_level123 {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+}
+
+.vis_upperCorner {
+    position: absolute;
+    top: 4%;
+    right: 2.6%;
+    flex-direction: row;
 }

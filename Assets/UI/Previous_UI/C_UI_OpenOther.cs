@@ -11,30 +11,7 @@ public class C_UI_OpenOther : MonoBehaviour
     {
         SceneManager.LoadScene("World1Level1");
     }
-    public static void ToJulius()
-    {
-        SceneManager.LoadScene("Julius_Level");
-    }
-    public static void ToDenis()
-    {
-        SceneManager.LoadScene("Denis_Level");
-    }
-    public static void ToPatty()
-    {
-        SceneManager.LoadScene("Nyra_Level");
-    }
-    public static void ToAlbert()
-    {
-        SceneManager.LoadScene("Albert_Level");
-    }
-    public static void ToCarl()
-    {
-        SceneManager.LoadScene("Carl-Level1Blockout");
-    }
-    public static void ToArtists()
-    {
-        SceneManager.LoadScene("Artists_Level");
-    }
+  
     public static void ToLevel1() {        
         SceneManager.LoadScene("World1Level1");
     }
@@ -53,7 +30,6 @@ public class C_UI_OpenOther : MonoBehaviour
 
     public static void ToLastLevel() {
         SceneManager.LoadScene(AlwaysThere.LastLevel);
-        Debug.Log("last level index: " + AlwaysThere.LastLevel);
     }
     public static void ToRestart() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -11,5 +11,11 @@
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_settings" class="Button_3inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Setting.png?fileID=2800000&amp;guid=b2a391bd6e3b58f4aab9bed2573e9373&amp;type=3#B_Setting&apos;);" />
         </ui:VisualElement>
         <ui:Button display-tooltip-when-elided="true" name="but_back" class="Button_Back" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Home.png?fileID=2800000&amp;guid=3344172f738ebac4d877d0bd75d87a76&amp;type=3#B_Home&apos;);" />
+        <ui:VisualElement name="vis_upperCorner" class="vis_upperCorner">
+            <ui:Label display-tooltip-when-elided="true" name="txt_currencyVisual" class="txt_currrencyBG">
+                <ui:VisualElement name="vis_fish" class="vis_currencyFish" />
+                <ui:Label text="xxxx" display-tooltip-when-elided="true" name="txt_currency" class="txt_currency" />
+            </ui:Label>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

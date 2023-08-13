@@ -38,6 +38,9 @@ public class C_Win : MonoBehaviour
 
     [SerializeField] private AudioClip[] _UISound;
 
+    VisualElement LoadingFish;
+    VisualElement LoadingFish_;
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -63,8 +66,12 @@ public class C_Win : MonoBehaviour
         star2 = root.Q<VisualElement>("vis_star2");
         star3 = root.Q<VisualElement>("vis_star3");
 
+        LoadingFish = root.Q<VisualElement>("vis_load");
+        LoadingFish_ = root.Q<VisualElement>("vis_load_");
+
 
         visCorner4.style.display = DisplayStyle.None;
+        LoadingFish.style.display = DisplayStyle.None;
 
 
         butHelp.clicked += Help;
@@ -93,11 +100,15 @@ public class C_Win : MonoBehaviour
 
 
             C_Currency.CurrencyTotal = 0;
+            AlwaysThere.FishMoney += C_Currency.CurrencyAmount;
+            C_Currency.CurrencyAmount = 0;
+            AlwaysThere.shieldThere = false;
+            AlwaysThere.bottleThere = false;
 
-            nextLevelIndex=(SceneManager.GetActiveScene().buildIndex + 1);
+            nextLevelIndex =(SceneManager.GetActiveScene().buildIndex + 1);
             if (nextLevelIndex == 2) { AlwaysThere.level2Unlocked = true; }
             else if (nextLevelIndex == 3) { AlwaysThere.level3Unlocked = true; }
-            else if (nextLevelIndex == 4) { Debug.Log("next level coming soon"); }
+            else if (nextLevelIndex == 4) { AlwaysThere.level4Unlocked = true; }
         }
     }
 
@@ -177,6 +188,7 @@ public class C_Win : MonoBehaviour
     }
     void Next()
     {
+        LoadingFish.style.display = DisplayStyle.Flex;
         SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToNextLevel();
     }

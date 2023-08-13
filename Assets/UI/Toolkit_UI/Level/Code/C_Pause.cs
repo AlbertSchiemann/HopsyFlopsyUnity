@@ -66,6 +66,7 @@ public class C_Pause : MonoBehaviour
         butHide.clicked += Hide;
         butShow.clicked += Show;
 
+
     }
 
 
@@ -91,12 +92,20 @@ public class C_Pause : MonoBehaviour
 
     void Main()
     {
+        C_Currency.CurrencyTotal = 0;
+        AlwaysThere.FishMoney += C_Currency.CurrencyAmount;
+        C_Currency.CurrencyAmount = 0;
+        AlwaysThere.shieldThere = false;
+        AlwaysThere.bottleThere = false;
         SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMainMenu();
     }
 
     void Restart()
     {
+        C_Currency.CurrencyAmount = 0;
+        AlwaysThere.shieldThere = false;
+        AlwaysThere.bottleThere = false;
         C_Currency.CurrencyTotal = 0;
         SoundManager.Instance.PlaySound(_UISound);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

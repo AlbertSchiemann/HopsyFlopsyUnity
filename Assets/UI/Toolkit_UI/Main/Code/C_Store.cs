@@ -20,6 +20,8 @@ public class C_Store : MonoBehaviour
 
     [SerializeField] private AudioClip[] _UISound;
 
+    Label txtCurrency;
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -33,6 +35,8 @@ public class C_Store : MonoBehaviour
         butEquip3 = root.Q<Button>("but_itemEquip3");
         butEquip4 = root.Q<Button>("but_itemEquip4");
 
+        txtCurrency = root.Q<Label>("txt_currency");
+
         butHelpi.clicked += Help;
         butSettings.clicked += Settings;
         butBack.clicked += Back;
@@ -44,8 +48,13 @@ public class C_Store : MonoBehaviour
         butEquip3.clicked += EquipSkin3;
         butEquip4.clicked += EquipSkin4;
 
+
     }
 
+    private void Start()
+    {
+        txtCurrency.text = AlwaysThere.FishMoney.ToString();
+    }
     public void EquipSkin1()
     {
         SoundManager.Instance.PlaySound(_UISound);

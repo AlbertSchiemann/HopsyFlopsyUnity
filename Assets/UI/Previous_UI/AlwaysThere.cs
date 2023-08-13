@@ -17,6 +17,8 @@ public static class AlwaysThere
     public static bool bottleThere = false;
     public static bool shieldThere = false;
 
+    public static int FishMoney = 0;
+
     public static bool MusicIcon = true;
     public static bool SFXIcon = true;
 
@@ -33,8 +35,12 @@ public static class AlwaysThere
 
     public static bool level2Unlocked = false;
     public static bool level3Unlocked = false;
+    public static bool level4Unlocked = false;
 
     public static bool skin2Bought = false;
     public static bool skin3Bought = false;
 
+    public static bool firstPlayed1 = false;
+    public static bool firstPlayed2 = false;
+    public static bool firstPlayed3 = false;
 }

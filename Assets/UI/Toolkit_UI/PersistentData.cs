@@ -1,14 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PersistentData : MonoBehaviour
 {
     public void Awake()
     {
-        AlwaysThere.currentSkin = LoadPrefsInt("currentSkin");
+        //PlayerPrefs.DeleteAll(); //wenn man alles löschen möchte
 
+        AlwaysThere.currentSkin = LoadPrefsInt("currentSkin");
+        AlwaysThere.LastLevel = LoadPrefsInt("LastLevel");
+        AlwaysThere.FishMoney = LoadPrefsInt("FishMoney");
+        Debug.Log("after data loaded: " + AlwaysThere.FishMoney);
 
 
         if (LoadPrefsInt("TimeStar") == 1) AlwaysThere.TimeStar = true;
@@ -28,8 +33,10 @@ public class PersistentData : MonoBehaviour
         if (LoadPrefsInt("skin2Bought") == 1) AlwaysThere.skin2Bought = true;
         if (LoadPrefsInt("skin3Bought") == 1) AlwaysThere.skin3Bought = true;
 
-        AlwaysThere.LastLevel = LoadPrefsInt("lastLevel");
-        
+        if (LoadPrefsInt("firstPlayed1") == 1) AlwaysThere.firstPlayed1 = true;
+        if (LoadPrefsInt("firstPlayed2") == 1) AlwaysThere.firstPlayed2 = true;
+        if (LoadPrefsInt("firstPlayed3") == 1) AlwaysThere.firstPlayed3 = true;
+
         Debug.Log("Data Loaded");
     }
 
@@ -51,7 +58,7 @@ public class PersistentData : MonoBehaviour
 
     public static int LoadPrefsInt(string Key)
     {
-        int x = PlayerPrefs.GetInt(Key, 2);
+        int x = PlayerPrefs.GetInt(Key, 0);
         return x;
     }
     public static float LoadPrefsFloat(string Key)
@@ -68,6 +75,9 @@ public class PersistentData : MonoBehaviour
     public void OnDestroy()
     {
         SavePrefsInt("currentSkin", AlwaysThere.currentSkin);
+        SavePrefsInt("LastLevel", AlwaysThere.LastLevel);
+        SavePrefsInt("FishMoney", AlwaysThere.FishMoney);
+        Debug.Log("after data saved: " + AlwaysThere.FishMoney);
 
         if (AlwaysThere.TimeStar == true) SavePrefsInt("TimeStar", 1);
         if (AlwaysThere.CurrencyStar == true) SavePrefsInt("CurrencyStar", 1);
@@ -85,7 +95,11 @@ public class PersistentData : MonoBehaviour
         if (AlwaysThere.level2Unlocked == true) SavePrefsInt("level2Unlocked", 1);
         if (AlwaysThere.level3Unlocked == true) SavePrefsInt("level3Unlocked", 1);
 
-        SavePrefsInt("LastLevel", AlwaysThere.LastLevel);
+
+        if (AlwaysThere.firstPlayed1 == true) SavePrefsInt("firstPlayed1", 1);
+        if (AlwaysThere.firstPlayed2 == true) SavePrefsInt("firstPlayed2", 1);
+        if (AlwaysThere.firstPlayed3 == true) SavePrefsInt("firstPlayed3", 1);
+
         Debug.Log("Data Saved");
     }
 }

@@ -529,13 +529,18 @@ PrefabInstance:
     - target: {fileID: 6356622009194010272, guid: bd94cb6834a91c847aecb3e8cb05e99a,
         type: 3}
       propertyPath: _UISound.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6356622009194010272, guid: bd94cb6834a91c847aecb3e8cb05e99a,
         type: 3}
       propertyPath: _UISound.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 5f72c2db9438c4c419e42713aa4d572b, type: 3}
+    - target: {fileID: 6356622009194010272, guid: bd94cb6834a91c847aecb3e8cb05e99a,
+        type: 3}
+      propertyPath: _UISound.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2ad02caaf30efab44a2bba83ae459ac0, type: 3}
     - target: {fileID: 6356622009194010287, guid: bd94cb6834a91c847aecb3e8cb05e99a,
         type: 3}
       propertyPath: m_IsActive

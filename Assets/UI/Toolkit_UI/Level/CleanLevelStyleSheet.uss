@@ -43,10 +43,10 @@
     background-color: rgba(255, 255, 255, 0);
     width: 500px;
     height: 500px;
-    margin-left: -34px;
-    margin-right: -34px;
-    margin-top: -34px;
-    margin-bottom: -34px;
+    margin-left: -27px;
+    margin-right: -27px;
+    margin-top: -27px;
+    margin-bottom: -27px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/StarSmal.png?fileID=2800000&guid=d59181ed5fdb44145a8880ec6e80192e&type=3#StarSmal');
     -unity-background-image-tint-color: rgb(89, 89, 89);
 }
@@ -163,4 +163,43 @@
     font-size: 50px;
     color: rgb(255, 255, 255);
     top: 6px;
+}
+
+.txt_currrencyBG {
+    position: relative;
+    top: auto;
+    right: auto;
+    font-size: 103px;
+    height: 100%;
+    width: 368px;
+    align-items: center;
+    justify-content: center;
+    -unity-text-align: middle-center;
+    margin-left: 61px;
+    background-color: rgb(106, 191, 255);
+    -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
+    border-top-left-radius: 68px;
+    border-bottom-left-radius: 68px;
+    border-top-right-radius: 68px;
+    border-bottom-right-radius: 68px;
+    border-left-width: 13px;
+    border-right-width: 13px;
+    border-top-width: 13px;
+    border-bottom-width: 13px;
+    border-left-color: rgb(20, 39, 63);
+    border-right-color: rgb(20, 39, 63);
+    border-top-color: rgb(20, 39, 63);
+    border-bottom-color: rgb(20, 39, 63);
+}
+
+.vis_currencyFish {
+    height: 174px;
+    width: 284px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/newest/CollectableIcon.png?fileID=2800000&guid=7a91618285fdd3743902aa6fd60638ed&type=3#CollectableIcon');
+    opacity: 0.2;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.txt_currency {
+    position: absolute;
 }

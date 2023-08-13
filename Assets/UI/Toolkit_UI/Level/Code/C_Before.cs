@@ -27,6 +27,8 @@ public class C_Before : MonoBehaviour
 
     [SerializeField] private AudioClip[] _UISound;
 
+    Label txtCurrency;
+
     private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
@@ -46,6 +48,8 @@ public class C_Before : MonoBehaviour
         butMain = root.Q<Button>("but_back");
         butPlay = root.Q<Button>("but_play");
 
+        txtCurrency = root.Q<Label>("txt_currency");
+
 
         butHelp.clicked += Help;
         butStore.clicked += Store;
@@ -62,7 +66,10 @@ public class C_Before : MonoBehaviour
 
         player.ChangeSkin(currentSkin);
     }
-
+    private void Start()
+    {
+        txtCurrency.text = AlwaysThere.FishMoney.ToString();
+    }
 
     void Help()
     {
