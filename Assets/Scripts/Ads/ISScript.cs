@@ -18,7 +18,7 @@ string appkey = "1acc52165";
         //IMPORTANT - enable before release!
 
         //IronSource.Agent.init(appkey);
-        GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = false;
+        //GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = false;
     }
 
     private void OnEnable()
