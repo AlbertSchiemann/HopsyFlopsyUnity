@@ -141,7 +141,7 @@ string appkey = "1acc52165";
     // Invoked when the interstitial ad was loaded succesfully.
     void InterstitialOnAdReadyEvent(IronSourceAdInfo adInfo)
     {
-        GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = true;
+        //GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = true;
     }
     // Invoked when the initialization process has failed.
     void InterstitialOnAdLoadFailed(IronSourceError ironSourceError)
