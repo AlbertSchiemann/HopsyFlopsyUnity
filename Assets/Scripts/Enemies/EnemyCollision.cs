@@ -42,8 +42,8 @@ public class EnemyCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canTankHit = false;
+            if (powerUp == null) { return; }
             powerUp.UseShield();
-            return;
         }
     }
     void Sceneload()

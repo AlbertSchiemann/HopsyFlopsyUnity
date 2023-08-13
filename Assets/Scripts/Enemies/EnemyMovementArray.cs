@@ -80,7 +80,6 @@ public class EnemyMovementArray : MonoBehaviour
         {
             currentMovementStep = 0;
             InBetweenLooping();
-            Debug.Log("currentMovementStep == movementDirection.Length");
             return;
         }
         else {
@@ -275,8 +274,8 @@ public class EnemyMovementArray : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             canTankHit = false;
+            if (powerUp == null) { return; }
             powerUp.UseShield();
-            return;
         }
     }
     void Sceneload()

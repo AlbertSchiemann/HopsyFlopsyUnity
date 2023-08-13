@@ -44,6 +44,7 @@ public class C_Ad : MonoBehaviour
         //Debug.Log("load banner function called");
         AdScript.ShowRewardedAd();
         switchScreen.OpenPlaying();
+        GameStateManagerScript.StartGame();
     }
 
     public void No()
