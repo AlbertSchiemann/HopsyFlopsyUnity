@@ -10,7 +10,7 @@ public class C_Store : MonoBehaviour
 {
     public C_Clean_SwitchScreens switchScreenStore;
 
-    public Button butBack;
+    Button butBack;
     Button butHelpi;
     Button butSettings;
 
@@ -27,11 +27,14 @@ public class C_Store : MonoBehaviour
 
     float Time =0;
 
+    public Sprite Equip, Equiped;
+
     VisualElement UpperCorner;
 
     [SerializeField] private AudioClip[] _UISound;
 
     Label txtCurrency;
+    VisualElement visPrice3, visPrice2;
 
     void OnEnable()
     {
@@ -52,6 +55,9 @@ public class C_Store : MonoBehaviour
 
         UpperCorner = root.Q<VisualElement>("vis_fish");
 
+        visPrice2 = root.Q<Label>("txt_price2");
+        visPrice3 = root.Q<Label>("txt_price3");
+
         butHelpi.clicked += Help;
         butSettings.clicked += Settings;
         butBack.clicked += Back;
@@ -69,6 +75,7 @@ public class C_Store : MonoBehaviour
         {
             butBuy2.style.display = DisplayStyle.Flex;
             butEquip2.style.display = DisplayStyle.None;
+            visPrice2.style.display = DisplayStyle.None;
         }
         else
         {
@@ -80,6 +87,7 @@ public class C_Store : MonoBehaviour
         {
             butBuy3.style.display = DisplayStyle.Flex;
             butEquip3.style.display = DisplayStyle.None;
+            visPrice3.style.display = DisplayStyle.None;
         }
         else
         {
@@ -87,6 +95,10 @@ public class C_Store : MonoBehaviour
             butEquip3.style.display = DisplayStyle.Flex;
         }
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
+
+        if (AlwaysThere.currentSkin == 0) EquipSkin1();
+        else if (AlwaysThere.currentSkin == 1) EquipSkin2();
+        else if (AlwaysThere.currentSkin == 2) EquipSkin3();
     }
 
     private void Start()
@@ -107,6 +119,7 @@ public class C_Store : MonoBehaviour
             AlwaysThere.skin2Bought = true;
             AlwaysThere.FishMoney -= 100;
             txtCurrency.text = AlwaysThere.FishMoney.ToString();
+            visPrice2.style.display = DisplayStyle.None;
         }
         else
         {
@@ -129,6 +142,7 @@ public class C_Store : MonoBehaviour
             AlwaysThere.skin3Bought = true;
             AlwaysThere.FishMoney -= 200;
             txtCurrency.text = AlwaysThere.FishMoney.ToString();
+            visPrice3.style.display = DisplayStyle.None;
         }
         else
         {
@@ -146,16 +160,26 @@ public class C_Store : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(_UISound);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
+        butEquip1.style.backgroundImage = new StyleBackground(Equiped);
+        if (bought2) butEquip2.style.backgroundImage = new StyleBackground(Equip);
+        if (bought3) butEquip3.style.backgroundImage = new StyleBackground(Equip);
     }
     public void EquipSkin2()
     {
         SoundManager.Instance.PlaySound(_UISound);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
+        butEquip1.style.unityBackgroundImageTintColor = Color.white;
+        butEquip1.style.backgroundImage = new StyleBackground(Equip);
+        if (bought2) butEquip2.style.backgroundImage = new StyleBackground(Equiped);
+        if (bought3) butEquip3.style.backgroundImage = new StyleBackground(Equip);
     }
     public void EquipSkin3()
     {
         SoundManager.Instance.PlaySound(_UISound);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
+        butEquip1.style.backgroundImage = new StyleBackground(Equip);
+        if (bought2) butEquip2.style.backgroundImage = new StyleBackground(Equip);
+        if (bought3) butEquip3.style.backgroundImage = new StyleBackground(Equiped);
     }
 
     public void Help()

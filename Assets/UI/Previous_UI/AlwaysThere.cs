@@ -20,7 +20,7 @@ public static class AlwaysThere
 
     public static float Wasserstand =0;
 
-    public static int FishMoney = 0;
+    public static int FishMoney = 3000;
 
     public static bool MusicIcon = true;
     public static bool SFXIcon = true;

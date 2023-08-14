@@ -548,6 +548,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6356622009347184832, guid: bd94cb6834a91c847aecb3e8cb05e99a,
         type: 3}
+      propertyPath: Equip
+      value: 
+      objectReference: {fileID: 21300000, guid: 90a77bd570898c14aace724a250854e3,
+        type: 3}
+    - target: {fileID: 6356622009347184832, guid: bd94cb6834a91c847aecb3e8cb05e99a,
+        type: 3}
+      propertyPath: Equiped
+      value: 
+      objectReference: {fileID: 21300000, guid: 42f28948d16203142820d742b06d2232,
+        type: 3}
+    - target: {fileID: 6356622009347184832, guid: bd94cb6834a91c847aecb3e8cb05e99a,
+        type: 3}
       propertyPath: _UISound.Array.size
       value: 1
       objectReference: {fileID: 0}

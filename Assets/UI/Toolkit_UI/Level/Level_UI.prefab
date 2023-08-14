@@ -967,7 +967,8 @@ MonoBehaviour:
     type: 3}
   skinToEquip3: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
     type: 3}
-  UpperCorner2: {fileID: 0}
+  Equip: {fileID: 21300000, guid: 90a77bd570898c14aace724a250854e3, type: 3}
+  Equiped: {fileID: 21300000, guid: 42f28948d16203142820d742b06d2232, type: 3}
   _UISound:
   - {fileID: 8300000, guid: 2ad02caaf30efab44a2bba83ae459ac0, type: 3}
 --- !u!4 &2529184622439043999 stripped
