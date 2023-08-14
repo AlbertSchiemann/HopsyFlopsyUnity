@@ -75,6 +75,9 @@ public class C_WaterBar : MonoBehaviour
     public Sprite bubbles27;
     public Sprite bubbles28;
 
+    public Sprite DrunkWater;
+    public Sprite NormalWater;
+
 
     float time = 0f;
     float TimeDelay=0.15f / 2;
@@ -196,6 +199,21 @@ public class C_WaterBar : MonoBehaviour
             Warning=0;
         }
        // Debug.Log("Slider: " +waterSlider.style.height);
+    }
+    public void Drunk()
+    {
+        waterSlider.style.backgroundImage = new StyleBackground(DrunkWater);
+     //   wave.style.unityBackgroundImageTintColor = Color.gray;
+        Invoke(nameof(ColorToNormal), 12f);
+
+    }
+    public void ColorToNormal()
+    {
+        waterSlider.style.backgroundImage = new StyleBackground(NormalWater);
+     //   wave.style.unityBackgroundImageTintColor = Color.white;
+        AlwaysThere.Drunk = false;
+
+
     }
 
 }

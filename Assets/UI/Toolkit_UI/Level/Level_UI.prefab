@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  AdScript: {fileID: 0}
   _UISound:
   - {fileID: 8300000, guid: 5f72c2db9438c4c419e42713aa4d572b, type: 3}
 --- !u!1 &7398626331986876868
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
   _UISound: []
+  DrunkWater: {fileID: 21300000, guid: 180dfd66b0463fa4a9ba3b978df9d027, type: 3}
 --- !u!1 &7398626332480150755
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  swipeManager: {fileID: 0}
   _UISound: []
 --- !u!114 &8620504056808633041
 MonoBehaviour:
@@ -488,6 +491,8 @@ MonoBehaviour:
   bubbles26: {fileID: -1416147447, guid: e7111791874426f4295c081b690fa283, type: 3}
   bubbles27: {fileID: 496726256, guid: e7111791874426f4295c081b690fa283, type: 3}
   bubbles28: {fileID: 1394130488, guid: e7111791874426f4295c081b690fa283, type: 3}
+  DrunkWater: {fileID: 21300000, guid: 180dfd66b0463fa4a9ba3b978df9d027, type: 3}
+  NormalWater: {fileID: 21300000, guid: 4a9adc916487c7b408e513777c742966, type: 3}
 --- !u!114 &2829387000558705927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +712,8 @@ MonoBehaviour:
   bubbles26: {fileID: 0}
   bubbles27: {fileID: 0}
   bubbles28: {fileID: 0}
+  DrunkWater: {fileID: 0}
+  NormalWater: {fileID: 0}
 --- !u!1001 &7398626332879138537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,8 +967,7 @@ MonoBehaviour:
     type: 3}
   skinToEquip3: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
     type: 3}
-  skinToEquip4: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
-    type: 3}
+  UpperCorner2: {fileID: 0}
   _UISound:
   - {fileID: 8300000, guid: 2ad02caaf30efab44a2bba83ae459ac0, type: 3}
 --- !u!4 &2529184622439043999 stripped

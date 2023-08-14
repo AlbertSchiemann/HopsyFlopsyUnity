@@ -43,6 +43,8 @@ public class PowerUpManager : MonoBehaviour
         Vibration.Vibrate(100);
         verticalCameraFollow.shakeDuration = drunkmodedurationBeer;
         hydrationController.BeerHydration();
+        waterBar.Drunk();
+        AlwaysThere.Drunk = true;
         Invoke("RandomCall" ,  2f);
         Invoke("RandomCall" ,  4f);
         Invoke("RandomCall" ,  6f);

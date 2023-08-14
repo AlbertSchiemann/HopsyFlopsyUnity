@@ -11,8 +11,8 @@ public class C_Playing : MonoBehaviour
 
     Button butPause;
 
-    Button butBottle;
-    VisualElement visShield;
+    Button butConfirm;
+    VisualElement visControls;
 
     //Swipe Input reference
     [SerializeField] private SwipeManager swipeManager;
@@ -35,6 +35,18 @@ public class C_Playing : MonoBehaviour
 
     VisualElement waterSlider;
 
+    VisualElement BorderCross;
+    VisualElement BorderPad;
+    VisualElement BorderSwipe;
+
+    Button butSwipeInput;
+    Button butCrossInput;
+    Button butPadInput;
+    public static bool _swipeInput = true;
+    public static bool _crossInput = false;
+    public static bool _padInput = false;
+
+
     private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
@@ -46,6 +58,9 @@ public class C_Playing : MonoBehaviour
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
         GameStateManagerScript.StartGame();
+
+        butConfirm = root.Q<Button>("but_confirm");
+        visControls = root.Q<VisualElement>("vis_input");
 
         butPause = root.Q<Button>("but_pause");
         waterSlider = root.Q<VisualElement>("Foreground");
@@ -61,11 +76,24 @@ public class C_Playing : MonoBehaviour
         butLeft.clicked += LeftButton;
         butRight.clicked += RightButton;
 
+
         PadField = root.Q<GroupBox>("ControlPad");
         topCross = root.Q<Button>("topCross");
         botCross = root.Q<Button>("botCross");
         leftCross = root.Q<Button>("leftCross");
         rightCross = root.Q<Button>("rightCross");
+
+        butSwipeInput = root.Q<Button>("swipeInput");
+        butCrossInput = root.Q<Button>("crossInput");
+        butPadInput = root.Q<Button>("padInput");
+
+        BorderPad = root.Q<VisualElement>("vis_border_pad");
+        BorderCross = root.Q<VisualElement>("vis_border_cross");
+        BorderSwipe = root.Q<VisualElement>("vis_border_swipe");
+            
+        butSwipeInput.clicked += SwipeInputs;
+        butCrossInput.clicked += CrossInputs;
+        butPadInput.clicked += PadInputs;
 
         topCross.clicked += UpCrossButton;
         botCross.clicked += DownCrossButton;
@@ -95,8 +123,10 @@ public class C_Playing : MonoBehaviour
         //visShield = root.Q<VisualElement>("vis_shield");
 
         butPause.clicked += Pause;
+        butConfirm.clicked += Confirm;
 
-        Timer = AlwaysThere.time;       
+        Timer = AlwaysThere.time;     
+        if (AlwaysThere.firstPlayed1) visControls.style.display = DisplayStyle.None;
     }
 
     private void Update()
@@ -104,6 +134,12 @@ public class C_Playing : MonoBehaviour
         
         Timer = Timer + Time.deltaTime;
 
+    }
+
+    void Confirm()
+    {
+        visControls.style.display = DisplayStyle.None;
+        AlwaysThere.firstPlayed1 = true;
     }
 
     void Pause()
@@ -169,6 +205,73 @@ public class C_Playing : MonoBehaviour
         downCrossTap = false;
         leftCrossTap = false;
         rightCrossTap = false;
+    }
+    private void SwipeInputs()
+    {
+        _swipeInput = true;
+        _crossInput = false;
+        _padInput = false;
+
+        BorderCross.style.borderBottomColor = Color.white;
+        BorderCross.style.borderTopColor = Color.white;
+        BorderCross.style.borderLeftColor = Color.white;
+        BorderCross.style.borderRightColor = Color.white;
+
+        BorderSwipe.style.borderBottomColor = Color.green;
+        BorderSwipe.style.borderTopColor = Color.green;
+        BorderSwipe.style.borderLeftColor = Color.green;
+        BorderSwipe.style.borderRightColor = Color.green;
+
+        BorderPad.style.borderBottomColor = Color.white;
+        BorderPad.style.borderTopColor = Color.white;
+        BorderPad.style.borderLeftColor = Color.white;
+        BorderPad.style.borderRightColor = Color.white;
+
+
+    }
+
+    private void CrossInputs()
+    {
+        _swipeInput = false;
+        _crossInput = true;
+        _padInput = false;
+
+        BorderCross.style.borderBottomColor = Color.green;
+        BorderCross.style.borderTopColor = Color.green;
+        BorderCross.style.borderLeftColor = Color.green;
+        BorderCross.style.borderRightColor = Color.green;
+
+        BorderSwipe.style.borderBottomColor = Color.white;
+        BorderSwipe.style.borderTopColor = Color.white;
+        BorderSwipe.style.borderLeftColor = Color.white;
+        BorderSwipe.style.borderRightColor = Color.white;
+
+        BorderPad.style.borderBottomColor = Color.white;
+        BorderPad.style.borderTopColor = Color.white;
+        BorderPad.style.borderLeftColor = Color.white;
+        BorderPad.style.borderRightColor = Color.white;
+    }
+
+    private void PadInputs()
+    {
+        _swipeInput = false;
+        _crossInput = false;
+        _padInput = true;
+
+        BorderCross.style.borderBottomColor = Color.white;
+        BorderCross.style.borderTopColor = Color.white;
+        BorderCross.style.borderLeftColor = Color.white;
+        BorderCross.style.borderRightColor = Color.white;
+
+        BorderSwipe.style.borderBottomColor = Color.white;
+        BorderSwipe.style.borderTopColor = Color.white;
+        BorderSwipe.style.borderLeftColor = Color.white;
+        BorderSwipe.style.borderRightColor = Color.white;
+
+        BorderPad.style.borderBottomColor = Color.green;
+        BorderPad.style.borderTopColor = Color.green;
+        BorderPad.style.borderLeftColor = Color.green;
+        BorderPad.style.borderRightColor = Color.green;
     }
 }
   

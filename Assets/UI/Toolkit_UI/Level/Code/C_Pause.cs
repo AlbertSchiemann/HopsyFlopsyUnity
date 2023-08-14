@@ -41,6 +41,7 @@ public class C_Pause : MonoBehaviour
     int Warning = 0;
 
     Label txtCurrency;
+    public Sprite DrunkWater;
 
 
     private void Awake()
@@ -94,6 +95,8 @@ public class C_Pause : MonoBehaviour
 
         butHide.clicked += Hide;
         butShow.clicked += Show;
+
+        if(AlwaysThere.Drunk) waterSlider.style.backgroundImage = new StyleBackground(DrunkWater);
 
         SetHealth(AlwaysThere.Wasserstand);
         Debug.Log("alwaysBottle: " + AlwaysThere.bottleThere);
