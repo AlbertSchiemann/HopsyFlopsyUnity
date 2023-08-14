@@ -16,6 +16,8 @@ public static class AlwaysThere
     public static bool bottleThere = false;
     public static bool shieldThere = false;
 
+    public static float Wasserstand =0;
+
     public static int FishMoney = 0;
 
     public static bool MusicIcon = true;

@@ -37,6 +37,17 @@ public class C_Settings : MonoBehaviour
 
     [SerializeField] private AudioClip[] _UISound;
 
+    VisualElement BorderCross;
+    VisualElement BorderPad;
+    VisualElement BorderSwipe;
+
+    Button butSwipeInput;
+    Button butCrossInput;
+    Button butPadInput;
+    public static bool _swipeInput = true;
+    public static bool _crossInput = false;
+    public static bool _padInput = false;
+
     void OnEnable()
     {
         VisualElement rootSettings = GetComponent<UIDocument>().rootVisualElement;
@@ -65,6 +76,18 @@ public class C_Settings : MonoBehaviour
         butMusicOff = rootSettings.Q<Button>("but_sound_off");
         butSfxOn = rootSettings.Q<Button>("but_sfx_on");
         butSfxOff = rootSettings.Q<Button>("but_sfx_off");
+
+        butSwipeInput = rootSettings.Q<Button>("swipeInput");
+        butCrossInput = rootSettings.Q<Button>("crossInput");
+        butPadInput = rootSettings.Q<Button>("padInput");
+
+        BorderPad = rootSettings.Q<VisualElement>("vis_border_pad");
+        BorderCross = rootSettings.Q<VisualElement>("vis_border_cross");
+        BorderSwipe = rootSettings.Q<VisualElement>("vis_border_swipe");
+
+        butSwipeInput.clicked += SwipeInputs;
+        butCrossInput.clicked += CrossInputs;
+        butPadInput.clicked += PadInputs;
 
         butMusicOn.clicked += MusicOff;
         butMusicOff.clicked += MusicOn;
@@ -217,6 +240,73 @@ public class C_Settings : MonoBehaviour
 
         SoundManager.DisableSfx();
         AlwaysThere.SFXIcon = false;
+    }
+    private void SwipeInputs()
+    {
+        _swipeInput = true;
+        _crossInput = false;
+        _padInput = false;
+
+        BorderCross.style.borderBottomColor = Color.white;
+        BorderCross.style.borderTopColor = Color.white;
+        BorderCross.style.borderLeftColor = Color.white;
+        BorderCross.style.borderRightColor = Color.white;
+
+        BorderSwipe.style.borderBottomColor = Color.green;
+        BorderSwipe.style.borderTopColor = Color.green;
+        BorderSwipe.style.borderLeftColor = Color.green;
+        BorderSwipe.style.borderRightColor = Color.green;
+
+        BorderPad.style.borderBottomColor = Color.white;
+        BorderPad.style.borderTopColor = Color.white;
+        BorderPad.style.borderLeftColor = Color.white;
+        BorderPad.style.borderRightColor = Color.white;
+
+
+    }
+
+    private void CrossInputs()
+    {
+        _swipeInput = false;
+        _crossInput = true;
+        _padInput = false;
+
+        BorderCross.style.borderBottomColor = Color.green;
+        BorderCross.style.borderTopColor = Color.green;
+        BorderCross.style.borderLeftColor = Color.green;
+        BorderCross.style.borderRightColor = Color.green;
+
+        BorderSwipe.style.borderBottomColor = Color.white;
+        BorderSwipe.style.borderTopColor = Color.white;
+        BorderSwipe.style.borderLeftColor = Color.white;
+        BorderSwipe.style.borderRightColor = Color.white;
+
+        BorderPad.style.borderBottomColor = Color.white;
+        BorderPad.style.borderTopColor = Color.white;
+        BorderPad.style.borderLeftColor = Color.white;
+        BorderPad.style.borderRightColor = Color.white;
+    }
+
+    private void PadInputs()
+    {
+        _swipeInput = false;
+        _crossInput = false;
+        _padInput = true;
+
+        BorderCross.style.borderBottomColor = Color.white;
+        BorderCross.style.borderTopColor = Color.white;
+        BorderCross.style.borderLeftColor = Color.white;
+        BorderCross.style.borderRightColor = Color.white;
+
+        BorderSwipe.style.borderBottomColor = Color.white;
+        BorderSwipe.style.borderTopColor = Color.white;
+        BorderSwipe.style.borderLeftColor = Color.white;
+        BorderSwipe.style.borderRightColor = Color.white;
+
+        BorderPad.style.borderBottomColor = Color.green;
+        BorderPad.style.borderTopColor = Color.green;
+        BorderPad.style.borderLeftColor = Color.green;
+        BorderPad.style.borderRightColor = Color.green;
     }
 }
 

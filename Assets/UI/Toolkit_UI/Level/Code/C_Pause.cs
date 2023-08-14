@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -27,6 +28,21 @@ public class C_Pause : MonoBehaviour
 
     [SerializeField] private AudioClip[] _UISound;
 
+
+
+    Button butBottle;
+    VisualElement visShield;
+
+    VisualElement waterSlider;
+    VisualElement waterGlas;
+    VisualElement wave;
+    VisualElement bubbles;
+    VisualElement bubbleground;
+    int Warning = 0;
+
+    Label txtCurrency;
+
+
     private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
@@ -52,6 +68,19 @@ public class C_Pause : MonoBehaviour
         visCorner4 = root.Q<VisualElement>("vis_4inCorner");
 
 
+        waterSlider = root.Q<VisualElement>("Foreground");
+        bubbleground = root.Q<VisualElement>("Bubbleground");
+        waterGlas = root.Q<VisualElement>("waterbar_back");
+        wave = root.Q<VisualElement>("wave");
+        bubbles = root.Q<VisualElement>("bubbles");
+
+        visShield = root.Q<VisualElement>("vis_shield");
+        butBottle = root.Q<Button>("but_bottle");
+
+        txtCurrency = root.Q<Label>("txt_currency");
+
+        txtCurrency.text = C_Currency.CurrencyAmount.ToString() + " / " + C_Currency.CurrencyTotal.ToString();
+
         visCorner4.style.display = DisplayStyle.None;
 
 
@@ -66,9 +95,35 @@ public class C_Pause : MonoBehaviour
         butHide.clicked += Hide;
         butShow.clicked += Show;
 
+        SetHealth(AlwaysThere.Wasserstand);
+        Debug.Log("alwaysBottle: " + AlwaysThere.bottleThere);
+        if (!AlwaysThere.bottleThere) { butBottle.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.5f); Debug.Log("bottle noth there"); }
+        if (!AlwaysThere.shieldThere) visShield.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.5f);
 
     }
+    public void SetHealth(float health)
+    {
+        waterSlider.style.height = Length.Percent(health);
+        bubbleground.style.height = Length.Percent(health - 3);
+        if (health < 15 && Warning == 1)
+        {
+            waterGlas.style.unityBackgroundImageTintColor = new Color(1f, 0f, 0f, 0.7f);
+            Warning++;
 
+        }
+        else if (health < 35 && Warning == 0)
+        {
+            waterGlas.style.unityBackgroundImageTintColor = new Color(0.7f, 0f, 0f, 0.7f);
+            Warning++;
+
+        }
+        else if (health > 35 && Warning != 0)
+        {
+            waterGlas.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+            Warning = 0;
+        }
+        // Debug.Log("Slider: " +waterSlider.style.height);
+    }
 
     void Help()
     {

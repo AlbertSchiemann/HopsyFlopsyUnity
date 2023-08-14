@@ -33,7 +33,9 @@ public class C_Playing : MonoBehaviour
 
     public static float Timer;
 
-   private void Awake()
+    VisualElement waterSlider;
+
+    private void Awake()
     {
         GameObject GameStateManager = GameObject.Find("GameStateManager");
         GameStateManagerScript = GameStateManager.GetComponent<GameStateManagerScript>();
@@ -46,12 +48,14 @@ public class C_Playing : MonoBehaviour
         GameStateManagerScript.StartGame();
 
         butPause = root.Q<Button>("but_pause");
+        waterSlider = root.Q<VisualElement>("Foreground");
 
         CrossField = root.Q<GroupBox>("CrossTap");
         butTop = root.Q<Button>("topButton");
         butBot = root.Q<Button>("botButton");
         butLeft = root.Q<Button>("leftButton");
         butRight = root.Q<Button>("rightButton");
+
         butTop.clicked += UpButton;
         butBot.clicked += DownButton;
         butLeft.clicked += LeftButton;
@@ -62,6 +66,7 @@ public class C_Playing : MonoBehaviour
         botCross = root.Q<Button>("botCross");
         leftCross = root.Q<Button>("leftCross");
         rightCross = root.Q<Button>("rightCross");
+
         topCross.clicked += UpCrossButton;
         botCross.clicked += DownCrossButton;
         leftCross.clicked += LeftCrossButton;
@@ -103,6 +108,7 @@ public class C_Playing : MonoBehaviour
 
     void Pause()
     {
+        AlwaysThere.Wasserstand = waterSlider.style.height.value.value;
         SwipeManager.tapping = false;
         AlwaysThere.time = (int)Timer;
         SoundManager.Instance.PlaySound(_UISound);

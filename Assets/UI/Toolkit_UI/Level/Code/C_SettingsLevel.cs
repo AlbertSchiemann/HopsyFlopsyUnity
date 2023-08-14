@@ -39,7 +39,12 @@ public class C_SettingsLevel : MonoBehaviour
     VisualElement visControls;
     VisualElement visCredits;
     VisualElement visSound;
+    
     Label txtContact;
+
+    VisualElement BorderCross;
+    VisualElement BorderPad;
+    VisualElement BorderSwipe;
 
     [SerializeField] private AudioClip[] _UISound;
 
@@ -57,10 +62,13 @@ public class C_SettingsLevel : MonoBehaviour
         butControls = rootSettings.Q<Button>("but_controls");
 
         visControls = rootSettings.Q<VisualElement>("vis_controls");
-
         visCredits = rootSettings.Q<VisualElement>("vis_credits");
         visSound = rootSettings.Q<VisualElement>("vis_sound");
         txtContact = rootSettings.Q<Label>("txt_contact");
+
+        BorderPad = rootSettings.Q<VisualElement>("vis_border_pad");
+        BorderCross = rootSettings.Q<VisualElement>("vis_border_cross");
+        BorderSwipe = rootSettings.Q<VisualElement>("vis_border_swipe");
 
         sliderMusic = rootSettings.Q<Slider>("Sound");
         sliderSFX = rootSettings.Q<Slider>("SFX");
@@ -237,6 +245,23 @@ public class C_SettingsLevel : MonoBehaviour
         _swipeInput = true;
         _crossInput = false;
         _padInput = false;
+
+        BorderCross.style.borderBottomColor = Color.white;
+        BorderCross.style.borderTopColor = Color.white;
+        BorderCross.style.borderLeftColor = Color.white;
+        BorderCross.style.borderRightColor = Color.white;
+
+        BorderSwipe.style.borderBottomColor = Color.green;
+        BorderSwipe.style.borderTopColor = Color.green;
+        BorderSwipe.style.borderLeftColor = Color.green;
+        BorderSwipe.style.borderRightColor = Color.green;
+
+        BorderPad.style.borderBottomColor = Color.white;
+        BorderPad.style.borderTopColor = Color.white;
+        BorderPad.style.borderLeftColor = Color.white;
+        BorderPad.style.borderRightColor = Color.white;
+
+
     }
 
     private void CrossInputs()
@@ -244,6 +269,21 @@ public class C_SettingsLevel : MonoBehaviour
         _swipeInput = false;
         _crossInput = true;
         _padInput = false;
+
+        BorderCross.style.borderBottomColor = Color.green;
+        BorderCross.style.borderTopColor = Color.green;
+        BorderCross.style.borderLeftColor = Color.green;
+        BorderCross.style.borderRightColor = Color.green;
+
+        BorderSwipe.style.borderBottomColor = Color.white;
+        BorderSwipe.style.borderTopColor = Color.white;
+        BorderSwipe.style.borderLeftColor = Color.white;
+        BorderSwipe.style.borderRightColor = Color.white;
+
+        BorderPad.style.borderBottomColor = Color.white;
+        BorderPad.style.borderTopColor = Color.white;
+        BorderPad.style.borderLeftColor = Color.white;
+        BorderPad.style.borderRightColor = Color.white;
     }
 
     private void PadInputs()
@@ -251,6 +291,21 @@ public class C_SettingsLevel : MonoBehaviour
         _swipeInput = false;
         _crossInput = false;
         _padInput = true;
+
+        BorderCross.style.borderBottomColor = Color.white;
+        BorderCross.style.borderTopColor = Color.white;
+        BorderCross.style.borderLeftColor = Color.white;
+        BorderCross.style.borderRightColor = Color.white;
+
+        BorderSwipe.style.borderBottomColor = Color.white;
+        BorderSwipe.style.borderTopColor = Color.white;
+        BorderSwipe.style.borderLeftColor = Color.white;
+        BorderSwipe.style.borderRightColor = Color.white;
+
+        BorderPad.style.borderBottomColor = Color.green;
+        BorderPad.style.borderTopColor = Color.green;
+        BorderPad.style.borderLeftColor = Color.green;
+        BorderPad.style.borderRightColor = Color.green;
     }
 }
 

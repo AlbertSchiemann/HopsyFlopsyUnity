@@ -1,18 +1,40 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
     <Style src="project://database/Assets/UI/Toolkit_UI/Level/CleanLevelStyleSheet.uss?fileID=7433441132597879392&amp;guid=f808582076c413b43b198ebbc9908710&amp;type=3#CleanLevelStyleSheet" />
-    <ui:VisualElement name="vis_" class="Vis_BackGround vis_darkerBackground" style="width: 100%; height: 100%;">
-        <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column;">
-            <ui:Button display-tooltip-when-elided="true" name="but_playOn" class="but_3inMiddle" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayOnOutline.png?fileID=2800000&amp;guid=73cfeb188eb0eb242b95aedf5c867892&amp;type=3#PlayOnOutline&apos;);" />
-            <ui:Button display-tooltip-when-elided="true" name="but_restart" class="but_3inMiddle Button_restart" />
-            <ui:Button display-tooltip-when-elided="true" name="but_main" class="but_3inMiddle Button_main" />
+    <ui:VisualElement name="vis_pause" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="vis_playingBG" style="position: absolute; width: 100%; height: 100%;">
+            <ui:VisualElement name="vis_upperCorner" class="vis_upperCorner">
+                <ui:Button display-tooltip-when-elided="true" name="vis_shield" class="button_shield" style="background-color: rgba(188, 188, 188, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/newest/ShieldBig2.png?fileID=2800000&amp;guid=0d2814e2696b2b14899746ed4c3dd26f&amp;type=3#ShieldBig2&apos;); height: 100%;" />
+                <ui:Label display-tooltip-when-elided="true" name="txt_currencyVisual" class="txt_currrencyBG">
+                    <ui:VisualElement name="vis_fish" class="vis_currencyFish" />
+                    <ui:Label text="xx/xx" display-tooltip-when-elided="true" name="txt_currency" class="txt_currency" />
+                </ui:Label>
+            </ui:VisualElement>
+            <ui:Button display-tooltip-when-elided="true" name="but_bottle" class="button_bottle" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
+            <ui:VisualElement name="waterbar_back" style="background-color: rgba(255, 255, 255, 0); flex-grow: 0; flex-direction: column-reverse; position: absolute; left: 4%; top: 24%; height: 52%; width: 4.3%; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/waterbar/Hintergrund%20wasseranzeige%20Kopie.png?fileID=2800000&amp;guid=a193a6a3406dfa844995923e6264b59e&amp;type=3#Hintergrund wasseranzeige Kopie&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.56); overflow: hidden; display: flex;">
+                <ui:VisualElement style="position: absolute; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/waterbar/Asset_1.svg?fileID=7388822144124034973&amp;guid=29063e1dc88ba534d934e9afad28231b&amp;type=3#Asset_1&apos;); width: 100%; height: 100%; visibility: visible; overflow: hidden; -unity-background-image-tint-color: rgba(255, 255, 255, 0); flex-direction: column-reverse;">
+                    <ui:VisualElement name="Foreground" style="flex-grow: 0; background-color: rgba(56, 56, 56, 0); height: 567px; flex-direction: column; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/waterbar/WasserAngepasstNew.png?fileID=2800000&amp;guid=4a9adc916487c7b408e513777c742966&amp;type=3#WasserAngepasstNew&apos;); justify-content: flex-start; align-items: stretch; -unity-background-image-tint-color: rgba(255, 255, 255, 0.82); overflow: visible;">
+                        <ui:VisualElement name="wave" class="Wave" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/newest/NewFrames.png?fileID=-349370036&amp;guid=f107fc1831c96514883a853cb8d25f94&amp;type=3#NewFrames_12&apos;); height: 80px; top: -24px; overflow: visible;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Bubbleground" style="flex-grow: 0; background-color: rgba(56, 56, 56, 0); height: 95%; flex-direction: column-reverse; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/waterbar/Vordergrund%20wasser.png?fileID=2800000&amp;guid=bca84ca68eed9fa43890eca4daea57fb&amp;type=3#Vordergrund wasser&apos;); justify-content: flex-start; align-items: stretch; -unity-background-image-tint-color: rgba(255, 255, 255, 0); overflow: hidden; position: absolute; width: 100%;">
+                        <ui:VisualElement name="bubbles" style="width: 100%; height: 710px; position: absolute; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/waterbar/BubbleFramesVertikal.png?fileID=-894689059&amp;guid=5960c771706bcf3498a250c11947161e&amp;type=3#BubbleFramesVertikal_0&apos;); -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgba(253, 253, 253, 0.86);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="vis_4inCorner" class="VisualEle_4inCornerUp" style="display: flex;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_help" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_QuestionMark.png?fileID=2800000&amp;guid=5e0ffdf80019ed540bde43e39f2fc96b&amp;type=3#B_QuestionMark&apos;);" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_store" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Buy.png?fileID=2800000&amp;guid=ff079e20dc4bf1a40aee392077525087&amp;type=3#B_Buy&apos;);" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_settings" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Setting.png?fileID=2800000&amp;guid=b2a391bd6e3b58f4aab9bed2573e9373&amp;type=3#B_Setting&apos;);" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="but_hide" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_DropDownMenu1.png?fileID=2800000&amp;guid=437b987a0c655e44399b9584ab4ceb66&amp;type=3#B_DropDownMenu1&apos;);" />
+        <ui:VisualElement name="vis_" class="Vis_BackGround vis_darkerBackground" style="width: 100%; height: 100%;">
+            <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column;">
+                <ui:Button display-tooltip-when-elided="true" name="but_playOn" class="but_3inMiddle" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayOnOutline.png?fileID=2800000&amp;guid=73cfeb188eb0eb242b95aedf5c867892&amp;type=3#PlayOnOutline&apos;);" />
+                <ui:Button display-tooltip-when-elided="true" name="but_restart" class="but_3inMiddle Button_restart" />
+                <ui:Button display-tooltip-when-elided="true" name="but_main" class="but_3inMiddle Button_main" />
+            </ui:VisualElement>
+            <ui:VisualElement name="vis_4inCorner" class="VisualEle_4inCornerUp" style="display: flex;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="but_help" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_QuestionMark.png?fileID=2800000&amp;guid=5e0ffdf80019ed540bde43e39f2fc96b&amp;type=3#B_QuestionMark&apos;);" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="but_store" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Buy.png?fileID=2800000&amp;guid=ff079e20dc4bf1a40aee392077525087&amp;type=3#B_Buy&apos;);" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="but_settings" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_Setting.png?fileID=2800000&amp;guid=b2a391bd6e3b58f4aab9bed2573e9373&amp;type=3#B_Setting&apos;);" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="but_hide" class="Button_4inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_DropDownMenu1.png?fileID=2800000&amp;guid=437b987a0c655e44399b9584ab4ceb66&amp;type=3#B_DropDownMenu1&apos;);" />
+            </ui:VisualElement>
+            <ui:Button display-tooltip-when-elided="true" name="but_show" class="Button_CornerHide" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_DropDownMenu2.png?fileID=2800000&amp;guid=cb03669cb670d864c8f6ffa35add6061&amp;type=3#B_DropDownMenu2&apos;); right: 2%; bottom: 2%; display: flex;" />
         </ui:VisualElement>
-        <ui:Button display-tooltip-when-elided="true" name="but_show" class="Button_CornerHide" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_DropDownMenu2.png?fileID=2800000&amp;guid=cb03669cb670d864c8f6ffa35add6061&amp;type=3#B_DropDownMenu2&apos;); right: 2%; bottom: 2%; display: flex;" />
     </ui:VisualElement>
 </ui:UXML>

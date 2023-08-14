@@ -30,8 +30,11 @@ public class C_PowerUps : MonoBehaviour
         // Test.clicked += UseBottle;
        
         butBottle.clicked += UseBottle;
-        if (!AlwaysThere.bottleThere) OpacityShieldDown();
+        if (!AlwaysThere.shieldThere) OpacityShieldDown();
         if (!AlwaysThere.bottleThere) OpacityBottleDown();
+
+        if (AlwaysThere.bottleThere) PickUpBottle();
+        if (AlwaysThere.shieldThere) PickUpShield();
     }
 
     public  void PickUpBottle()
