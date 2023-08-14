@@ -14,13 +14,18 @@ public class C_Playing : MonoBehaviour
     Button butBottle;
     VisualElement visShield;
 
+    //Swipe Input reference
+    [SerializeField] private SwipeManager swipeManager;
+
     //Cross Field Input
     Button butTop, butBot, butLeft, butRight;
     public static bool upTap, downTap, leftTap, rightTap = false;
+    GroupBox CrossField;
 
     //Control Pad Input
     Button topCross, botCross, leftCross, rightCross;
     public static bool upCrossTap, downCrossTap, leftCrossTap, rightCrossTap = false;
+    GroupBox PadField;
 
     private GameStateManagerScript GameStateManagerScript;
 
@@ -42,6 +47,7 @@ public class C_Playing : MonoBehaviour
 
         butPause = root.Q<Button>("but_pause");
 
+        CrossField = root.Q<GroupBox>("CrossTap");
         butTop = root.Q<Button>("topButton");
         butBot = root.Q<Button>("botButton");
         butLeft = root.Q<Button>("leftButton");
@@ -51,6 +57,7 @@ public class C_Playing : MonoBehaviour
         butLeft.clicked += LeftButton;
         butRight.clicked += RightButton;
 
+        PadField = root.Q<GroupBox>("ControlPad");
         topCross = root.Q<Button>("topCross");
         botCross = root.Q<Button>("botCross");
         leftCross = root.Q<Button>("leftCross");
@@ -59,6 +66,25 @@ public class C_Playing : MonoBehaviour
         botCross.clicked += DownCrossButton;
         leftCross.clicked += LeftCrossButton;
         rightCross.clicked += RightCrossButton;
+
+        if (C_SettingsLevel._swipeInput)
+        {
+            swipeManager.enabled = true;
+            CrossField.style.display = DisplayStyle.None;
+            PadField.style.display = DisplayStyle.None;
+        }
+        else if (C_SettingsLevel._crossInput)
+        {
+            swipeManager.enabled = false;
+            CrossField.style.display = DisplayStyle.Flex;
+            PadField.style.display = DisplayStyle.None;
+        }
+        else if (C_SettingsLevel._padInput)
+        {
+            swipeManager.enabled = false;
+            CrossField.style.display = DisplayStyle.None;
+            PadField.style.display = DisplayStyle.Flex;
+        }
 
         //butBottle = root.Q<Button>("but_bottle");
         //visShield = root.Q<VisualElement>("vis_shield");

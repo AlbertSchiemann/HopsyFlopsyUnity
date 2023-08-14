@@ -26,6 +26,13 @@ public class C_SettingsLevel : MonoBehaviour
     Button butSfxOn;
     Button butSfxOff;
 
+    Button butSwipeInput;
+    Button butCrossInput;
+    Button butPadInput;
+    public static bool _swipeInput = true;
+    public static bool _crossInput = false;
+    public static bool _padInput = false;
+
     public const string Mixer_Bg = "Background";
     public const string Mixer_Sfx = "Effects";
 
@@ -65,6 +72,14 @@ public class C_SettingsLevel : MonoBehaviour
         butMusicOff = rootSettings.Q<Button>("but_sound_off");
         butSfxOn = rootSettings.Q<Button>("but_sfx_on");
         butSfxOff = rootSettings.Q<Button>("but_sfx_off");
+
+        butSwipeInput = rootSettings.Q<Button>("swipeInput");
+        butCrossInput = rootSettings.Q<Button>("crossInput");
+        butPadInput = rootSettings.Q<Button>("padInput");
+
+        butSwipeInput.clicked += SwipeInputs;
+        butCrossInput.clicked += CrossInputs;
+        butPadInput.clicked += PadInputs;
 
         butMusicOn.clicked += MusicOff;
         butMusicOff.clicked += MusicOn;
@@ -215,6 +230,27 @@ public class C_SettingsLevel : MonoBehaviour
 
         SoundManager.DisableSfx();
         AlwaysThere.SFXIcon = false;
+    }
+
+    private void SwipeInputs()
+    {
+        _swipeInput = true;
+        _crossInput = false;
+        _padInput = false;
+    }
+
+    private void CrossInputs()
+    {
+        _swipeInput = false;
+        _crossInput = true;
+        _padInput = false;
+    }
+
+    private void PadInputs()
+    {
+        _swipeInput = false;
+        _crossInput = false;
+        _padInput = true;
     }
 }
 
