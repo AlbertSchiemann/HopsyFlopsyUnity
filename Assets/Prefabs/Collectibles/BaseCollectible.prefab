@@ -28,7 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.091698, y: -0.7498, z: 0.023851}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 190678924148578790}
   - {fileID: 5758458228758228633}
@@ -60,7 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5477949eb3fef4ea56cd069dd79f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eatClip: []
+  _eatClip:
+  - {fileID: 8300000, guid: bb54bb1167bc53245bba918b3f78391a, type: 3}
   _eatEffect: {fileID: 5558626967931837223}
 --- !u!1001 &373750415704653325
 PrefabInstance:
