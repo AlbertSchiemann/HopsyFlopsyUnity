@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf1af99caa7c7c418b1b34b22ddd5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hydrationDecayRate: 10
+  hydrationDecayRate: 4
   hydrationDecayFire: 2
   hydrationRestoreAmount: 100
   isCollidingWithWater: 0
@@ -52,8 +52,10 @@ MonoBehaviour:
   DelayTillReload: 0.2
   levelScript: {fileID: 0}
   waterBar: {fileID: 0}
+  powerUp: {fileID: 0}
   _hydrateClip:
   - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
   _failClip:
   - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
-  waterbottle: {fileID: 0}
+  powerUpManager: {fileID: 0}
+  pauseactive: 0

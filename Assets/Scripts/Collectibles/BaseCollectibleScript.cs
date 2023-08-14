@@ -33,7 +33,8 @@ public class BaseCollectibleScript : MonoBehaviour
             SoundManager.Instance.PlaySound(_eatClip);
             GameObject currencyManager = GameObject.Find("Playing");
             currencyManager.GetComponent<C_Currency>().AddCurrency(currencyValue);
-            Destroy(this.gameObject); 
+            Destroy(gameObject.transform.GetChild(0).gameObject);
+            GetComponent<SphereCollider>().enabled = false;
         }
     }
 
