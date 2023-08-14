@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class GridPlayerMovement : MonoBehaviour
 {
@@ -23,9 +24,10 @@ public class GridPlayerMovement : MonoBehaviour
     public HydrationController hydrationController;
   
     [SerializeField] private int StartX = 23;                          // Position of the Prefab in the Scene
-    [SerializeField] private int StartY =  3;       
-                  
+    [SerializeField] private int StartY =  3;  
 
+    private int LevelIndex;     
+                  
     public float PlayerHeigth = 1f;                        // Position in Y Axis of the Prefab
     private bool isAllowedToMove = true;                    // enables player movement in general
 
@@ -37,6 +39,7 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private GameObject bucket;
     [SerializeField] private GameObject cablecart;
+    [SerializeField] private Crane cranePrefab;
     [SerializeField] private CameraFollow cameraFollow;
 
     void Start()
@@ -44,6 +47,7 @@ public class GridPlayerMovement : MonoBehaviour
         grid2dCreated = grid.getGridCreated();
         print(grid2dCreated);
         InstantiatePlayer();
+        LevelIndex = SceneManager.GetActiveScene().buildIndex;
         isAllowedToMove = true;                                             // Enter the Starting Gridposition of the Player, so a check of the surrounding blocks gets called
         playerPosition.IsValidMove(StartX, StartY);                                   // and the player cant move through blocked blocks              
         UpdateGameObjectPosition();
@@ -252,9 +256,20 @@ public class GridPlayerMovement : MonoBehaviour
 
         public void PlayerWin()         
         {
+            playerPrefab.transform.DORotate(new Vector3(-90, 180, 0), 0.2f).SetEase(animEaseRotate);
             playerPrefab.transform.DOMove( new Vector3 (21f,1.75f,119f),1f).SetEase(animEaseJump);
-            playerPrefab.transform.DOMove( new Vector3 (61f,1.75f,119f),3f).SetDelay(1.5f).SetEase(animEaseJump);
-            
+            playerPrefab.transform.DOMove( new Vector3 (61f,1.75f,119f),3f).SetDelay(1.5f).SetEase(animEaseJump);   
+        }
+        public void PlayerWinLevel2()
+        {
+            playerPrefab.transform.DORotate(new Vector3(-90, 180, 0), 0.2f).SetEase(animEaseRotate);
+            playerPrefab.transform.DOMove( new Vector3 (30.4f,1.1f,137f),.5f).SetEase(animEaseJump);
+            playerPrefab.transform.DOMove( new Vector3 (30.4f,3.3f,137f),.5f).SetEase(animEase);
+            playerPrefab.transform.DOMove( new Vector3 (31.8f,3.3f,137.1f),.25f).SetDelay(1.5f).SetEase(animEase);   
+            playerPrefab.transform.DOMove( new Vector3 (33.22f,3.3f,137.8f),.25f).SetDelay(1.75f).SetEase(animEase);
+            playerPrefab.transform.DOMove( new Vector3 (34.33f,3.3f,139f),.25f).SetDelay(2f).SetEase(animEase);
+            playerPrefab.transform.DOMove( new Vector3 (34.84f,3.3f,140.3f),.25f).SetDelay(2.25f).SetEase(animEase);   
+            playerPrefab.transform.DOMove( new Vector3 (35f,3.3f,141.5f),.25f).SetDelay(2.5f).SetEase(animEase);
         }
         public void moveSkateboard()    
         {
@@ -410,9 +425,19 @@ public class GridPlayerMovement : MonoBehaviour
     }
     public void CallOfPlayerWin()
     {
-        playerPosition.PlayerWin();
-        cablecart.transform.DOMove( new Vector3 (39.80000114f,-3.81999969f,120.059998f),3f).SetDelay(1.5f).SetEase(Ease.InOutExpo);
-        hydrationController.DeactivateHydration();
+        if (LevelIndex == 1)
+        {
+            playerPosition.PlayerWin();
+            cablecart.transform.DOMove( new Vector3 (39.80000114f,-3.81999969f,120.059998f),3f).SetDelay(1.5f).SetEase(Ease.InOutExpo);
+            hydrationController.DeactivateHydration(); 
+        }
+        else if (LevelIndex == 2)
+        {
+            playerPosition.PlayerWinLevel2();
+            cranePrefab.CraneAnimation();
+            hydrationController.DeactivateHydration(); 
+        }
+        
     }
     public void RandomMovement()
     {

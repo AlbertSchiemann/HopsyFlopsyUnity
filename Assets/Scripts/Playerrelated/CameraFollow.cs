@@ -26,6 +26,7 @@ public class CameraFollow : MonoBehaviour
     private bool UpdateDelay = false;
 
     public Ease animEaseJump = Ease.InOutExpo;
+    
 
     //Camera Positions Level 1
     private Vector3 CameraStartBeforeGoalTrigger = new(2f,10f,5f);
