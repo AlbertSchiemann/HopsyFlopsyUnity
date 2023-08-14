@@ -28,6 +28,7 @@ public class BaseCollectibleScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") 
         {
+            Vibration.Vibrate(100);
             PlayParticle();
             SoundManager.Instance.PlaySound(_eatClip);
             GameObject currencyManager = GameObject.Find("Playing");
