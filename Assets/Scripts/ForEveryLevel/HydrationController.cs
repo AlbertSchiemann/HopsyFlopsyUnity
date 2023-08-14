@@ -79,12 +79,12 @@ public class HydrationController : MonoBehaviour
             CheckHydrationDeathCondition();   
         }
 
-        if ((hydration < hydrationMax / 9) && (!isHydrationDangerouslyLow))
+        if ((hydration < hydrationMax / 5) && (!isHydrationDangerouslyLow))
         {
             HydrationVibration();
             isHydrationDangerouslyLow = true;
         }
-        else
+        else if (hydration >= hydrationMax / 5)
         {
             isHydrationDangerouslyLow = false;
         }
