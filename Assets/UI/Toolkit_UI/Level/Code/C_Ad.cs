@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 public class C_Ad : MonoBehaviour
 {
     public C_LevelSwitchScreens switchScreen;
+    public HydrationController hydrationController;
+    public C_WaterBar waterBar;
 
     Button butYes;
     Button butNo;
@@ -45,6 +47,8 @@ public class C_Ad : MonoBehaviour
         AdScript.ShowRewardedAd();
         switchScreen.OpenPlaying();
         GameStateManagerScript.StartGame();
+        hydrationController.MaxHydration();
+        //waterBar.SetHealth(99f);
     }
 
     public void No()
