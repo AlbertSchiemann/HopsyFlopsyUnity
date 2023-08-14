@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -17,21 +18,23 @@ public class CameraFollow : MonoBehaviour
     
     public Vector3 offset = new(0, 1, -2);              // initial offset between camera and player
     private Vector3 velocity = Vector3.zero;
+
+    private int LevelIndex;
+
     public bool ShowCameraRide = true;
 
     private Vector3 CameraStartBeforeGoalTrigger = new(2f,10f,5f);
-
-    //(21f,10f,121f)
-
     private Vector3 CameraPointOverGoalTrigger = new(0f,8f,-9f);
-
-    //(24f,8f,108f)
     private Vector3 CameraBehindPlayer = new(4f,4f,-2.5f);  
 
-    //(25f,11f,-3.5f)
+    private Vector3 CameraStartBeforeGoalTriggerLevel2 = new(36f,4f,134f);
+
     private Vector3 CameraAngleDefault = new(50f, 0f, 0f);
     private Vector3 CameraRideAngleStart = new(10f, 0f, 0f);
     private Vector3 CameraRideAngleBehindPlayer = new(30f, 0f, 0f);
+
+    private Vector3 CameraRideAngleStartLevel2 = new(16f, -35f, 0f);
+    private Vector3 CameraPointOverGoalTriggerLevel2 = new(0f,6f,-9f);
 
     private Vector3 CameraTransformAtGoal = new(0f, 4f, 1f);
 
@@ -45,23 +48,48 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
+        LevelIndex = SceneManager.GetActiveScene().buildIndex;
+        
         if (ShowCameraRide == true)
         {
-            transform.position = goalTrigger.transform.position + CameraStartBeforeGoalTrigger;
-            transform.rotation = Quaternion.Euler(CameraRideAngleStart);
+            if (LevelIndex == 1)
+            {
+                transform.position = goalTrigger.transform.position + CameraStartBeforeGoalTrigger;
+                transform.rotation = Quaternion.Euler(CameraRideAngleStart);
 
-            transform.DOMove(goalTrigger.transform.position + CameraPointOverGoalTrigger, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
-            transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+                transform.DOMove(goalTrigger.transform.position + CameraPointOverGoalTrigger, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+                transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
 
-            transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse - 1f);
+                transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse - 1f);
 
-            transform.DOMove(playerTransform.position + CameraBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
-            transform.DORotate(CameraRideAngleBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                transform.DOMove(playerTransform.position + CameraBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                transform.DORotate(CameraRideAngleBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
 
-            transform.DOMove(playerTransform.position + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
-            transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                transform.DOMove(playerTransform.position + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                
+                Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+            }
+            else if (LevelIndex == 2)
+            {
+                transform.position = CameraStartBeforeGoalTriggerLevel2;
+                transform.rotation = Quaternion.Euler(CameraRideAngleStartLevel2);
+
+                transform.DOMove(goalTrigger.transform.position + CameraPointOverGoalTriggerLevel2, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+                transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+
+                transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse - 1f);
+
+                transform.DOMove(playerTransform.position + CameraBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                transform.DORotate(CameraRideAngleBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+
+
+                transform.DOMove(playerTransform.position + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                
+                Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
             
-            Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+            } 
         }
         else 
         {
