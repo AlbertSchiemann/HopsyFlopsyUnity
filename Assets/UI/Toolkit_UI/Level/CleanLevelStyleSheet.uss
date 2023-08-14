@@ -176,7 +176,7 @@
     justify-content: center;
     -unity-text-align: middle-center;
     margin-left: 61px;
-    background-color: rgb(106, 191, 255);
+    background-color: rgba(106, 191, 255, 0);
     -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
     border-top-left-radius: 68px;
     border-bottom-left-radius: 68px;
@@ -190,6 +190,7 @@
     border-right-color: rgb(20, 39, 63);
     border-top-color: rgb(20, 39, 63);
     border-bottom-color: rgb(20, 39, 63);
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/rn/BackroundCurrencyDisplay.png?fileID=2800000&guid=1c37ce9dac5dc4948a3ff6e2b4de1949&type=3#BackroundCurrencyDisplay');
 }
 
 .vis_currencyFish {

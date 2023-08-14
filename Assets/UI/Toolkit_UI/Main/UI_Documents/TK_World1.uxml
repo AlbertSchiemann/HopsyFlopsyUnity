@@ -44,6 +44,7 @@
             <ui:Label display-tooltip-when-elided="true" name="txt_currencyVisual" class="txt_currrencyBG">
                 <ui:VisualElement name="vis_fish" class="vis_currencyFish" />
                 <ui:Label text="xxxx" display-tooltip-when-elided="true" name="txt_currency" class="txt_currency" />
+                <ui:VisualElement style="position: absolute; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/rn/FishCoin.png?fileID=2800000&amp;guid=41bc60be9d97230419da716cd10d490a&amp;type=3#FishCoin&apos;); height: 124px; width: 288px; left: 186px; -unity-background-scale-mode: scale-to-fit; top: 99px;" />
             </ui:Label>
         </ui:VisualElement>
     </ui:VisualElement>

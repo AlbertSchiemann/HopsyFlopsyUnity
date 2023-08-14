@@ -170,7 +170,7 @@ public class C_Store : MonoBehaviour
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
         butEquip1.style.unityBackgroundImageTintColor = Color.white;
         butEquip1.style.backgroundImage = new StyleBackground(Equip);
-        if (bought2) butEquip2.style.backgroundImage = new StyleBackground(Equiped);
+        butEquip2.style.backgroundImage = new StyleBackground(Equiped);
         if (bought3) butEquip3.style.backgroundImage = new StyleBackground(Equip);
     }
     public void EquipSkin3()
@@ -179,7 +179,7 @@ public class C_Store : MonoBehaviour
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
         butEquip1.style.backgroundImage = new StyleBackground(Equip);
         if (bought2) butEquip2.style.backgroundImage = new StyleBackground(Equip);
-        if (bought3) butEquip3.style.backgroundImage = new StyleBackground(Equiped);
+        butEquip3.style.backgroundImage = new StyleBackground(Equiped);
     }
 
     public void Help()
