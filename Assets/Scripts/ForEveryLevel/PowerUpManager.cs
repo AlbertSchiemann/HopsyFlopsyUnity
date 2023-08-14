@@ -27,6 +27,7 @@ public class PowerUpManager : MonoBehaviour
     {
         if  (waterbottleThere == false) 
         {
+            Vibration.Vibrate(100);
             waterbottleThere = true;
             Debug.Log("Waterbottle triggered");
             powerUp.PickUpBottle();
@@ -39,6 +40,7 @@ public class PowerUpManager : MonoBehaviour
 
     public void Beer()
     {
+        Vibration.Vibrate(100);
         verticalCameraFollow.shakeDuration = drunkmodedurationBeer;
         hydrationController.BeerHydration();
         Invoke("RandomCall" ,  2f);
@@ -51,17 +53,20 @@ public class PowerUpManager : MonoBehaviour
 
     public void Bubble()
     {
+        Vibration.Vibrate(100);
         hydrationController.Pausestart();
         hydrationController.PauseDehydration(_dehydrationDelayBubble);
     }
     public void Skateboard()
     {
+        Vibration.Vibrate(100);
         Instantiate(skateboardmeshForSkating, playerInstantiate.transform.position - skateboardPosition, skateboardmeshForSkating.transform.rotation, playerInstantiate.transform);
         playerInstantiate.GetComponent<GridPlayerMovement>().SkateboardMovement();
         Invoke("DestroySkateboard", 1.55f);
     }
     public void Shield()
     {
+        Vibration.Vibrate(100);
         EnemyMovementArray.canTankHit = true;
         powerUp.PickUpShield();
     } 

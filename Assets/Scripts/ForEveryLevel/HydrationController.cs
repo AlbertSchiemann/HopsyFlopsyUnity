@@ -36,7 +36,7 @@ public class HydrationController : MonoBehaviour
     [SerializeField] PowerUpManager powerUpManager;
 
     public bool pauseactive;
-
+    private bool isHydrationDangerouslyLow = false;
 
 
     public static HydrationController Instance { get; private set; }    // Instantiatie the Hydration Controller to assign it automatically
@@ -78,8 +78,23 @@ public class HydrationController : MonoBehaviour
             LowerHydrationOnFire(); 
             CheckHydrationDeathCondition();   
         }
+
+        if ((hydration < hydrationMax / 9) && (!isHydrationDangerouslyLow))
+        {
+            HydrationVibration();
+            isHydrationDangerouslyLow = true;
+        }
+        else
+        {
+            isHydrationDangerouslyLow = false;
+        }
     }
     
+    private void HydrationVibration()
+    {
+        Vibration.Vibrate(500);
+        Invoke("HydrationVibration", 1);
+    }
 
     public void LowerHydration()                                        // Decrease hydration over time
     {                                                                   // Reset hydration to maximum if colliding with water
