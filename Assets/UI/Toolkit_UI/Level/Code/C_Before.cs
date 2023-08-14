@@ -58,17 +58,19 @@ public class C_Before : MonoBehaviour
         butMain.clicked += Main;
         butPlay.clicked += Play;
 
-        if (AlwaysThere.currentSkin == 0) currentSkin = skinToEquip1;
-        else if (AlwaysThere.currentSkin == 1) currentSkin = skinToEquip2;
-        else if (AlwaysThere.currentSkin == 2) currentSkin = skinToEquip3;
-        else if (AlwaysThere.currentSkin == 3) currentSkin = skinToEquip4;
-        
+        txtCurrency.text = AlwaysThere.FishMoney.ToString();
 
-        player.ChangeSkin(currentSkin);
     }
+
     private void Start()
     {
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
+        if (AlwaysThere.currentSkin == 0) { currentSkin = skinToEquip1;  }
+        else if (AlwaysThere.currentSkin == 1) { currentSkin = skinToEquip2; }
+        else if (AlwaysThere.currentSkin == 2) { currentSkin = skinToEquip3; }
+       
+
+        player.ChangeSkin(currentSkin);
     }
 
     void Help()

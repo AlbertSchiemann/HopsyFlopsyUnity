@@ -16,16 +16,22 @@ public class C_StoreLevel : MonoBehaviour
     Button butEquip1;
     Button butEquip2;
     Button butEquip3;
-    Button butEquip4;
+
+    Button butBuy2;
+    Button butBuy3;
 
     public GameObject skinToEquip1;
     public GameObject skinToEquip2;
     public GameObject skinToEquip3;
-    public GameObject skinToEquip4;
+
+
+    VisualElement UpperCorner;
+    public GameObject UpperCorner2;
     private SkinLoader player;
 
     [SerializeField] private AudioClip[] _UISound;
-    
+    Label txtCurrency;
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -37,7 +43,13 @@ public class C_StoreLevel : MonoBehaviour
         butEquip1 = root.Q<Button>("but_itemEquip1");
         butEquip2 = root.Q<Button>("but_itemEquip2");
         butEquip3 = root.Q<Button>("but_itemEquip3");
-        butEquip4 = root.Q<Button>("but_itemEquip4");
+
+        butBuy2 = root.Q<Button>("but_buy2");
+        butBuy3 = root.Q<Button>("but_buy3");
+
+        txtCurrency = root.Q<Label>("txt_currency");
+        UpperCorner = root.Q<VisualElement>("vis_fish");
+
 
         butHelpi.clicked += Help;
         butSettings.clicked += Settings;
@@ -48,10 +60,84 @@ public class C_StoreLevel : MonoBehaviour
         butEquip1.clicked += EquipSkin1;
         butEquip2.clicked += EquipSkin2;
         butEquip3.clicked += EquipSkin3;
-        butEquip4.clicked += EquipSkin4;
+        butBuy2.clicked += Buy2;
+        butBuy3.clicked += Buy3;
+
+
 
     }
 
+    private void Start()
+    {
+        txtCurrency.text = AlwaysThere.FishMoney.ToString();
+
+        if (!AlwaysThere.skin2Bought)
+        {
+            butBuy2.style.display = DisplayStyle.Flex;
+            butEquip2.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            butBuy2.style.display = DisplayStyle.None;
+            butEquip2.style.display = DisplayStyle.Flex;
+        }
+
+        if (!AlwaysThere.skin3Bought)
+        {
+            butBuy3.style.display = DisplayStyle.Flex;
+            butEquip3.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            butBuy3.style.display = DisplayStyle.None;
+            butEquip3.style.display = DisplayStyle.Flex;
+        }
+    }
+    public void Buy2()
+    {
+        if (AlwaysThere.FishMoney >= 100)
+        {
+            butBuy2.style.display = DisplayStyle.None;
+            butEquip2.style.display = DisplayStyle.Flex;
+            AlwaysThere.skin2Bought = true;
+            AlwaysThere.FishMoney -= 100;
+            txtCurrency.text = AlwaysThere.FishMoney.ToString();
+        }
+        else
+        {
+            butBuy2.style.unityBackgroundImageTintColor = Color.red;
+            UpperCorner.style.unityBackgroundImageTintColor = Color.red;
+            Invoke(nameof(ColorToNormal2), 0.3f);
+        }
+    }
+    public void Buy3()
+    {
+        if (AlwaysThere.FishMoney >= 200)
+        {
+            butBuy3.style.display = DisplayStyle.None;
+            butEquip3.style.display = DisplayStyle.Flex;
+            AlwaysThere.skin3Bought = true;
+            AlwaysThere.FishMoney -= 200;
+            txtCurrency.text = AlwaysThere.FishMoney.ToString();
+        }
+        else
+        {
+            butBuy3.style.unityBackgroundImageTintColor = Color.red;
+            UpperCorner.style.unityBackgroundImageTintColor = Color.red;
+            Invoke(nameof(ColorToNormal3), 0.3f);
+        }
+    }
+
+    void ColorToNormal2()
+    {
+        butBuy2.style.unityBackgroundImageTintColor = Color.white;
+        UpperCorner.style.unityBackgroundImageTintColor = Color.white;
+    }
+    void ColorToNormal3()
+    {
+        butBuy3.style.unityBackgroundImageTintColor = Color.white;
+        UpperCorner.style.unityBackgroundImageTintColor = Color.white;
+    }
     public void EquipSkin1()
     {
         SoundManager.Instance.PlaySound(_UISound);
@@ -69,12 +155,6 @@ public class C_StoreLevel : MonoBehaviour
         SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip3);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
-    }
-    public void EquipSkin4()
-    {
-        SoundManager.Instance.PlaySound(_UISound);
-        player.ChangeSkin(skinToEquip4);
-        AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin4;
     }
 
     public void Help()

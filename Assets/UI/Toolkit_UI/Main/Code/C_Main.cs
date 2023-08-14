@@ -49,8 +49,8 @@ public class C_Main : MonoBehaviour
         butWorld1.clicked += W1;
 
         LoadingFish.style.display = DisplayStyle.None;
-        
-        
+        txtCurrency.text = AlwaysThere.FishMoney.ToString();
+
     }
 
 

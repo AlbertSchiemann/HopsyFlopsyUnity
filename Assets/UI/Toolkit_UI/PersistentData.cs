@@ -13,7 +13,7 @@ public class PersistentData : MonoBehaviour
         AlwaysThere.currentSkin = LoadPrefsInt("currentSkin");
         AlwaysThere.LastLevel = LoadPrefsInt("LastLevel");
         AlwaysThere.FishMoney = LoadPrefsInt("FishMoney");
-        Debug.Log("after data loaded: " + AlwaysThere.FishMoney);
+        Debug.Log("after data loaded: " + AlwaysThere.currentSkin);
 
 
         if (LoadPrefsInt("TimeStar") == 1) AlwaysThere.TimeStar = true;
@@ -77,7 +77,7 @@ public class PersistentData : MonoBehaviour
         SavePrefsInt("currentSkin", AlwaysThere.currentSkin);
         SavePrefsInt("LastLevel", AlwaysThere.LastLevel);
         SavePrefsInt("FishMoney", AlwaysThere.FishMoney);
-        Debug.Log("after data saved: " + AlwaysThere.FishMoney);
+        Debug.Log("after data saved: " + AlwaysThere.currentSkin);
 
         if (AlwaysThere.TimeStar == true) SavePrefsInt("TimeStar", 1);
         if (AlwaysThere.CurrencyStar == true) SavePrefsInt("CurrencyStar", 1);

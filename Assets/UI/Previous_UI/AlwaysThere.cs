@@ -10,7 +10,6 @@ public static class AlwaysThere
         Skin1,
         Skin2,
         Skin3,
-        Skin4,
     }
     public static int currentSkin;
 

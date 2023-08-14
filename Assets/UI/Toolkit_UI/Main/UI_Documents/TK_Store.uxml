@@ -15,14 +15,12 @@
             <ui:VisualElement name="vis_shopItem2" class="vis_shopItem">
                 <ui:VisualElement name="vis_itemPicture2" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_itemEquip2" class="button_ItemEquip" />
+                <ui:Button display-tooltip-when-elided="true" name="but_buy2" class="button_ItemEquip" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/BuyOutline.png?fileID=2800000&amp;guid=b2df10da270c4ce40b6e4e7879a26283&amp;type=3#BuyOutline&apos;);" />
             </ui:VisualElement>
             <ui:VisualElement name="vis_shopItem3" class="vis_shopItem" style="align-items: center; justify-content: center;">
                 <ui:VisualElement name="vis_itemPicture3" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_itemEquip3" class="button_ItemEquip" />
-            </ui:VisualElement>
-            <ui:VisualElement name="vis_shopItem4" class="vis_shopItem" style="align-items: center; justify-content: center;">
-                <ui:VisualElement name="vis_itemPicture4" class="vis_itemPicture" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/fishskin.jpeg?fileID=2800000&amp;guid=fbf636bf20cef884a9d5307c713e5cb2&amp;type=3#fishskin&apos;); -unity-background-scale-mode: scale-and-crop;" />
-                <ui:Button display-tooltip-when-elided="true" name="but_itemEquip4" class="button_ItemEquip" />
+                <ui:Button display-tooltip-when-elided="true" name="but_buy3" class="button_ItemEquip" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/BuyOutline.png?fileID=2800000&amp;guid=b2df10da270c4ce40b6e4e7879a26283&amp;type=3#BuyOutline&apos;);" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="vis_upperCorner" class="vis_upperCorner">

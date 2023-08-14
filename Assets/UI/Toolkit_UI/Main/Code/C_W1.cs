@@ -90,12 +90,9 @@ public class C_W1 : MonoBehaviour
         if (AlwaysThere.TimeStar3) s32.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
         if (AlwaysThere.CurrencyStar3) s33.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
 
-    }
-
-    private void Start()
-    {
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
     }
+
 
     void Help()
     {
