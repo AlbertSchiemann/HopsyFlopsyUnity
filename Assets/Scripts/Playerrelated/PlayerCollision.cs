@@ -30,16 +30,7 @@ public class PlayerCollision : MonoBehaviour
     {
         CollisionCheck();
     }
-/*
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other);
-        if (other.gameObject.tag == "Enemy")
-        {
-            Debug.Log("Enemy von Player getroffen!");
-        }
-    }
-*/
+
     void Sceneload()
     {
         AlwaysThere.time = (int)C_Playing.Timer;

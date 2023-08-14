@@ -256,6 +256,7 @@ public class EnemyMovementArray : MonoBehaviour
                 GameObject player = other.gameObject;
                 player.GetComponent<GridPlayerMovement>().PreventMovement();
                 SoundManager.Instance.PlaySound(_failClip);
+                Vibration.Vibrate(1000);
 
                 // PlayerCollision.GetComponent.Sceneload();
                 // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -263,6 +264,7 @@ public class EnemyMovementArray : MonoBehaviour
             else
             {
                 SoundManager.Instance.PlaySound(_deflectClip);
+                Vibration.Vibrate(200);
                 canTankHit = false;
                 powerUp.UseShield();
                 return;

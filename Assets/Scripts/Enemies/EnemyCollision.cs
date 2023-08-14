@@ -28,10 +28,12 @@ public class EnemyCollision : MonoBehaviour
                 GameObject player = other.gameObject;
                 player.GetComponent<GridPlayerMovement>().PreventMovement();
                 SoundManager.Instance.PlaySound(_failClip);
+                Vibration.Vibrate(1000);
             }
             else
             {
                 SoundManager.Instance.PlaySound(_deflectClip);
+                Vibration.Vibrate(200);
                 canTankHit = false;
                 powerUp.UseShield();
             }

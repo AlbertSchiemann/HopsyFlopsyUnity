@@ -55,7 +55,7 @@ public class GridPlayerMovement : MonoBehaviour
             Invoke("CameraStart", CameraFollow.TotalDelayForCameraRide);
         }
         GameStateManagerScript.onGameStart += AllowMovement;
-        GameStateManagerScript.onGamePaused += PreventMovement;           
+        GameStateManagerScript.onGamePaused += PreventMovement;
     }
 
     private void CameraStart ()
@@ -158,6 +158,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        Vibration.Vibrate(100);
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
@@ -175,6 +176,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        Vibration.Vibrate(100);
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
@@ -198,6 +200,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY + collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        Vibration.Vibrate(100);
                         playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY - collisionAnimationTimer), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
@@ -215,6 +218,7 @@ public class GridPlayerMovement : MonoBehaviour
                     { 
                         playerPrefab.transform.DOMove(new Vector3(posX - collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        Vibration.Vibrate(100);
                         playerPrefab.transform.DOMove(new Vector3(posX + collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
@@ -232,6 +236,7 @@ public class GridPlayerMovement : MonoBehaviour
                     {
                         playerPrefab.transform.DOMove(new Vector3(posX + collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide);
                         SoundManager.Instance.PlaySound(collClip);
+                        Vibration.Vibrate(100);
                         playerPrefab.transform.DOMove(new Vector3(posX - collisionAnimationTimer, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEaseCollide).SetDelay(collisionAnimationTimer);
                     }
                 }
