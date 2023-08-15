@@ -29,11 +29,11 @@ public class FreeFallGridBlock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
 
+            Sound();
             Invoke("Sceneload", DelayTillReload + DelayTillTweenIsOver);
             GameObject player = other.gameObject;
             
             player.GetComponent<GridPlayerMovement>().PreventMovement();
-            Invoke("Sound", 2.5f);
 
             player.transform.DORotate(new Vector3(-50, 0, 0), .25f).SetDelay(.5f);
             player.transform.DORotate(new Vector3(0, 20, 10), .25f).SetDelay(.75f);

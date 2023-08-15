@@ -100,6 +100,65 @@ public class C_Playing : MonoBehaviour
         leftCross.clicked += LeftCrossButton;
         rightCross.clicked += RightCrossButton;
 
+        LoadPrefsInt("MusicIcon");
+        LoadPrefsInt("SFXIcon");
+
+        if (LoadPrefsInt("MusicIcon") == 1)
+        {
+            SoundManager.EnableMusic();
+            AlwaysThere.MusicIcon = true;
+        }
+        else
+        {
+            SoundManager.DisableMusic();
+            AlwaysThere.MusicIcon = false;
+        }
+
+        if (LoadPrefsInt("SFXIcon") == 1)
+        {
+            SoundManager.EnableSfx();
+            AlwaysThere.SFXIcon = true;
+        }
+        else
+        {
+            SoundManager.DisableSfx();
+            AlwaysThere.SFXIcon = false;
+        }
+
+        LoadPrefsInt("_swipeInput");
+        LoadPrefsInt("_crossInput");
+        LoadPrefsInt("_padInput");
+
+        if (LoadPrefsInt("_swipeInput") == 1)
+        {
+            SwipeInputs();
+            _swipeInput = true;
+        }
+        else
+        {
+            _swipeInput = false;
+        }
+
+        if (LoadPrefsInt("_crossInput") == 1)
+        {
+            CrossInputs();
+            _crossInput = true;
+        }
+        else
+        {
+            _crossInput = false;
+        }
+
+        if (LoadPrefsInt("_padInput") == 1)
+        {
+            PadInputs();
+            _padInput = true;
+        }
+        else
+        {
+            _padInput = false;
+        }
+
         if (C_SettingsLevel._swipeInput)
         {
             swipeManager.enabled = true;
@@ -206,10 +265,33 @@ public class C_Playing : MonoBehaviour
         leftCrossTap = false;
         rightCrossTap = false;
     }
-    private void SwipeInputs()
+
+    private void CrossInputs()
     {
-        _swipeInput = true;
+        _crossInput = true;
+        _swipeInput = false;
+        _padInput = false;
+
+        BorderCross.style.borderBottomColor = Color.green;
+        BorderCross.style.borderTopColor = Color.green;
+        BorderCross.style.borderLeftColor = Color.green;
+        BorderCross.style.borderRightColor = Color.green;
+
+        BorderSwipe.style.borderBottomColor = Color.white;
+        BorderSwipe.style.borderTopColor = Color.white;
+        BorderSwipe.style.borderLeftColor = Color.white;
+        BorderSwipe.style.borderRightColor = Color.white;
+
+        BorderPad.style.borderBottomColor = Color.white;
+        BorderPad.style.borderTopColor = Color.white;
+        BorderPad.style.borderLeftColor = Color.white;
+        BorderPad.style.borderRightColor = Color.white;
+    }
+
+    private void SwipeInputs()
+    {      
         _crossInput = false;
+        _swipeInput = true;
         _padInput = false;
 
         BorderCross.style.borderBottomColor = Color.white;
@@ -230,32 +312,10 @@ public class C_Playing : MonoBehaviour
 
     }
 
-    private void CrossInputs()
-    {
-        _swipeInput = false;
-        _crossInput = true;
-        _padInput = false;
-
-        BorderCross.style.borderBottomColor = Color.green;
-        BorderCross.style.borderTopColor = Color.green;
-        BorderCross.style.borderLeftColor = Color.green;
-        BorderCross.style.borderRightColor = Color.green;
-
-        BorderSwipe.style.borderBottomColor = Color.white;
-        BorderSwipe.style.borderTopColor = Color.white;
-        BorderSwipe.style.borderLeftColor = Color.white;
-        BorderSwipe.style.borderRightColor = Color.white;
-
-        BorderPad.style.borderBottomColor = Color.white;
-        BorderPad.style.borderTopColor = Color.white;
-        BorderPad.style.borderLeftColor = Color.white;
-        BorderPad.style.borderRightColor = Color.white;
-    }
-
     private void PadInputs()
-    {
-        _swipeInput = false;
+    {       
         _crossInput = false;
+        _swipeInput = false;
         _padInput = true;
 
         BorderCross.style.borderBottomColor = Color.white;
@@ -272,6 +332,48 @@ public class C_Playing : MonoBehaviour
         BorderPad.style.borderTopColor = Color.green;
         BorderPad.style.borderLeftColor = Color.green;
         BorderPad.style.borderRightColor = Color.green;
+    }
+
+    void OnDisable()
+    {
+        if (_swipeInput)
+        {
+            SavePrefsInt("_swipeInput", 1);
+        }
+        else
+        {
+            SavePrefsInt("_swipeInput", 0);
+        }
+
+        if (_crossInput)
+        {
+            SavePrefsInt("_crossInput", 1);
+        }
+        else
+        {
+            SavePrefsInt("_crossInput", 0);
+        }
+
+        if (_padInput)
+        {
+            SavePrefsInt("_padInput", 1);
+        }
+        else
+        {
+            SavePrefsInt("_padInput", 0);
+        }
+    }
+
+    public static void SavePrefsInt(string Key, int value)
+    {
+        PlayerPrefs.SetInt(Key, value);
+        PlayerPrefs.Save();
+    }
+
+    public static int LoadPrefsInt(string Key)
+    {
+        int x = PlayerPrefs.GetInt(Key, 0);
+        return x;
     }
 }
   
