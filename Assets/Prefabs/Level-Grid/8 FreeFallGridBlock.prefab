@@ -133,6 +133,8 @@ MonoBehaviour:
   DelayTillReload: 0.2
   _failClip:
   - {fileID: 8300000, guid: 8cae7878e0fed544583ad0b74d589cc6, type: 3}
+  _wiggleClip:
+  - {fileID: 8300000, guid: 8cae7878e0fed544583ad0b74d589cc6, type: 3}
 --- !u!65 &30200554806373355
 BoxCollider:
   m_ObjectHideFlags: 0

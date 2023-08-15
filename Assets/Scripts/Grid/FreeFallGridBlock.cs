@@ -15,6 +15,7 @@ public class FreeFallGridBlock : MonoBehaviour
     
 
     [SerializeField] private AudioClip[] _failClip;         // Sound if the player falls into the abyss
+    [SerializeField] private AudioClip[] _wiggleClip;
 
 
     private void Start()
@@ -28,12 +29,13 @@ public class FreeFallGridBlock : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
-            Sound();
+            
             Invoke("Sceneload", DelayTillReload + DelayTillTweenIsOver);
             GameObject player = other.gameObject;
             
             player.GetComponent<GridPlayerMovement>().PreventMovement();
+
+            Invoke("WiggleSound", .5f);
 
             player.transform.DORotate(new Vector3(-50, 0, 0), .25f).SetDelay(.5f);
             player.transform.DORotate(new Vector3(0, 20, 10), .25f).SetDelay(.75f);
@@ -42,7 +44,7 @@ public class FreeFallGridBlock : MonoBehaviour
             player.transform.DORotate(new Vector3(0, -20, -10), .25f).SetDelay(1.5f);
             player.transform.DORotate(new Vector3(0, 0, 0), .3f).SetDelay(1.75f);
             player.transform.DOMoveY(-15f, 1f).SetDelay(2f);
-
+            Invoke("Sound", 2f);
 
         }
     }
@@ -50,6 +52,11 @@ public class FreeFallGridBlock : MonoBehaviour
     private void Sound ()
     {
         SoundManager.Instance.PlaySound(_failClip);
+    }
+
+    private void WiggleSound ()
+    {
+        SoundManager.Instance.PlaySound(_wiggleClip);
     }
 
     void Sceneload()
