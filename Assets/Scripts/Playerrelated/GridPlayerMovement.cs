@@ -117,7 +117,9 @@ public class GridPlayerMovement : MonoBehaviour
         public Ease animEaseCollide = Ease.InOutFlash;          // Animation Ease
         public Ease animEaseJump = Ease.InOutExpo;          // Animation Ease
         public float collisionAnimationTimer = 0.1f; 
+        private Vector3 playerGoalJumpLvL3 = new Vector3(10.5f, 1.7f, 36f);
 
+        
 
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
@@ -275,7 +277,7 @@ public class GridPlayerMovement : MonoBehaviour
         public void PlayerWinLevel3()         
         {
             playerPrefab.transform.DORotate(new Vector3(-90, 180, 0), 0.2f).SetEase(animEaseRotate);
-            playerPrefab.transform.DOMove( new Vector3 (21f,1.75f,119f),1f).SetEase(animEaseJump);
+            playerPrefab.transform.DOMove(playerGoalJumpLvL3 ,1f).SetEase(animEaseJump);
             playerPrefab.transform.DOMove( new Vector3 (61f,1.75f,119f),3f).SetDelay(1.5f).SetEase(animEaseJump);   
         }
 

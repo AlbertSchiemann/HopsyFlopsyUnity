@@ -41,9 +41,9 @@ public class CameraFollow : MonoBehaviour
     private Vector3 CameraBehindPlayerLevel2 = new(2f,4f,-4.5f);
 
     //Camera Positions Level 3
-    private Vector3 CameraStartBeforeGoalTriggerLevel3 = new(5f,4f,35f);
-    private Vector3 CameraPointOverGoalTriggerLevel3 = new(6f,4f,33f);
-    private Vector3 CameraBehindPlayerLevel3 = new(6f,3f,-9f);
+    private Vector3 CameraStartBeforeGoalTriggerLevel3 = new(3f,2f,33.5f);
+    private Vector3 CameraPointOverGoalTriggerLevel3 = new(5.5f,2f,31f);
+    private Vector3 CameraBehindPlayerLevel3 = new(2f,3f,-2f);
 
 
     //Player Positions Level 2
@@ -51,9 +51,9 @@ public class CameraFollow : MonoBehaviour
     private Vector3 PlayerGridStartLevel2 = new(23f,1f,1f);
 
     //Player Positions Level 3
-    private Vector3 PlayerStartLevel3 = new(5.8f,1.4f,-6.6f);
-    private Vector3 PlayerCraneEndLevel3 = new(5.8f,1.4f,1f);
-    private Vector3 PlayerGridStartLevel3 = new(6f,.75f,1f);
+    private Vector3 PlayerStartLevel3 = new(5.8f,1.5f,-6.6f);
+    private Vector3 PlayerCraneEndLevel3 = new(5.8f,1.5f,-1f);
+    private Vector3 PlayerGridStartLevel3 = new(6f,1f,1f);
 
 
     //Rotations
@@ -63,6 +63,10 @@ public class CameraFollow : MonoBehaviour
 
     //Rotations Level 2
     private Vector3 CameraRideAngleStartLevel2 = new(16f, -35f, 0f);
+    
+    //Rotations Level 3
+    private Vector3 CameraRideAngleStartLevel3 = new(16f, 35f, 0f);
+    private Vector3 CameraRideAngleBehindPlayerLevel3 = new(35f, 0f, 0f);
     
 
     //Delays   
@@ -95,7 +99,7 @@ public class CameraFollow : MonoBehaviour
                 transform.DOMove(playerTransform.position + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
                 transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
                 
-                Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                Invoke("UpdateDelaying", TotalDelayForCameraRide);
             }
             else if (LevelIndex == 2)
             {
@@ -116,28 +120,28 @@ public class CameraFollow : MonoBehaviour
                 transform.DOMove(PlayerGridStartLevel2 + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
                 transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(TimeFromWinToBehindPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
                 
-                Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                Invoke("UpdateDelaying", TotalDelayForCameraRide);
             
             } 
             else if (LevelIndex == 3)
             {
                 transform.position = CameraStartBeforeGoalTriggerLevel3;
-                transform.rotation = Quaternion.Euler(CameraRideAngleStart);
+                transform.rotation = Quaternion.Euler(CameraRideAngleStartLevel3);
                 playerPrefab.transform.position = PlayerStartLevel3;
 
-                transform.DOMove(goalTrigger.transform.position + CameraPointOverGoalTriggerLevel3, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
-                transform.DORotate(CameraAngleDefault, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+                transform.DOMove(CameraPointOverGoalTriggerLevel3, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+                transform.DORotate(CameraRideAngleStart, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
 
                 transform.DOMove(PlayerStartLevel3 + CameraBehindPlayerLevel3, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
-                transform.DORotate(CameraRideAngleBehindPlayer, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                transform.DORotate(CameraRideAngleBehindPlayerLevel3, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse );
 
-                playerPrefab.transform.DOMove(PlayerGridStartLevel3, 1.5f).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse + TimeFromWinToBehindPlayer - .2f).SetEase(animEaseJump);
+                playerPrefab.transform.DOMove(PlayerCraneEndLevel3, 1f).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse + TimeFromWinToBehindPlayer).SetEase(Ease.Linear);
+                playerPrefab.transform.DOMove(PlayerGridStartLevel3, 1f).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse + TimeFromWinToBehindPlayer + 1f).SetEase(animEaseJump);
 
-
-                transform.DOMove(PlayerGridStartLevel3 + offset, TimeFromCameraRideFromBehindToPlayer);
-                transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer);
+                transform.DOMove(PlayerGridStartLevel3 + offset, TimeFromCameraRideFromBehindToPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse + TimeFromWinToBehindPlayer);
+                transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse + TimeFromWinToBehindPlayer);
             
-                Invoke("UpdateDelaying", TimeFromWinToBehindPlayer + TimeFromCameraRideFromBehindToPlayer + DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
+                Invoke("UpdateDelaying", TotalDelayForCameraRide);
             }
         }
         else 
