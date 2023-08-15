@@ -53,9 +53,13 @@ MonoBehaviour:
   levelScript: {fileID: 0}
   waterBar: {fileID: 0}
   powerUp: {fileID: 0}
+  cameraFollow: {fileID: 0}
   _hydrateClip:
   - {fileID: 8300000, guid: 656af97e48ffb464db219d7d292c820d, type: 3}
   _failClip:
   - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
   powerUpManager: {fileID: 0}
+  DeathSpeechbubble: {fileID: 919132149155446097, guid: a1c1cdfc36af46f4fb706a538dc0aa20,
+    type: 3}
+  player: {fileID: 0}
   pauseactive: 0
