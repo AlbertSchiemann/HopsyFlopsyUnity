@@ -61,13 +61,18 @@ MonoBehaviour:
   moveDelay: 0.33
   grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
   enemyPrefab: {fileID: 3268657200545658461}
-  levelScript: {fileID: 0}
+  levelScript: {fileID: 8665902501282802515, guid: 158693a3fd2b4524e930cafe66fdddab,
+    type: 3}
   _failClip:
   - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
   _deflectClip:
   - {fileID: 8300000, guid: 5a6fa4e7ec28cee4a94bdc4026323e46, type: 3}
   delayTillDeathscreenShows: 0.2
   powerUp: {fileID: 0}
+  cameraFollow: {fileID: 0}
+  DeathSpeechbubble: {fileID: 919132149155446097, guid: ace7ebe3f572b424caf38cafa7620dd4,
+    type: 3}
+  player: {fileID: 0}
 --- !u!65 &3867537728829198612
 BoxCollider:
   m_ObjectHideFlags: 0

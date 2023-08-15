@@ -165,7 +165,7 @@ MonoBehaviour:
   cameraFollow: {fileID: 0}
   DeathSpeechbubble: {fileID: 919132149155446097, guid: ace7ebe3f572b424caf38cafa7620dd4,
     type: 3}
-  player: {fileID: 2260953583789165416, guid: c7a57c5d248456f44a7efe574c58cf19, type: 3}
+  player: {fileID: 0}
 --- !u!65 &6805308409636450743
 BoxCollider:
   m_ObjectHideFlags: 0

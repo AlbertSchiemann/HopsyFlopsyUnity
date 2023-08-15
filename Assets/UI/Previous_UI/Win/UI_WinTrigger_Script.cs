@@ -7,7 +7,7 @@ public class UI_WinTrigger_Script : MonoBehaviour
 {
     public C_LevelSwitchScreens levelScript;
     [SerializeField] private GameStateManagerScript gameStateManagerScript;
-    [SerializeField] private CameraFollow cameraFollowVertical;
+    [SerializeField] private CameraFollow cameraFollow;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class UI_WinTrigger_Script : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            cameraFollowVertical.GoalCameraride();
+            cameraFollow.GoalCameraride();
             other.GetComponent<GridPlayerMovement>().CallOfPlayerWin();
             AlwaysThere.time = (int)C_Playing.Timer;
             other.GetComponent<GridPlayerMovement>().PreventMovement();

@@ -135,6 +135,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8cae7878e0fed544583ad0b74d589cc6, type: 3}
   _wiggleClip:
   - {fileID: 8300000, guid: 8cae7878e0fed544583ad0b74d589cc6, type: 3}
+  cameraFollow: {fileID: 6867879355048280002, guid: 639435822f7edbf4d89e88882d9defc0,
+    type: 3}
 --- !u!65 &30200554806373355
 BoxCollider:
   m_ObjectHideFlags: 0

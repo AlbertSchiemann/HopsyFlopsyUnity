@@ -30,7 +30,7 @@ public class EnemyCollision : MonoBehaviour
     {
         GameObject levelUIObject = GameObject.Find("Level_UI");
         levelScript = levelUIObject.GetComponent<C_LevelSwitchScreens>();
-        playerInstantiate = PlayerInstantiate.Instance;
+
     }
 
     private void OnTriggerEnter(Collider other)
