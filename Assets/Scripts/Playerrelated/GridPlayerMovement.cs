@@ -271,6 +271,14 @@ public class GridPlayerMovement : MonoBehaviour
             playerPrefab.transform.DOMove( new Vector3 (34.84f,3.3f,140.3f),.25f).SetDelay(2.25f).SetEase(animEase);   
             playerPrefab.transform.DOMove( new Vector3 (35f,3.3f,141.5f),.25f).SetDelay(2.5f).SetEase(animEase);
         }
+
+        public void PlayerWinLevel3()         
+        {
+            playerPrefab.transform.DORotate(new Vector3(-90, 180, 0), 0.2f).SetEase(animEaseRotate);
+            playerPrefab.transform.DOMove( new Vector3 (21f,1.75f,119f),1f).SetEase(animEaseJump);
+            playerPrefab.transform.DOMove( new Vector3 (61f,1.75f,119f),3f).SetDelay(1.5f).SetEase(animEaseJump);   
+        }
+
         public void moveSkateboard()    
         {
             if(isAllowedToMoveForward)
@@ -437,6 +445,13 @@ public class GridPlayerMovement : MonoBehaviour
             cranePrefab.CraneAnimation();
             hydrationController.DeactivateHydration(); 
         }
+        else if (LevelIndex == 3)
+        {
+            playerPosition.PlayerWinLevel3();
+
+            hydrationController.DeactivateHydration(); 
+        }
+        else Debug.LogError("CallOfPlayerWin function errored cause of Levelindex.");
         
     }
     public void RandomMovement()

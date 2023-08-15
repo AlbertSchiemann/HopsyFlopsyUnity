@@ -18,7 +18,7 @@ public static class AlwaysThere
 
     public static bool Drunk = false;
 
-    public static float Wasserstand =0;
+    public static float Wasserstand = 0;
 
     public static int FishMoney = 3000;
 
