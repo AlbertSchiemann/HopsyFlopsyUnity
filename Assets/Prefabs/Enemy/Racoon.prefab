@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000173804475615483}
+  - component: {fileID: 8576391432654592250}
+  - component: {fileID: 3867537728829198612}
+  - component: {fileID: 2126285395015645709}
   - component: {fileID: -6001090151095005106}
   m_Layer: 0
   m_Name: Racoon
@@ -26,13 +29,74 @@ Transform:
   m_GameObject: {fileID: 3268657200545658461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.061, z: 0}
-  m_LocalScale: {x: 2.148936, y: 2.148936, z: 2.148936}
+  m_LocalScale: {x: 1, y: 1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 197421328906439390}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8576391432654592250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268657200545658461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5986f484e26fc6949810209fb835ec86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementDirection:
+  - Movementdirection: 0
+    Directionslength: 4
+  - Movementdirection: 2
+    Directionslength: 9
+  - Movementdirection: 0
+    Directionslength: 5
+  animEase: 1
+  StartingPoint: {x: 25, y: 1, z: 26}
+  generalHeigth: 0.1
+  moveDelay: 0.33
+  grid: {fileID: 2863511676256655822, guid: 9bbc3311860651142b9f428a7460d41d, type: 3}
+  enemyPrefab: {fileID: 3268657200545658461}
+  levelScript: {fileID: 0}
+  _failClip:
+  - {fileID: 8300000, guid: bedec21ad226df142ab48514b8404ba8, type: 3}
+  _deflectClip:
+  - {fileID: 8300000, guid: 5a6fa4e7ec28cee4a94bdc4026323e46, type: 3}
+  delayTillDeathscreenShows: 0.2
+  powerUp: {fileID: 0}
+--- !u!65 &3867537728829198612
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268657200545658461}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2126285395015645709
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3268657200545658461}
+  serializedVersion: 2
+  m_Mass: 300
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &-6001090151095005106
 Animator:
   serializedVersion: 5
@@ -121,6 +185,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: racoonfinalanimation
       objectReference: {fileID: 0}
+    - target: {fileID: 7603786706384944740, guid: 76fa78ea5bafe4644957483afbd2bfe8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 303f4b98b9c784045b2566b89db56e0e, type: 2}
+    - target: {fileID: 7603786706384944740, guid: 76fa78ea5bafe4644957483afbd2bfe8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ff6184354b903284c80bcc4b69c6c71e, type: 2}
+    - target: {fileID: 7603786706384944740, guid: 76fa78ea5bafe4644957483afbd2bfe8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2eafb8b7c5c10247a5d73181230f575, type: 2}
+    - target: {fileID: 7603786706384944740, guid: 76fa78ea5bafe4644957483afbd2bfe8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 02343008227c0b34c81a80a240b04095, type: 2}
+    - target: {fileID: 7603786706384944740, guid: 76fa78ea5bafe4644957483afbd2bfe8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 48ea2e9476f3004458bdd0014b5ce267, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76fa78ea5bafe4644957483afbd2bfe8, type: 3}
 --- !u!4 &197421328906439390 stripped
