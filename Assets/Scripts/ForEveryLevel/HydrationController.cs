@@ -220,8 +220,12 @@ public class HydrationController : MonoBehaviour
     }
     public void SpeachbubbleDeath ()
     {
+        SpeachbubbleSpawned = true;  
+        Invoke("DelaySpeachbubbleHydro", .01f);                                                       
+    }
+    public void DelaySpeachbubbleHydro ()
+    {
         GameObject newObject1 = Instantiate(DeathSpeechbubble, new Vector3(player.transform.position.x + PlayerPositionChangeAtDeath.x + 1f, PlayerPositionChangeAtDeath.y + .8f, player.transform.position.z + PlayerPositionChangeAtDeath.z + 1.12f), Quaternion.Euler(SpeachbubbleRotation));
-        SpeachbubbleSpawned = true;                                                         
     }
     public void MaxHydration()
     {

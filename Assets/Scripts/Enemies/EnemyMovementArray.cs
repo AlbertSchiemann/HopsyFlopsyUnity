@@ -43,12 +43,21 @@ public class EnemyMovementArray : MonoBehaviour
 
     public static bool canTankHit = false;              // Shield Power-Up Bool
     [SerializeField] private AudioClip[] _deflectClip;  // Shield Destroy Sound
+    private PlayerInstantiate playerInstantiate;
 
     public float delayTillDeathscreenShows = .2f;                          // Delay till Scene gets reloaded after death
     private float delayTillStartOfMovement = .01f;                          // Delay till Enemy gets destroyed after death
     private int currentMovementStep;
 
     public C_PowerUps powerUp;
+
+    [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private GameObject DeathSpeechbubble;
+    [SerializeField] private GameObject player;
+    private Vector3 SpeachbubbleRotation = new (120, -10, 180);
+    private Vector3 PlayerRotationAtDeath = new (-60, 45, -70);
+    private Vector3 PlayerPositionChangeAtDeath = new (-.54f, 5.9f, -2.89f);
+    private bool SpeachbubbleEatenSpawned = false;
 
     private void Awake()
     {
@@ -58,7 +67,7 @@ public class EnemyMovementArray : MonoBehaviour
     }
     void Start()
     {
-        
+        playerInstantiate = PlayerInstantiate.Instance;
         if (StartingPoint.y > generalHeigth)            // take the bigger value for the height and start from there
         {
             generalHeigth = StartingPoint.y;
@@ -249,17 +258,25 @@ public class EnemyMovementArray : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             if (!canTankHit)
-            {
-                //Debug.Log("EnemyCollision - Eaten!");                           // Restart the game if the player collides with the enemy
-                //levelScript.OpenLoose();
-                Invoke("Sceneload", delayTillDeathscreenShows);
-                GameObject player = other.gameObject;
+            { 
+                GameObject player = playerInstantiate.gameObject;
                 player.GetComponent<GridPlayerMovement>().PreventMovement();
+
+                Invoke("Sceneload", 2.3f);
                 SoundManager.Instance.PlaySound(_failClip);
                 Vibration.Vibrate(1000);
+            
 
-                // PlayerCollision.GetComponent.Sceneload();
-                // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                if (!SpeachbubbleEatenSpawned)
+                {
+                    SpeachbubbleEatenDeath();
+                    cameraFollow.DeathCamera();
+
+                    player.transform.DOMove(player.transform.position + PlayerPositionChangeAtDeath, .6f).SetEase(Ease.Linear);
+                    player.transform.DORotate(PlayerRotationAtDeath, .6f).SetDelay(.5f);
+                    
+                }
+                else return;
             }
             else
             {
@@ -270,6 +287,17 @@ public class EnemyMovementArray : MonoBehaviour
                 return;
             }
         }
+    }
+    public void SpeachbubbleEatenDeath ()
+    {
+        GameObject player = playerInstantiate.gameObject;
+        Invoke("DelaySpeachbubble", .01f);
+        SpeachbubbleEatenSpawned = true;                                                         
+    }
+    private void DelaySpeachbubble ()
+    {
+        GameObject player = playerInstantiate.gameObject;
+        GameObject newObject1 = Instantiate(DeathSpeechbubble, new Vector3(player.transform.position.x + PlayerPositionChangeAtDeath.x + 1f, PlayerPositionChangeAtDeath.y + .8f, player.transform.position.z + PlayerPositionChangeAtDeath.z + 1.12f), Quaternion.Euler(SpeachbubbleRotation));
     }
     private void OnTriggerExit(Collider other)
     {
