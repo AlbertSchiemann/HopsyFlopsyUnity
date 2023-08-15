@@ -159,9 +159,11 @@ public class CameraFollow : MonoBehaviour
     {
         UpdateDelay = false;
         transform.DOMove(playerTransform.position + CameraTransformAtGoal, 1f);
+    }
 
-
-
+    public void DeathCamera()
+    {
+        UpdateDelay = false;
     }
 
 

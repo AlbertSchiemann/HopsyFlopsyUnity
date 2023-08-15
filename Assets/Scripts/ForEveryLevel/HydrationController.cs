@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class HydrationController : MonoBehaviour
 {
@@ -28,15 +29,26 @@ public class HydrationController : MonoBehaviour
     public C_WaterBar waterBar;
 
     [SerializeField] C_PowerUps powerUp;
+    [SerializeField] CameraFollow cameraFollow;
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
 
     private PlayerInstantiate playerInstantiate;
     [SerializeField] PowerUpManager powerUpManager;
+    [SerializeField] private GameObject DeathSpeechbubble;
+    [SerializeField] private GameObject player;
+    private Vector3 SpeachbubbleRotation = new (120, -10, 180);
+    private Vector3 PlayerRotationAtDeath = new (-60, 45, -70);
+    private Vector3 PlayerPositionChangeAtDeath = new (-.54f, 5.9f, -2.89f);
+    private bool SpeachbubbleSpawned = false;
 
     public bool pauseactive;
     private bool isHydrationDangerouslyLow = false;
+
+
+
+
 
 
     public static HydrationController Instance { get; private set; }    // Instantiatie the Hydration Controller to assign it automatically
@@ -175,10 +187,27 @@ public class HydrationController : MonoBehaviour
         }
         else if (hydration <= 0 && powerUpManager.waterbottleThere == false)
         {
-            Invoke("Sceneload", DelayTillReload); 
-            SoundManager.Instance.PlaySound(_failClip);
             GameObject player = playerInstantiate.gameObject;
             player.GetComponent<GridPlayerMovement>().PreventMovement();
+            
+            Invoke("Sceneload", 2.3f); 
+            SoundManager.Instance.PlaySound(_failClip);
+            
+
+            if (!SpeachbubbleSpawned)
+            {
+                SpeachbubbleDeath();
+                cameraFollow.DeathCamera();
+
+                player.transform.DOMove(player.transform.position + PlayerPositionChangeAtDeath, .6f).SetEase(Ease.Linear);
+                player.transform.DORotate(PlayerRotationAtDeath, .6f).SetDelay(.5f);
+                
+
+                
+            }
+            else return;
+
+            
         }
         else if (hydration >= 0)
         {
@@ -188,6 +217,11 @@ public class HydrationController : MonoBehaviour
         {
             Debug.LogError("Hydrationdeath is fucked up...");
         }
+    }
+    public void SpeachbubbleDeath ()
+    {
+        GameObject newObject1 = Instantiate(DeathSpeechbubble, new Vector3(player.transform.position.x + PlayerPositionChangeAtDeath.x + 1f, PlayerPositionChangeAtDeath.y + .8f, player.transform.position.z + PlayerPositionChangeAtDeath.z + 1.12f), Quaternion.Euler(SpeachbubbleRotation));
+        SpeachbubbleSpawned = true;                                                         
     }
     public void MaxHydration()
     {
