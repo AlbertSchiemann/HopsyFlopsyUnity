@@ -16,10 +16,10 @@ EditorBuildSettings:
     guid: 06acfcb8b05036f44b67cbcf27027394
   - enabled: 1
     path: Assets/Scenes/World 1/World1Level3.unity
-    guid: b776834c3b17e144fa706e7821413c60
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    guid: b788cb905de58e24c8bb86aea81bd2ac
+  - enabled: 1
+    path: Assets/Scenes/World 1/World1Level4.unity
+    guid: b83d1df31064b53448d396a80506dd28
   - enabled: 1
     path: Assets/UI/Toolkit_UI/IntroTrailer/Video.unity
     guid: 622dc0f4b76e7f14d8c19f3b25cb1910
