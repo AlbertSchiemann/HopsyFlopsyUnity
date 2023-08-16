@@ -407,6 +407,7 @@ public class GridPlayerMovement : MonoBehaviour
     public void PreventMovement()
     {
         isAllowedToMove = false;
+        if (collider == null) { return; }
         collider.enabled = false;
     }
     public void CraneMovement()
