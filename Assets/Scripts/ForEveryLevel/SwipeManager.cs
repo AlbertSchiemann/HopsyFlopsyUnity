@@ -11,6 +11,8 @@ public class SwipeManager : MonoBehaviour
     private float tapTime;
     public static bool tapping = true;
 
+    bool isTappingAllowed = true;
+
     private void Update()
     {
         if (tapping)
@@ -30,6 +32,7 @@ public class SwipeManager : MonoBehaviour
             // Check the distance for the swipe
             if (swipeDelta.magnitude > 100)
             {
+                isTappingAllowed = false;
                 // Determine direction
                 float x = swipeDelta.x;
                 float y = swipeDelta.y;
@@ -38,7 +41,7 @@ public class SwipeManager : MonoBehaviour
                     // Left or Right
                     if (x < 0)
                         swipeLeft = true;
-                    else
+                    else if (x >  0)
                         swipeRight = true;
                 }
                 else
@@ -46,14 +49,15 @@ public class SwipeManager : MonoBehaviour
                     // Up or Down
                     if (y < 0)
                         swipeDown = true;
-                    else
+                    else if (y > 0)
                         swipeUp = true;
                 }
 
                 Reset();
+                Invoke("AllowTapping", tapTimeThreshold);
                 return; // Exit Update early, we already have a swipe
             }
-
+            if (!isTappingAllowed) { return; }
             // Desktop Input
             if (Input.GetMouseButtonDown(0))
             {
@@ -97,5 +101,9 @@ public class SwipeManager : MonoBehaviour
     {
         startTouch = swipeDelta = Vector2.zero;
         isDraging = false;
+    }
+    private void AllowTapping()
+    {
+        isTappingAllowed = true;
     }
 }
