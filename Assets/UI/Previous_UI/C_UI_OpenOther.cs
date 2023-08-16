@@ -21,11 +21,11 @@ public class C_UI_OpenOther : MonoBehaviour
     }
     public static void ToLevel3()
     {
-         SceneManager.LoadScene("World1Level3");
+         SceneManager.LoadScene("World1Level4");
     }
     public static void ToLevel4()
     {
-        SceneManager.LoadScene("World1Level4");
+        SceneManager.LoadScene("World1Level3");
     }
     public static void ToNextLevel()
     {
