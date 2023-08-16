@@ -23,7 +23,8 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="vis_" class="Vis_BackGround vis_darkerBackground" style="width: 100%; height: 100%;">
-            <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column;">
+            <ui:VisualElement name="vis_3inMiddle" class="vis_3inMiddle" style="flex-direction: column; background-color: rgba(136, 222, 255, 0);">
+                <ui:VisualElement style="width: 110%; height: 110%; position: absolute; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/rn/Holzbackround.png?fileID=2800000&amp;guid=64725ab96f9b60749ba4458a0f499989&amp;type=3#Holzbackround&apos;); -unity-background-scale-mode: stretch-to-fill; -unity-background-image-tint-color: rgba(255, 255, 255, 0.87);" />
                 <ui:Button display-tooltip-when-elided="true" name="but_playOn" class="but_3inMiddle" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayOnOutline.png?fileID=2800000&amp;guid=73cfeb188eb0eb242b95aedf5c867892&amp;type=3#PlayOnOutline&apos;);" />
                 <ui:Button display-tooltip-when-elided="true" name="but_restart" class="but_3inMiddle Button_restart" />
                 <ui:Button display-tooltip-when-elided="true" name="but_main" class="but_3inMiddle Button_main" />

@@ -166,7 +166,7 @@ public class C_Store : MonoBehaviour
     }
     public void EquipSkin1()
     {
-        SoundManager.Instance.PlaySound(_UISound);
+        //SoundManager.Instance.PlaySound(_UISound);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
         butEquip1.style.backgroundImage = new StyleBackground(Equiped);
         if (bought2) butEquip2.style.backgroundImage = new StyleBackground(Equip);

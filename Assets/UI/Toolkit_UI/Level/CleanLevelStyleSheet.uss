@@ -55,89 +55,6 @@
     top: 26%;
 }
 
-.but_3inMiddle {
-    height: 28%;
-    width: 90%;
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    font-size: 76px;
-    -unity-background-scale-mode: scale-to-fit;
-}
-
-.Button_4inCorner {
-    font-size: 0;
-    width: 220px;
-    height: 220px;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 14px;
-    margin-bottom: 14px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-}
-
-.Button_CornerHide {
-    width: 220px;
-    height: 220px;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    position: absolute;
-}
-
-.Button_restart {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
-}
-
-.Button_main {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
-}
-
-.button_bottle {
-    position: absolute;
-    height: 200px;
-    width: 200px;
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/WaterBottleBig.png?fileID=2800000&guid=ef7ce82c33902394a961b2d7b9c01028&type=3#WaterBottleBig');
-    top: auto;
-    left: 2.6%;
-    right: auto;
-    bottom: 4%;
-    rotate: -10deg;
-    background-color: rgba(56, 56, 56, 0);
-}
-
-.button_shield {
-    position: relative;
-    height: 220px;
-    width: 220px;
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/ShieldBig.png?fileID=2800000&guid=3cd4873232dd4664097240d06dd802fa&type=3#ShieldBig');
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    rotate: 0;
-}
-
 .Wave {
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/waterbar/wave.png?fileID=-2055082365&guid=3ee65a67c4b3eb14cb23bc0b1fc83f29&type=3#wave_6');
     width: 100%;
@@ -147,24 +64,6 @@
     justify-content: space-between;
     top: -15px;
 }
-
-.but_yes_no {
-    margin-left: 55px;
-    margin-right: 55px;
-    margin-top: 55px;
-    margin-bottom: 55px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    width: 320px;
-    height: 320px;
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    top: 6px;
-}
-
 .txt_currrencyBG {
     position: relative;
     top: auto;
@@ -203,4 +102,282 @@
 
 .txt_currency {
     position: absolute;
+}
+
+
+
+.but_3inMiddle {
+    height: 28%;
+    width: 90%;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 76px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.but_3inMiddle:hover {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 76px;
+    -unity-background-scale-mode: scale-to-fit;
+    height: 29%;
+    width: 92%;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
+}
+
+.but_3inMiddle:active {
+    height: 28%;
+    width: 90%;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 76px;
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgb(183, 104, 104);
+}
+
+.Button_4inCorner {
+    font-size: 0;
+    width: 250px;
+    height: 250px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.Button_4inCorner:hover {
+    font-size: 0;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    height: 270px;
+    width: 270px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
+}
+
+.Button_4inCorner:active {
+    font-size: 0;
+    width: 250px;
+    height: 250px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-background-image-tint-color: rgb(176, 105, 105);
+}
+
+
+.Button_CornerHide {
+    width: 250px;
+    height: 250px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    position: absolute;
+}
+
+.Button_CornerHide:hover {
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    position: absolute;
+    height: 270px;
+    width: 270px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
+}
+
+.Button_CornerHide:active {
+    width: 250px;
+    height: 250px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    position: absolute;
+    -unity-background-image-tint-color: rgb(180, 118, 118);
+}
+
+
+.Button_restart {
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
+}
+
+.Button_main {
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
+}
+
+.button_bottle {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/WaterBottleBig.png?fileID=2800000&guid=ef7ce82c33902394a961b2d7b9c01028&type=3#WaterBottleBig');
+    top: auto;
+    left: 2.6%;
+    right: auto;
+    bottom: 4%;
+    rotate: -10deg;
+    background-color: rgba(56, 56, 56, 0);
+}
+.button_bottle:hover {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/WaterBottleBig.png?fileID=2800000&guid=ef7ce82c33902394a961b2d7b9c01028&type=3#WaterBottleBig');
+    top: auto;
+    left: 2.6%;
+    right: auto;
+    bottom: 4%;
+    rotate: -10deg;
+    background-color: rgba(56, 56, 56, 0);
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
+}
+
+.button_bottle:active {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/WaterBottleBig.png?fileID=2800000&guid=ef7ce82c33902394a961b2d7b9c01028&type=3#WaterBottleBig');
+    top: auto;
+    left: 2.6%;
+    right: auto;
+    bottom: 4%;
+    rotate: -10deg;
+    background-color: rgba(56, 56, 56, 0);
+}
+
+
+.button_shield {
+    position: relative;
+    height: 220px;
+    width: 220px;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/icons/ShieldBig.png?fileID=2800000&guid=3cd4873232dd4664097240d06dd802fa&type=3#ShieldBig');
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    rotate: 0;
+}
+
+
+.but_yes_no {
+    margin-left: 55px;
+    margin-right: 55px;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    width: 320px;
+    height: 320px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    top: 6px;
+}
+
+.but_yes_no:hover {
+    margin-left: 55px;
+    margin-right: 55px;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    width: 324px;
+    height: 340px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    top: 6px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
+}
+
+.but_yes_no:activce {
+    margin-left: 55px;
+    margin-right: 55px;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    background-color: rgba(56, 56, 56, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    width: 320px;
+    height: 320px;
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    top: 6px;
 }

@@ -75,7 +75,7 @@ public class C_SettingsLevel : MonoBehaviour
         sliderMusic = rootSettings.Q<Slider>("Sound");
         sliderSFX = rootSettings.Q<Slider>("SFX");
 
-        Main = rootSettings.Q<VisualElement>("vis_store");
+        Main = rootSettings.Q<VisualElement>("vis_settings");
 
         Main.style.unityBackgroundImageTintColor = new Color(0f, 0f, 0f, 0f);
         //sliderMusic.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
@@ -167,11 +167,6 @@ public class C_SettingsLevel : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-       Debug.Log(sliderMusic.value);
-
-    }
 
     void Controls()
     {

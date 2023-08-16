@@ -34,7 +34,7 @@ public class C_HelpLevel : MonoBehaviour
 
         vis_ControlExp = root.Q<VisualElement>("vis_eplanationControls");
 
-        Main = root.Q<VisualElement>("vis_store");
+        Main = root.Q<VisualElement>("vis_help");
 
         Main.style.unityBackgroundImageTintColor = new Color(0f, 0f, 0f, 0f);
 

@@ -47,6 +47,7 @@
     width: 1200%;
     height: 100%;
     -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.92);
 }
 
 .Button_3inCorner {
@@ -157,7 +158,6 @@
     -unity-background-image-tint-color: rgb(180, 94, 94);
 }
 
-
 .Button_Back {
     position: absolute;
     top: 4.5%;
@@ -196,17 +196,18 @@
     position: absolute;
     top: 4.5%;
     left: 3%;
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     -unity-font-style: bold;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_TurnBack.png?fileID=2800000&guid=1668d7eb5ff93a14bbc63216ec99b24e&type=3#B_TurnBack');
     -unity-background-scale-mode: scale-to-fit;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(168, 168, 168, 0);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(192, 104, 104);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .Button_HelpNav {
@@ -467,176 +468,6 @@
     justify-content: center;
 }
 
-
-.Button_CornerHide {
-    width: 250px;
-    height: 250px;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    position: absolute;
-}
-
-.Button_CornerHide:hover {
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    position: absolute;
-    height: 270px;
-    width: 270px;
-    -unity-background-image-tint-color: rgb(217, 217, 217);
-    transition-duration: 500ms;
-}
-
-.Button_CornerHide:active {
-    width: 250px;
-    height: 250px;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 25px;
-    margin-right: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    position: absolute;
-    -unity-background-image-tint-color: rgb(180, 118, 118);
-}
-
-.Button_4inCorner {
-    font-size: 0;
-    width: 250px;
-    height: 250px;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 14px;
-    margin-bottom: 14px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-}
-
-.Button_4inCorner:hover {
-    font-size: 0;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 14px;
-    margin-bottom: 14px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    height: 270px;
-    width: 270px;
-    -unity-background-image-tint-color: rgb(217, 217, 217);
-    transition-duration: 500ms;
-}
-
-.Button_4inCorner:active {
-    font-size: 0;
-    width: 250px;
-    height: 250px;
-    -unity-font-style: bold;
-    -unity-background-scale-mode: scale-to-fit;
-    margin-left: 14px;
-    margin-right: 14px;
-    margin-top: 14px;
-    margin-bottom: 14px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(176, 105, 105);
-}
-
-.but_3inMiddle {
-    height: 28%;
-    width: 90%;
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    font-size: 76px;
-    -unity-background-scale-mode: scale-to-fit;
-}
-
-.but_3inMiddle:hover {
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    font-size: 76px;
-    -unity-background-scale-mode: scale-to-fit;
-    height: 29%;
-    width: 92%;
-    -unity-background-image-tint-color: rgb(217, 217, 217);
-    transition-duration: 500ms;
-}
-
-.but_3inMiddle:active {
-    height: 28%;
-    width: 90%;
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    font-size: 76px;
-    -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(183, 104, 104);
-}
-
-.Button_restart {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
-}
-
-
-.Button_main {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
-}
-
-
 .but_PlayLast {
     height: 348px;
     width: 841px;
@@ -704,8 +535,7 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
-
-    .but_level123:hover {
+.but_level123:hover {
     height: 260px;
     width: 300px;
     margin-left: 31px;
@@ -774,6 +604,7 @@
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/World_1.png?fileID=2800000&guid=b65cb69fd82757442b1c918c9e5d7210&type=3#World_1');
     background-color: rgba(188, 188, 188, 0);
 }
+
 .but_world123:hover {
     position: absolute;
     top: 310px;

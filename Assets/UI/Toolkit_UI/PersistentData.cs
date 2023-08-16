@@ -8,7 +8,7 @@ public class PersistentData : MonoBehaviour
 {
     public void Awake()
     {
-        //PlayerPrefs.DeleteAll(); //wenn man alles löschen möchte
+        PlayerPrefs.DeleteAll(); //wenn man alles löschen möchte
 
         AlwaysThere.currentSkin = LoadPrefsInt("currentSkin");
         AlwaysThere.LastLevel = LoadPrefsInt("LastLevel");

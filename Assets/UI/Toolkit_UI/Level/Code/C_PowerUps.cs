@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class C_PowerUps : MonoBehaviour
 {
     Button butBottle;
-    VisualElement visShield;
+    Button visShield;
 
 
     [SerializeField] Shield shield;
@@ -22,7 +22,7 @@ public class C_PowerUps : MonoBehaviour
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
-        visShield = root.Q<VisualElement>("vis_shield");
+        visShield = root.Q<Button>("vis_shield");
         butBottle = root.Q<Button>("but_bottle");
 
         // Test = root.Q<Button>("test");

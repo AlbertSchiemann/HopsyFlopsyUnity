@@ -39,7 +39,7 @@ public class C_Help : MonoBehaviour
         IntroVideo.clicked += Intro;
         ControlExp.clicked += Explanation;
 
-        vis_ControlExp.style.display = DisplayStyle.None;
+        //vis_ControlExp.style.display = DisplayStyle.None;
 
     }
 
