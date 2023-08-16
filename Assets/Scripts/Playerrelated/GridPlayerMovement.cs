@@ -62,11 +62,8 @@ public class GridPlayerMovement : MonoBehaviour
         playerPosition.IsValidMove(StartX, StartY);                                   // and the player cant move through blocked blocks              
         UpdateGameObjectPosition();
         isAllowedToMove = false;
-        GameStateManagerScript.onGameStart += AllowMovement;
-        GameStateManagerScript.onGamePaused += PreventMovement;
         cameraRide.CameraRideDecider();
         DelayChecker();
-        Debug.Log(cameraRide.ShowCameraRideLevel1 + " -1");
         collider = GetComponent<BoxCollider>();
     }
 
@@ -75,20 +72,19 @@ public class GridPlayerMovement : MonoBehaviour
         if (DelayCheckerUsed == false)
         {
             DelayCheckerUsed = true;
-            Debug.Log(cameraRide.ShowCameraRideLevel1 + " -2");
             if      (LevelIndex == 1) {if (cameraRide.ShowCameraRideLevel1 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
             else if (LevelIndex == 2) {if (cameraRide.ShowCameraRideLevel2 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
             else if (LevelIndex == 3) {if (cameraRide.ShowCameraRideLevel3 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
             else if (LevelIndex == 4) {if (cameraRide.ShowCameraRideLevel4 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
             else { Debug.LogError("LevelIndex in Playermovement fucked up"); return;}
         }
-        
     }
 
     private void CameraStart ()
     {
         AllowMovement();
-        Debug.Log("Allowed to move now");
+        GameStateManagerScript.onGameStart += AllowMovement;
+        GameStateManagerScript.onGamePaused += PreventMovement;
     }
 
     void Update()
@@ -101,7 +97,6 @@ public class GridPlayerMovement : MonoBehaviour
             {
                 UpdateGameObjectPosition();
             }
-            
             playerPosition.Update();
         }else if (isAllowedToMove == false) { return; }
         else { Debug.LogError("PlayerPosition is null!"); }
@@ -116,7 +111,6 @@ public class GridPlayerMovement : MonoBehaviour
     {
         transform.position = new Vector3(playerPosition.posX, PlayerHeigth, playerPosition.posY);
     }
-
     public class PlayerPosition {                           // when the Player gets called, he gets a starting-position on the grid 
         public int posX; 
         public int posY;
@@ -142,8 +136,6 @@ public class GridPlayerMovement : MonoBehaviour
         public float collisionAnimationTimer = 0.1f; 
         private Vector3 playerGoalJumpLvL3 = new Vector3(10.5f, 1.7f, 36f);
 
-        
-
         public float initialMoveTimer = 0.15f;               // Alberts stuff of Delay
         public float moveTimer;
         public bool isMoving = false;
@@ -167,7 +159,6 @@ public class GridPlayerMovement : MonoBehaviour
                 }
             }
         }
-        
 
         public void CheckInput(AudioClip[] moveClip, AudioClip[] collClip, AudioClip[] _hydrateClip)            // Check for Input and call the Move-Function
         {
@@ -357,16 +348,10 @@ public class GridPlayerMovement : MonoBehaviour
                         blocktype = "Respawnblock!";} 
             else {      Debug.LogError("Not a gridBlock!");}
 
-            
-
             //playerPrefab.transform.position = new Vector3(posX, 0, posY);
             playerPrefab.transform.DOMove(new Vector3(posX, PlayerHeigth, posY), initialMoveTimer*2f).SetEase(animEase);
-
-            
-
             IsValidMove(newPosX, newPosY);                                              // Check the surrounding Blocks of the Player after every move to get the bools 
                                                                                         // for the next movedirections set up
-              
         }
 
         public void IsValidMove(int x, int y)                                           // Set the bools up for the surrounding blocks of the player
@@ -435,7 +420,6 @@ public class GridPlayerMovement : MonoBehaviour
     }
     public void SkateboardMovement()
     {
-        
         Debug.Log($"{playerPosition.posX} {playerPosition.posY} = SkateboardMovement - Position");
         Invoke("CallOfMoveSkateboard", .2f);
         Invoke("CallOfMoveSkateboard", .4f);
@@ -449,10 +433,8 @@ public class GridPlayerMovement : MonoBehaviour
         Invoke("CallOfMoveSkateboard", 1.4f);
         Invoke("CallOfMoveSkateboard", 1.55f);
 
-    
         Invoke("AllowMovement", 1.55f);
         // Skateboard unter player spawnen
-     
     }
 
     public void CallOfMoveSkateboard()
@@ -531,5 +513,4 @@ public class GridPlayerMovement : MonoBehaviour
         break;
         }
     }
-    
 }

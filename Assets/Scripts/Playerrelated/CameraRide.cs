@@ -87,15 +87,10 @@ public class CameraRide : MonoBehaviour
     public void CameraRideDecider ()
     {
         // decides if the camera ride should be shown or not, according to the number of times it was shown yet
-        
-        Debug.Log("CameraRideDecider before " + ShowCameraRideLevel2);
         if (LevelIndex == 1){if (WasCameraRideShownLevel1 >= HowOftenShowCameraRide || !ShowCameraRideLevel1) {ShowCameraRideLevel1 = false;} else {ShowCameraRideLevel1 = true;};}
         if (LevelIndex == 2){if (WasCameraRideShownLevel2 >= HowOftenShowCameraRide || !ShowCameraRideLevel2) {ShowCameraRideLevel2 = false;} else {ShowCameraRideLevel2 = true;};}
         if (LevelIndex == 3){if (WasCameraRideShownLevel3 >= HowOftenShowCameraRide || !ShowCameraRideLevel3) {ShowCameraRideLevel3 = false;} else {ShowCameraRideLevel2 = true;};}
         if (LevelIndex == 4){if (WasCameraRideShownLevel4 >= HowOftenShowCameraRide || !ShowCameraRideLevel4) {ShowCameraRideLevel4 = false;} else {ShowCameraRideLevel2 = true;};}
-
-        Debug.Log("CameraRideDecider after " + ShowCameraRideLevel2);
-        
     }
 
     void Start()
