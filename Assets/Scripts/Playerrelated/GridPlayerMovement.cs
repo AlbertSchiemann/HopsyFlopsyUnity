@@ -62,7 +62,7 @@ public class GridPlayerMovement : MonoBehaviour
         playerPosition.IsValidMove(StartX, StartY);                                   // and the player cant move through blocked blocks              
         UpdateGameObjectPosition();
         isAllowedToMove = false;
-        //GameStateManagerScript.onGameStart += AllowMovement;
+        GameStateManagerScript.onGameStart += AllowMovement;
         GameStateManagerScript.onGamePaused += PreventMovement;
         cameraRide.CameraRideDecider();
         DelayChecker();
