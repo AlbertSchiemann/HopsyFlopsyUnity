@@ -74,8 +74,8 @@ public class GridPlayerMovement : MonoBehaviour
             DelayCheckerUsed = true;
             if      (LevelIndex == 1) {if (cameraRide.ShowCameraRideLevel1 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
             else if (LevelIndex == 2) {if (cameraRide.ShowCameraRideLevel2 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
-            else if (LevelIndex == 3) {if (cameraRide.ShowCameraRideLevel3 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
-            else if (LevelIndex == 4) {if (cameraRide.ShowCameraRideLevel4 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
+            else if (LevelIndex == 4) {if (cameraRide.ShowCameraRideLevel3 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
+            else if (LevelIndex == 3) {if (cameraRide.ShowCameraRideLevel4 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
             else { Debug.LogError("LevelIndex in Playermovement fucked up"); return;}
         }
     }
