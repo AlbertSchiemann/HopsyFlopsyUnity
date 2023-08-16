@@ -96,15 +96,12 @@ public class HydrationController : MonoBehaviour
             HydrationVibration();
             isHydrationDangerouslyLow = true;
         }
-        else if (hydration >= hydrationMax / 5)
-        {
-            isHydrationDangerouslyLow = false;
-        }
     }
     
     private void HydrationVibration()
     {
         Vibration.Vibrate(500);
+        if (hydration >= hydrationMax / 5) { isHydrationDangerouslyLow = false; return; }
         Invoke("HydrationVibration", 1);
     }
 

@@ -42,6 +42,8 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private Crane cranePrefab;
     [SerializeField] private CameraFollow cameraFollow;
 
+    BoxCollider collider;
+
     void Start()
     {
         grid2dCreated = grid.getGridCreated();
@@ -58,6 +60,8 @@ public class GridPlayerMovement : MonoBehaviour
         {
             Invoke("CameraStart", CameraFollow.TotalDelayForCameraRide);
         }
+
+        collider = GetComponent<BoxCollider>();
         GameStateManagerScript.onGameStart += AllowMovement;
         GameStateManagerScript.onGamePaused += PreventMovement;
     }
@@ -398,10 +402,12 @@ public class GridPlayerMovement : MonoBehaviour
     {
         if (!isIntroductionCameraTweeningDone) { return; }
         isAllowedToMove = true;
+        collider.enabled = true;
     }
     public void PreventMovement()
     {
         isAllowedToMove = false;
+        collider.enabled = false;
     }
     public void CraneMovement()
     {
