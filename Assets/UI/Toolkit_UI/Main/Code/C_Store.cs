@@ -37,6 +37,7 @@ public class C_Store : MonoBehaviour
     Label txtCurrency;
     VisualElement visPrice3, visPrice2;
 
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;

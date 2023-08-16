@@ -102,9 +102,9 @@ public class C_W1 : MonoBehaviour
         if (AlwaysThere.TimeStar3) s32.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
         if (AlwaysThere.CurrencyStar3) s33.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
 
-        if (!AlwaysThere.level5Unlocked) s31.style.unityBackgroundImageTintColor = new Color(0.34f, 0.34f, 0.34f, 1f);
-        if (AlwaysThere.TimeStar4) s32.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
-        if (AlwaysThere.CurrencyStar4) s33.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+        if (!AlwaysThere.level5Unlocked) s41.style.unityBackgroundImageTintColor = new Color(0.34f, 0.34f, 0.34f, 1f);
+        if (AlwaysThere.TimeStar4) s42.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+        if (AlwaysThere.CurrencyStar4) s43.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
 
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
     }

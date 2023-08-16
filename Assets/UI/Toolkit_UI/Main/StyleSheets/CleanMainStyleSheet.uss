@@ -88,8 +88,8 @@
 
 .Button_3inCorner:active {
     font-size: 0;
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -101,7 +101,8 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(190, 110, 110);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .Button_2inCorner {
@@ -134,16 +135,16 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    height: 240px;
-    width: 240px;
+    height: 250px;
+    width: 250px;
     -unity-background-image-tint-color: rgb(217, 217, 217);
     transition-duration: 500ms;
 }
 
 .Button_2inCorner:active {
     font-size: 0;
-    width: 280px;
-    height: 280px;
+    width: 230px;
+    height: 230px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -155,7 +156,8 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(180, 94, 94);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .Button_Back {
@@ -255,7 +257,8 @@
     margin-top: 47px;
     margin-bottom: 47px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(168, 106, 106);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .but_SettingsNav {
@@ -401,8 +404,8 @@
 }
 
 .Button_Sound:active {
-    height: 280px;
-    width: 280px;
+    height: 230px;
+    width: 230px;
     left: 6px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOFF.png?fileID=2800000&guid=8dc779dae17f22442b31560587411cc3&type=3#B_SoundVolumeOFF');
     border-left-width: 0;
@@ -415,7 +418,8 @@
     margin-top: 39px;
     margin-bottom: 39px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(190, 105, 105);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .button_ItemEquip {
@@ -454,7 +458,8 @@
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/EquipOutline.png?fileID=2800000&guid=90a77bd570898c14aace724a250854e3&type=3#EquipOutline');
     background-color: rgba(56, 56, 56, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(176, 100, 100);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .vis_settingsMiddle {
@@ -492,7 +497,8 @@
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayLastOutline.png?fileID=2800000&guid=1212be7ab248be74babb0bd2ddc5124a&type=3#PlayLastOutline');
     background-color: rgba(188, 188, 188, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(178, 244, 221);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .but_PlayLast:hover {
@@ -562,6 +568,33 @@
     transition-duration: 500ms;
 }
 
+.but_level123:hover {
+    height: 240px;
+    width: 289px;
+    margin-left: 31px;
+    margin-right: 31px;
+    margin-top: 31px;
+    margin-bottom: 31px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 99px;
+    border-top-left-radius: 52px;
+    border-bottom-left-radius: 52px;
+    border-top-right-radius: 52px;
+    border-bottom-right-radius: 52px;
+    -unity-font-style: bold;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/GlasBowl.png?fileID=2800000&guid=45b003a1b3f2e344c834de60771b8cbd&type=3#GlasBowl');
+    -unity-background-scale-mode: scale-to-fit;
+    position: relative;
+    top: auto;
+    left: auto;
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
+}
+
 .vis_level123 {
     position: absolute;
     align-items: center;
@@ -618,4 +651,28 @@
     background-color: rgba(188, 188, 188, 0);
     -unity-background-image-tint-color: rgb(217, 217, 217);
     transition-duration: 500ms;
+}
+
+.but_world123 {
+    position: absolute;
+    top: 292px;
+    left: 272px;
+    height: 203px;
+    width: 549px;
+    font-size: 73px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/World_1.png?fileID=2800000&guid=b65cb69fd82757442b1c918c9e5d7210&type=3#World_1');
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
+}
+
+.but_pageSwitch {
+    position: relative;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/Next.png?fileID=2800000&guid=9d9cd3d0ff6b58041880313643fa1562&type=3#Next');
+    height: 167px;
+    width: 461px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(188, 188, 188, 0);
+    bottom: -546px;
 }

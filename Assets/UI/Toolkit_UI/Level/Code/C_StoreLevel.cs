@@ -40,7 +40,7 @@ public class C_StoreLevel : MonoBehaviour
     Label txtCurrency;
 
     VisualElement Main;
-
+    [SerializeField] private SwipeManager swipeManager;
 
     void OnEnable()
     {
@@ -127,6 +127,7 @@ public class C_StoreLevel : MonoBehaviour
     }
     public void Buy2()
     {
+        swipeManager.enabled = false;
         if (AlwaysThere.FishMoney >= 100)
         {
             butBuy2.style.display = DisplayStyle.None;
@@ -146,6 +147,7 @@ public class C_StoreLevel : MonoBehaviour
     }
     public void Buy3()
     {
+        swipeManager.enabled = false;
         if (AlwaysThere.FishMoney >= 200)
         {
             butBuy3.style.display = DisplayStyle.None;
@@ -176,6 +178,7 @@ public class C_StoreLevel : MonoBehaviour
     }
     public void EquipSkin1()
     {
+        swipeManager.enabled = false;
         SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip1);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin1;
@@ -185,6 +188,7 @@ public class C_StoreLevel : MonoBehaviour
     }
     public void EquipSkin2()
     {
+        swipeManager.enabled = false;
         SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip2);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin2;
@@ -194,6 +198,7 @@ public class C_StoreLevel : MonoBehaviour
     }
     public void EquipSkin3()
     {
+        swipeManager.enabled = false;
         SoundManager.Instance.PlaySound(_UISound);
         player.ChangeSkin(skinToEquip3);
         AlwaysThere.currentSkin = (int)AlwaysThere.Skin.Skin3;
@@ -204,18 +209,21 @@ public class C_StoreLevel : MonoBehaviour
 
     public void Help()
     {
+        swipeManager.enabled = false;
         SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenHelp();
     }
 
     public void Settings()
     {
+        swipeManager.enabled = false;
         SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenSettings();
     }
 
     public void Back()
     {
+        swipeManager.enabled = false;
         SoundManager.Instance.PlaySound(_UISound);
         switchScreenStore.OpenPause();
     }

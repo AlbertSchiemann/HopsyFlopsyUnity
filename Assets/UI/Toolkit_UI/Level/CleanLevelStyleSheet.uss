@@ -154,7 +154,8 @@
     border-bottom-width: 0;
     font-size: 76px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(183, 104, 104);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 .Button_4inCorner {
@@ -208,7 +209,8 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(176, 105, 105);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 
@@ -263,7 +265,8 @@
     border-top-width: 0;
     border-bottom-width: 0;
     position: absolute;
-    -unity-background-image-tint-color: rgb(180, 118, 118);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
 
 
@@ -313,7 +316,10 @@
     bottom: 4%;
     rotate: -10deg;
     background-color: rgba(56, 56, 56, 0);
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }
+
 
 
 .button_shield {
@@ -365,7 +371,7 @@
     transition-duration: 500ms;
 }
 
-.but_yes_no:activce {
+.but_yes_no:active {
     margin-left: 55px;
     margin-right: 55px;
     margin-top: 55px;
@@ -380,4 +386,6 @@
     font-size: 50px;
     color: rgb(255, 255, 255);
     top: 6px;
+    -unity-background-image-tint-color: rgb(180, 180, 180);
+    transition-duration: 300ms;
 }

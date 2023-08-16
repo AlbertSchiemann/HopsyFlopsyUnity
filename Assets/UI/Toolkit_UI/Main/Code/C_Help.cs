@@ -13,11 +13,16 @@ public class C_Help : MonoBehaviour
     Button butSettings;
     Button Level1;
     Button IntroVideo;
-    Button ControlExp;
+    Button ControlExp, Prev, Next;
 
     VisualElement vis_ControlExp;
 
+    VisualElement underMain, Small;
+
+    public Sprite Tut1, Tut2, Tut3;
+
     [SerializeField] private AudioClip[] _UISound;
+    int switcher = 0;
 
     void OnEnable()
     {
@@ -30,7 +35,12 @@ public class C_Help : MonoBehaviour
         IntroVideo = root.Q<Button>("but_IntroVideo");
         ControlExp = root.Q<Button>("but_controlExpl");
 
+        Next = root.Q<Button>("but_switcherNext");
+        Prev = root.Q<Button>("but_switcherPrev");
+
         vis_ControlExp = root.Q<VisualElement>("vis_eplanationControls");
+        Small = root.Q<VisualElement>("vis_small");
+        underMain = root.Q<VisualElement>("vis_main");
 
         butStore.clicked += Store;
         butSettings.clicked += Settings;
@@ -38,8 +48,13 @@ public class C_Help : MonoBehaviour
         Level1.clicked += Level_1;
         IntroVideo.clicked += Intro;
         ControlExp.clicked += Explanation;
+        Next.clicked += NextPage;
+        Prev.clicked += PrevPage;
 
-        //vis_ControlExp.style.display = DisplayStyle.None;
+        vis_ControlExp.style.display = DisplayStyle.None;
+        Small.style.display = DisplayStyle.None;
+        Next.style.display = DisplayStyle.None;
+        Prev.style.display = DisplayStyle.None;
 
     }
 
@@ -78,10 +93,45 @@ public class C_Help : MonoBehaviour
 
     void Explanation()
     {
+        vis_ControlExp.style.display = DisplayStyle.Flex;
+        vis_ControlExp.style.backgroundImage = new StyleBackground(Tut1);
+        ControlExp.style.display = DisplayStyle.None;
+        Small.style.display = DisplayStyle.Flex;
+        underMain.style.display = DisplayStyle.None;
+        Next.style.display = DisplayStyle.Flex;
         //animation - kn�pfe nach oben
         //vis_exp animation entweder rein vo seite / oder langsam erscheinen
-        vis_ControlExp.style.display = DisplayStyle.Flex;
 
+    }
+
+    void NextPage()
+    {
+        if (switcher == 0)
+        {
+            vis_ControlExp.style.backgroundImage = new StyleBackground(Tut2);
+            Prev.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            vis_ControlExp.style.backgroundImage = new StyleBackground(Tut3);
+            Next.style.display = DisplayStyle.None; ;
+        }
+        switcher++;
+    }
+
+    void PrevPage()
+    {
+        if (switcher == 1)
+        {
+            vis_ControlExp.style.backgroundImage = new StyleBackground(Tut1);
+            Prev.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            vis_ControlExp.style.backgroundImage = new StyleBackground(Tut2);
+            Next.style.display = DisplayStyle.Flex;
+        }
+        switcher--;
     }
 
 

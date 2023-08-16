@@ -49,6 +49,7 @@ public class C_SettingsLevel : MonoBehaviour
     VisualElement Main;
 
     [SerializeField] private AudioClip[] _UISound;
+    [SerializeField] private SwipeManager swipeManager;
 
     void OnEnable()
     {
@@ -175,6 +176,7 @@ public class C_SettingsLevel : MonoBehaviour
         visCredits.style.display = DisplayStyle.None;
         visSound.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.None;
+        swipeManager.enabled = false;
     }
     void Credits()
     {
@@ -183,6 +185,7 @@ public class C_SettingsLevel : MonoBehaviour
         visCredits.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.None;
+        swipeManager.enabled = false;
     }
 
     void Sound()
@@ -218,6 +221,7 @@ public class C_SettingsLevel : MonoBehaviour
 
             SoundManager.DisableSfx();
         }
+        swipeManager.enabled = false;
     }
 
     void Contact()
@@ -227,6 +231,7 @@ public class C_SettingsLevel : MonoBehaviour
         txtContact.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.None;
+        swipeManager.enabled = false;
     }
 
 
@@ -234,12 +239,14 @@ public class C_SettingsLevel : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenHelp();
+        swipeManager.enabled = false;
     }
 
     void Store()
     {
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenStore();
+        swipeManager.enabled = false;
 
     }
 
@@ -247,6 +254,7 @@ public class C_SettingsLevel : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenPause();
+        swipeManager.enabled = false;
     }
 
     /*
@@ -275,6 +283,7 @@ public class C_SettingsLevel : MonoBehaviour
 
         SoundManager.EnableMusic();
         AlwaysThere.MusicIcon = true;
+        swipeManager.enabled = false;
     }
     private void MusicOff()
     {
@@ -283,6 +292,7 @@ public class C_SettingsLevel : MonoBehaviour
 
         SoundManager.DisableMusic();
         AlwaysThere.MusicIcon = false;
+        swipeManager.enabled = false;
     }
     private void SfxOn()
     {
@@ -291,6 +301,7 @@ public class C_SettingsLevel : MonoBehaviour
 
         SoundManager.EnableSfx();
         AlwaysThere.SFXIcon = true;
+        swipeManager.enabled = false;
     }
     private void SfxOff()
     {
@@ -299,6 +310,7 @@ public class C_SettingsLevel : MonoBehaviour
 
         SoundManager.DisableSfx();
         AlwaysThere.SFXIcon = false;
+        swipeManager.enabled = false;
     }
 
     private void SwipeInputs()
@@ -321,6 +333,7 @@ public class C_SettingsLevel : MonoBehaviour
         BorderPad.style.borderTopColor = Color.white;
         BorderPad.style.borderLeftColor = Color.white;
         BorderPad.style.borderRightColor = Color.white;
+        swipeManager.enabled = false;
 
 
     }
@@ -345,6 +358,7 @@ public class C_SettingsLevel : MonoBehaviour
         BorderPad.style.borderTopColor = Color.white;
         BorderPad.style.borderLeftColor = Color.white;
         BorderPad.style.borderRightColor = Color.white;
+        swipeManager.enabled = false;
     }
 
     private void PadInputs()
@@ -367,6 +381,7 @@ public class C_SettingsLevel : MonoBehaviour
         BorderPad.style.borderTopColor = Color.green;
         BorderPad.style.borderLeftColor = Color.green;
         BorderPad.style.borderRightColor = Color.green;
+        swipeManager.enabled = false;
     }
 
     void OnDisable()

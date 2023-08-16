@@ -43,6 +43,8 @@ public class C_Pause : MonoBehaviour
     Label txtCurrency;
     public Sprite DrunkWater;
 
+    [SerializeField] private SwipeManager swipeManager;
+
 
     private void Awake()
     {
@@ -132,19 +134,22 @@ public class C_Pause : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenHelp();
+        swipeManager.enabled = false;
     }
 
     void Store()
     {
+
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenStore();
-
+        swipeManager.enabled = false;
     }
 
     void Settings()
     {
         SoundManager.Instance.PlaySound(_UISound);
         switchScreen.OpenSettings();
+        swipeManager.enabled = false;
 
     }
 
@@ -180,6 +185,7 @@ public class C_Pause : MonoBehaviour
         butShow.style.display = DisplayStyle.Flex;
         //animation of hiding + vis_4inCorner.display=none;
         visCorner4.style.display = DisplayStyle.None;
+        swipeManager.enabled = false;
     }
 
     void Show()
@@ -188,5 +194,6 @@ public class C_Pause : MonoBehaviour
         //animation of hiding + vis_4inCorner.display=none;
         visCorner4.style.display = DisplayStyle.Flex;
         butShow.style.display = DisplayStyle.None;
+        swipeManager.enabled = false;
     }
 }

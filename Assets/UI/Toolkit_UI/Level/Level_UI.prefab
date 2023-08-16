@@ -63,6 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
+  hydrationController: {fileID: 0}
+  waterBar: {fileID: 0}
   AdScript: {fileID: 0}
   _UISound:
   - {fileID: 8300000, guid: 5f72c2db9438c4c419e42713aa4d572b, type: 3}
@@ -124,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelScript: {fileID: 8665902501282802515}
   gameStateManagerScript: {fileID: 0}
-  cameraFollowVertical: {fileID: 0}
+  cameraRide: {fileID: 0}
 --- !u!114 &8665902501282802515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,6 +820,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
   _UISound: []
+  Tut1: {fileID: 21300000, guid: 6663c6a857d57ed4aaa97a805b199738, type: 3}
+  Tut2: {fileID: 21300000, guid: 6dbd5b3adc51dcc4fb3574ee3a516397, type: 3}
+  Tut3: {fileID: 21300000, guid: 8a76eed99a907e948b78038855872a1c, type: 3}
 --- !u!4 &2492955328517221734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4915101588612383631, guid: fd5c9fc120f693e4c9d3653766267358,

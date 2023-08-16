@@ -32,8 +32,8 @@ public class C_Win : MonoBehaviour
     public static bool allCollected = false;
     public static bool inTime = false;
 
-    public int MaxTime = 60;
-
+    public int MaxTime = 50;
+    public int NotNeededCookies = 8;
     int nextLevelIndex;
 
     [SerializeField] private AudioClip[] _UISound;
