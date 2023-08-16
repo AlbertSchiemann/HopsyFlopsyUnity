@@ -32,7 +32,7 @@ public class GridPlayerMovement : MonoBehaviour
     private bool isAllowedToMove = true;                    // enables player movement in general
 
     public bool UpdateActive = true;                        // enables the update of the playerposition
-    private bool isIntroductionCameraTweeningDone = false;
+    
 
     [SerializeField] private AudioClip[] _moveClip;
     [SerializeField] private AudioClip[] _collisionClip;
@@ -40,9 +40,17 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private GameObject bucket;
     [SerializeField] private GameObject cablecart;
     [SerializeField] private Crane cranePrefab;
-    [SerializeField] private CameraFollow cameraFollow;
+    //[SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private CameraRide cameraRide;
 
     BoxCollider collider;
+
+    [SerializeField] private GameObject WinSpeechbubble;
+    private Vector3 WinSpeachbubbleRotation = new (120, -10, 180);
+    private Vector3 PlayerRotationAtWin = new (-60, 45, -70);
+    private Vector3 PlayerPositionChangeAtWin = new (-.54f, 5.9f, -2.89f);
+    private bool WinSpeachbubbleSpawned = false;
+    internal bool DelayCheckerUsed = false;
 
     void Start()
     {
@@ -54,22 +62,33 @@ public class GridPlayerMovement : MonoBehaviour
         playerPosition.IsValidMove(StartX, StartY);                                   // and the player cant move through blocked blocks              
         UpdateGameObjectPosition();
         isAllowedToMove = false;
-
-        
-        if (cameraFollow.ShowCameraRide == true)
-        {
-            Invoke("CameraStart", CameraFollow.TotalDelayForCameraRide);
-        }
-
-        collider = GetComponent<BoxCollider>();
-        GameStateManagerScript.onGameStart += AllowMovement;
+        //GameStateManagerScript.onGameStart += AllowMovement;
         GameStateManagerScript.onGamePaused += PreventMovement;
+        cameraRide.CameraRideDecider();
+        DelayChecker();
+        Debug.Log(cameraRide.ShowCameraRideLevel1 + " -1");
+
+    }
+
+    private void DelayChecker()
+    {
+        if (DelayCheckerUsed == false)
+        {
+            DelayCheckerUsed = true;
+            Debug.Log(cameraRide.ShowCameraRideLevel1 + " -2");
+            if      (LevelIndex == 1) {if (cameraRide.ShowCameraRideLevel1 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
+            else if (LevelIndex == 2) {if (cameraRide.ShowCameraRideLevel2 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
+            else if (LevelIndex == 3) {if (cameraRide.ShowCameraRideLevel3 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
+            else if (LevelIndex == 4) {if (cameraRide.ShowCameraRideLevel4 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
+            else { Debug.LogError("LevelIndex in Playermovement fucked up"); return;}
+        }
+        collider = GetComponent<BoxCollider>();
     }
 
     private void CameraStart ()
     {
-        isIntroductionCameraTweeningDone = true;
         AllowMovement();
+        Debug.Log("Allowed to move now");
     }
 
     void Update()
@@ -400,7 +419,6 @@ public class GridPlayerMovement : MonoBehaviour
     }
     public void AllowMovement()
     {
-        if (!isIntroductionCameraTweeningDone) { return; }
         isAllowedToMove = true;
         if (collider == null) { return; }
         collider.enabled = true;
@@ -461,8 +479,30 @@ public class GridPlayerMovement : MonoBehaviour
 
             hydrationController.DeactivateHydration(); 
         }
+        else if (LevelIndex == 4)
+        {
+            hydrationController.DeactivateHydration(); 
+
+            if (!WinSpeachbubbleSpawned)
+            {
+                SpeachbubbleWin();
+                cameraRide.DeathCamera();
+
+                playerPrefab.transform.DOMove(playerPrefab.transform.position + PlayerPositionChangeAtWin, .6f).SetEase(Ease.Linear);
+                playerPrefab.transform.DORotate(PlayerRotationAtWin, .6f).SetDelay(.5f);
+            }
+            else return; 
+        }
         else Debug.LogError("CallOfPlayerWin function errored cause of Levelindex.");
-        
+    }
+    public void SpeachbubbleWin ()
+    {
+        WinSpeachbubbleSpawned = true;  
+        Invoke("DelaySpeachbubbleWin", .01f);                                                       
+    }
+    public void DelaySpeachbubbleWin ()
+    {
+        GameObject newObject1 = Instantiate(WinSpeechbubble, new Vector3(playerPrefab.transform.position.x + PlayerPositionChangeAtWin.x + 1f, PlayerPositionChangeAtWin.y + .8f, playerPrefab.transform.position.z + PlayerPositionChangeAtWin.z + 1.12f), Quaternion.Euler(WinSpeachbubbleRotation));
     }
     public void RandomMovement()
     {

@@ -29,7 +29,7 @@ public class HydrationController : MonoBehaviour
     public C_WaterBar waterBar;
 
     [SerializeField] C_PowerUps powerUp;
-    [SerializeField] CameraFollow cameraFollow;
+    [SerializeField] CameraRide cameraRide;
 
     [SerializeField] private AudioClip[] _hydrateClip;
     [SerializeField] private AudioClip[] _failClip;
@@ -194,17 +194,12 @@ public class HydrationController : MonoBehaviour
             if (!SpeachbubbleSpawned)
             {
                 SpeachbubbleDeath();
-                cameraFollow.DeathCamera();
+                cameraRide.DeathCamera();
 
                 player.transform.DOMove(player.transform.position + PlayerPositionChangeAtDeath, .6f).SetEase(Ease.Linear);
                 player.transform.DORotate(PlayerRotationAtDeath, .6f).SetDelay(.5f);
-                
-
-                
             }
-            else return;
-
-            
+            else return; 
         }
         else if (hydration >= 0)
         {
