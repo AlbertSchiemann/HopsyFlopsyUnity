@@ -44,12 +44,6 @@ public class GridPlayerMovement : MonoBehaviour
     [SerializeField] private CameraRide cameraRide;
 
     BoxCollider collider;
-    [SerializeField] private GameObject WinSpeechbubble;
-    private Vector3 WinSpeachbubbleRotation = new (120, -10, 180);
-    private Vector3 PlayerRotationAtWin = new (-60, 45, -70);
-    private Vector3 PlayerPositionChangeAtWin = new (-.54f, 5.9f, -2.89f);
-    private bool WinSpeachbubbleSpawned = false;
-    internal bool DelayCheckerUsed = false;
 
     [SerializeField] private GameObject WinSpeechbubble;
     private Vector3 WinSpeachbubbleRotation = new (120, -10, 180);
@@ -73,7 +67,7 @@ public class GridPlayerMovement : MonoBehaviour
         cameraRide.CameraRideDecider();
         DelayChecker();
         Debug.Log(cameraRide.ShowCameraRideLevel1 + " -1");
-
+        collider = GetComponent<BoxCollider>();
     }
 
     private void DelayChecker()
@@ -88,7 +82,7 @@ public class GridPlayerMovement : MonoBehaviour
             else if (LevelIndex == 4) {if (cameraRide.ShowCameraRideLevel4 == true) {Invoke("CameraStart", cameraRide.TotalDelayForCameraRide); return;} else Invoke("CameraStart", cameraRide.ShortDelayForCameraRide); return;}
             else { Debug.LogError("LevelIndex in Playermovement fucked up"); return;}
         }
-        collider = GetComponent<BoxCollider>();
+        
     }
 
     private void CameraStart ()
