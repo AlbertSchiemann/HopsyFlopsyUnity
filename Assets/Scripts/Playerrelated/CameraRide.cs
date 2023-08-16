@@ -46,7 +46,7 @@ public class CameraRide : MonoBehaviour
     private Vector3 CameraBehindPlayerLevel2 = new(2f,4f,-4.5f);
 
     //Camera Positions Level 3
-    private Vector3 CameraStartBeforeGoalTriggerLevel3 = new(3f,2f,33.5f);
+    private Vector3 CameraStartBeforeGoalTriggerLevel3 = new(8.8f, 7.3f, 48.5f);
     private Vector3 CameraPointOverGoalTriggerLevel3 = new(5.5f,2f,31f);
     private Vector3 CameraBehindPlayerLevel3 = new(2f,3f,-2f);
 
@@ -70,7 +70,8 @@ public class CameraRide : MonoBehaviour
     private Vector3 CameraRideAngleStartLevel2 = new(16f, -35f, 0f);
     
     //Rotations Level 3
-    private Vector3 CameraRideAngleStartLevel3 = new(16f, 35f, 0f);
+    private Vector3 CameraRideAngleStartLevel3 = new(30f, 200f, 0f);
+    private Vector3 CameraRideBehindGoalLevel3 = new(0f, 20f, 0f);
     private Vector3 CameraRideAngleBehindPlayerLevel3 = new(35f, 0f, 0f);
     
 
@@ -197,7 +198,9 @@ public class CameraRide : MonoBehaviour
                 playerPrefab.transform.position = PlayerStartLevel3;
 
                 transform.DOMove(CameraPointOverGoalTriggerLevel3, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
-                transform.DORotate(CameraRideAngleStart, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+                transform.DORotate(CameraRideBehindGoalLevel3, DelayTillCameraMovesAwayFromLighthouse).SetDelay(DelayTillCameraangleChangesFromLighthouse);
+
+                playerPrefab.transform.DOMove(PlayerStartLevel3, .1f).SetDelay(DelayTillCameraangleChangesFromLighthouse);;
 
                 transform.DOMove(PlayerStartLevel3 + CameraBehindPlayerLevel3, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse);
                 transform.DORotate(CameraRideAngleBehindPlayerLevel3, TimeFromWinToBehindPlayer).SetDelay(DelayTillCameraangleChangesFromLighthouse + DelayTillCameraMovesAwayFromLighthouse );
@@ -214,10 +217,13 @@ public class CameraRide : MonoBehaviour
             }
             else if (ShowCameraRideLevel3 == false)
             {
-                transform.position =  PlayerStartLevel3 + CameraBehindPlayerLevel3;
-                transform.rotation = Quaternion.Euler(CameraRideAngleStartLevel3);
+                playerPrefab.transform.position = PlayerStartLevel3;
+                playerPrefab.transform.DOMove(PlayerStartLevel3, 0f);
+                transform.DOMove(PlayerStartLevel3 + CameraBehindPlayerLevel3, 0f);
+                transform.DORotate(CameraRideAngleBehindPlayerLevel3, 0f);
 
-                playerPrefab.transform.DOMove(PlayerGridStartLevel3, 1.5f);
+                playerPrefab.transform.DOMove(PlayerCraneEndLevel3, 1f).SetEase(Ease.Linear);
+                playerPrefab.transform.DOMove(PlayerGridStartLevel3, 1.5f).SetDelay(1f).SetEase(animEaseJump);
 
                 transform.DOMove(PlayerGridStartLevel3 + offset, TimeFromCameraRideFromBehindToPlayer);
                 transform.DORotate(CameraAngleDefault, TimeFromCameraRideFromBehindToPlayer);
