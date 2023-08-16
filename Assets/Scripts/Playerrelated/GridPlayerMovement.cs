@@ -51,6 +51,13 @@ public class GridPlayerMovement : MonoBehaviour
     private bool WinSpeachbubbleSpawned = false;
     internal bool DelayCheckerUsed = false;
 
+    [SerializeField] private GameObject WinSpeechbubble;
+    private Vector3 WinSpeachbubbleRotation = new (120, -10, 180);
+    private Vector3 PlayerRotationAtWin = new (-60, 45, -70);
+    private Vector3 PlayerPositionChangeAtWin = new (-.54f, 5.9f, -2.89f);
+    private bool WinSpeachbubbleSpawned = false;
+    internal bool DelayCheckerUsed = false;
+
     void Start()
     {
         grid2dCreated = grid.getGridCreated();
