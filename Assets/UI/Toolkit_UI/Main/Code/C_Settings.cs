@@ -72,6 +72,58 @@ public class C_Settings : MonoBehaviour
         //sliderMusic.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
         //sliderSFX.value = PlayerPrefs.GetFloat(SoundManager.Sfx_key, 1f);
 
+        LoadPrefsInt("MusicIcon");
+        LoadPrefsInt("SFXIcon");
+
+        if (LoadPrefsInt("MusicIcon") == 1)
+        {
+            AlwaysThere.MusicIcon = true;
+        }
+        else
+        {
+            AlwaysThere.MusicIcon = false;
+        }
+
+        if (LoadPrefsInt("SFXIcon") == 1)
+        {
+            AlwaysThere.SFXIcon = true;
+        }
+        else
+        {
+            AlwaysThere.SFXIcon = false;
+        }
+
+        LoadPrefsInt("_swipeInput");
+        LoadPrefsInt("_crossInput");
+        LoadPrefsInt("_padInput");
+
+        if (LoadPrefsInt("_swipeInput") == 1)
+        {
+            _swipeInput = true;
+        }
+        else
+        {
+            _swipeInput = false;
+        }
+
+        if (LoadPrefsInt("_crossInput") == 1)
+        {
+            _crossInput = true;
+        }
+        else
+        {
+            _crossInput = false;
+        }
+
+        if (LoadPrefsInt("_padInput") == 1)
+        {
+            _padInput = true;
+        }
+        else
+        {
+            _padInput = false;
+        }
+
         butMusicOn = rootSettings.Q<Button>("but_sound_on");
         butMusicOff = rootSettings.Q<Button>("but_sound_off");
         butSfxOn = rootSettings.Q<Button>("but_sfx_on");
@@ -102,9 +154,6 @@ public class C_Settings : MonoBehaviour
         butHelp.clicked += Help;
         butStore.clicked += Store;
         butBack.clicked += Back;
-
-        Sound();
-
     }
 
     void Controls()
@@ -307,6 +356,66 @@ public class C_Settings : MonoBehaviour
         BorderPad.style.borderTopColor = Color.green;
         BorderPad.style.borderLeftColor = Color.green;
         BorderPad.style.borderRightColor = Color.green;
+    }
+
+    void OnDisable()
+    {
+        if (AlwaysThere.MusicIcon)
+        {
+            SavePrefsInt("MusicIcon", 1);
+        }
+        else
+        {
+            SavePrefsInt("MusicIcon", 0);
+        }
+
+        if (AlwaysThere.SFXIcon)
+        {
+            SavePrefsInt("SFXIcon", 1);
+        }
+        else
+        {
+            SavePrefsInt("SFXIcon", 0);
+        }
+
+        if (_swipeInput)
+        {
+            SavePrefsInt("_swipeInput", 1);
+        }
+        else
+        {
+            SavePrefsInt("_swipeInput", 0);
+        }
+
+        if (_crossInput)
+        {
+            SavePrefsInt("_crossInput", 1);
+        }
+        else
+        {
+            SavePrefsInt("_crossInput", 0);
+        }
+
+        if (_padInput)
+        {
+            SavePrefsInt("_padInput", 1);
+        }
+        else
+        {
+            SavePrefsInt("_padInput", 0);
+        }
+    }
+
+    public static void SavePrefsInt(string Key, int value)
+    {
+        PlayerPrefs.SetInt(Key, value);
+        PlayerPrefs.Save();
+    }
+
+    public static int LoadPrefsInt(string Key)
+    {
+        int x = PlayerPrefs.GetInt(Key, 0);
+        return x;
     }
 }
 
