@@ -102,7 +102,7 @@ public class C_Pause : MonoBehaviour
 
         SetHealth(AlwaysThere.Wasserstand);
         Debug.Log("alwaysBottle: " + AlwaysThere.bottleThere);
-        if (!AlwaysThere.bottleThere) { butBottle.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.5f); Debug.Log("bottle noth there"); }
+        if (!AlwaysThere.bottleThere) { butBottle.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.5f); }
         if (!AlwaysThere.shieldThere) visShield.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 0.5f);
 
     }

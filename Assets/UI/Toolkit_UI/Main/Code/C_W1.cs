@@ -89,6 +89,7 @@ public class C_W1 : MonoBehaviour
         if (!AlwaysThere.level2Unlocked) butLevel2.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
         if (!AlwaysThere.level3Unlocked) butLevel3.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
         if (!AlwaysThere.level4Unlocked) butLevel3.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+        if (!AlwaysThere.level5Unlocked) butLevel4.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
 
         if (!AlwaysThere.level2Unlocked) s11.style.unityBackgroundImageTintColor = new Color(0.34f, 0.34f, 0.34f, 1f);
         if (AlwaysThere.TimeStar) s12.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);

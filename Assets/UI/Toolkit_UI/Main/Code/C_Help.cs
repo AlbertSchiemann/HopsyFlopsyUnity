@@ -75,7 +75,6 @@ public class C_Help : MonoBehaviour
         void Back()
         {
             SoundManager.Instance.PlaySound(_UISound);
-            Debug.Log("afterr");
             switchScreenW1.OpenMain();
         }
 

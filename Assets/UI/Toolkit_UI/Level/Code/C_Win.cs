@@ -34,6 +34,7 @@ public class C_Win : MonoBehaviour
 
     public int MaxTime = 50;
     public int NotNeededCookies = 8;
+    int lessCookies;
     int nextLevelIndex;
 
     [SerializeField] private AudioClip[] _UISound;
@@ -91,7 +92,7 @@ public class C_Win : MonoBehaviour
             currentScene = SceneManager.GetActiveScene().buildIndex;
             if (currentScene ==1) 
             {
-                if (AlwaysThere.CurrencyStar) allCollected = true;
+                if (AlwaysThere.CurrencyStar) allCollected = true; 
                 if (AlwaysThere.TimeStar) inTime = true;
             }
             if (currentScene == 2)
@@ -115,11 +116,15 @@ public class C_Win : MonoBehaviour
             //Debug.Log("after compared to always: " + inTime);
             //Debug.Log("after Collected " + allCollected);
 
+            lessCookies = C_Currency.CurrencyTotal - NotNeededCookies;
+            if (lessCookies <= C_Currency.CurrencyAmount) { allCollected = true; }
+ 
             Stars();
             inTime = false;
 
+   
 
-            C_Currency.CurrencyTotal = 0;
+                C_Currency.CurrencyTotal = 0;
             AlwaysThere.FishMoney += C_Currency.CurrencyAmount;
             C_Currency.CurrencyAmount = 0;
             AlwaysThere.shieldThere = false;

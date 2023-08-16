@@ -48,6 +48,10 @@ public class C_Settings : MonoBehaviour
     public static bool _crossInput = false;
     public static bool _padInput = false;
 
+    Button Prev, Next;
+    public Sprite Tut1, Tut2, Tut3;
+    int switcher = 0;
+
     void OnEnable()
     {
         VisualElement rootSettings = GetComponent<UIDocument>().rootVisualElement;
@@ -68,6 +72,9 @@ public class C_Settings : MonoBehaviour
 
         sliderMusic = rootSettings.Q<Slider>("Sound");
         sliderSFX = rootSettings.Q<Slider>("SFX");
+
+        Next = rootSettings.Q<Button>("but_switcherNext");
+        Prev = rootSettings.Q<Button>("but_switcherPrev");
 
         //sliderMusic.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
         //sliderSFX.value = PlayerPrefs.GetFloat(SoundManager.Sfx_key, 1f);
@@ -154,6 +161,38 @@ public class C_Settings : MonoBehaviour
         butHelp.clicked += Help;
         butStore.clicked += Store;
         butBack.clicked += Back;
+
+        Next.clicked += NextPage;
+        Prev.clicked += PrevPage;
+    }
+    void NextPage()
+    {
+        if (switcher == 0)
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut2);
+            Prev.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut3);
+            Next.style.display = DisplayStyle.None; ;
+        }
+        switcher++;
+    }
+
+    void PrevPage()
+    {
+        if (switcher == 1)
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut1);
+            Prev.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut2);
+            Next.style.display = DisplayStyle.Flex;
+        }
+        switcher--;
     }
 
     void Controls()
@@ -171,6 +210,7 @@ public class C_Settings : MonoBehaviour
         visCredits.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.None;
+        Prev.style.display = DisplayStyle.None;
     }
 
     void Sound()
@@ -248,13 +288,11 @@ public class C_Settings : MonoBehaviour
 
     private void SetBgVolume(float value)
     {
-        Debug.Log("Set Music Volume");
         mixer.SetFloat(Mixer_Bg, Mathf.Log10(value) * 20);
     }
 
     private void SetSfxVolume(float value)
     {
-        Debug.Log("Set SFX Volume");
         mixer.SetFloat(Mixer_Sfx, Mathf.Log10(value) * 20);
     }
 

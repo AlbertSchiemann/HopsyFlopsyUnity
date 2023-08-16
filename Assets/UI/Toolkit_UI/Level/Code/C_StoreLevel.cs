@@ -82,6 +82,9 @@ public class C_StoreLevel : MonoBehaviour
         butBuy2.clicked += Buy2;
         butBuy3.clicked += Buy3;
 
+        if (AlwaysThere.skin2Bought) bought2 = true;
+        if (AlwaysThere.skin3Bought) bought3 = true;
+
         if (!bought2)
         {
             butBuy2.style.display = DisplayStyle.Flex;
@@ -94,6 +97,7 @@ public class C_StoreLevel : MonoBehaviour
             visPrice2.style.display = DisplayStyle.None;
             Lock2.style.display = DisplayStyle.None;
         }
+      
 
         if (!bought3)
         {
@@ -120,10 +124,8 @@ public class C_StoreLevel : MonoBehaviour
 
 
         if (AlwaysThere.skin2Bought) bought2 = true;
-        Debug.Log("");
-
+        
         if (AlwaysThere.skin3Bought) bought3 = true;
-
     }
     public void Buy2()
     {

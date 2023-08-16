@@ -29,7 +29,6 @@ public class PowerUpManager : MonoBehaviour
         {
             Vibration.Vibrate(100);
             waterbottleThere = true;
-            Debug.Log("Waterbottle triggered");
             powerUp.PickUpBottle();
         }
         else 

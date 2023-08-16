@@ -51,6 +51,10 @@ public class C_SettingsLevel : MonoBehaviour
     [SerializeField] private AudioClip[] _UISound;
     [SerializeField] private SwipeManager swipeManager;
 
+    Button Prev, Next;
+    public Sprite Tut1, Tut2, Tut3;
+    int switcher = 0;
+
     void OnEnable()
     {
         VisualElement rootSettings = GetComponent<UIDocument>().rootVisualElement;
@@ -146,6 +150,9 @@ public class C_SettingsLevel : MonoBehaviour
         butCrossInput = rootSettings.Q<Button>("crossInput");
         butPadInput = rootSettings.Q<Button>("padInput");
 
+        Next = rootSettings.Q<Button>("but_switcherNext");
+        Prev = rootSettings.Q<Button>("but_switcherPrev");
+
         butSwipeInput.clicked += SwipeInputs;
         butCrossInput.clicked += CrossInputs;
         butPadInput.clicked += PadInputs;
@@ -164,10 +171,41 @@ public class C_SettingsLevel : MonoBehaviour
         butStore.clicked += Store;
         butBack.clicked += Back;
 
+        Next.clicked += NextPage;
+        Prev.clicked += PrevPage;
+
         Sound();
 
     }
+    void NextPage()
+    {
+        if (switcher == 0)
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut2);
+            Prev.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut3);
+            Next.style.display = DisplayStyle.None; ;
+        }
+        switcher++;
+    }
 
+    void PrevPage()
+    {
+        if (switcher == 1)
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut1);
+            Prev.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            visCredits.style.backgroundImage = new StyleBackground(Tut2);
+            Next.style.display = DisplayStyle.Flex;
+        }
+        switcher--;
+    }
 
     void Controls()
     {
@@ -185,6 +223,7 @@ public class C_SettingsLevel : MonoBehaviour
         visCredits.style.display = DisplayStyle.Flex;
         visSound.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.None;
+        Prev.style.display = DisplayStyle.None;
         swipeManager.enabled = false;
     }
 
