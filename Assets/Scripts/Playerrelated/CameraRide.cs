@@ -28,7 +28,7 @@ public class CameraRide : MonoBehaviour
 
     internal bool UpdateDelay = false;
 
-    public Ease animEaseJump = Ease.InOutExpo;
+    private Ease animEaseJump = Ease.InOutExpo;
 
     private Vector3 cameraPosAtFallingDeath = new(0f, -7, 3.5f);
     
