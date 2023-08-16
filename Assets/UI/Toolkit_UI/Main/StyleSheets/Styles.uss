@@ -48,7 +48,7 @@
     margin-right: 9px;
     margin-top: 9px;
     margin-bottom: 9px;
-    -unity-background-image-tint-color: rgba(97, 129, 171, 255);
+    -unity-background-image-tint-color: rgb(97, 129, 171);
 }
 
 .Button_3inCorner:active {
@@ -70,15 +70,15 @@
     margin-right: 9px;
     margin-top: 9px;
     margin-bottom: 9px;
-    -unity-background-image-tint-color: rgba(180, 111, 111, 255);
+    -unity-background-image-tint-color: rgb(180, 111, 111);
 }
 
 .VisualEle_3inCorner {
-    height: 20%;
-    width: 25%;
+    height: 300px;
+    width: 1200px;
     position: absolute;
-    bottom: 2%;
-    right: 1%;
+    bottom: 0;
+    right: 0;
     align-items: center;
     justify-content: center;
     flex-direction: row;

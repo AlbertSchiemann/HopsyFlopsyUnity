@@ -40,6 +40,7 @@ public class C_Win : MonoBehaviour
 
     VisualElement LoadingFish;
     VisualElement LoadingFish_;
+    int currentScene;
 
     void OnEnable()
     {
@@ -87,12 +88,31 @@ public class C_Win : MonoBehaviour
 
         if (switchScreen.WON)
         {
-            Debug.Log("beginning: " + inTime);
+            currentScene = SceneManager.GetActiveScene().buildIndex;
+            if (currentScene ==1) 
+            {
+                if (AlwaysThere.CurrencyStar) allCollected = true;
+                if (AlwaysThere.TimeStar) inTime = true;
+            }
+            if (currentScene == 2)
+            {
+                if (AlwaysThere.CurrencyStar2) allCollected = true;
+                if (AlwaysThere.TimeStar2) inTime = true;
+            }
+            if (currentScene == 3)
+            {
+                if (AlwaysThere.CurrencyStar3) allCollected = true;
+                if (AlwaysThere.TimeStar3) inTime = true;
+            }
+            if (currentScene == 4)
+            {
+                if (AlwaysThere.CurrencyStar4) allCollected = true;
+                if (AlwaysThere.TimeStar4) inTime = true;
+            }
+            //Debug.Log("beginning: " + inTime);
             if (AlwaysThere.time <= MaxTime) inTime = true;
-            Debug.Log("after compared to level: " + inTime);
-            if (AlwaysThere.CurrencyStar) allCollected = true;
-            if (AlwaysThere.TimeStar) inTime = true;
-            Debug.Log("after compared to always: " + inTime);
+            //Debug.Log("after compared to level: " + inTime);
+            //Debug.Log("after compared to always: " + inTime);
             //Debug.Log("after Collected " + allCollected);
 
             Stars();
@@ -109,6 +129,7 @@ public class C_Win : MonoBehaviour
             if (nextLevelIndex == 2) { AlwaysThere.level2Unlocked = true; }
             else if (nextLevelIndex == 3) { AlwaysThere.level3Unlocked = true; }
             else if (nextLevelIndex == 4) { AlwaysThere.level4Unlocked = true; }
+            else if (nextLevelIndex == 5) { AlwaysThere.level5Unlocked = true; }
         }
     }
 
@@ -133,16 +154,53 @@ public class C_Win : MonoBehaviour
             //animation star2
             star3.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
             //animation star3
+            if (currentScene == 1)
+            {
             AlwaysThere.TimeStar = true;
             AlwaysThere.CurrencyStar = true;
+            }
+            else if (currentScene == 2)
+            {
+                AlwaysThere.TimeStar2 = true;
+                AlwaysThere.CurrencyStar2 = true;
+            }
+            else if(currentScene == 3)
+            {
+                AlwaysThere.TimeStar3 = true;
+                AlwaysThere.CurrencyStar3 = true;
+            }
+            else if(currentScene == 4)
+            {
+                AlwaysThere.TimeStar4 = true;
+                AlwaysThere.CurrencyStar4 = true;
+            }
+
         }
         else if (allCollected||inTime)
         {
             //animaition star1
             star2.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
             //aniamtion star2
-            if (allCollected) AlwaysThere.CurrencyStar = true;
-            else AlwaysThere.TimeStar = true;
+            if (currentScene == 1)
+            {
+                if (allCollected) AlwaysThere.CurrencyStar = true;
+                else AlwaysThere.TimeStar = true;
+            }
+            else if (currentScene == 2)
+            {
+                if (allCollected) AlwaysThere.CurrencyStar2 = true;
+                else AlwaysThere.TimeStar2 = true;
+            }
+            else if (currentScene == 3)
+            {
+                if (allCollected) AlwaysThere.CurrencyStar3 = true;
+                else AlwaysThere.TimeStar3 = true;
+            }
+            else if (currentScene == 4)
+            {
+                if (allCollected) AlwaysThere.CurrencyStar4 = true;
+                else AlwaysThere.TimeStar4 = true;
+            }
         }
         else
         {

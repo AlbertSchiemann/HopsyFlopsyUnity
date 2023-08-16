@@ -20,7 +20,7 @@ public static class AlwaysThere
 
     public static float Wasserstand = 0;
 
-    public static int FishMoney = 3000;
+    public static int FishMoney = 3000; 
 
     public static bool MusicIcon = true;
     public static bool SFXIcon = true;
@@ -36,9 +36,13 @@ public static class AlwaysThere
     public static bool TimeStar3 = false;     //of lv 3
     public static bool CurrencyStar3 = false; //of lv 3
 
+    public static bool TimeStar4 = false;     //of lv 4
+    public static bool CurrencyStar4 = false; //of lv 4
+
     public static bool level2Unlocked = false;
     public static bool level3Unlocked = false;
     public static bool level4Unlocked = false;
+    public static bool level5Unlocked = false;
 
     public static bool skin2Bought = false;
     public static bool skin3Bought = false;
@@ -46,4 +50,5 @@ public static class AlwaysThere
     public static bool firstPlayed1 = false;
     public static bool firstPlayed2 = false;
     public static bool firstPlayed3 = false;
+    public static bool firstPlayed4 = false;
 }

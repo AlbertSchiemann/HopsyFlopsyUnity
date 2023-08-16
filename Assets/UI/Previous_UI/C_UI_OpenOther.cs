@@ -23,6 +23,10 @@ public class C_UI_OpenOther : MonoBehaviour
     {
          SceneManager.LoadScene("World1Level3");
     }
+    public static void ToLevel4()
+    {
+        SceneManager.LoadScene("World1Level4");
+    }
     public static void ToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

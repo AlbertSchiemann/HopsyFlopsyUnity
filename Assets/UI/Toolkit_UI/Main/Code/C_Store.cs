@@ -30,6 +30,7 @@ public class C_Store : MonoBehaviour
     public Sprite Equip, Equiped;
 
     VisualElement UpperCorner;
+    VisualElement Lock2, Lock3;
 
     [SerializeField] private AudioClip[] _UISound;
 
@@ -55,6 +56,9 @@ public class C_Store : MonoBehaviour
 
         UpperCorner = root.Q<VisualElement>("vis_fish");
 
+        Lock2 = root.Q<VisualElement>("vis_lock2");
+        Lock3 = root.Q<VisualElement>("vis_lock3");
+
         visPrice2 = root.Q<Label>("txt_price2");
         visPrice3 = root.Q<Label>("txt_price3");
 
@@ -75,24 +79,26 @@ public class C_Store : MonoBehaviour
         {
             butBuy2.style.display = DisplayStyle.Flex;
             butEquip2.style.display = DisplayStyle.None;
-            visPrice2.style.display = DisplayStyle.None;
         }
         else
         {
             butBuy2.style.display = DisplayStyle.None;
             butEquip2.style.display = DisplayStyle.Flex;
+            visPrice2.style.display = DisplayStyle.None;
+            Lock2.style.display = DisplayStyle.None;
         }
 
         if (!bought3)
         {
             butBuy3.style.display = DisplayStyle.Flex;
             butEquip3.style.display = DisplayStyle.None;
-            visPrice3.style.display = DisplayStyle.None;
         }
         else
         {
             butBuy3.style.display = DisplayStyle.None;
             butEquip3.style.display = DisplayStyle.Flex;
+            visPrice3.style.display = DisplayStyle.None;
+            Lock3.style.display = DisplayStyle.None;
         }
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
 
@@ -120,6 +126,7 @@ public class C_Store : MonoBehaviour
             AlwaysThere.FishMoney -= 100;
             txtCurrency.text = AlwaysThere.FishMoney.ToString();
             visPrice2.style.display = DisplayStyle.None;
+            Lock3.style.display = DisplayStyle.None;
         }
         else
         {
@@ -143,6 +150,7 @@ public class C_Store : MonoBehaviour
             AlwaysThere.FishMoney -= 200;
             txtCurrency.text = AlwaysThere.FishMoney.ToString();
             visPrice3.style.display = DisplayStyle.None;
+            Lock3.style.display = DisplayStyle.None;
         }
         else
         {

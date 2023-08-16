@@ -11,6 +11,7 @@ public class C_W1 : MonoBehaviour
      Button butLevel1;
      Button butLevel2;
      Button butLevel3;
+     Button butLevel4;
 
 
      Button butBack;
@@ -32,6 +33,10 @@ public class C_W1 : MonoBehaviour
     VisualElement s31;
     VisualElement s32;
     VisualElement s33;
+
+    VisualElement s41;
+    VisualElement s42;
+    VisualElement s43;
 
     Label txtCurrency;
     void OnEnable()
@@ -64,12 +69,17 @@ public class C_W1 : MonoBehaviour
         s32 = root.Q<VisualElement>("vis_star32");
         s33 = root.Q<VisualElement>("vis_star33");
 
+        s41 = root.Q<VisualElement>("vis_star41");
+        s42 = root.Q<VisualElement>("vis_star42");
+        s43 = root.Q<VisualElement>("vis_star43");
+
         butHelpi.clicked += Help;
         butStore.clicked += Store;
         butSettings.clicked += Settings;
         butLevel1.clicked += Level1;
         butLevel2.clicked += Level2;
         butLevel3.clicked += Level3;
+        butLevel4.clicked += Level4;
         butBack.clicked += Back;
 
         LoadingFish.style.display = DisplayStyle.None;
@@ -77,8 +87,9 @@ public class C_W1 : MonoBehaviour
 
         if (!AlwaysThere.level2Unlocked) butLevel2.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
         if (!AlwaysThere.level3Unlocked) butLevel3.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+        if (!AlwaysThere.level4Unlocked) butLevel3.style.unityBackgroundImageTintColor = new Color(0.5f, 0.5f, 0.5f, 1f);
 
-        if(!AlwaysThere.level2Unlocked) s11.style.unityBackgroundImageTintColor = new Color(0.34f, 0.34f, 0.34f, 1f);
+        if (!AlwaysThere.level2Unlocked) s11.style.unityBackgroundImageTintColor = new Color(0.34f, 0.34f, 0.34f, 1f);
         if (AlwaysThere.TimeStar) s12.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
         if (AlwaysThere.CurrencyStar) s13.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
 
@@ -89,6 +100,10 @@ public class C_W1 : MonoBehaviour
         if (!AlwaysThere.level4Unlocked) s31.style.unityBackgroundImageTintColor = new Color(0.34f, 0.34f, 0.34f, 1f);
         if (AlwaysThere.TimeStar3) s32.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
         if (AlwaysThere.CurrencyStar3) s33.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+
+        if (!AlwaysThere.level5Unlocked) s31.style.unityBackgroundImageTintColor = new Color(0.34f, 0.34f, 0.34f, 1f);
+        if (AlwaysThere.TimeStar4) s32.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
+        if (AlwaysThere.CurrencyStar4) s33.style.unityBackgroundImageTintColor = new Color(1f, 1f, 1f, 1f);
 
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
     }
@@ -137,6 +152,15 @@ public class C_W1 : MonoBehaviour
         if (AlwaysThere.level3Unlocked)
         {
             C_UI_OpenOther.ToLevel3();
+            LoadingFish.style.display = DisplayStyle.Flex;
+            LoadingFish_.style.rotate = new Rotate(90);
+        }
+    }
+    void Level4()
+    {
+        if (AlwaysThere.level4Unlocked)
+        {
+            C_UI_OpenOther.ToLevel4();
             LoadingFish.style.display = DisplayStyle.Flex;
             LoadingFish_.style.rotate = new Rotate(90);
         }

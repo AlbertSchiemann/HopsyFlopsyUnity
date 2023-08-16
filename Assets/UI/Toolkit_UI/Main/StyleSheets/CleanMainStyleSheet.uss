@@ -9,19 +9,19 @@
     height: 300px;
     width: 900px;
     position: absolute;
-    bottom: 2%;
-    right: 1%;
+    bottom: 0;
+    right: 0;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
 
 .VisualEle_2inCorner {
-    height: 320px;
-    width: 800px;
+    height: 300px;
+    width: 650px;
     position: absolute;
-    bottom: 2%;
-    right: 1%;
+    bottom: 0;
+    right: 0;
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -777,7 +777,7 @@
     font-size: 96px;
     -unity-font-style: bold;
     -unity-text-outline-width: 5px;
-    -unity-text-outline-color: rgba(0, 0, 0, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
     color: rgb(116, 179, 214);
 }
 
@@ -785,6 +785,6 @@
     font-size: 74px;
     -unity-font-style: bold;
     color: rgb(116, 179, 214);
-    -unity-text-outline-color: rgba(0, 0, 0, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
     -unity-text-outline-width: 2px;
 }

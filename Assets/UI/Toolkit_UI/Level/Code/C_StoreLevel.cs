@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 public class C_StoreLevel : MonoBehaviour
@@ -31,11 +32,13 @@ public class C_StoreLevel : MonoBehaviour
     private SkinLoader player;
 
     VisualElement visPrice3, visPrice2;
+    VisualElement Lock2, Lock3;
     bool bought2 = false;
     bool bought3 = false;
 
     [SerializeField] private AudioClip[] _UISound;
     Label txtCurrency;
+
 
     void OnEnable()
     {
@@ -58,6 +61,9 @@ public class C_StoreLevel : MonoBehaviour
         visPrice2 = root.Q<Label>("txt_price2");
         visPrice3 = root.Q<Label>("txt_price3");
 
+        Lock2 = root.Q<VisualElement>("vis_lock2");
+        Lock3 = root.Q<VisualElement>("vis_lock3");
+
 
         butHelpi.clicked += Help;
         butSettings.clicked += Settings;
@@ -75,24 +81,26 @@ public class C_StoreLevel : MonoBehaviour
         {
             butBuy2.style.display = DisplayStyle.Flex;
             butEquip2.style.display = DisplayStyle.None;
-            visPrice2.style.display = DisplayStyle.None;
         }
         else
         {
             butBuy2.style.display = DisplayStyle.None;
             butEquip2.style.display = DisplayStyle.Flex;
+            visPrice2.style.display = DisplayStyle.None;
+            Lock2.style.display = DisplayStyle.None;
         }
 
         if (!bought3)
         {
             butBuy3.style.display = DisplayStyle.Flex;
             butEquip3.style.display = DisplayStyle.None;
-            visPrice3.style.display = DisplayStyle.None;
         }
         else
         {
             butBuy3.style.display = DisplayStyle.None;
             butEquip3.style.display = DisplayStyle.Flex;
+            visPrice3.style.display = DisplayStyle.None;
+            Lock3.style.display = DisplayStyle.None;
         }
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
 
@@ -107,6 +115,7 @@ public class C_StoreLevel : MonoBehaviour
 
 
         if (AlwaysThere.skin2Bought) bought2 = true;
+        Debug.Log("");
 
         if (AlwaysThere.skin3Bought) bought3 = true;
 
@@ -121,6 +130,7 @@ public class C_StoreLevel : MonoBehaviour
             AlwaysThere.FishMoney -= 100;
             txtCurrency.text = AlwaysThere.FishMoney.ToString();
             visPrice2.style.display = DisplayStyle.None;
+            Lock2.style.display = DisplayStyle.None;
         }
         else
         {
@@ -139,6 +149,7 @@ public class C_StoreLevel : MonoBehaviour
             AlwaysThere.FishMoney -= 200;
             txtCurrency.text = AlwaysThere.FishMoney.ToString();
             visPrice3.style.display = DisplayStyle.None;
+            Lock3.style.display = DisplayStyle.None;
         }
         else
         {

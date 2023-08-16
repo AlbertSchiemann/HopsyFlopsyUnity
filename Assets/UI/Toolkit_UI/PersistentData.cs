@@ -13,7 +13,7 @@ public class PersistentData : MonoBehaviour
         AlwaysThere.currentSkin = LoadPrefsInt("currentSkin");
         AlwaysThere.LastLevel = LoadPrefsInt("LastLevel");
         AlwaysThere.FishMoney = LoadPrefsInt("FishMoney");
-        Debug.Log("after data loaded: " + AlwaysThere.currentSkin);
+        //Debug.Log("after data loaded: " + AlwaysThere.currentSkin);
 
 
         if (LoadPrefsInt("TimeStar") == 1) AlwaysThere.TimeStar = true;
@@ -25,10 +25,15 @@ public class PersistentData : MonoBehaviour
         if (LoadPrefsInt("TimeStar3") == 1) AlwaysThere.TimeStar3 = true;
         if (LoadPrefsInt("CurrencyStar3") == 1) AlwaysThere.CurrencyStar3 = true;
 
+        if (LoadPrefsInt("TimeStar4") == 1) AlwaysThere.TimeStar3 = true;
+        if (LoadPrefsInt("CurrencyStar4") == 1) AlwaysThere.CurrencyStar3 = true;
+
 
 
         if (LoadPrefsInt("level2Unlocked") == 1) AlwaysThere.level2Unlocked = true;
         if (LoadPrefsInt("level3Unlocked") == 1) AlwaysThere.level3Unlocked = true;
+        if (LoadPrefsInt("level4Unlocked") == 1) AlwaysThere.level4Unlocked = true;
+        if (LoadPrefsInt("level5Unlocked") == 1) AlwaysThere.level5Unlocked = true;
 
         if (LoadPrefsInt("skin2Bought") == 1) AlwaysThere.skin2Bought = true;
         if (LoadPrefsInt("skin3Bought") == 1) AlwaysThere.skin3Bought = true;
@@ -36,6 +41,7 @@ public class PersistentData : MonoBehaviour
         if (LoadPrefsInt("firstPlayed1") == 1) AlwaysThere.firstPlayed1 = true;
         if (LoadPrefsInt("firstPlayed2") == 1) AlwaysThere.firstPlayed2 = true;
         if (LoadPrefsInt("firstPlayed3") == 1) AlwaysThere.firstPlayed3 = true;
+        if (LoadPrefsInt("firstPlayed4") == 1) AlwaysThere.firstPlayed4 = true;
 
         Debug.Log("Data Loaded");
     }
@@ -82,11 +88,14 @@ public class PersistentData : MonoBehaviour
         if (AlwaysThere.TimeStar == true) SavePrefsInt("TimeStar", 1);
         if (AlwaysThere.CurrencyStar == true) SavePrefsInt("CurrencyStar", 1);
 
-        if (AlwaysThere.TimeStar2 == true) SavePrefsInt("TimeStar", 1);
-        if (AlwaysThere.CurrencyStar2 == true) SavePrefsInt("CurrencyStar", 1);
+        if (AlwaysThere.TimeStar2 == true) SavePrefsInt("TimeStar2", 1);
+        if (AlwaysThere.CurrencyStar2 == true) SavePrefsInt("CurrencyStar2", 1);
 
-        if (AlwaysThere.TimeStar3 == true) SavePrefsInt("TimeStar", 1);
-        if (AlwaysThere.CurrencyStar3 == true) SavePrefsInt("CurrencyStar", 1);
+        if (AlwaysThere.TimeStar3 == true) SavePrefsInt("TimeStar3", 1);
+        if (AlwaysThere.CurrencyStar3 == true) SavePrefsInt("CurrencyStar3", 1);
+
+        if (AlwaysThere.TimeStar4 == true) SavePrefsInt("TimeStar4", 1);
+        if (AlwaysThere.CurrencyStar4 == true) SavePrefsInt("CurrencyStar4", 1);
 
 
         if (AlwaysThere.skin2Bought == true) SavePrefsInt("skin2Bought", 1);
@@ -94,11 +103,14 @@ public class PersistentData : MonoBehaviour
 
         if (AlwaysThere.level2Unlocked == true) SavePrefsInt("level2Unlocked", 1);
         if (AlwaysThere.level3Unlocked == true) SavePrefsInt("level3Unlocked", 1);
+        if (AlwaysThere.level4Unlocked == true) SavePrefsInt("level4Unlocked", 1);
+        if (AlwaysThere.level5Unlocked == true) SavePrefsInt("level5Unlocked", 1);
 
 
         if (AlwaysThere.firstPlayed1 == true) SavePrefsInt("firstPlayed1", 1);
         if (AlwaysThere.firstPlayed2 == true) SavePrefsInt("firstPlayed2", 1);
         if (AlwaysThere.firstPlayed3 == true) SavePrefsInt("firstPlayed3", 1);
+        if (AlwaysThere.firstPlayed4 == true) SavePrefsInt("firstPlayed4", 1);
 
         Debug.Log("Data Saved");
     }
