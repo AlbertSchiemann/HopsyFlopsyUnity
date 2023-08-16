@@ -14,7 +14,7 @@ public class EnemyCollision : MonoBehaviour
     C_PowerUps powerUp;
     private PlayerInstantiate playerInstantiate;
 
-    [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private CameraRide cameraRide;
     [SerializeField] private GameObject DeathSpeechbubble;
     [SerializeField] private GameObject player;
     private Vector3 SpeachbubbleRotation = new (120, -10, 180);
@@ -47,7 +47,7 @@ public class EnemyCollision : MonoBehaviour
                 if (!SpeachbubbleEatenTwoSpawned)
                 {
                     SpeachbubbleEatenDeath();
-                    cameraFollow.DeathCamera();
+                    cameraRide.DeathCamera();
 
                     player.transform.DOMove(player.transform.position + PlayerPositionChangeAtDeath, .6f).SetEase(Ease.Linear);
                     player.transform.DORotate(PlayerRotationAtDeath, .6f).SetDelay(.5f);
