@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchScreen: {fileID: 8665902501282802515}
   MaxTime: 60
+  NotNeededCookies: 8
   _UISound: []
 --- !u!1 &7398626332479722882
 GameObject:
@@ -291,6 +292,7 @@ MonoBehaviour:
   switchScreen: {fileID: 8665902501282802515}
   _UISound: []
   DrunkWater: {fileID: 21300000, guid: 180dfd66b0463fa4a9ba3b978df9d027, type: 3}
+  swipeManager: {fileID: 0}
 --- !u!1 &7398626332480150755
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +825,7 @@ MonoBehaviour:
   Tut1: {fileID: 21300000, guid: 6663c6a857d57ed4aaa97a805b199738, type: 3}
   Tut2: {fileID: 21300000, guid: 6dbd5b3adc51dcc4fb3574ee3a516397, type: 3}
   Tut3: {fileID: 21300000, guid: 8a76eed99a907e948b78038855872a1c, type: 3}
+  swipeManager: {fileID: 0}
 --- !u!4 &2492955328517221734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4915101588612383631, guid: fd5c9fc120f693e4c9d3653766267358,
@@ -976,6 +979,7 @@ MonoBehaviour:
   Equiped: {fileID: 21300000, guid: 42f28948d16203142820d742b06d2232, type: 3}
   _UISound:
   - {fileID: 8300000, guid: 2ad02caaf30efab44a2bba83ae459ac0, type: 3}
+  swipeManager: {fileID: 0}
 --- !u!4 &2529184622439043999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022722432467659364, guid: 6342eb791ba9de241b8f7b18eec3d0cc,
@@ -1100,3 +1104,7 @@ MonoBehaviour:
   switchScreen: {fileID: 8665902501282802515}
   mixer: {fileID: 0}
   _UISound: []
+  swipeManager: {fileID: 0}
+  Tut1: {fileID: 21300000, guid: 9abc533d475a4b94fbc9b871276c3b01, type: 3}
+  Tut2: {fileID: 0}
+  Tut3: {fileID: 0}
