@@ -11,14 +11,12 @@ public class ISScript : MonoBehaviour
 string appkey = "1acc52165";
 #endif
 
-    //string appkey = "1acc4ae55";
     // Start is called before the first frame update
     void Start()
     {
-        //IMPORTANT - enable before release!
+        //IMPORTANT - enable for final build
 
         //IronSource.Agent.init(appkey);
-        //GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = false;
     }
 
     private void OnEnable()
@@ -141,7 +139,7 @@ string appkey = "1acc52165";
     // Invoked when the interstitial ad was loaded succesfully.
     void InterstitialOnAdReadyEvent(IronSourceAdInfo adInfo)
     {
-        //GameObject.Find("ShowFullSizeAd").GetComponent<Button>().interactable = true;
+       
     }
     // Invoked when the initialization process has failed.
     void InterstitialOnAdLoadFailed(IronSourceError ironSourceError)
