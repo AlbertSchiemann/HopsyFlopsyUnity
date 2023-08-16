@@ -68,8 +68,6 @@
 
 .Button_3inCorner:hover {
     font-size: 0;
-    width: 280px;
-    height: 280px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -81,7 +79,10 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(107, 133, 171);
+    height: 240px;
+    width: 240px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .Button_3inCorner:active {
@@ -121,8 +122,6 @@
 
 .Button_2inCorner:hover {
     font-size: 0;
-    width: 280px;
-    height: 280px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -134,7 +133,10 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(109, 132, 168);
+    height: 240px;
+    width: 240px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .Button_2inCorner:active {
@@ -155,21 +157,6 @@
     -unity-background-image-tint-color: rgb(180, 94, 94);
 }
 
-.but_temp {
-    height: 100px;
-    width: 600px;
-    position: relative;
-    font-size: 45px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    -unity-font-style: bold;
-}
 
 .Button_Back {
     position: absolute;
@@ -191,8 +178,8 @@
     position: absolute;
     top: 4.5%;
     left: 3%;
-    height: 250px;
-    width: 250px;
+    height: 220px;
+    width: 220px;
     -unity-font-style: bold;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_TurnBack.png?fileID=2800000&guid=1668d7eb5ff93a14bbc63216ec99b24e&type=3#B_TurnBack');
     -unity-background-scale-mode: scale-to-fit;
@@ -201,7 +188,8 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(195, 195, 195);
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .Button_Back:active {
@@ -237,8 +225,6 @@
 }
 
 .Button_HelpNav:hover {
-    height: 300px;
-    width: 700px;
     font-size: 80px;
     border-left-width: 0;
     border-right-width: 0;
@@ -249,7 +235,10 @@
     margin-top: 47px;
     margin-bottom: 47px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(109, 140, 176);
+    height: 320px;
+    width: 720px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .Button_HelpNav:active {
@@ -285,8 +274,6 @@
 }
 
 .but_SettingsNav:hover {
-    height: 200px;
-    width: 650px;
     margin-left: 9px;
     margin-right: 9px;
     margin-top: 9px;
@@ -298,7 +285,10 @@
     font-size: 73px;
     background-color: rgba(188, 188, 188, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(102, 129, 171);
+    height: 220px;
+    width: 670;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .but_SettingsNav:active {
@@ -391,8 +381,6 @@
 }
 
 .Button_Sound:hover {
-    height: 280px;
-    width: 280px;
     left: 6px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOFF.png?fileID=2800000&guid=8dc779dae17f22442b31560587411cc3&type=3#B_SoundVolumeOFF');
     border-left-width: 0;
@@ -405,7 +393,10 @@
     margin-top: 39px;
     margin-bottom: 39px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(106, 134, 180);
+    height: 250px;
+    width: 250px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .Button_Sound:active {
@@ -443,12 +434,13 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    height: 200px;
-    width: 500px;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/EquipOutline.png?fileID=2800000&guid=90a77bd570898c14aace724a250854e3&type=3#EquipOutline');
     background-color: rgba(56, 56, 56, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(100, 128, 176);
+    height: 220px;
+    width: 520px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .button_ItemEquip:active {
@@ -475,39 +467,6 @@
     justify-content: center;
 }
 
-.but_3inMiddle:hover {
-    height: 28%;
-    width: 90%;
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    font-size: 76px;
-    -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(155, 163, 207);
-}
-
-.but_3inMiddle:active {
-    height: 28%;
-    width: 90%;
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    background-color: rgba(56, 56, 56, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    font-size: 76px;
-    -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(156, 60, 58);
-}
 
 .Button_CornerHide {
     width: 250px;
@@ -527,8 +486,6 @@
 }
 
 .Button_CornerHide:hover {
-    width: 250px;
-    height: 250px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 25px;
@@ -541,7 +498,10 @@
     border-top-width: 0;
     border-bottom-width: 0;
     position: absolute;
-    -unity-background-image-tint-color: rgb(118, 134, 180);
+    height: 270px;
+    width: 270px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .Button_CornerHide:active {
@@ -581,8 +541,6 @@
 
 .Button_4inCorner:hover {
     font-size: 0;
-    width: 250px;
-    height: 250px;
     -unity-font-style: bold;
     -unity-background-scale-mode: scale-to-fit;
     margin-left: 14px;
@@ -594,7 +552,10 @@
     border-right-width: 0;
     border-top-width: 0;
     border-bottom-width: 0;
-    -unity-background-image-tint-color: rgb(106, 138, 180);
+    height: 270px;
+    width: 270px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .Button_4inCorner:active {
@@ -632,8 +593,6 @@
 }
 
 .but_3inMiddle:hover {
-    height: 28%;
-    width: 90%;
     margin-left: 12px;
     margin-right: 12px;
     margin-top: 12px;
@@ -645,7 +604,10 @@
     border-bottom-width: 0;
     font-size: 76px;
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(108, 136, 178);
+    height: 29%;
+    width: 92%;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .but_3inMiddle:active {
@@ -669,29 +631,11 @@
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
 }
 
-.Button_restart:hover {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
-    -unity-background-image-tint-color: rgb(102, 125, 171);
-}
-
-.Button_restart:active {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/RestartOutline.png?fileID=2800000&guid=3056a80bda7ee4046b838a467357ee12&type=3#RestartOutline');
-    -unity-background-image-tint-color: rgb(188, 109, 109);
-}
 
 .Button_main {
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
 }
 
-.Button_main:hover {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
-    -unity-background-image-tint-color: rgb(106, 134, 185);
-}
-
-.Button_main:active {
-    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/MainMenuOutline.png?fileID=2800000&guid=c9ab7843247239b4abac5669f9567f48&type=3#MainMenuOutline');
-    -unity-background-image-tint-color: rgb(188, 114, 114);
-}
 
 .but_PlayLast {
     height: 348px;
@@ -721,8 +665,6 @@
 }
 
 .but_PlayLast:hover {
-    height: 348px;
-    width: 841px;
     margin-bottom: 31px;
     border-left-width: 0;
     border-right-width: 0;
@@ -731,7 +673,10 @@
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/PlayLastOutline.png?fileID=2800000&guid=1212be7ab248be74babb0bd2ddc5124a&type=3#PlayLastOutline');
     background-color: rgba(188, 188, 188, 0);
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: rgb(109, 140, 176);
+    height: 360px;
+    width: 860px;
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .but_level123 {
@@ -757,6 +702,34 @@
     top: auto;
     left: auto;
     background-color: rgba(0, 0, 0, 0);
+}
+
+
+    .but_level123:hover {
+    height: 260px;
+    width: 300px;
+    margin-left: 31px;
+    margin-right: 31px;
+    margin-top: 31px;
+    margin-bottom: 31px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    font-size: 99px;
+    border-top-left-radius: 52px;
+    border-bottom-left-radius: 52px;
+    border-top-right-radius: 52px;
+    border-bottom-right-radius: 52px;
+    -unity-font-style: bold;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/GlasBowl.png?fileID=2800000&guid=45b003a1b3f2e344c834de60771b8cbd&type=3#GlasBowl');
+    -unity-background-scale-mode: scale-to-fit;
+    position: relative;
+    top: auto;
+    left: auto;
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }
 
 .vis_level123 {
@@ -800,4 +773,18 @@
     -unity-background-scale-mode: scale-to-fit;
     background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/World_1.png?fileID=2800000&guid=b65cb69fd82757442b1c918c9e5d7210&type=3#World_1');
     background-color: rgba(188, 188, 188, 0);
+}
+.but_world123:hover {
+    position: absolute;
+    top: 310px;
+    left: 290px;
+    height: 203px;
+    width: 549px;
+    font-size: 73px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/World_1.png?fileID=2800000&guid=b65cb69fd82757442b1c918c9e5d7210&type=3#World_1');
+    background-color: rgba(188, 188, 188, 0);
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    transition-duration: 500ms;
 }

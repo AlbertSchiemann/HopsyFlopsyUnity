@@ -41,8 +41,8 @@
 
 .VisualEle_Star {
     background-color: rgba(255, 255, 255, 0);
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
     margin-left: -27px;
     margin-right: -27px;
     margin-top: -27px;

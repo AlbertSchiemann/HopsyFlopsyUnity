@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Toolkit_UI/Main/StyleSheets/CleanMainStyleSheet.uss?fileID=7433441132597879392&amp;guid=1e5c868a0cd80e744babb70b38e8f007&amp;type=3#CleanMainStyleSheet" />
-    <ui:VisualElement name="vis_settings" class="Vis_BackGround" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/last/backroundGrass.png?fileID=2800000&amp;guid=66f7bef4789a78742818c800e90f23f3&amp;type=3#backroundGrass&apos;);">
+    <ui:VisualElement name="vis_settings" class="Vis_BackGround" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/last/BackroundStone.png?fileID=2800000&amp;guid=f086ae6ea9a7d2541a8fd2b17a5cc220&amp;type=3#BackroundStone&apos;);">
         <ui:VisualElement style="position: absolute; background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/last/HolzbackroundBigGerade.png?fileID=2800000&amp;guid=b6a2070ca17f8854ab6a1a3db339f56a&amp;type=3#HolzbackroundBigGerade&apos;); height: 959px; width: 2171px; top: 219px; left: 709px; -unity-background-image-tint-color: rgb(255, 255, 255);" />
         <ui:VisualElement name="vis_2inCorner" class="VisualEle_2inCorner">
             <ui:Button text="Button" display-tooltip-when-elided="true" name="but_help" class="Button_2inCorner" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_QuestionMark.png?fileID=2800000&amp;guid=5e0ffdf80019ed540bde43e39f2fc96b&amp;type=3#B_QuestionMark&apos;); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
@@ -14,10 +14,13 @@
             <ui:Button display-tooltip-when-elided="true" name="but_controls" class="but_SettingsNav" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/text_%20w_outline/ControlsOutline.png?fileID=2800000&amp;guid=c1c1b41d2b5df5c4d819a5bbc2e3f362&amp;type=3#ControlsOutline&apos;);" />
         </ui:VisualElement>
         <ui:Label text="HammerBuddies.Games@gmail.com&#10;" display-tooltip-when-elided="true" name="txt_contact" style="height: 234px; position: absolute; width: 2179px; top: 43%; left: 23%; font-size: 115px; -unity-text-align: upper-center; display: none;" />
-        <ui:VisualElement name="vis_credits" class="vis_settingsMiddle" style="display: none;">
+        <ui:VisualElement name="vis_credits" class="vis_settingsMiddle" style="display: flex;">
             <ui:Label text="Carl Blasuius GD1021 Programmer, Producer&#10;Albert Schiemann GD1021 Lead Programmer&#10;Julius Manecke GD1022 Programming&#10;Patricia Schultze GD 1022 Programming&#10;Denis Feler GD1021 Programmer-Sound Designer&#10;Nicole Medina Arones GD1020 3D Lead Artist&#10;Aaron Reichert von und zu McHammergeil GD1022 Artist&#10;Johannes Lange GD1022 Artist&#10;Jiakun Chen GD1021 Artist&#10;Xiangning Shen GD1022 Artist" display-tooltip-when-elided="true" style="font-size: 62px; width: auto; height: auto; align-items: center; justify-content: center; position: absolute;" />
+            <ui:VisualElement name="vis_page1" style="width: 100%; height: 100%;" />
+            <ui:VisualElement name="vis_page2" style="width: 100%; height: 100%; position: absolute;" />
+            <ui:Button display-tooltip-when-elided="true" name="but_creditsSwitch" style="position: absolute; height: 159px; width: 337px; top: auto; bottom: -210px;" />
         </ui:VisualElement>
-        <ui:VisualElement name="vis_controls" class="vis_settingsMiddle" style="flex-direction: row; top: 242px; left: 657px;">
+        <ui:VisualElement name="vis_controls" class="vis_settingsMiddle" style="flex-direction: row; top: 242px; left: 657px; display: none;">
             <ui:VisualElement name="vis_cross" style="align-items: center; justify-content: center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;">
                 <ui:VisualElement name="vis_border_cross" style="border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 14px; border-right-width: 14px; border-top-width: 14px; border-bottom-width: 14px; border-top-left-radius: 56px; border-bottom-left-radius: 56px; border-top-right-radius: 56px; border-bottom-right-radius: 56px;">
                     <ui:Button display-tooltip-when-elided="true" name="crossInput" style="overflow: hidden; background-image: url(&apos;project://database/Assets/Sprites/CrossPattern.png?fileID=2800000&amp;guid=0d5075b00f294c449a09606567275c96&amp;type=3#CrossPattern&apos;); width: 500px; height: 500px; background-color: rgba(26, 172, 255, 0.29); flex-direction: row; white-space: nowrap; left: auto; position: relative; top: auto; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 45px; border-bottom-left-radius: 45px; border-top-right-radius: 45px; border-bottom-right-radius: 45px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
@@ -40,16 +43,18 @@
                 <ui:Label text="Tap on the cross in the&#10;corner to jump&#10;" display-tooltip-when-elided="true" style="font-size: 51px; -unity-text-align: upper-center;" />
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="vis_sound" style="position: absolute; height: 751px; width: 2222px; top: 25%; left: 604px; flex-direction: row; display: none;">
-            <ui:VisualElement name="vis_sound_buttons" style="position: relative; height: 751px; width: 749px; top: auto; left: auto; align-items: center; justify-content: center;">
-                <ui:Label text="sound" display-tooltip-when-elided="true" style="font-size: 51px;" />
+        <ui:VisualElement name="vis_sound" style="position: absolute; height: 751px; width: 2066px; top: 25%; left: 760px; flex-direction: row; display: none; align-items: center; justify-content: center;">
+            <ui:VisualElement name="vis_soundText">
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/last/Music.png?fileID=2800000&amp;guid=9a52aa6ec6e77474ebe84e1402cf48b9&amp;type=3#Music&apos;); width: 555px; height: 157px; margin-bottom: 135px;" />
+                <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/last/Effects.png?fileID=2800000&amp;guid=57a43d2740c659b41ac371480d63e338&amp;type=3#Effects&apos;); width: 653px; height: 157px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="vis_sound_buttons" style="position: relative; height: 751px; width: 445px; top: auto; left: auto; align-items: center; justify-content: center;">
                 <ui:Button display-tooltip-when-elided="true" name="but_sound_off" class="Button_Sound" style="display: none;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_sound_on" class="Button_Sound" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOn.png?fileID=2800000&amp;guid=c752a667313298b41a633568d45c82b1&amp;type=3#B_SoundVolumeOn&apos;);" />
                 <ui:Button display-tooltip-when-elided="true" name="but_sfx_off" class="Button_Sound" style="display: none;" />
                 <ui:Button display-tooltip-when-elided="true" name="but_sfx_on" class="Button_Sound" style="background-image: url(&apos;project://database/Assets/UI/Toolkit_UI/pictures/B_SoundVolumeOn.png?fileID=2800000&amp;guid=c752a667313298b41a633568d45c82b1&amp;type=3#B_SoundVolumeOn&apos;);" />
-                <ui:Label text="sfx" display-tooltip-when-elided="true" style="font-size: 51px;" />
             </ui:VisualElement>
-            <ui:VisualElement name="vis_sound_slider" style="position: relative; height: 751px; width: 2222px; top: auto; left: auto;">
+            <ui:VisualElement name="vis_sound_slider" style="position: relative; height: 751px; width: 2222px; top: auto; left: auto; display: none;">
                 <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="SFX" low-value="0" usage-hints="None" show-input-field="false" class="slider" style="top: 444px; right: 18px;" />
                 <ui:SliderInt picking-mode="Ignore" value="64" high-value="100" inverted="false" name="Sound" low-value="0" usage-hints="None" show-input-field="false" class="slider" style="top: 92px; right: 0;" />
             </ui:VisualElement>
