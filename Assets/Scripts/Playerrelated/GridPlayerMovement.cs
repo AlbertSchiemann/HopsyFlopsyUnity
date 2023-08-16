@@ -402,6 +402,7 @@ public class GridPlayerMovement : MonoBehaviour
     {
         if (!isIntroductionCameraTweeningDone) { return; }
         isAllowedToMove = true;
+        if (collider == null) { return; }
         collider.enabled = true;
     }
     public void PreventMovement()
