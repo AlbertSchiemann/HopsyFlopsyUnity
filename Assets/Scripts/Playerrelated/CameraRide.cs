@@ -203,9 +203,9 @@ public class CameraRide : MonoBehaviour
             }
             else Debug.LogError("ShowCameraRideLevel2-bool doesnt work in CameraFollow Script");
         } 
-        else if (LevelIndex == 3)
+        else if (LevelIndex == 4)
         {
-            if (ShowCameraRideLevel3 == true)
+            if (ShowCameraRideLevel4 == true)
             {
                 transform.position = CameraStartBeforeGoalTriggerLevel3;
                 transform.rotation = Quaternion.Euler(CameraRideAngleStartLevel3);
@@ -229,7 +229,7 @@ public class CameraRide : MonoBehaviour
                 CameraRideDecider();
                 Invoke("UpdateDelaying", TotalDelayForCameraRide);
             }
-            else if (ShowCameraRideLevel3 == false)
+            else if (ShowCameraRideLevel4 == false)
             {
                 playerPrefab.transform.position = PlayerStartLevel3;
                 playerPrefab.transform.DOMove(PlayerStartLevel3, 0f);
@@ -246,9 +246,9 @@ public class CameraRide : MonoBehaviour
             }
             else Debug.LogError("ShowCameraRideLevel3-bool doesnt work in CameraFollow Script");
         }
-        else if (LevelIndex == 4)
+        else if (LevelIndex == 3)
         {
-            if (ShowCameraRideLevel4 == true)
+            if (ShowCameraRideLevel3 == true)
             {
                 transform.position = CameraStartBeforeGoalTriggerLevel4;
                 transform.rotation = Quaternion.Euler(CameraRideAngleStart);
@@ -276,7 +276,7 @@ public class CameraRide : MonoBehaviour
                 CameraRideDecider();
                 Invoke("UpdateDelaying", TotalDelayForCameraRide);
             }
-            else if (ShowCameraRideLevel4 == false)
+            else if (ShowCameraRideLevel3 == false)
             {
                 playerPrefab.transform.position = PlayerStartLevel4;
                 playerPrefab.transform.DOMove(PlayerStartLevel4, 0f);
