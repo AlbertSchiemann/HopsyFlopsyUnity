@@ -19,6 +19,8 @@ public class C_HelpLevel : MonoBehaviour
 
     [SerializeField] private AudioClip[] _UISound;
 
+    VisualElement Main;
+
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
@@ -31,6 +33,11 @@ public class C_HelpLevel : MonoBehaviour
         ControlExp = root.Q<Button>("but_controlExpl");
 
         vis_ControlExp = root.Q<VisualElement>("vis_eplanationControls");
+
+        Main = root.Q<VisualElement>("vis_store");
+
+        Main.style.unityBackgroundImageTintColor = new Color(0f, 0f, 0f, 0f);
+
 
         butStore.clicked += Store;
         butSettings.clicked += Settings;

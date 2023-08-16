@@ -39,6 +39,8 @@ public class C_StoreLevel : MonoBehaviour
     [SerializeField] private AudioClip[] _UISound;
     Label txtCurrency;
 
+    VisualElement Main;
+
 
     void OnEnable()
     {
@@ -64,6 +66,9 @@ public class C_StoreLevel : MonoBehaviour
         Lock2 = root.Q<VisualElement>("vis_lock2");
         Lock3 = root.Q<VisualElement>("vis_lock3");
 
+        Main = root.Q<VisualElement>("vis_store");
+
+        Main.style.unityBackgroundImageTintColor = new Color(0f, 0f, 0f, 0f);
 
         butHelpi.clicked += Help;
         butSettings.clicked += Settings;

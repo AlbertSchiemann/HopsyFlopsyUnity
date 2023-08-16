@@ -53,6 +53,7 @@ public class C_W1 : MonoBehaviour
         butLevel1 = root.Q<Button>("Level1");
         butLevel2 = root.Q<Button>("Level2");
         butLevel3 = root.Q<Button>("Level3");
+        butLevel4 = root.Q<Button>("Level4");
 
         LoadingFish = root.Q<VisualElement>("vis_load");
         LoadingFish_ = root.Q<VisualElement>("vis_load_");

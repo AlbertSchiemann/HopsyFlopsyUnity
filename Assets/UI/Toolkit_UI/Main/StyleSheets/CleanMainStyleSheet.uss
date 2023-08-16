@@ -788,3 +788,16 @@
     -unity-text-outline-color: rgb(0, 0, 0);
     -unity-text-outline-width: 2px;
 }
+
+.but_world123 {
+    position: absolute;
+    top: 292px;
+    left: 272px;
+    height: 203px;
+    width: 549px;
+    font-size: 73px;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/World_1.png?fileID=2800000&guid=b65cb69fd82757442b1c918c9e5d7210&type=3#World_1');
+    background-color: rgba(188, 188, 188, 0);
+}

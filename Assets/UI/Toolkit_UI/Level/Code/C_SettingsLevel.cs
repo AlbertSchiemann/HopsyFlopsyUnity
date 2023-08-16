@@ -46,6 +46,8 @@ public class C_SettingsLevel : MonoBehaviour
     VisualElement BorderPad;
     VisualElement BorderSwipe;
 
+    VisualElement Main;
+
     [SerializeField] private AudioClip[] _UISound;
 
     void OnEnable()
@@ -73,6 +75,9 @@ public class C_SettingsLevel : MonoBehaviour
         sliderMusic = rootSettings.Q<Slider>("Sound");
         sliderSFX = rootSettings.Q<Slider>("SFX");
 
+        Main = rootSettings.Q<VisualElement>("vis_store");
+
+        Main.style.unityBackgroundImageTintColor = new Color(0f, 0f, 0f, 0f);
         //sliderMusic.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
         //sliderSFX.value = PlayerPrefs.GetFloat(SoundManager.Sfx_key, 1f);
 
@@ -159,6 +164,12 @@ public class C_SettingsLevel : MonoBehaviour
         butBack.clicked += Back;
 
         Sound();
+
+    }
+
+    private void Update()
+    {
+       Debug.Log(sliderMusic.value);
 
     }
 

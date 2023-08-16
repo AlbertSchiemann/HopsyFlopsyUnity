@@ -9,7 +9,6 @@ public class C_Main : MonoBehaviour
     public C_Clean_SwitchScreens switchScreen;
 
     Button butPlayLast;
-    Button butMainLevel;
     Button butWorld1;
 
     //public Button butBack;
@@ -33,7 +32,6 @@ public class C_Main : MonoBehaviour
         butSettings = root.Q<Button>("but_settings");
 
         butPlayLast = root.Q<Button>("PlayLast");
-        butMainLevel = root.Q<Button>("MainLv");
         butWorld1 = root.Q<Button>("but_W1");
 
         LoadingFish = root.Q<VisualElement>("vis_load");
@@ -45,18 +43,17 @@ public class C_Main : MonoBehaviour
         butStore.clicked += Store;
         butSettings.clicked += Settings;
         butPlayLast.clicked += PlayLast;
-        butMainLevel.clicked += MainLevel;
         butWorld1.clicked += W1;
 
         LoadingFish.style.display = DisplayStyle.None;
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
-
     }
 
 
     private void Start()
     {
         txtCurrency.text = AlwaysThere.FishMoney.ToString();
+        if (!AlwaysThere.firstPlayed1) C_UI_OpenOther.ToLevel1();
     }
 
 
