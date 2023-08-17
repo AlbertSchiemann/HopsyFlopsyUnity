@@ -69,6 +69,7 @@ public class C_Loose : MonoBehaviour
         C_Currency.CurrencyAmount = 0;
         AlwaysThere.shieldThere = false;
         AlwaysThere.bottleThere = false;
+        C_LevelSwitchScreens.AdWatched = false;
 
     }
 

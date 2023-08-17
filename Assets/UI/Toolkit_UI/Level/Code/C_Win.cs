@@ -135,6 +135,8 @@ public class C_Win : MonoBehaviour
             else if (nextLevelIndex == 3) { AlwaysThere.level3Unlocked = true; }
             else if (nextLevelIndex == 4) { AlwaysThere.level4Unlocked = true; }
             else if (nextLevelIndex == 5) { AlwaysThere.level5Unlocked = true; }
+
+            C_LevelSwitchScreens.AdWatched = false;
         }
     }
 

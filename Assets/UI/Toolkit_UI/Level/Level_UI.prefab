@@ -591,9 +591,9 @@ MonoBehaviour:
     type: 3}
   skinToEquip2: {fileID: 6293549093163053230, guid: 81fb4bdc5c8381847a42e268065f9691,
     type: 3}
-  skinToEquip3: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+  skinToEquip3: {fileID: 191393044021405694, guid: c7a0bd1cb232e3d4ca9089c78eca9e05,
     type: 3}
-  skinToEquip4: {fileID: 2496585529782656100, guid: c116e8da27e6dc946a6d928b7cd5040b,
+  skinToEquip4: {fileID: 191393044021405694, guid: c7a0bd1cb232e3d4ca9089c78eca9e05,
     type: 3}
   _UISound: []
 --- !u!1 &7398626333989871698
@@ -973,7 +973,7 @@ MonoBehaviour:
     type: 3}
   skinToEquip2: {fileID: 6293549093163053230, guid: 81fb4bdc5c8381847a42e268065f9691,
     type: 3}
-  skinToEquip3: {fileID: 2496585529782656100, guid: 443e476ad53897d4bb3590067e768067,
+  skinToEquip3: {fileID: 191393044021405694, guid: c7a0bd1cb232e3d4ca9089c78eca9e05,
     type: 3}
   Equip: {fileID: 21300000, guid: 90a77bd570898c14aace724a250854e3, type: 3}
   Equiped: {fileID: 21300000, guid: 42f28948d16203142820d742b06d2232, type: 3}
@@ -1106,5 +1106,5 @@ MonoBehaviour:
   _UISound: []
   swipeManager: {fileID: 0}
   Tut1: {fileID: 21300000, guid: 9abc533d475a4b94fbc9b871276c3b01, type: 3}
-  Tut2: {fileID: 0}
-  Tut3: {fileID: 0}
+  Tut2: {fileID: 21300000, guid: 1e5f6ab385b108d42b79d617ee1eb64b, type: 3}
+  Tut3: {fileID: 21300000, guid: 5ea79aee5b2e6df46b7f799040704678, type: 3}

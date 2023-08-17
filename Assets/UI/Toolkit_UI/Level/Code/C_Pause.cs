@@ -160,6 +160,7 @@ public class C_Pause : MonoBehaviour
         C_Currency.CurrencyAmount = 0;
         AlwaysThere.shieldThere = false;
         AlwaysThere.bottleThere = false;
+        C_LevelSwitchScreens.AdWatched = false;
         SoundManager.Instance.PlaySound(_UISound);
         C_UI_OpenOther.ToMainMenu();
     }
@@ -170,6 +171,7 @@ public class C_Pause : MonoBehaviour
         AlwaysThere.shieldThere = false;
         AlwaysThere.bottleThere = false;
         C_Currency.CurrencyTotal = 0;
+        C_LevelSwitchScreens.AdWatched = false;
         SoundManager.Instance.PlaySound(_UISound);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
