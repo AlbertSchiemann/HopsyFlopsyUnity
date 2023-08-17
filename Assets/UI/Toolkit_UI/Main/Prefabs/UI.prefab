@@ -262,15 +262,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6047268363647619707, guid: 8e9e3edd3387b7849bc8c0a36a38b48a,
         type: 3}
+      propertyPath: Tut1
+      value: 
+      objectReference: {fileID: 21300000, guid: a59c75cde7f0b9a4883e4a0977a38303,
+        type: 3}
+    - target: {fileID: 6047268363647619707, guid: 8e9e3edd3387b7849bc8c0a36a38b48a,
+        type: 3}
       propertyPath: Tut2
       value: 
-      objectReference: {fileID: 21300000, guid: 1e5f6ab385b108d42b79d617ee1eb64b,
+      objectReference: {fileID: 21300000, guid: a49eb94e0ad438a4cb9b183b45bc0d3e,
         type: 3}
     - target: {fileID: 6047268363647619707, guid: 8e9e3edd3387b7849bc8c0a36a38b48a,
         type: 3}
       propertyPath: Tut3
       value: 
-      objectReference: {fileID: 21300000, guid: 5ea79aee5b2e6df46b7f799040704678,
+      objectReference: {fileID: 21300000, guid: 5b1388ade3126894a8a78a90efa55282,
         type: 3}
     - target: {fileID: 6047268363647619707, guid: 8e9e3edd3387b7849bc8c0a36a38b48a,
         type: 3}

@@ -31,7 +31,7 @@ public class C_Settings : MonoBehaviour
     public const string Mixer_Sfx = "Effects";
 
     VisualElement visControls;
-    VisualElement visCredits;
+    VisualElement visCredits, BG;
     VisualElement visSound;
     Label txtContact;
 
@@ -75,6 +75,8 @@ public class C_Settings : MonoBehaviour
 
         Next = rootSettings.Q<Button>("but_switcherNext");
         Prev = rootSettings.Q<Button>("but_switcherPrev");
+
+        BG = rootSettings.Q<VisualElement>("BG");
 
         //sliderMusic.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
         //sliderSFX.value = PlayerPrefs.GetFloat(SoundManager.Sfx_key, 1f);
@@ -197,6 +199,7 @@ public class C_Settings : MonoBehaviour
 
     void Controls()
     {
+        BG.style.display = DisplayStyle.Flex;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.Flex;
         visCredits.style.display = DisplayStyle.None;
@@ -205,6 +208,7 @@ public class C_Settings : MonoBehaviour
     }
     void Credits()
     {
+        BG.style.display = DisplayStyle.None;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.Flex;
@@ -215,6 +219,7 @@ public class C_Settings : MonoBehaviour
 
     void Sound()
     {
+        BG.style.display = DisplayStyle.Flex;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.None;
@@ -250,6 +255,7 @@ public class C_Settings : MonoBehaviour
 
     void Contact()
     {
+        BG.style.display = DisplayStyle.Flex;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.Flex;

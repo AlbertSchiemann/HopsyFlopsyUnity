@@ -4,6 +4,7 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Audio;
+using System.Diagnostics.Tracing;
 
 public class C_SettingsLevel : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class C_SettingsLevel : MonoBehaviour
     public const string Mixer_Sfx = "Effects";
 
     VisualElement visControls;
-    VisualElement visCredits;
+    VisualElement visCredits, BG;
     VisualElement visSound;
     
     Label txtContact;
@@ -81,6 +82,8 @@ public class C_SettingsLevel : MonoBehaviour
         sliderSFX = rootSettings.Q<Slider>("SFX");
 
         Main = rootSettings.Q<VisualElement>("vis_settings");
+        BG = rootSettings.Q<VisualElement>("BG");
+        
 
         Main.style.unityBackgroundImageTintColor = new Color(0f, 0f, 0f, 0f);
         //sliderMusic.value = PlayerPrefs.GetFloat(SoundManager.Bg_key, 1f);
@@ -209,6 +212,7 @@ public class C_SettingsLevel : MonoBehaviour
 
     void Controls()
     {
+        BG.style.display = DisplayStyle.Flex;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.Flex;
         visCredits.style.display = DisplayStyle.None;
@@ -218,6 +222,7 @@ public class C_SettingsLevel : MonoBehaviour
     }
     void Credits()
     {
+        BG.style.display = DisplayStyle.None;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.Flex;
@@ -229,6 +234,7 @@ public class C_SettingsLevel : MonoBehaviour
 
     void Sound()
     {
+        BG.style.display = DisplayStyle.Flex;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.None;
         visCredits.style.display = DisplayStyle.None;
@@ -265,6 +271,7 @@ public class C_SettingsLevel : MonoBehaviour
 
     void Contact()
     {
+        BG.style.display = DisplayStyle.Flex;
         SoundManager.Instance.PlaySound(_UISound);
         visControls.style.display = DisplayStyle.None;
         txtContact.style.display = DisplayStyle.Flex;
