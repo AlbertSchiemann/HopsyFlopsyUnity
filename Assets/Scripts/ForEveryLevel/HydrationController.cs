@@ -40,13 +40,13 @@ public class HydrationController : MonoBehaviour
     [SerializeField] private GameObject player;
     private Vector3 SpeachbubbleRotation = new (120, -10, 180);
     private Vector3 PlayerRotationAtDeath = new (-60, 45, -70);
-    private Vector3 PlayerPositionChangeAtDeath = new (-.54f, 5.9f, -2.89f);
+    private Vector3 PlayerPositionChangeAtDeath = new (-.7f, -1f, 0.70f);
     private bool SpeachbubbleSpawned = false;
 
     public bool pauseactive;
     private bool isHydrationDangerouslyLow = false;
 
-
+    private Vector3 SpeachbubbleHydroPosition = new (0, 0, 0);
 
 
 
@@ -197,8 +197,8 @@ public class HydrationController : MonoBehaviour
                 SpeachbubbleDeath();
                 cameraRide.DeathCamera();
 
-                player.transform.DOMove(player.transform.position + PlayerPositionChangeAtDeath, .6f).SetEase(Ease.Linear);
-                player.transform.DORotate(PlayerRotationAtDeath, .6f).SetDelay(.5f);
+                player.transform.DOMove(cameraRide.transform.position + PlayerPositionChangeAtDeath, .3f).SetEase(Ease.Linear);
+                player.transform.DORotate(PlayerRotationAtDeath, .3f);
             }
             else return; 
         }
@@ -218,7 +218,13 @@ public class HydrationController : MonoBehaviour
     }
     public void DelaySpeachbubbleHydro ()
     {
-        GameObject newObject1 = Instantiate(DeathSpeechbubble, new Vector3(player.transform.position.x + PlayerPositionChangeAtDeath.x + 1f, PlayerPositionChangeAtDeath.y + .8f, player.transform.position.z + PlayerPositionChangeAtDeath.z + 1.12f), Quaternion.Euler(SpeachbubbleRotation));
+        Invoke("DelaySpeachbubbleHydro2", .3f);
+    }
+    public void DelaySpeachbubbleHydro2 ()
+    {
+        SpeachbubbleHydroPosition = new Vector3(player.transform.position.x + 1f, player.transform.position.y - .2f, player.transform.position.z + 1.12f);
+        
+        GameObject newObject1 = Instantiate(DeathSpeechbubble, SpeachbubbleHydroPosition, Quaternion.Euler(SpeachbubbleRotation));
     }
     public void MaxHydration()
     {

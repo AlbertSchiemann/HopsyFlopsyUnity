@@ -31,6 +31,9 @@ public class CameraRide : MonoBehaviour
     private Ease animEaseJump = Ease.InOutExpo;
 
     private Vector3 cameraPosAtFallingDeath = new(0f, -7, 3.5f);
+    private Vector3 targetPosition;
+    private Vector3 velocity = Vector3.zero;
+    private float smoothTime = 0.3f; 
     
 
     //Camera Positions Level 1
@@ -110,6 +113,7 @@ public class CameraRide : MonoBehaviour
 
     void Start()
     {
+        targetPosition = playerTransform.position + offset;
         LevelIndex = SceneManager.GetActiveScene().buildIndex;
         CameraRideDecider();
         CameraRideFunction();

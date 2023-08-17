@@ -56,8 +56,11 @@ public class EnemyMovementArray : MonoBehaviour
     [SerializeField] private GameObject player;
     private Vector3 SpeachbubbleRotation = new (120, -10, 180);
     private Vector3 PlayerRotationAtDeath = new (-60, 45, -70);
-    private Vector3 PlayerPositionChangeAtDeath = new (-.54f, 5.9f, -2.89f);
+    private Vector3 PlayerPositionChangeAtDeath = new (-.7f, -1f, 0.70f);
+
+
     private bool SpeachbubbleEatenSpawned = false;
+    private Vector3 SpeachbubbleEatenPosition = new (0, 0, 0);
 
     private void Awake()
     {
@@ -259,7 +262,8 @@ public class EnemyMovementArray : MonoBehaviour
         {
             if (!canTankHit)
             { 
-                GameObject player = playerInstantiate.gameObject;
+                //GameObject player = playerInstantiate.gameObject;
+                GameObject player = other.gameObject;
                 player.GetComponent<GridPlayerMovement>().PreventMovement();
 
                 Invoke("Sceneload", 2.3f);
@@ -272,8 +276,8 @@ public class EnemyMovementArray : MonoBehaviour
                     SpeachbubbleEatenDeath();
                     cameraRide.DeathCamera();
 
-                    player.transform.DOMove(player.transform.position + PlayerPositionChangeAtDeath, .6f).SetEase(Ease.Linear);
-                    player.transform.DORotate(PlayerRotationAtDeath, .6f).SetDelay(.5f);
+                    player.transform.DOMove(cameraRide.transform.position + PlayerPositionChangeAtDeath, .3f).SetEase(Ease.Linear);
+                    player.transform.DORotate(PlayerRotationAtDeath, .3f);
                     
                 }
                 else return;
@@ -290,14 +294,18 @@ public class EnemyMovementArray : MonoBehaviour
     }
     public void SpeachbubbleEatenDeath ()
     {
-        GameObject player = playerInstantiate.gameObject;
         Invoke("DelaySpeachbubble", .01f);
         SpeachbubbleEatenSpawned = true;                                                         
     }
     private void DelaySpeachbubble ()
     {
-        GameObject player = playerInstantiate.gameObject;
-        GameObject newObject1 = Instantiate(DeathSpeechbubble, new Vector3(player.transform.position.x + PlayerPositionChangeAtDeath.x + 1f, PlayerPositionChangeAtDeath.y + .8f, player.transform.position.z + PlayerPositionChangeAtDeath.z + 1.12f), Quaternion.Euler(SpeachbubbleRotation));
+        Invoke("DelaySpeachbubble2", .3f);
+    }
+    private void DelaySpeachbubble2 ()
+    {
+        SpeachbubbleEatenPosition = new Vector3(player.transform.position.x + 1f, player.transform.position.y - .2f, player.transform.position.z + 1.12f);
+        
+        GameObject newObject1 = Instantiate(DeathSpeechbubble, SpeachbubbleEatenPosition, Quaternion.Euler(SpeachbubbleRotation));
     }
     private void OnTriggerExit(Collider other)
     {
