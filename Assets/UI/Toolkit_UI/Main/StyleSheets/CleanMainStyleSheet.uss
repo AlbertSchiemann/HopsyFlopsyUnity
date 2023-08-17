@@ -676,3 +676,24 @@
     background-color: rgba(188, 188, 188, 0);
     bottom: -55%;
 }
+
+.but_pageSwitch:active {
+    position: relative;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/Next.png?fileID=2800000&guid=9d9cd3d0ff6b58041880313643fa1562&type=3#Next');
+    height: 167px;
+    width: 461px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(188, 188, 188, 0);
+    bottom: -55%;
+    -unity-background-image-tint-color: rgba(164, 164, 164, 255);
+}
+
+.but_pageSwitch:hover {
+    position: relative;
+    background-image: url('project://database/Assets/UI/Toolkit_UI/pictures/last/Next.png?fileID=2800000&guid=9d9cd3d0ff6b58041880313643fa1562&type=3#Next');
+    height: 180px;
+    width: 480px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgba(140, 140, 140, 0);
+    bottom: -55%;
+}
