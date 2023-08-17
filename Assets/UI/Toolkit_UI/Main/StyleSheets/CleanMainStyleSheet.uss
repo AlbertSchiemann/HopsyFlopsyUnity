@@ -674,5 +674,5 @@
     width: 461px;
     -unity-background-scale-mode: scale-to-fit;
     background-color: rgba(188, 188, 188, 0);
-    bottom: -546px;
+    bottom: -55%;
 }
