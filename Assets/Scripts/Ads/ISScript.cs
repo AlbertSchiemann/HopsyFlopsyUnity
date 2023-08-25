@@ -16,7 +16,7 @@ string appkey = "1acc52165";
     {
         //IMPORTANT - enable for final build
 
-        //IronSource.Agent.init(appkey);
+        IronSource.Agent.init(appkey);
     }
 
     private void OnEnable()
